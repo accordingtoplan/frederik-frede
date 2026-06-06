@@ -25,7 +25,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   .nav {
     height: 48px;
     display: flex;
@@ -51,17 +51,15 @@
   }
   .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); }
 
-  /* ── PAGE ── */
+  /* PAGE */
   .page {
     max-width: 960px;
     margin: 0 auto;
     padding: 80px 48px 140px;
   }
 
-  /* ── INTRO ── */
-  .intro {
-    margin-bottom: 96px;
-  }
+  /* INTRO */
+  .intro { margin-bottom: 96px; }
   .intro-statement {
     font-size: clamp(32px, 4vw, 56px);
     font-weight: 700;
@@ -79,12 +77,9 @@
   }
   .intro-body p + p { margin-top: 16px; }
 
-  /* ── SECTIONS ── */
-  .section {
-    padding: 56px 0;
-  }
+  /* SECTIONS */
+  .section { padding: 56px 0; }
 
-  /* letter + title on same line */
   .section-header {
     display: flex;
     align-items: baseline;
@@ -97,8 +92,6 @@
     letter-spacing: 0.06em;
     color: var(--light);
     text-transform: uppercase;
-    position: relative;
-    top: -1px;
   }
   .section-title {
     font-size: 11px;
@@ -108,40 +101,23 @@
     color: var(--dark);
   }
 
-  /* ── A: Capabilities — plain vertical list ── */
-  .cap-list {
-    list-style: none;
-    columns: 2;
-    column-gap: 64px;
-  }
+  /* A: Capabilities */
+  .cap-list { list-style: none; columns: 2; column-gap: 64px; }
   .cap-list li {
     font-size: 17px;
-    font-weight: 400;
     color: var(--dark);
     line-height: 1.5;
     padding: 7px 0;
     break-inside: avoid;
   }
 
-  /* ── B: Services — name + description stacked ── */
+  /* B: Services */
   .services-list { list-style: none; }
-  .service-item {
-    padding: 20px 0;
-    max-width: 640px;
-  }
-  .service-name {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 6px;
-  }
-  .service-desc {
-    font-size: 15px;
-    color: var(--mid);
-    line-height: 1.65;
-  }
+  .service-item { padding: 20px 0; max-width: 640px; }
+  .service-name { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .service-desc { font-size: 15px; color: var(--mid); line-height: 1.65; }
 
-  /* ── C: Approach — big bold statements ── */
+  /* C: Approach */
   .statements { max-width: 800px; }
   .statement {
     font-size: clamp(22px, 3vw, 38px);
@@ -152,7 +128,7 @@
     padding: 28px 0;
   }
 
-  /* ── D: Contact ── */
+  /* D: Contact */
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -166,23 +142,12 @@
     color: var(--light);
     margin-bottom: 6px;
   }
-  .contact-value {
-    font-size: 17px;
-    color: var(--dark);
-  }
-  .contact-value a {
-    color: var(--dark);
-    text-decoration: none;
-  }
+  .contact-value { font-size: 17px; color: var(--dark); }
+  .contact-value a { color: var(--dark); text-decoration: none; }
   .contact-value a:hover { text-decoration: underline; }
 
-  /* ── E: Clients — vertical list ── */
-  .clients-list {
-    list-style: none;
-    columns: 3;
-    column-gap: 64px;
-    max-width: 720px;
-  }
+  /* E: Clients */
+  .clients-list { list-style: none; columns: 3; column-gap: 64px; max-width: 720px; }
   .clients-list li {
     font-size: 17px;
     color: var(--mid);
@@ -191,7 +156,49 @@
     break-inside: avoid;
   }
 
-  /* ── FOOTER ── */
+  /* F: Features */
+  .features-list { list-style: none; max-width: 680px; }
+  .feature-item { padding: 10px 0; }
+  .feature-link {
+    font-size: 17px;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .feature-link:hover { text-decoration: underline; }
+  .feature-desc {
+    font-size: 15px;
+    color: var(--mid);
+    margin-top: 2px;
+  }
+
+  /* G: Experience */
+  .experience-list { list-style: none; max-width: 680px; }
+  .experience-item { padding: 20px 0; }
+  .experience-company {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 3px;
+  }
+  .experience-company a {
+    color: var(--dark);
+    text-decoration: none;
+  }
+  .experience-company a:hover { text-decoration: underline; }
+  .experience-meta {
+    font-size: 14px;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
+  .experience-desc {
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.65;
+    max-width: 560px;
+  }
+
+  /* FOOTER */
   .footer {
     border-top: 1px solid var(--border);
     padding: 24px 48px;
@@ -204,7 +211,7 @@
   .footer-links a { font-size: 12px; color: var(--light); text-decoration: none; }
   .footer-links a:hover { color: var(--dark); }
 
-  /* ── MOBILE ── */
+  /* MOBILE */
   @media (max-width: 640px) {
     .nav { padding: 0 24px; }
     .nav-links { display: none; flex-direction: column; }
@@ -368,6 +375,99 @@
       <li>Friends of Friends</li>
     </ul>
   </div>
+
+  <!-- F. Features -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-letter">F</span>
+      <span class="section-title">Features</span>
+    </div>
+    <ul class="features-list">
+      <li class="feature-item">
+        <a class="feature-link" href="https://www.itsnicethat.com/articles/frederik-frede" target="_blank" rel="noopener">It's Nice That</a>
+        <div class="feature-desc">An Interview with Freunde von Freunden Founder Frederik Frede</div>
+      </li>
+      <li class="feature-item">
+        <a class="feature-link" href="https://www.dwell.com/article/interview-frederik-frede-40711219" target="_blank" rel="noopener">Dwell</a>
+        <div class="feature-desc">Interview: Frederik Frede on FvF, MoreSleep and the Future of Creative Collaboration</div>
+      </li>
+      <li class="feature-item">
+        <a class="feature-link" href="https://magculture.com/frederick-frede-freunde-von-freunden/" target="_blank" rel="noopener">magCulture</a>
+        <div class="feature-desc">Frederik Frede, Freunde von Freunden</div>
+      </li>
+      <li class="feature-item">
+        <a class="feature-link" href="https://www.meltingbutter.com/the-editors-frederik-frede-of-freunde-von-freunden-on-berlin-and-creativity/" target="_blank" rel="noopener">Melting Butter</a>
+        <div class="feature-desc">The Editors: Frederik Frede of Freunde von Freunden on Berlin and Creativity</div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-link">Zeit Online</span>
+        <div class="feature-desc">FvF Series, Culture &amp; Living</div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-link">Open House Berlin</span>
+        <div class="feature-desc">Featured Studio</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- G. Experience -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-letter">G</span>
+      <span class="section-title">Experience</span>
+    </div>
+    <ul class="experience-list">
+      <li class="experience-item">
+        <div class="experience-company">MoreSleep</div>
+        <div class="experience-meta">Co-Founder &amp; Creative Director, Berlin / Los Angeles</div>
+        <div class="experience-desc">Brand strategy and creative direction agency working across culture, architecture, hospitality, and design.</div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-company"><a href="https://www.freundevonfreunden.com" target="_blank" rel="noopener">Freunde von Freunden</a></div>
+        <div class="experience-meta">Co-Founder &amp; Creative Director, Berlin</div>
+        <div class="experience-desc">Founded one of the most influential lifestyle and culture publications in Europe. Built a global network of creatives across editorial, books, events, and brand partnerships.</div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-company">NZZ</div>
+        <div class="experience-meta">Creative Direction, Zurich</div>
+        <div class="experience-desc">Brand and digital strategy for Neue Zürcher Zeitung and the NZZ media group.</div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-company">Architonic</div>
+        <div class="experience-meta">Creative Direction, Berlin</div>
+        <div class="experience-desc">Platform strategy and brand identity for the leading architecture and design product platform.</div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-company">TBWA</div>
+        <div class="experience-meta">Creative Direction</div>
+        <div class="experience-desc">Creative direction across global campaigns for major international clients.</div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-company">NoMoreSleep</div>
+        <div class="experience-meta">Co-Founder, Berlin</div>
+        <div class="experience-desc">Early creative agency and production studio. Predecessor to MoreSleep.</div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-company">Bread &amp; Butter Berlin</div>
+        <div class="experience-meta">Creative Direction, Berlin</div>
+        <div class="experience-desc">Creative direction for the global streetwear and fashion trade show.</div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-company">Neubau Berlin</div>
+        <div class="experience-meta">Creative Direction, Berlin</div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-company">U&amp;IvsALL</div>
+        <div class="experience-meta">Creative Direction, Berlin</div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-company">SmithGroup Shanghai</div>
+        <div class="experience-meta">Creative Direction, Shanghai</div>
+      </li>
+    </ul>
+  </div>
+
+</div>
 
 <div class="footer">
   <span class="footer-copy">© 2026 <span style="font-family:var(--font-frak);font-size:14px;letter-spacing:0;text-transform:none">Frede</span></span>
