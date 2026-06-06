@@ -1,0 +1,235 @@
+/* ═══════════════════════════════════════════════════════════
+   FREDERIK FREDE — Shared Style System
+   style.css — link from every page
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Google Font ── */
+/* Add this in each <head> before this stylesheet:
+   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet"> */
+
+/* ─────────────────────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────────────────────── */
+
+:root {
+  /* Typefaces */
+  --font:      'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-frak: 'UnifrakturMaguntia', serif;
+
+  /* Type scale — 4 steps */
+  --t-hero:    clamp(40px, 6.5vw, 88px);   /* page-opening statement */
+  --t-large:   clamp(22px, 2.8vw, 36px);   /* body statements, lists, clients */
+  --t-ui:      15px;                         /* nav, descriptions, small body */
+  --t-label:   11px;                         /* section labels, footer, col heads */
+
+  /* Weights — two only */
+  --bold:      700;
+  --regular:   400;
+
+  /* Tracking */
+  --ls-hero:   -0.03em;
+  --ls-large:  -0.015em;
+  --ls-ui:      0em;
+  --ls-label:   0.09em;
+
+  /* Leading */
+  --lh-hero:   0.97;
+  --lh-large:  1.18;
+  --lh-ui:     1.55;
+  --lh-label:  1.4;
+
+  /* Colours — three greys, no black */
+  --dark:   #4a4540;   /* headlines, nav logo, bold labels */
+  --mid:    #7a7470;   /* body, nav links, supporting text */
+  --light:  #a8a39f;   /* meta labels, footer, section heads */
+  --bg:     #fff;
+}
+
+/* ─────────────────────────────────────────────────────────
+   RESET
+───────────────────────────────────────────────────────── */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--dark);
+}
+
+/* ─────────────────────────────────────────────────────────
+   NAVIGATION
+───────────────────────────────────────────────────────── */
+
+.nav {
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 48px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+
+.nav-logo {
+  font-size: var(--t-ui);
+  font-weight: var(--bold);
+  letter-spacing: var(--ls-ui);
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.nav-logo span {
+  font-weight: var(--regular);
+  color: var(--mid);
+}
+
+.nav-links {
+  font-size: var(--t-ui);
+  color: var(--mid);
+  letter-spacing: var(--ls-ui);
+}
+
+.nav-links a {
+  color: var(--mid);
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  color: var(--dark);
+  font-weight: var(--bold);
+}
+
+/* Mobile hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--dark);
+}
+
+@media (max-width: 640px) {
+  .hamburger { display: flex; }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    font-size: 28px;
+    z-index: 100;
+  }
+
+  .nav-links.open { display: flex; }
+  .nav-links li { list-style: none; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────────────────── */
+
+.footer {
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--t-label);
+  font-weight: var(--regular);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+.footer a {
+  color: var(--light);
+  text-decoration: none;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-frak {
+  font-family: var(--font-frak);
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ─────────────────────────────────────────────────────────
+   TYPE UTILITIES
+   Use these classes anywhere across all pages
+───────────────────────────────────────────────────────── */
+
+/* T1 — Hero: one headline per page */
+.t-hero {
+  font-size: var(--t-hero);
+  font-weight: var(--bold);
+  letter-spacing: var(--ls-hero);
+  line-height: var(--lh-hero);
+  color: var(--dark);
+}
+
+/* T2 — Large: body statements, list items, clients */
+.t-large {
+  font-size: var(--t-large);
+  font-weight: var(--bold);
+  letter-spacing: var(--ls-large);
+  line-height: var(--lh-large);
+  color: var(--mid);
+}
+
+.t-large.dark { color: var(--dark); }
+.t-large.indent { text-indent: 2em; }
+
+/* T3 — UI: nav, descriptions, all small body */
+.t-ui {
+  font-size: var(--t-ui);
+  font-weight: var(--regular);
+  letter-spacing: var(--ls-ui);
+  line-height: var(--lh-ui);
+  color: var(--mid);
+}
+
+.t-ui.bold { font-weight: var(--bold); color: var(--dark); }
+
+/* T4 — Label: section heads, footer, column heads */
+.t-label {
+  font-size: var(--t-label);
+  font-weight: var(--regular);
+  letter-spacing: var(--ls-label);
+  line-height: var(--lh-label);
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+/* ─────────────────────────────────────────────────────────
+   PAGE WRAPPER
+───────────────────────────────────────────────────────── */
+
+.page {
+  padding: 64px 48px 120px;
+}
+
+@media (max-width: 640px) {
+  .nav { padding: 0 24px; }
+  .page { padding: 48px 24px 80px; }
+  .footer { padding: 24px; }
+}
