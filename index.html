@@ -66,6 +66,12 @@
       text-decoration: none;
     }
 
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     .nav-right {
       display: flex;
       align-items: center;
@@ -471,16 +477,16 @@
     }
 
     /* ─── COLOUR SWITCHER ─────────────────────────────────── */
-    .swatches { display: flex; gap: 6px; align-items: center; }
+    .swatches { display: flex; gap: 7px; align-items: center; }
     .swatch {
-      width: 10px; height: 10px; border-radius: 50%;
+      width: 9px; height: 9px; border-radius: 50%;
       cursor: pointer; border: none;
-      outline: 1.5px solid rgba(0,0,0,0.2);
+      outline: 1.5px solid rgba(128,128,128,0.3);
       outline-offset: 2px;
       transition: outline-color 0.2s, opacity 0.2s;
     }
     .swatch.active { outline-color: var(--fg); }
-    .swatch:hover { opacity: 0.7; }
+    .swatch:hover { opacity: 0.6; }
 
   </style>
 </head>
@@ -490,6 +496,13 @@
     <div class="nav-left">
       <a class="nav-logo" href="/frede-studio/">Frederik</a>
       <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+    </div>
+    <div class="nav-center">
+      <div class="swatches">
+        <div class="swatch" style="background:#fff"    onclick="setTheme('white',this)"  title="White"></div>
+        <div class="swatch active" style="background:#111" onclick="setTheme('black',this)"  title="Black"></div>
+        <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
+      </div>
     </div>
     <div class="nav-right">
       <ul class="nav-links" id="navLinks">
@@ -533,13 +546,6 @@
   <footer>
     <div class="footer-bar">
       <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:15px">Frede</span></span>
-      <div class="swatches">
-        <div class="swatch active" style="background:#fff" onclick="setTheme('white',this)" title="White"></div>
-        <div class="swatch" style="background:#c0251a" onclick="setTheme('red',this)" title="Red"></div>
-        <div class="swatch" style="background:#6b1212" onclick="setTheme('burgundy',this)" title="Burgundy"></div>
-        <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Signal Red"></div>
-        <div class="swatch" style="background:#111"    onclick="setTheme('black',this)" title="Black"></div>
-      </div>
       <div class="footer-links">
         <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
         <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
@@ -627,27 +633,21 @@
 
     /* ─── COLOUR SWITCHER ─────────────────────────────────── */
     const themes = {
-      white:   { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',                border:'#c8c3be' },
-      red:     { bg:'#c0251a', card:'#a81e14', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
-      burgundy:{ bg:'#6b1212', card:'#5a0f0f', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
-      signal:  { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
-      black:   { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
+      white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',                border:'#c8c3be' },
+      black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
+      signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
     };
     function setTheme(name, el) {
       const t = themes[name]; const r = document.documentElement.style;
-      r.setProperty('--bg', t.bg);       r.setProperty('--bg-card', t.card);
-      r.setProperty('--fg', t.fg);       r.setProperty('--fg-mid', t.mid);
+      r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
+      r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
       r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
-      r.setProperty('--grey-dark', t.fg); r.setProperty('--grey-mid', t.mid);
+      r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
       r.setProperty('--grey-light', t.light);
       document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
       if (el) el.classList.add('active');
-      localStorage.setItem('ff-theme', name);
     }
-    (function() {
-      const s = localStorage.getItem('ff-theme');
-      if (s && themes[s]) setTheme(s, document.querySelector('.swatch[onclick*="' + s + '"]'));
-    })();
+    setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
   </script>
 
 </body>
