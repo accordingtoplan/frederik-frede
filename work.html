@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -44,23 +43,17 @@ main{flex:1;padding:0 24px}
 .section-count{font-size:11px;color:var(--grey-light)}
 
 /* 4-COL GRID */
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px 16px;margin-bottom:80px}
+.grid{columns:4;column-gap:16px;margin-bottom:80px}
+.case{break-inside:avoid;margin-bottom:28px}
 
 .case{cursor:default}
 
 /* aspect ratio trick for absolute inner */
-.case-media{position:relative;overflow:hidden;margin-bottom:8px;background:#f0ede9}
-.case-media::before{content:'';display:block}
-.ratio-land::before{padding-top:75%}
-.ratio-wide::before{padding-top:56.25%}
-.ratio-port::before{padding-top:133.33%}
-.ratio-sq::before{padding-top:100%}
-
-.case-media-inner{position:absolute;inset:0;transition:transform 0.4s ease;overflow:hidden}
+.case-media{margin-bottom:8px;background:#f0ede9}
+.case-media-inner{transition:transform 0.4s ease}
 .case:hover .case-media-inner{transform:scale(1.03)}
-
-.case-media-inner img{width:100%;height:100%;object-fit:cover;display:block}
-.case-media-inner video{width:100%;height:100%;object-fit:unset;display:block}
+.case-media-inner img{width:100%;height:auto;display:block}
+.case-media-inner video{width:100%;height:auto;display:block}
 
 .case-info{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .case-brand{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--grey-dark);white-space:nowrap}
@@ -71,10 +64,10 @@ main{flex:1;padding:0 24px}
 .vimeo-wrap iframe{position:absolute;top:50%;left:50%;width:177.78%;height:100%;transform:translate(-50%,-50%);border:none;pointer-events:none}
 
 /* vitra carousel */
-.carousel{position:absolute;inset:0;overflow:hidden}
-.carousel-slides{display:flex;height:100%;transition:transform 0.6s ease}
-.carousel-slide{min-width:100%;height:100%;flex-shrink:0}
-.carousel-slide img{width:100%;height:100%;object-fit:cover}
+.carousel{overflow:hidden;position:relative}
+.carousel-slides{display:flex;transition:transform 0.6s ease}
+.carousel-slide{min-width:100%;flex-shrink:0}
+.carousel-slide img{width:100%;height:220px;object-fit:cover;display:block}
 .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;width:24px;height:24px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--grey-dark);z-index:2}
 .carousel-btn.prev{left:6px}
 .carousel-btn.next{right:6px}
@@ -83,17 +76,17 @@ main{flex:1;padding:0 24px}
 .archive-section{margin-bottom:80px}
 .archive-title{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);font-weight:400;padding:48px 0 0;display:block;margin-bottom:0}
 
-.archive-era{margin-top:32px}
-.era-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-light);font-weight:400;padding-bottom:10px;border-bottom:0.5px solid var(--border)}
+.archive-era{margin-top:40px}
+.era-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-light);font-weight:400;padding-bottom:12px;margin-bottom:4px}
 
-.archive-row{display:grid;grid-template-columns:56px 1fr 1fr 130px;gap:0 20px;padding:9px 0;border-bottom:0.5px solid #eeeae6;align-items:baseline;transition:background 0.15s}
-.archive-row:hover{background:#fafaf8}
-.ar-year{font-size:12px;color:var(--grey-light);font-variant-numeric:tabular-nums}
-.ar-client{font-size:12px;color:var(--grey-dark);font-weight:500}
+.archive-row{display:flex;gap:0;padding:7px 0;align-items:baseline}
+
+.ar-year{font-size:12px;color:var(--grey-light);font-weight:300;font-variant-numeric:tabular-nums;min-width:56px;flex-shrink:0}
+.ar-client{font-size:13px;color:var(--grey-dark);font-weight:400}
 .ar-client a{color:var(--grey-dark);text-decoration:none;border-bottom:0.5px solid var(--border)}
 .ar-client a:hover{border-bottom-color:var(--grey-dark)}
 .ar-role{font-size:12px;color:var(--grey-mid);font-weight:300}
-.ar-cat{font-size:11px;color:var(--grey-light);text-align:right}
+.ar-cat{font-size:11px;color:var(--grey-light);letter-spacing:0.02em}.ar-cat::before{content:' — ';color:var(--border)}
 .ar-pitch{font-size:10px;color:var(--grey-light);font-style:italic;margin-left:6px}
 
 /* FOOTER */
@@ -105,13 +98,13 @@ footer{margin-top:auto}
 .footer-links a:hover{color:var(--grey-dark)}
 
 /* MOBILE */
-@media(max-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1024px){.grid{columns:3}}
+@media(max-width:760px){.grid{columns:2}}
 @media(max-width:640px){
   .nav{padding:0 16px}
   main{padding:0 16px}
-  .grid{grid-template-columns:repeat(2,1fr);gap:16px 10px}
-  .archive-row{grid-template-columns:40px 1fr 1fr;gap:0 10px}
+  .grid{columns:2;column-gap:10px}
+  .archive-row{grid-template-columns:40px 1fr}
   .ar-cat{display:none}
   .hamburger{display:flex}
   .nav-right{display:none}
@@ -127,15 +120,15 @@ footer{margin-top:auto}
 
 <nav class="nav">
   <div class="nav-left">
-    <a class="nav-logo" href="/frede-studio/">Frederik</a>
-    <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+    <a class="nav-logo" href="/">Frederik</a>
+    <a class="nav-studio" href="/">&nbsp;Frede</a>
   </div>
   <div class="nav-right" id="navLinks">
     <ul>
-      <li><a href="/frede-studio/">Home</a></li>
-      <li><a href="/frede-studio/work.html" class="active">Work</a></li>
-      <li><a href="/frede-studio/about.html">Information</a></li>
-      <li><a href="/frede-studio/about.html#contact">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/work.html" class="active">Work</a></li>
+      <li><a href="/about.html">Information</a></li>
+      <li><a href="/about.html#contact">Contact</a></li>
     </ul>
   </div>
   <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
@@ -157,92 +150,92 @@ footer{margin-top:auto}
 
     <div class="archive-era">
       <div class="era-label">2020 — Present</div>
-      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client"><a href="/cases/lewis.html">Lewis Group of Companies</a></span><span class="ar-role">Brand Strategy, CD, Digital</span><span class="ar-cat">Brand / Digital</span></div>
-      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client"><a href="/cases/pferdt.html">Frederik G. Pferdt</a></span><span class="ar-role">Brand Strategy, Identity, Digital</span><span class="ar-cat">Personal Brand</span></div>
-      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">Umane</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Brand / Identity</span></div>
-      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">Signal LA</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Brand / Identity</span></div>
-      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">Roots Management</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Music / Brand</span></div>
-      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">ART+TECH Report</span><span class="ar-role">Editorial, Digital</span><span class="ar-cat">Publishing</span></div>
-      <div class="archive-row"><span class="ar-year">2023</span><span class="ar-client"><a href="/cases/las.html">LAS Art Foundation</a></span><span class="ar-role">Branding, Motion Design</span><span class="ar-cat">Arts / Culture</span></div>
-      <div class="archive-row"><span class="ar-year">2023</span><span class="ar-client">Bianca Chen</span><span class="ar-role">Brand Strategy, Identity, Motion</span><span class="ar-cat">Brand / Identity</span></div>
-      <div class="archive-row"><span class="ar-year">2023</span><span class="ar-client">Spot</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Technology</span></div>
-      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Louis Vuitton</span><span class="ar-role">Employer Branding, Documentary</span><span class="ar-cat">Fashion / Brand</span></div>
-      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Wildling – Regenerative Sounds</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Music / Brand</span></div>
-      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Wirtschaftsclub Düsseldorf</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Business / Brand</span></div>
-      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Berlin Green</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Technology</span></div>
-      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Roterfaden</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Design / Product</span></div>
-      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Facebook</span><span class="ar-role">Interactive Campaign</span><span class="ar-cat">Technology</span></div>
-      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Ruinart<span class="ar-pitch">pitch</span></span><span class="ar-role">Brand & Content</span><span class="ar-cat">Hospitality</span></div>
-      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Sonos</span><span class="ar-role">Brand & Content</span><span class="ar-cat">Technology</span></div>
-      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Mizzuni</span><span class="ar-role">E-Commerce, Brand</span><span class="ar-cat">E-Commerce</span></div>
-      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Tylko<span class="ar-pitch">pitch</span></span><span class="ar-role">Digital Strategy</span><span class="ar-cat">Digital</span></div>
-      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">MOHAB</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Real Estate</span></div>
-      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Markilux</span><span class="ar-role">Digital, B2B</span><span class="ar-cat">Design / Product</span></div>
-      <div class="archive-row"><span class="ar-year">2020</span><span class="ar-client"><a href="/cases/usm.html">USM Modular Furniture</a></span><span class="ar-role">Digital Transformation</span><span class="ar-cat">Brand / Digital</span></div>
-      <div class="archive-row"><span class="ar-year">2020</span><span class="ar-client">Meama</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Food & Drink</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client"><a href="/cases/lewis.html">Lewis Group of Companies</a></span><span class="ar-cat">Brand / Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client"><a href="/cases/pferdt.html">Frederik G. Pferdt</a></span><span class="ar-cat">Personal Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">Umane</span><span class="ar-cat">Brand / Identity</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">Signal LA</span><span class="ar-cat">Brand / Identity</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">Roots Management</span><span class="ar-cat">Music / Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">ART+TECH Report</span><span class="ar-cat">Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2023</span><span class="ar-client"><a href="/cases/las.html">LAS Art Foundation</a></span><span class="ar-cat">Arts / Culture</span></div>
+      <div class="archive-row"><span class="ar-year">2023</span><span class="ar-client">Bianca Chen</span><span class="ar-cat">Brand / Identity</span></div>
+      <div class="archive-row"><span class="ar-year">2023</span><span class="ar-client">Spot</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Louis Vuitton</span><span class="ar-cat">Fashion / Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Wildling – Regenerative Sounds</span><span class="ar-cat">Music / Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Wirtschaftsclub Düsseldorf</span><span class="ar-cat">Business / Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Berlin Green</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Roterfaden</span><span class="ar-cat">Design / Product</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Facebook</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Ruinart<span class="ar-pitch">pitch</span></span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Sonos</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Mizzuni</span><span class="ar-cat">E-Commerce</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Tylko<span class="ar-pitch">pitch</span></span><span class="ar-cat">Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">MOHAB</span><span class="ar-cat">Real Estate</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Markilux</span><span class="ar-cat">Design / Product</span></div>
+      <div class="archive-row"><span class="ar-year">2020</span><span class="ar-client"><a href="/cases/usm.html">USM Modular Furniture</a></span><span class="ar-cat">Brand / Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2020</span><span class="ar-client">Meama</span><span class="ar-cat">Food & Drink</span></div>
     </div>
 
     <div class="archive-era">
       <div class="era-label">2015 — 2020</div>
-      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client"><a href="/cases/nzz.html">NZZ Mediengruppe</a></span><span class="ar-role">Brand Strategy, Identity, Digital</span><span class="ar-cat">Media / Publishing</span></div>
-      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Architonic</span><span class="ar-role">Platform Strategy, Brand</span><span class="ar-cat">Architecture / Digital</span></div>
-      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">The Ritz-Carlton, Berlin</span><span class="ar-role">Brand, Events, Hospitality</span><span class="ar-cat">Hospitality</span></div>
-      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Engel &amp; Völkers Berlin</span><span class="ar-role">Digital Presentation</span><span class="ar-cat">Real Estate</span></div>
-      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Episode Hotels</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Hospitality</span></div>
-      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">wefox</span><span class="ar-role">Web Design, Art Direction</span><span class="ar-cat">Technology</span></div>
-      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Canyon</span><span class="ar-role">Digital Experience</span><span class="ar-cat">Sport / Digital</span></div>
-      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">HAY</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Design / Furniture</span></div>
-      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">Pernod Ricard</span><span class="ar-role">Brand, Hospitality</span><span class="ar-cat">Hospitality</span></div>
-      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">IAC</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Hospitality / Lifestyle</span></div>
-      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">adidas</span><span class="ar-role">Interactive Campaign</span><span class="ar-cat">Sport / Fashion</span></div>
-      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">Ørgreen Optics</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Fashion / Design</span></div>
-      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">Hospitality Projects</span><span class="ar-role">Brand Strategy, Digital</span><span class="ar-cat">Hospitality</span></div>
-      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Vitra</span><span class="ar-role">Brand Strategy, Digital</span><span class="ar-cat">Design / Furniture</span></div>
-      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Thonet</span><span class="ar-role">Brand Narrative</span><span class="ar-cat">Design / Furniture</span></div>
-      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">AD Magazin</span><span class="ar-role">Editorial, Digital</span><span class="ar-cat">Media / Publishing</span></div>
-      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">25hours Hotels</span><span class="ar-role">Editorial, Digital</span><span class="ar-cat">Hospitality</span></div>
-      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Grill Royal Group</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Food & Drink</span></div>
-      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Lala Berlin</span><span class="ar-role">Digital, E-Commerce</span><span class="ar-cat">Fashion</span></div>
-      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">MINI</span><span class="ar-role">Brand, Campaign</span><span class="ar-cat">Automotive</span></div>
-      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">&amp;Tradition</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Design / Furniture</span></div>
-      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Rooms Hotels</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Hospitality</span></div>
-      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Hotel Berlin, Berlin</span><span class="ar-role">Brand Narrative, Digital</span><span class="ar-cat">Hospitality</span></div>
-      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Mauermuseum</span><span class="ar-role">Web Design</span><span class="ar-cat">Culture / Museum</span></div>
-      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">BMW</span><span class="ar-role">Campaign, Creative Direction</span><span class="ar-cat">Automotive</span></div>
-      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Bolon</span><span class="ar-role">Web Catalogue, Digital</span><span class="ar-cat">Design / Textile</span></div>
-      <div class="archive-row"><span class="ar-year">2015</span><span class="ar-client">MoreSleep</span><span class="ar-role">Co-Founder, Creative Director</span><span class="ar-cat">Studio</span></div>
-      <div class="archive-row"><span class="ar-year">2015</span><span class="ar-client">aleo solar</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client"><a href="/cases/nzz.html">NZZ Mediengruppe</a></span><span class="ar-cat">Media / Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Architonic</span><span class="ar-cat">Architecture / Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">The Ritz-Carlton, Berlin</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Engel &amp; Völkers Berlin</span><span class="ar-cat">Real Estate</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Episode Hotels</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">wefox</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Canyon</span><span class="ar-cat">Sport / Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">HAY</span><span class="ar-cat">Design / Furniture</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">Pernod Ricard</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">IAC</span><span class="ar-cat">Hospitality / Lifestyle</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">adidas</span><span class="ar-cat">Sport / Fashion</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">Ørgreen Optics</span><span class="ar-cat">Fashion / Design</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">Hospitality Projects</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Vitra</span><span class="ar-cat">Design / Furniture</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Thonet</span><span class="ar-cat">Design / Furniture</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">AD Magazin</span><span class="ar-cat">Media / Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">25hours Hotels</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Grill Royal Group</span><span class="ar-cat">Food & Drink</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Lala Berlin</span><span class="ar-cat">Fashion</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">MINI</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">&amp;Tradition</span><span class="ar-cat">Design / Furniture</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Rooms Hotels</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Hotel Berlin, Berlin</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Mauermuseum</span><span class="ar-cat">Culture / Museum</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">BMW</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Bolon</span><span class="ar-cat">Design / Textile</span></div>
+      <div class="archive-row"><span class="ar-year">2015</span><span class="ar-client">MoreSleep</span><span class="ar-cat">Studio</span></div>
+      <div class="archive-row"><span class="ar-year">2015</span><span class="ar-client">aleo solar</span><span class="ar-cat">Technology</span></div>
     </div>
 
     <div class="archive-era">
       <div class="era-label">2009 — 2015</div>
-      <div class="archive-row"><span class="ar-year">2015</span><span class="ar-client">Freunde von Freunden — Book Vol. 2</span><span class="ar-role">Creative Direction, Publishing</span><span class="ar-cat">Publishing</span></div>
-      <div class="archive-row"><span class="ar-year">2014</span><span class="ar-client">FvF Friends Space</span><span class="ar-role">Concept, Creative Direction</span><span class="ar-cat">Space / Culture</span></div>
-      <div class="archive-row"><span class="ar-year">2013</span><span class="ar-client">Neubau Welt</span><span class="ar-role">Creative Direction, Publishing</span><span class="ar-cat">Publishing</span></div>
-      <div class="archive-row"><span class="ar-year">2012</span><span class="ar-client">Freunde von Freunden — Book Vol. 1</span><span class="ar-role">Creative Direction, Publishing</span><span class="ar-cat">Publishing</span></div>
-      <div class="archive-row"><span class="ar-year">2011</span><span class="ar-client">Geist Knt &amp; Geist Rnd</span><span class="ar-role">Type Design, Publisher</span><span class="ar-cat">Type Design</span></div>
-      <div class="archive-row"><span class="ar-year">2009</span><span class="ar-client">Freunde von Freunden</span><span class="ar-role">Co-Founder, Creative Director, Editor-in-Chief</span><span class="ar-cat">Publishing / Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2015</span><span class="ar-client">Freunde von Freunden — Book Vol. 2</span><span class="ar-cat">Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2014</span><span class="ar-client">FvF Friends Space</span><span class="ar-cat">Space / Culture</span></div>
+      <div class="archive-row"><span class="ar-year">2013</span><span class="ar-client">Neubau Welt</span><span class="ar-cat">Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2012</span><span class="ar-client">Freunde von Freunden — Book Vol. 1</span><span class="ar-cat">Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2011</span><span class="ar-client">Geist Knt &amp; Geist Rnd</span><span class="ar-cat">Type Design</span></div>
+      <div class="archive-row"><span class="ar-year">2009</span><span class="ar-client">Freunde von Freunden</span><span class="ar-cat">Publishing / Brand</span></div>
     </div>
 
     <div class="archive-era">
       <div class="era-label">2003 — 2009</div>
-      <div class="archive-row"><span class="ar-year">2008</span><span class="ar-client">MINI</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Automotive</span></div>
-      <div class="archive-row"><span class="ar-year">2007</span><span class="ar-client">Mercedes-Benz</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Automotive</span></div>
-      <div class="archive-row"><span class="ar-year">2006</span><span class="ar-client">BMW</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Automotive</span></div>
-      <div class="archive-row"><span class="ar-year">2005</span><span class="ar-client">Nissan</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Automotive</span></div>
-      <div class="archive-row"><span class="ar-year">2003</span><span class="ar-client">TBWA</span><span class="ar-role">Creative Director</span><span class="ar-cat">Agency</span></div>
+      <div class="archive-row"><span class="ar-year">2008</span><span class="ar-client">MINI</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2007</span><span class="ar-client">Mercedes-Benz</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2006</span><span class="ar-client">BMW</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2005</span><span class="ar-client">Nissan</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2003</span><span class="ar-client">TBWA</span><span class="ar-cat">Agency</span></div>
     </div>
 
     <div class="archive-era">
       <div class="era-label">1995 — 2003</div>
-      <div class="archive-row"><span class="ar-year">2002</span><span class="ar-client">Art Direction, Shanghai</span><span class="ar-role">Art Director</span><span class="ar-cat">Art Direction</span></div>
-      <div class="archive-row"><span class="ar-year">2001</span><span class="ar-client">Universal Music</span><span class="ar-role">Cover Design, Golden Records</span><span class="ar-cat">Music / Print</span></div>
-      <div class="archive-row"><span class="ar-year">2000</span><span class="ar-client">Kemistry &amp; Storm</span><span class="ar-role">DJ, Events</span><span class="ar-cat">Music / Events</span></div>
-      <div class="archive-row"><span class="ar-year">1999</span><span class="ar-client">Drum &amp; Bass Label</span><span class="ar-role">Founder, Art Direction</span><span class="ar-cat">Music / Print</span></div>
-      <div class="archive-row"><span class="ar-year">1998</span><span class="ar-client">Radio DJ, Cologne</span><span class="ar-role">DJ, Presenter</span><span class="ar-cat">Radio / Music</span></div>
-      <div class="archive-row"><span class="ar-year">1997</span><span class="ar-client">Party Flyers — Berlin &amp; Cologne</span><span class="ar-role">Art Direction, Design</span><span class="ar-cat">Print / Events</span></div>
-      <div class="archive-row"><span class="ar-year">1996</span><span class="ar-client">Record &amp; Skate Stores, Cologne</span><span class="ar-role">—</span><span class="ar-cat">Music / Culture</span></div>
-      <div class="archive-row"><span class="ar-year">1995</span><span class="ar-client">Graphic Design Training, Cologne</span><span class="ar-role">—</span><span class="ar-cat">Education</span></div>
+      <div class="archive-row"><span class="ar-year">2002</span><span class="ar-client">Art Direction, Shanghai</span><span class="ar-cat">Art Direction</span></div>
+      <div class="archive-row"><span class="ar-year">2001</span><span class="ar-client">Universal Music</span><span class="ar-cat">Music / Print</span></div>
+      <div class="archive-row"><span class="ar-year">2000</span><span class="ar-client">Kemistry &amp; Storm</span><span class="ar-cat">Music / Events</span></div>
+      <div class="archive-row"><span class="ar-year">1999</span><span class="ar-client">Drum &amp; Bass Label</span><span class="ar-cat">Music / Print</span></div>
+      <div class="archive-row"><span class="ar-year">1998</span><span class="ar-client">Radio DJ, Cologne</span><span class="ar-cat">Radio / Music</span></div>
+      <div class="archive-row"><span class="ar-year">1997</span><span class="ar-client">Party Flyers — Berlin &amp; Cologne</span><span class="ar-cat">Print / Events</span></div>
+      <div class="archive-row"><span class="ar-year">1996</span><span class="ar-client">Record &amp; Skate Stores, Cologne</span><span class="ar-cat">Music / Culture</span></div>
+      <div class="archive-row"><span class="ar-year">1995</span><span class="ar-client">Graphic Design Training, Cologne</span><span class="ar-cat">Education</span></div>
     </div>
 
   </div>
@@ -264,44 +257,46 @@ const MS = 'https://www.moresleep.net/wp-content/uploads/';
 // 4-col grid: projects NOT on homepage
 // Homepage: Architonic, NZZ, LAS Art Foundation, Lewis, Umane, Louis Vuitton, Pferdt, USM, Signal LA, Ritz-Carlton, Bianca Chen
 const projects = [
-  { b:"Engel & Völkers",  t:"Real Estate / Digital",   type:"img", ratio:"ratio-port",
-    src: MS+"2022/04/EV-Teaser-Portrait-819x1024.jpg" },
-  { b:"Episode Hotels",   t:"Brand Strategy",           type:"img", ratio:"ratio-port",
-    src: MS+"2022/04/Episode_Hotels-Teaser-Portrait-819x1024.jpg" },
-  { b:"MINI",             t:"Brand & Campaign",         type:"img", ratio:"ratio-port",
-    src: MS+"2022/04/MINI-Teaser-Portrait-819x1024.jpg" },
-  { b:"wefox",            t:"Digital Design",           type:"img", ratio:"ratio-port",
-    src: MS+"2022/04/Wefox-Teaser-Portrait-819x1024.jpg" },
-  { b:"Ørgreen Optics",   t:"Brand & Digital",          type:"img", ratio:"ratio-land",
-    src: MS+"2022/04/Orgreen-Teaser-Portrait-819x1024.jpg" },
-  { b:"IAC",              t:"Lifestyle Brand",          type:"img", ratio:"ratio-port",
-    src: MS+"2022/04/IAC-Teaser-Portrait-819x1024.jpg" },
-  { b:"BMW",              t:"Campaign",                 type:"img", ratio:"ratio-port",
-    src: MS+"2019/02/BMW-Teaser-Portrait-819x1024.jpg" },
-  { b:"AD Magazin",       t:"Editorial & Digital",      type:"img", ratio:"ratio-port",
-    src: MS+"2022/04/AD_Magazin-Teaser-Portrait-819x1024.jpg" },
-  { b:"Canyon",           t:"Digital Experience",       type:"img", ratio:"ratio-land",
-    src: MS+"2022/04/Canyon-Teaser-Portrait-819x1024.jpg" },
-  { b:"adidas",           t:"Interactive Campaign",     type:"img", ratio:"ratio-port",
-    src: MS+"2022/04/Adidas-Teaser-Portrait-819x1024.jpg" },
-  { b:"Vitra",            t:"Brand Strategy",           type:"carousel", ratio:"ratio-land" },
-  { b:"HAY",              t:"Creative Direction",       type:"img", ratio:"ratio-sq",
-    src:"https://www.hay.com/globalassets/media/brandsite/hays-world/news/2018-milan-design-week/no-setup-milan-2018.jpg?w=1400" },
-  { b:"Friends of Friends", t:"Publication & Brand",   type:"img", ratio:"ratio-land",
+  { b:"Vitra",              t:"Brand Strategy",          type:"carousel" },
+  { b:"Friends of Friends", t:"Publication & Brand",     type:"img",
     src: MS+"2021/02/FF-iPhone_Collection-3-Wide-1024x641.jpg" },
-  { b:"Pernod Ricard",    t:"Hospitality & Brand",      type:"img", ratio:"ratio-land",
-    src: MS+"2021/12/Header-Image-HP-1024x565.jpg" },
-  { b:"Thonet",           t:"Brand Narrative",          type:"img", ratio:"ratio-sq",
+  { b:"wefox",              t:"Digital Design",          type:"img",
+    src: MS+"2022/04/Wefox-Teaser-Portrait-819x1024.jpg" },
+  { b:"AD Magazin",         t:"Editorial & Digital",     type:"img",
+    src: MS+"2022/04/AD_Magazin-Teaser-Portrait-819x1024.jpg" },
+
+  { b:"Engel & Völkers",    t:"Real Estate / Digital",  type:"img",
+    src: MS+"2022/04/EV-Teaser-Portrait-819x1024.jpg" },
+  { b:"Episode Hotels",     t:"Brand Strategy",          type:"img",
+    src: MS+"2022/04/Episode_Hotels-Teaser-Portrait-819x1024.jpg" },
+  { b:"Canyon",             t:"Digital Experience",      type:"img",
+    src: MS+"2022/04/Canyon-Teaser-Portrait-819x1024.jpg" },
+  { b:"Ørgreen Optics",     t:"Brand & Digital",         type:"img",
+    src: MS+"2022/04/Orgreen-Teaser-Portrait-819x1024.jpg" },
+
+  { b:"MINI",               t:"Brand & Campaign",        type:"img",
+    src: MS+"2022/04/MINI-Teaser-Portrait-819x1024.jpg" },
+  { b:"Thonet",             t:"Brand Narrative",         type:"img",
     src:"https://www.thonet.de/fileadmin/media/07-magazine/reference/Solo_Houses/thonet-solo-house-533px_02.jpg" },
-  { b:"25hours Hotels",   t:"Editorial & Digital",      type:"img", ratio:"ratio-port",
+  { b:"IAC",                t:"Lifestyle Brand",         type:"img",
+    src: MS+"2022/04/IAC-Teaser-Portrait-819x1024.jpg" },
+  { b:"25hours Hotels",     t:"Editorial & Digital",     type:"img",
     src: MS+"2022/04/25h_Hotels-Teaser-Portrait-819x1024.jpg" },
+
+  { b:"Pernod Ricard",      t:"Hospitality & Brand",     type:"img",
+    src: MS+"2021/12/Header-Image-HP-1024x565.jpg" },
+  { b:"adidas",             t:"Interactive Campaign",    type:"img",
+    src: MS+"2022/04/Adidas-Teaser-Portrait-819x1024.jpg" },
+  { b:"HAY",                t:"Creative Direction",      type:"img",
+    src:"https://www.hay.com/globalassets/media/brandsite/hays-world/news/2018-milan-design-week/no-setup-milan-2018.jpg?w=1400" },
+  { b:"BMW",                t:"Campaign",                type:"img",
+    src: MS+"2019/02/BMW-Teaser-Portrait-819x1024.jpg" },
 ];
 
 const VITRA = [
-  "https://static.vitra.com/media/asset/979518/storage/v_fullbleed_1440x/15702284.jpg",
   "https://static.vitra.com/media/asset/732547/storage/v_fullbleed_1440x/09055959.jpg",
+  "https://static.vitra.com/media/asset/979518/storage/v_fullbleed_1440x/15702284.jpg",
   "https://static.vitra.com/media/asset/2492031/storage/v_fullbleed_1440x/36836346.jpg",
-  "https://static.vitra.com/media/asset/1685925/storage/v_fullbleed_1440x/21005339.jpg",
   "https://static.vitra.com/media/asset/1553003/storage/v_fullbleed_1440x/16993902.jpg",
 ];
 
@@ -322,7 +317,7 @@ function buildGrid() {
       </div>`;
     }
     div.innerHTML = `
-      <div class="case-media ${p.ratio}"><div class="case-media-inner">${inner}</div></div>
+      <div class="case-media"><div class="case-media-inner">${inner}</div></div>
       <div class="case-info">
         <span class="case-brand">${p.b}</span>
         <span class="case-tag">${p.t}</span>
