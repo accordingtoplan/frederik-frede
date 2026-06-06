@@ -2,287 +2,346 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MiaD — Work</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Work — Frederik Frede</title>
+<meta name="description" content="Selected projects and full archive by Frederik Frede — brand strategy, identity and digital for design-led culture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
-* { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --grey-dark:#4a4540; --grey-mid:#7a7470; --grey-light:#a8a39f; --border:#c8c3be; --bg:#fff; }
-body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --grey-dark:#4a4540;
+  --grey-mid:#7a7470;
+  --grey-light:#a8a39f;
+  --border:#c8c3be;
+  --bg:#fff;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--grey-dark);min-height:100vh;display:flex;flex-direction:column}
 
-.nav { display:flex; justify-content:space-between; align-items:center; padding:18px 24px;  }
-.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-dark); text-decoration:none; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
-.nav-links { display:flex; gap:28px; list-style:none; }
-.nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
-.nav-links a:hover, .nav-links a.active { color:var(--grey-dark); }
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:var(--bg);height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:0.5px solid var(--border)}
+.nav-left{display:flex;align-items:baseline}
+.nav-logo{font-size:12px;font-weight:700;letter-spacing:0.01em;color:var(--grey-dark);text-decoration:none}
+.nav-studio{font-size:12px;font-weight:400;color:var(--grey-mid);text-decoration:none}
+.nav-right ul{list-style:none;display:flex;gap:0}
+.nav-right ul li::after{content:', ';color:var(--grey-mid);font-size:12px}
+.nav-right ul li:last-child::after{content:''}
+.nav-right ul a{font-size:12px;color:var(--grey-mid);text-decoration:none;font-weight:400}
+.nav-right ul a.active{color:var(--grey-dark);font-weight:700}
+.nav-right ul a:hover{color:var(--grey-dark)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--grey-dark)}
 
-.page-header { padding:48px 24px 40px;  display:flex; justify-content:space-between; align-items:flex-end; }
-.page-title { font-size:clamp(40px,7vw,80px); font-weight:700; line-height:0.95; letter-spacing:-0.03em; color:var(--grey-dark); }
-.page-desc { font-size:clamp(16px,2vw,26px); font-weight:700; line-height:1.3; max-width:800px; color:var(--grey-mid); letter-spacing:-0.01em; margin-top:16px; }
+/* MAIN */
+main{flex:1;padding:0 24px}
 
-.section-header { display:flex; justify-content:space-between; align-items:center; padding:14px 24px;   }
-.section-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-mid); }
-.section-count { font-size:11px; color:var(--grey-light); }
+/* SECTION HEADER */
+.section-header{display:flex;justify-content:space-between;align-items:baseline;padding:48px 0 24px}
+.section-title{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);font-weight:400}
+.section-count{font-size:11px;color:var(--grey-light)}
 
-/* GRID */
-.grid { display:flex; flex-direction:column; gap:1px; background:transparent; }
-.ci { background:var(--bg); display:block; text-decoration:none; overflow:hidden; cursor:pointer; }
-.ciw { width:100%; overflow:hidden; background:#ede9e5; position:relative; }
-.ciw img, .ciw video { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
-.ci:hover .ciw img, .ci:hover .ciw video { transform:scale(1.03); }
-.ci.p .ciw { aspect-ratio:4/5; }
-.ci.l .ciw { aspect-ratio:5/4; }
-.ci.sq .ciw { aspect-ratio:1/1; }
+/* 4-COL GRID */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px 16px;margin-bottom:80px}
 
-.ci.full .ciw { aspect-ratio:21/8; }
-.ci.architonic .ciw { aspect-ratio:8/5; }
-.cm { padding:13px 24px 20px; display:flex; justify-content:space-between; align-items:baseline; }
-.cb { font-size:12px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--grey-dark); }
-.ct { font-size:11px; color:var(--grey-light); }
+.case{cursor:default}
 
-/* PLACEHOLDER */
-.placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#e8e4e0; }
-.placeholder span { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey-light); }
+/* aspect ratio trick for absolute inner */
+.case-media{position:relative;overflow:hidden;margin-bottom:8px;background:#f0ede9}
+.case-media::before{content:'';display:block}
+.ratio-land::before{padding-top:75%}
+.ratio-wide::before{padding-top:56.25%}
+.ratio-port::before{padding-top:133.33%}
+.ratio-sq::before{padding-top:100%}
 
-/* VITRA CAROUSEL */
-.carousel-wrap { position:relative; width:100%; overflow:hidden; }
-.carousel-track { display:flex; transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); }
-.carousel-track img { width:100%; flex-shrink:0; height:100%; object-fit:cover; display:block; }
-.carousel-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.85); border:none; cursor:pointer; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--grey-dark); z-index:2; transition:background 0.15s; }
-.carousel-btn:hover { background:#fff; }
-.carousel-btn.prev { left:12px; }
-.carousel-btn.next { right:12px; }
-.carousel-dots { position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:6px; }
-.dot { width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.5); cursor:pointer; transition:background 0.2s; }
-.dot.active { background:#fff; }
+.case-media-inner{position:absolute;inset:0;transition:transform 0.4s ease;overflow:hidden}
+.case:hover .case-media-inner{transform:scale(1.03)}
+
+.case-media-inner img{width:100%;height:100%;object-fit:cover;display:block}
+.case-media-inner video{width:100%;height:100%;object-fit:unset;display:block}
+
+.case-info{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.case-brand{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--grey-dark);white-space:nowrap}
+.case-tag{font-size:11px;font-weight:300;color:var(--grey-mid);text-align:right}
+
+/* vimeo */
+.vimeo-wrap{position:absolute;inset:0;overflow:hidden}
+.vimeo-wrap iframe{position:absolute;top:50%;left:50%;width:177.78%;height:100%;transform:translate(-50%,-50%);border:none;pointer-events:none}
+
+/* vitra carousel */
+.carousel{position:absolute;inset:0;overflow:hidden}
+.carousel-slides{display:flex;height:100%;transition:transform 0.6s ease}
+.carousel-slide{min-width:100%;height:100%;flex-shrink:0}
+.carousel-slide img{width:100%;height:100%;object-fit:cover}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;width:24px;height:24px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--grey-dark);z-index:2}
+.carousel-btn.prev{left:6px}
+.carousel-btn.next{right:6px}
+
+/* ARCHIVE */
+.archive-section{margin-bottom:80px}
+.archive-title{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);font-weight:400;padding:48px 0 0;display:block;margin-bottom:0}
+
+.archive-era{margin-top:32px}
+.era-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-light);font-weight:400;padding-bottom:10px;border-bottom:0.5px solid var(--border)}
+
+.archive-row{display:grid;grid-template-columns:56px 1fr 1fr 130px;gap:0 20px;padding:9px 0;border-bottom:0.5px solid #eeeae6;align-items:baseline;transition:background 0.15s}
+.archive-row:hover{background:#fafaf8}
+.ar-year{font-size:12px;color:var(--grey-light);font-variant-numeric:tabular-nums}
+.ar-client{font-size:12px;color:var(--grey-dark);font-weight:500}
+.ar-client a{color:var(--grey-dark);text-decoration:none;border-bottom:0.5px solid var(--border)}
+.ar-client a:hover{border-bottom-color:var(--grey-dark)}
+.ar-role{font-size:12px;color:var(--grey-mid);font-weight:300}
+.ar-cat{font-size:11px;color:var(--grey-light);text-align:right}
+.ar-pitch{font-size:10px;color:var(--grey-light);font-style:italic;margin-left:6px}
 
 /* FOOTER */
-.footer { display:grid; grid-template-columns:1fr 1fr 1fr;  }
-.footer-col { padding:32px 24px;  }
-.footer-col:last-child { border-right:none; }
-.footer-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:12px; }
-.footer-val { font-size:13px; color:var(--grey-mid); line-height:1.7; }
-.footer-val a { color:var(--grey-mid); text-decoration:none; }
-.footer-val a:hover { color:var(--grey-dark); }
-.footer-bottom { padding:20px 24px;  display:flex; justify-content:space-between; }
-.footer-copy { font-size:11px; color:var(--grey-light); }
+footer{margin-top:auto}
+.footer-bar{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-top:0.5px solid var(--border)}
+.footer-copy{font-size:11px;color:var(--grey-light)}
+.footer-links{display:flex;gap:16px}
+.footer-links a{font-size:11px;color:var(--grey-mid);text-decoration:none}
+.footer-links a:hover{color:var(--grey-dark)}
 
-/* NAV — Alright style */
-.nav {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:16px 24px;
-  border-bottom:none;
-  position:sticky; top:0; background:var(--bg); z-index:100;
+/* MOBILE */
+@media(max-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){
+  .nav{padding:0 16px}
+  main{padding:0 16px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:16px 10px}
+  .archive-row{grid-template-columns:40px 1fr 1fr;gap:0 10px}
+  .ar-cat{display:none}
+  .hamburger{display:flex}
+  .nav-right{display:none}
+  .nav-right.open{display:flex;position:fixed;inset:0;background:var(--bg);z-index:200;align-items:center;justify-content:center}
+  .nav-right.open ul{flex-direction:column;align-items:center;gap:24px}
+  .nav-right.open ul li::after{display:none}
+  .nav-right.open ul a{font-size:24px}
+  .footer-bar{padding:16px}
 }
-.nav-left { display:flex; align-items:baseline; }
-.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.01em; color:var(--grey-dark); text-decoration:none; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
-.nav-studio { font-size:13px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
-.nav-links { display:flex; gap:0; list-style:none; align-items:center; }
-.nav-links li { display:inline; }
-.nav-links li::after { content:","; font-size:12px; color:var(--grey-light); margin-right:6px; }
-.nav-links li:last-child::after { content:""; margin-right:0; }
-.nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; letter-spacing:0.01em; margin-right:6px; }
-.nav-links a:hover { color:var(--grey-dark); }
-.nav-links a.active { font-weight:700; color:var(--grey-dark); }
-.hamburger { display:none; }
-
-/* FOOTER — Alright style */
-.footer-bar {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 24px;
-  
-}
-.footer-copy { font-size:12px; color:var(--grey-light); }
-.footer-links { display:flex; gap:16px; }
-.footer-links a { font-size:12px; color:var(--grey-mid); text-decoration:none; }
-.footer-links a:hover { color:var(--grey-dark); }
-
-/* ── MOBILE ──────────────────────────────────────────────── */
-@media (max-width: 640px) {
-
-  /* Nav */
-  .nav { padding:14px 16px; position:relative; }
-  .nav-links { display:none; }
-  .nav-links.open {
-    display:flex; flex-direction:column;
-    position:absolute; top:100%; left:0; right:0;
-    background:var(--bg);
-    padding:12px 16px 20px;
-    gap:0;
-    z-index:200;
-  }
-  .nav-links.open li { display:block; }
-  .nav-links.open li::after { display:none; }
-  .nav-links.open a { display:block; font-size:15px; padding:11px 0; margin:0; border-bottom:none; color:var(--grey-mid); }
-  .nav-links.open a.active { color:var(--grey-dark); }
-  .hamburger { display:flex; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
-  .hamburger span { display:block; width:22px; height:1.5px; background:var(--grey-dark); }
-
-  /* Page header — stack title + desc */
-  .page-header { flex-direction:column; align-items:flex-start; padding:32px 16px 28px; gap:12px; }
-
-  /* Work grid rows → single column */
-  #work-grid > div {
-    grid-template-columns: 1fr !important;
-  }
-  /* Restore portrait aspect ratio when single-col */
-  #work-grid .ci .ciw,
-  #work-grid > div .ciw { aspect-ratio: 4/5 !important; }
-  /* But landscape/wider cells look better at 16/9 single col */
-  #work-grid > div[data-cols="3"] .ciw { aspect-ratio: 16/9 !important; }
-
-  /* Section header */
-  .section-header { padding:12px 16px; }
-
-  /* Meta */
-  .cm { padding:10px 16px 16px; }
-
-  /* Footer */
-  .footer-bar { padding:16px 16px; }
-
-}
-
 </style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-left">
-    <a class="nav-logo" href="/miad-studio/">MiaD</a><a class="nav-studio" href="/miad-studio/about.html">&nbsp;Studio</a>
+    <a class="nav-logo" href="/">Frederik</a>
+    <a class="nav-studio" href="/">&nbsp;Frede</a>
   </div>
-  <ul class="nav-links">
-    <li><a href="/miad-studio/">Home</a></li>
-    <li><a href="/miad-studio/work.html" class="active">Work</a></li>
-    <li><a href="/miad-studio/about.html">Information</a></li>
-    <li><a href="/miad-studio/about.html#contact">Contact</a></li>
-  </ul>
-  <button class="hamburger" id="hbg" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+  <div class="nav-right" id="navLinks">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/work.html" class="active">Work</a></li>
+      <li><a href="/about.html">Information</a></li>
+      <li><a href="/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
     <span></span><span></span>
   </button>
 </nav>
 
-<div class="page-header">
-  <h1 class="page-title">Work</h1>
-  <p class="page-desc">Selected projects across brand strategy, creative direction, AI integration, and digital transformation.</p>
-</div>
+<main>
 
-<div>
   <div class="section-header">
-    <span class="section-label">All Projects</span>
-    <span class="section-count" id="proj-count"></span>
+    <span class="section-title">Selected Work</span>
+    <span class="section-count" id="grid-count"></span>
   </div>
-  <div class="grid" id="work-grid"></div>
-</div>
 
-<div class="footer-bar">
-  <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:13px;">MiaD</span></span>
-  <div class="footer-links">
-    <a href="#">Instagram</a>
-    <a href="#">LinkedIn</a>
+  <div class="grid" id="grid"></div>
+
+  <div class="archive-section">
+    <span class="archive-title">Archive — 1995 to present</span>
+
+    <div class="archive-era">
+      <div class="era-label">2020 — Present</div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client"><a href="/cases/lewis.html">Lewis Group of Companies</a></span><span class="ar-role">Brand Strategy, CD, Digital</span><span class="ar-cat">Brand / Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client"><a href="/cases/pferdt.html">Frederik G. Pferdt</a></span><span class="ar-role">Brand Strategy, Identity, Digital</span><span class="ar-cat">Personal Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">Umane</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Brand / Identity</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">Signal LA</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Brand / Identity</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">Roots Management</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Music / Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2024</span><span class="ar-client">ART+TECH Report</span><span class="ar-role">Editorial, Digital</span><span class="ar-cat">Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2023</span><span class="ar-client"><a href="/cases/las.html">LAS Art Foundation</a></span><span class="ar-role">Branding, Motion Design</span><span class="ar-cat">Arts / Culture</span></div>
+      <div class="archive-row"><span class="ar-year">2023</span><span class="ar-client">Bianca Chen</span><span class="ar-role">Brand Strategy, Identity, Motion</span><span class="ar-cat">Brand / Identity</span></div>
+      <div class="archive-row"><span class="ar-year">2023</span><span class="ar-client">Spot</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Louis Vuitton</span><span class="ar-role">Employer Branding, Documentary</span><span class="ar-cat">Fashion / Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Wildling – Regenerative Sounds</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Music / Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Wirtschaftsclub Düsseldorf</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Business / Brand</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Berlin Green</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Roterfaden</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Design / Product</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Facebook</span><span class="ar-role">Interactive Campaign</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2022</span><span class="ar-client">Ruinart<span class="ar-pitch">pitch</span></span><span class="ar-role">Brand & Content</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Sonos</span><span class="ar-role">Brand & Content</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Mizzuni</span><span class="ar-role">E-Commerce, Brand</span><span class="ar-cat">E-Commerce</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Tylko<span class="ar-pitch">pitch</span></span><span class="ar-role">Digital Strategy</span><span class="ar-cat">Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">MOHAB</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Real Estate</span></div>
+      <div class="archive-row"><span class="ar-year">2021</span><span class="ar-client">Markilux</span><span class="ar-role">Digital, B2B</span><span class="ar-cat">Design / Product</span></div>
+      <div class="archive-row"><span class="ar-year">2020</span><span class="ar-client"><a href="/cases/usm.html">USM Modular Furniture</a></span><span class="ar-role">Digital Transformation</span><span class="ar-cat">Brand / Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2020</span><span class="ar-client">Meama</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Food & Drink</span></div>
+    </div>
+
+    <div class="archive-era">
+      <div class="era-label">2015 — 2020</div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client"><a href="/cases/nzz.html">NZZ Mediengruppe</a></span><span class="ar-role">Brand Strategy, Identity, Digital</span><span class="ar-cat">Media / Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Architonic</span><span class="ar-role">Platform Strategy, Brand</span><span class="ar-cat">Architecture / Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">The Ritz-Carlton, Berlin</span><span class="ar-role">Brand, Events, Hospitality</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Engel &amp; Völkers Berlin</span><span class="ar-role">Digital Presentation</span><span class="ar-cat">Real Estate</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Episode Hotels</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">wefox</span><span class="ar-role">Web Design, Art Direction</span><span class="ar-cat">Technology</span></div>
+      <div class="archive-row"><span class="ar-year">2019</span><span class="ar-client">Canyon</span><span class="ar-role">Digital Experience</span><span class="ar-cat">Sport / Digital</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">HAY</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Design / Furniture</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">Pernod Ricard</span><span class="ar-role">Brand, Hospitality</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">IAC</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Hospitality / Lifestyle</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">adidas</span><span class="ar-role">Interactive Campaign</span><span class="ar-cat">Sport / Fashion</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">Ørgreen Optics</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Fashion / Design</span></div>
+      <div class="archive-row"><span class="ar-year">2018</span><span class="ar-client">Hospitality Projects</span><span class="ar-role">Brand Strategy, Digital</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Vitra</span><span class="ar-role">Brand Strategy, Digital</span><span class="ar-cat">Design / Furniture</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Thonet</span><span class="ar-role">Brand Narrative</span><span class="ar-cat">Design / Furniture</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">AD Magazin</span><span class="ar-role">Editorial, Digital</span><span class="ar-cat">Media / Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">25hours Hotels</span><span class="ar-role">Editorial, Digital</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Grill Royal Group</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Food & Drink</span></div>
+      <div class="archive-row"><span class="ar-year">2017</span><span class="ar-client">Lala Berlin</span><span class="ar-role">Digital, E-Commerce</span><span class="ar-cat">Fashion</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">MINI</span><span class="ar-role">Brand, Campaign</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">&amp;Tradition</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Design / Furniture</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Rooms Hotels</span><span class="ar-role">Brand, Digital</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Hotel Berlin, Berlin</span><span class="ar-role">Brand Narrative, Digital</span><span class="ar-cat">Hospitality</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Mauermuseum</span><span class="ar-role">Web Design</span><span class="ar-cat">Culture / Museum</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">BMW</span><span class="ar-role">Campaign, Creative Direction</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2016</span><span class="ar-client">Bolon</span><span class="ar-role">Web Catalogue, Digital</span><span class="ar-cat">Design / Textile</span></div>
+      <div class="archive-row"><span class="ar-year">2015</span><span class="ar-client">MoreSleep</span><span class="ar-role">Co-Founder, Creative Director</span><span class="ar-cat">Studio</span></div>
+      <div class="archive-row"><span class="ar-year">2015</span><span class="ar-client">aleo solar</span><span class="ar-role">Brand Strategy, Identity</span><span class="ar-cat">Technology</span></div>
+    </div>
+
+    <div class="archive-era">
+      <div class="era-label">2009 — 2015</div>
+      <div class="archive-row"><span class="ar-year">2015</span><span class="ar-client">Freunde von Freunden — Book Vol. 2</span><span class="ar-role">Creative Direction, Publishing</span><span class="ar-cat">Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2014</span><span class="ar-client">FvF Friends Space</span><span class="ar-role">Concept, Creative Direction</span><span class="ar-cat">Space / Culture</span></div>
+      <div class="archive-row"><span class="ar-year">2013</span><span class="ar-client">Neubau Welt</span><span class="ar-role">Creative Direction, Publishing</span><span class="ar-cat">Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2012</span><span class="ar-client">Freunde von Freunden — Book Vol. 1</span><span class="ar-role">Creative Direction, Publishing</span><span class="ar-cat">Publishing</span></div>
+      <div class="archive-row"><span class="ar-year">2011</span><span class="ar-client">Geist Knt &amp; Geist Rnd</span><span class="ar-role">Type Design, Publisher</span><span class="ar-cat">Type Design</span></div>
+      <div class="archive-row"><span class="ar-year">2009</span><span class="ar-client">Freunde von Freunden</span><span class="ar-role">Co-Founder, Creative Director, Editor-in-Chief</span><span class="ar-cat">Publishing / Brand</span></div>
+    </div>
+
+    <div class="archive-era">
+      <div class="era-label">2003 — 2009</div>
+      <div class="archive-row"><span class="ar-year">2008</span><span class="ar-client">MINI</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2007</span><span class="ar-client">Mercedes-Benz</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2006</span><span class="ar-client">BMW</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2005</span><span class="ar-client">Nissan</span><span class="ar-role">Creative Direction</span><span class="ar-cat">Automotive</span></div>
+      <div class="archive-row"><span class="ar-year">2003</span><span class="ar-client">TBWA</span><span class="ar-role">Creative Director</span><span class="ar-cat">Agency</span></div>
+    </div>
+
+    <div class="archive-era">
+      <div class="era-label">1995 — 2003</div>
+      <div class="archive-row"><span class="ar-year">2002</span><span class="ar-client">Art Direction, Shanghai</span><span class="ar-role">Art Director</span><span class="ar-cat">Art Direction</span></div>
+      <div class="archive-row"><span class="ar-year">2001</span><span class="ar-client">Universal Music</span><span class="ar-role">Cover Design, Golden Records</span><span class="ar-cat">Music / Print</span></div>
+      <div class="archive-row"><span class="ar-year">2000</span><span class="ar-client">Kemistry &amp; Storm</span><span class="ar-role">DJ, Events</span><span class="ar-cat">Music / Events</span></div>
+      <div class="archive-row"><span class="ar-year">1999</span><span class="ar-client">Drum &amp; Bass Label</span><span class="ar-role">Founder, Art Direction</span><span class="ar-cat">Music / Print</span></div>
+      <div class="archive-row"><span class="ar-year">1998</span><span class="ar-client">Radio DJ, Cologne</span><span class="ar-role">DJ, Presenter</span><span class="ar-cat">Radio / Music</span></div>
+      <div class="archive-row"><span class="ar-year">1997</span><span class="ar-client">Party Flyers — Berlin &amp; Cologne</span><span class="ar-role">Art Direction, Design</span><span class="ar-cat">Print / Events</span></div>
+      <div class="archive-row"><span class="ar-year">1996</span><span class="ar-client">Record &amp; Skate Stores, Cologne</span><span class="ar-role">—</span><span class="ar-cat">Music / Culture</span></div>
+      <div class="archive-row"><span class="ar-year">1995</span><span class="ar-client">Graphic Design Training, Cologne</span><span class="ar-role">—</span><span class="ar-cat">Education</span></div>
+    </div>
+
   </div>
-</div>
+</main>
+
+<footer>
+  <div class="footer-bar">
+    <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:15px">Frederik Frede</span></span>
+    <div class="footer-links">
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-const VITRA_IMGS = [
+const MS = 'https://www.moresleep.net/wp-content/uploads/';
+
+// 4-col grid: projects NOT on homepage
+// Homepage: Architonic, NZZ, LAS Art Foundation, Lewis, Umane, Louis Vuitton, Pferdt, USM, Signal LA, Ritz-Carlton, Bianca Chen
+const projects = [
+  { b:"Engel & Völkers",  t:"Real Estate / Digital",   type:"img", ratio:"ratio-port",
+    src: MS+"2022/04/EV-Teaser-Portrait-819x1024.jpg" },
+  { b:"Episode Hotels",   t:"Brand Strategy",           type:"img", ratio:"ratio-port",
+    src: MS+"2022/04/Episode_Hotels-Teaser-Portrait-819x1024.jpg" },
+  { b:"MINI",             t:"Brand & Campaign",         type:"img", ratio:"ratio-port",
+    src: MS+"2022/04/MINI-Teaser-Portrait-819x1024.jpg" },
+  { b:"wefox",            t:"Digital Design",           type:"img", ratio:"ratio-port",
+    src: MS+"2022/04/Wefox-Teaser-Portrait-819x1024.jpg" },
+  { b:"Ørgreen Optics",   t:"Brand & Digital",          type:"img", ratio:"ratio-land",
+    src: MS+"2022/04/Orgreen-Teaser-Portrait-819x1024.jpg" },
+  { b:"IAC",              t:"Lifestyle Brand",          type:"img", ratio:"ratio-port",
+    src: MS+"2022/04/IAC-Teaser-Portrait-819x1024.jpg" },
+  { b:"BMW",              t:"Campaign",                 type:"img", ratio:"ratio-port",
+    src: MS+"2019/02/BMW-Teaser-Portrait-819x1024.jpg" },
+  { b:"AD Magazin",       t:"Editorial & Digital",      type:"img", ratio:"ratio-port",
+    src: MS+"2022/04/AD_Magazin-Teaser-Portrait-819x1024.jpg" },
+  { b:"Canyon",           t:"Digital Experience",       type:"img", ratio:"ratio-land",
+    src: MS+"2022/04/Canyon-Teaser-Portrait-819x1024.jpg" },
+  { b:"adidas",           t:"Interactive Campaign",     type:"img", ratio:"ratio-port",
+    src: MS+"2022/04/Adidas-Teaser-Portrait-819x1024.jpg" },
+  { b:"Vitra",            t:"Brand Strategy",           type:"carousel", ratio:"ratio-land" },
+  { b:"HAY",              t:"Creative Direction",       type:"img", ratio:"ratio-sq",
+    src:"https://www.hay.com/globalassets/media/brandsite/hays-world/news/2018-milan-design-week/no-setup-milan-2018.jpg?w=1400" },
+  { b:"Friends of Friends", t:"Publication & Brand",   type:"img", ratio:"ratio-land",
+    src: MS+"2021/02/FF-iPhone_Collection-3-Wide-1024x641.jpg" },
+  { b:"Pernod Ricard",    t:"Hospitality & Brand",      type:"img", ratio:"ratio-land",
+    src: MS+"2021/12/Header-Image-HP-1024x565.jpg" },
+  { b:"Thonet",           t:"Brand Narrative",          type:"img", ratio:"ratio-sq",
+    src:"https://www.thonet.de/fileadmin/media/07-magazine/reference/Solo_Houses/thonet-solo-house-533px_02.jpg" },
+  { b:"25hours Hotels",   t:"Editorial & Digital",      type:"img", ratio:"ratio-port",
+    src: MS+"2022/04/25h_Hotels-Teaser-Portrait-819x1024.jpg" },
+];
+
+const VITRA = [
   "https://static.vitra.com/media/asset/979518/storage/v_fullbleed_1440x/15702284.jpg",
   "https://static.vitra.com/media/asset/732547/storage/v_fullbleed_1440x/09055959.jpg",
   "https://static.vitra.com/media/asset/2492031/storage/v_fullbleed_1440x/36836346.jpg",
   "https://static.vitra.com/media/asset/1685925/storage/v_fullbleed_1440x/21005339.jpg",
   "https://static.vitra.com/media/asset/1553003/storage/v_fullbleed_1440x/16993902.jpg",
-  "https://static.vitra.com/products/41218500/LCH_41218500.LCH_MAS_01=02;LCH_41218500.LCH_VAN_01=05;LCH_41218500.LCH_COV_01=0075;LCH_41218500.BZF_LPF_01=66;LCH_41218500.LCH_BAS_01=02;LCH_41218500.LCH_BAS_ON_01=05;LCH_41218500.WPROMO_25_LCH=01;LCH_41218500.ZV99999_CHR_PAC01=K001.png"
 ];
 
-const projects = [
-  { b:"Louis Vuitton",      t:"Employer Branding",
-    type:"video", src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4",
-    poster:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton-a-global-employer-branding-campaign-and-extended-work-culture-documentary/Friends-of-Friends-LV-WorkshopsCreation-0392.jpg" },
-  { b:"Dauphin",            t:"Go-to-Market",
-    type:"img", src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg" },
-  { b:"Vitra",              t:"Brand Strategy",          type:"carousel" },
-  { b:"HAY",                t:"Creative Direction",
-    type:"img", src:"https://www.hay.com/globalassets/media/brandsite/hays-world/news/2018-milan-design-week/no-setup-milan-2018.jpg?w=1400" },
-  { b:"Sonos",              t:"Brand & Content",
-    type:"img", src:"https://media.sonos.com/images/znqtjj88/production/12bfad13c968850e7b5795545773ce893fede974-2440x2440.jpg?w=1080&q=100&fit=clip&auto=format" },
-  { b:"NZZ",                t:"Brand & Digital",
-    type:"img", src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" },
-  { b:"Architonic",         t:"Platform Strategy",
-    type:"img", src:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp" },
-  { b:"Frederik G. Pferdt", t:"Brand & Identity",
-    type:"video", src:"https://www.moresleep.net/wp-content/uploads/2024/11/Frederik-Pferdt-Venue-Screen-Video.mp4",
-    poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg" },
-  { b:"Lewis",              t:"Brand & Digital",
-    type:"video", src:"https://lewisgroupofcompanies.com/wp-content/uploads/2023/08/Home_header-final.mp4",
-    poster:"https://www.moresleep.net/wp-content/uploads/2024/09/Lewis-Billboard_Nature-Mockup-1024x683.jpg" },
-  { b:"LAS Art Foundation", t:"Branding & Motion",
-    type:"video", src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65dc782cb4e5798707ac738e_LAS Digital Posters Final Animation-transcode.mp4", poster:"" },
-  { b:"USM",                t:"Digital Transformation", type:"vimeo", src:"1048609984" },
-  { b:"Thonet",             t:"Brand Narrative",
-    type:"img", src:"https://www.thonet.de/fileadmin/media/07-magazine/reference/Solo_Houses/thonet-solo-house-533px_02.jpg" },
-  { b:"Friends of Friends", t:"Publication & Brand",
-    type:"img", src:"https://www.moresleep.net/wp-content/uploads/2021/02/FF-Personalities.gif" },
-  { b:"Pernod Ricard",      t:"Hospitality & Brand",
-    type:"img", src:"https://www.moresleep.net/wp-content/uploads/2021/12/Header-Image-HP-1024x565.jpg" },
-  { b:"&Tradition",         t:"Creative Direction",      type:"placeholder" },
-  { b:"Tylko",              t:"Digital",                 type:"placeholder" },
-  { b:"Ruinart",            t:"Brand & Content",         type:"placeholder" },
-  { b:"BMW",                t:"Creative Direction",      type:"placeholder" },
-  { b:"Ritz Carlton",       t:"Hospitality & Brand",     type:"placeholder" },
-];
-
-const G = document.getElementById('work-grid');
-let i = 0, rowIdx = 0;
-
-while (i < projects.length) {
-  const cols = (rowIdx % 2 === 0) ? 2 : 3;
-  const row = projects.slice(i, i + cols);
-  i += cols;
-  rowIdx++;
-
-  const rowDiv = document.createElement('div');
-  rowDiv.style.cssText = `display:grid;grid-template-columns:repeat(${cols},1fr);gap:1px;background:var(--border);margin-bottom:1px;`;
-  rowDiv.setAttribute('data-cols', cols);
-
-  row.forEach(p => {
-    const a = document.createElement('a');
-    a.className = 'ci';
-    a.href = '#';
-    const ar = cols === 2 ? '4/5' : '5/4';
-    const id = p.b.replace(/[^a-z0-9]/gi,'');
-    let media = '';
-
-    if (p.type === 'carousel') {
-      media = `<div style="position:relative;overflow:hidden;aspect-ratio:${ar};width:100%;">
-        <div id="ct${id}" style="display:flex;height:100%;transition:transform 0.5s ease;">
-          ${VITRA_IMGS.map(img=>`<img src="${img}" alt="Vitra" style="min-width:100%;height:100%;object-fit:cover;flex-shrink:0;"/>`).join('')}
-        </div>
-        <button class="carousel-btn prev" onclick="slide(event,'${id}',-1)">&#8592;</button>
-        <button class="carousel-btn next" onclick="slide(event,'${id}',1)">&#8594;</button>
-        <div class="carousel-dots" id="cd${id}">
-          ${VITRA_IMGS.map((_,n)=>`<div class="dot${n===0?' active':''}" onclick="goTo(event,'${id}',${n})"></div>`).join('')}
-        </div>
+function buildGrid() {
+  const grid = document.getElementById('grid');
+  projects.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = 'case';
+    let inner = '';
+    if (p.type === 'img') {
+      inner = `<img src="${p.src}" alt="${p.b}" loading="lazy">`;
+    } else if (p.type === 'carousel') {
+      const slides = VITRA.map(s => `<div class="carousel-slide"><img src="${s}" alt="Vitra" loading="lazy"></div>`).join('');
+      inner = `<div class="carousel" id="c${i}">
+        <div class="carousel-slides">${slides}</div>
+        <button class="carousel-btn prev" onclick="slide('c${i}',-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="slide('c${i}',1)">&#8250;</button>
       </div>`;
-    } else if (p.type === 'placeholder') {
-      media = `<div style="aspect-ratio:${ar};display:flex;align-items:center;justify-content:center;background:#e8e4e0;"><span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-light);">${p.b}</span></div>`;
-    } else if (p.type === 'video') {
-      media = `<div style="aspect-ratio:${ar};overflow:hidden;"><video autoplay muted loop playsinline poster="${p.poster||''}" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="${p.src}" type="video/mp4"></video></div>`;
-    } else if (p.type === 'vimeo') {
-      media = `<div style="aspect-ratio:${ar};overflow:hidden;position:relative;"><iframe src="https://player.vimeo.com/video/${p.src}?autoplay=1&muted=1&loop=1&background=1&autopause=0" frameborder="0" allow="autoplay;fullscreen" style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe></div>`;
-    } else {
-      media = `<div style="aspect-ratio:${ar};overflow:hidden;"><img src="${p.src}" alt="${p.b}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.background='#e4e0db';this.style.display='none'"/></div>`;
     }
-
-    a.innerHTML = media + `<div class="cm"><span class="cb">${p.b}</span><span class="ct">${p.t}</span></div>`;
-    rowDiv.appendChild(a);
+    div.innerHTML = `
+      <div class="case-media ${p.ratio}"><div class="case-media-inner">${inner}</div></div>
+      <div class="case-info">
+        <span class="case-brand">${p.b}</span>
+        <span class="case-tag">${p.t}</span>
+      </div>`;
+    grid.appendChild(div);
   });
-
-  G.appendChild(rowDiv);
+  document.getElementById('grid-count').textContent = projects.length + ' projects';
 }
 
-// Carousel
-const carouselState = {};
-function slide(e,id,dir){e.preventDefault();const n=VITRA_IMGS.length;carouselState[id]=(( carouselState[id]||0)+dir+n)%n;updateCarousel(id);}
-function goTo(e,id,i){e.preventDefault();carouselState[id]=i;updateCarousel(id);}
-function updateCarousel(id){const t=document.getElementById('ct'+id);const d=document.getElementById('cd'+id);const i=carouselState[id]||0;t.style.transform=`translateX(-${i*100}%)`;d.querySelectorAll('.dot').forEach((dot,idx)=>dot.classList.toggle('active',idx===i));}
+function slide(id, dir) {
+  const car = document.getElementById(id);
+  const slides = car.querySelector('.carousel-slides');
+  const total = VITRA.length;
+  let cur = parseInt(car.dataset.cur || 0);
+  cur = (cur + dir + total) % total;
+  car.dataset.cur = cur;
+  slides.style.transform = `translateX(-${cur * 100}%)`;
+}
+
+buildGrid();
 </script>
 </body>
 </html>
