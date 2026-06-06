@@ -28,8 +28,8 @@ main{flex:1;padding:0 32px}
 
 /* SECTION HEADER */
 .section-header{display:flex;justify-content:space-between;align-items:baseline;padding:48px 0 24px}
-.section-title{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-dark)}
-.section-count{font-size:11px;color:var(--grey-light)}
+.section-title{font-size:var(--t-ui);font-weight:var(--bold);letter-spacing:var(--ls-ui);color:var(--grey-dark)}
+.section-count{font-size:var(--t-ui);color:var(--grey-light)}
 
 /* 4-COL GRID */
 .grid{columns:4;column-gap:16px;margin-bottom:96px}
@@ -40,15 +40,15 @@ main{flex:1;padding:0 32px}
 .case-media-inner img{width:100%;height:auto;display:block}
 .case-media-inner video{width:100%;height:auto;display:block;object-fit:unset}
 .case-info{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding-top:6px}
-.case-brand{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--grey-dark);flex-shrink:0}
-.case-tag{font-size:11px;color:var(--grey-light);text-align:right;line-height:1.4}
+.case-brand{font-size:var(--t-ui);font-weight:var(--bold);letter-spacing:var(--ls-ui);text-transform:none;color:var(--grey-dark);flex-shrink:0}
+.case-tag{font-size:var(--t-ui);color:var(--grey-mid);text-align:right;line-height:var(--lh-ui)}
 
 /* carousel */
 .carousel{overflow:hidden;position:relative}
 .carousel-slides{display:flex;transition:transform 0.6s ease}
 .carousel-slide{min-width:100%;flex-shrink:0}
 .carousel-slide img{width:100%;height:220px;object-fit:cover;display:block}
-.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;width:24px;height:24px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--grey-dark);z-index:2}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;width:24px;height:24px;cursor:pointer;font-size:var(--t-ui);display:flex;align-items:center;justify-content:center;color:var(--grey-dark);z-index:2}
 .carousel-btn.prev{left:6px}
 .carousel-btn.next{right:6px}
 
@@ -59,14 +59,14 @@ main{flex:1;padding:0 32px}
 .archive-col-label h3,
 .archive-col-year h3,
 .archive-col-client h3,
-.archive-col-cat h3{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-dark);margin-bottom:20px}
+.archive-col-cat h3{font-size:var(--t-ui);font-weight:var(--bold);letter-spacing:var(--ls-ui);color:var(--grey-dark);margin-bottom:20px}
 .archive-col-label h3{color:var(--grey-mid);font-weight:400;line-height:1.6}
-.ar-year{display:block;font-size:12px;color:var(--grey-light);font-weight:300;font-variant-numeric:tabular-nums;padding:3px 0;line-height:1.6}
-.ar-client{display:block;font-size:13px;color:var(--grey-dark);font-weight:400;padding:2px 0;line-height:1.6}
+.ar-year{display:block;font-size:var(--t-ui);color:var(--grey-light);font-weight:var(--regular);font-variant-numeric:tabular-nums;padding:3px 0;line-height:var(--lh-ui)}
+.ar-client{display:block;font-size:var(--t-ui);color:var(--grey-dark);font-weight:var(--regular);padding:2px 0;line-height:var(--lh-ui)}
 .ar-client a{color:var(--grey-dark);text-decoration:none;border-bottom:0.5px solid var(--border)}
 .ar-client a:hover{border-bottom-color:var(--grey-dark)}
-.ar-cat{display:block;font-size:12px;color:var(--grey-light);font-weight:300;padding:3px 0;line-height:1.6}
-.ar-pitch{font-size:10px;color:var(--grey-light);font-style:italic;margin-left:6px}
+.ar-cat{display:block;font-size:var(--t-label);color:var(--grey-light);font-weight:var(--regular);padding:3px 0;line-height:var(--lh-ui)}
+.ar-pitch{font-size:var(--t-label);color:var(--grey-light);font-style:italic;margin-left:6px}
 
 /* FOOTER */
 footer{margin-top:auto}
@@ -99,15 +99,22 @@ footer{margin-top:auto}
 
 <nav class="nav">
   <div class="nav-left">
-    <a class="nav-logo" href="/">Frederik</a>
-    <a class="nav-studio" href="/">&nbsp;Frede</a>
+    <a class="nav-logo" href="/frede-studio/">Frederik</a>
+    <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch" style="background:#fff"    onclick="setTheme('white',this)"  title="White"></div>
+      <div class="swatch active" style="background:#111" onclick="setTheme('black',this)"  title="Black"></div>
+      <div class="swatch" style="background:#e8e4df" onclick="setTheme('warm',this)"   title="Warm"></div>
+    </div>
   </div>
   <div class="nav-right" id="navLinks">
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/work.html" class="active">Work</a></li>
-      <li><a href="/about.html">Information</a></li>
-      <li><a href="/about.html#contact">Contact</a></li>
+      <li><a href="/frede-studio/">Home</a></li>
+      <li><a href="/frede-studio/work.html" class="active">Work</a></li>
+      <li><a href="/frede-studio/about.html">Information</a></li>
+      <li><a href="/frede-studio/about.html#contact">Contact</a></li>
     </ul>
   </div>
   <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
