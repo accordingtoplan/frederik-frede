@@ -428,6 +428,94 @@ footer{margin-top:auto}
 </footer>
 
 <script>
+const MS = 'https://www.moresleep.net/wp-content/uploads/';
+
+// 4-col grid: projects NOT on homepage
+// Homepage: Architonic, NZZ, LAS Art Foundation, Lewis, Umane, Louis Vuitton, Pferdt, USM, Signal LA, Ritz-Carlton, Bianca Chen
+const projects = [
+  { b:"Vitra",              t:"Brand Strategy",          type:"carousel" },
+  { b:"Friends of Friends", t:"Publication & Brand",     type:"img",
+    src: MS+"2021/02/FF-iPhone_Collection-3-Wide-1024x641.jpg" },
+  { b:"wefox",              t:"Digital Design",          type:"img",
+    src: MS+"2022/04/Wefox-Teaser-Portrait-819x1024.jpg" },
+  { b:"AD Magazin",         t:"Editorial & Digital",     type:"img",
+    src: MS+"2022/04/AD_Magazin-Teaser-Portrait-819x1024.jpg" },
+
+  { b:"Engel & Völkers",    t:"Real Estate / Digital",  type:"img",
+    src: MS+"2022/04/EV-Teaser-Portrait-819x1024.jpg" },
+  { b:"Episode Hotels",     t:"Brand Strategy",          type:"img",
+    src: MS+"2022/04/Episode_Hotels-Teaser-Portrait-819x1024.jpg" },
+  { b:"Canyon",             t:"Digital Experience",      type:"img",
+    src: MS+"2022/04/Canyon-Teaser-Portrait-819x1024.jpg" },
+  { b:"Ørgreen Optics",     t:"Brand & Digital",         type:"img",
+    src: MS+"2022/04/Orgreen-Teaser-Portrait-819x1024.jpg" },
+
+  { b:"MINI",               t:"Brand & Campaign",        type:"img",
+    src: MS+"2022/04/MINI-Teaser-Portrait-819x1024.jpg" },
+  { b:"Thonet",             t:"Brand Narrative",         type:"img",
+    src:"https://www.thonet.de/fileadmin/media/07-magazine/reference/Solo_Houses/thonet-solo-house-533px_02.jpg" },
+  { b:"IAC",                t:"Lifestyle Brand",         type:"img",
+    src: MS+"2022/04/IAC-Teaser-Portrait-819x1024.jpg" },
+  { b:"25hours Hotels",     t:"Editorial & Digital",     type:"img",
+    src: MS+"2022/04/25h_Hotels-Teaser-Portrait-819x1024.jpg" },
+
+  { b:"Pernod Ricard",      t:"Hospitality & Brand",     type:"img",
+    src: MS+"2021/12/Header-Image-HP-1024x565.jpg" },
+  { b:"adidas",             t:"Interactive Campaign",    type:"img",
+    src: MS+"2022/04/Adidas-Teaser-Portrait-819x1024.jpg" },
+  { b:"HAY",                t:"Creative Direction",      type:"img",
+    src:"https://www.hay.com/globalassets/media/brandsite/hays-world/news/2018-milan-design-week/no-setup-milan-2018.jpg?w=1400" },
+  { b:"BMW",                t:"Campaign",                type:"img",
+    src: MS+"2019/02/BMW-Teaser-Portrait-819x1024.jpg" },
+];
+
+const VITRA = [
+  "https://static.vitra.com/media/asset/732547/storage/v_fullbleed_1440x/09055959.jpg",
+  "https://static.vitra.com/media/asset/979518/storage/v_fullbleed_1440x/15702284.jpg",
+  "https://static.vitra.com/media/asset/2492031/storage/v_fullbleed_1440x/36836346.jpg",
+  "https://static.vitra.com/media/asset/1553003/storage/v_fullbleed_1440x/16993902.jpg",
+];
+
+function buildGrid() {
+  const grid = document.getElementById('grid');
+  projects.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = 'case';
+    let inner = '';
+    if (p.type === 'img') {
+      inner = `<img src="${p.src}" alt="${p.b}" loading="lazy">`;
+    } else if (p.type === 'carousel') {
+      const slides = VITRA.map(s => `<div class="carousel-slide"><img src="${s}" alt="Vitra" loading="lazy"></div>`).join('');
+      inner = `<div class="carousel" id="c${i}">
+        <div class="carousel-slides">${slides}</div>
+        <button class="carousel-btn prev" onclick="slide('c${i}',-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="slide('c${i}',1)">&#8250;</button>
+      </div>`;
+    }
+    div.innerHTML = `
+      <div class="case-media"><div class="case-media-inner">${inner}</div></div>
+      <div class="case-info">
+        <span class="case-brand">${p.b}</span>
+        <span class="case-tag">${p.t}</span>
+      </div>`;
+    grid.appendChild(div);
+  });
+  document.getElementById('grid-count').textContent = projects.length + ' projects';
+}
+
+function slide(id, dir) {
+  const car = document.getElementById(id);
+  const slides = car.querySelector('.carousel-slides');
+  const total = VITRA.length;
+  let cur = parseInt(car.dataset.cur || 0);
+  cur = (cur + dir + total) % total;
+  car.dataset.cur = cur;
+  slides.style.transform = `translateX(-${cur * 100}%)`;
+}
+
+buildGrid();
+</script>
+<script>
     const themes = {
       white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',                border:'#c8c3be' },
       black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
@@ -445,5 +533,6 @@ footer{margin-top:auto}
     }
     setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
   </script>
+
 </body>
 </html>
