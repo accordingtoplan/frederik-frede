@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Frede Studio — Brand strategy, identity & digital for design-led culture.">
-  <title>Frede Studio</title>
+  <meta name="description" content="Frederik Frede — Brand strategy, identity & digital for design-led culture.">
+  <title>Frederik Frede</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -17,6 +18,10 @@
       --grey-light: #a8a39f;
       --border:     #c8c3be;
       --bg:         #fff;
+      --fg:         #4a4540;
+      --fg-mid:     #7a7470;
+      --fg-light:   #a8a39f;
+      --bg-card:    #f5f3f1;
     }
 
     html { scroll-behavior: smooth; }
@@ -59,6 +64,12 @@
       font-size: 12px;
       color: var(--grey-mid);
       text-decoration: none;
+    }
+
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .nav-right {
@@ -464,21 +475,41 @@
 
       .footer-bar { padding: 16px 20px; }
     }
+
+    /* ─── COLOUR SWITCHER ─────────────────────────────────── */
+    .swatches { display: flex; gap: 7px; align-items: center; }
+    .swatch {
+      width: 9px; height: 9px; border-radius: 50%;
+      cursor: pointer; border: none;
+      outline: 1.5px solid rgba(128,128,128,0.3);
+      outline-offset: 2px;
+      transition: outline-color 0.2s, opacity 0.2s;
+    }
+    .swatch.active { outline-color: var(--fg); }
+    .swatch:hover { opacity: 0.6; }
+
   </style>
 </head>
 <body>
 
   <nav class="nav">
     <div class="nav-left">
-      <a class="nav-logo" href="/">Frede</a>
-      <a class="nav-studio" href="/">&nbsp;Studio</a>
+      <a class="nav-logo" href="/frede-studio/">Frederik</a>
+      <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+    </div>
+    <div class="nav-center">
+      <div class="swatches">
+        <div class="swatch" style="background:#fff"    onclick="setTheme('white',this)"  title="White"></div>
+        <div class="swatch active" style="background:#111" onclick="setTheme('black',this)"  title="Black"></div>
+        <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
+      </div>
     </div>
     <div class="nav-right">
       <ul class="nav-links" id="navLinks">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/work.html">Work</a></li>
-        <li><a href="/about.html">Information</a></li>
-        <li><a href="/about.html#contact">Contact</a></li>
+        <li><a href="/frede-studio/" class="active">Home</a></li>
+        <li><a href="/frede-studio/work.html">Work</a></li>
+        <li><a href="/frede-studio/about.html">Information</a></li>
+        <li><a href="/frede-studio/about.html#contact">Contact</a></li>
       </ul>
 
     </div>
@@ -501,13 +532,13 @@
   </section>
 
   <section class="intro">
-    <p class="intro-text">Frede Studio is a creative studio redefining brands and digital experiences for design-led culture — working at the intersection of strategy, identity, and craft for clients across architecture, hospitality, and the arts.</p>
+    <p class="intro-text">Frederik Frede is a creative director redefining brands and digital experiences for design-led culture — working at the intersection of strategy, identity, and craft for clients across architecture, hospitality, and the arts.</p>
   </section>
 
   <section class="work-section">
     <div class="work-header">
       <span class="work-header-label">Selected Work</span>
-      <a class="work-header-link" href="/work.html">View all</a>
+      <a class="work-header-link" href="/frede-studio/work.html">View all</a>
     </div>
     <div class="cases-grid" id="cases"></div>
   </section>
@@ -598,6 +629,24 @@
       grid.appendChild(div);
     });
 
+
+    /* ─── COLOUR SWITCHER ─────────────────────────────────── */
+    const themes = {
+      white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',                border:'#c8c3be' },
+      black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
+      signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
+    };
+    function setTheme(name, el) {
+      const t = themes[name]; const r = document.documentElement.style;
+      r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
+      r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
+      r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
+      r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
+      r.setProperty('--grey-light', t.light);
+      document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+      if (el) el.classList.add('active');
+    }
+    setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
   </script>
 
 </body>
