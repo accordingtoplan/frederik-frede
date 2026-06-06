@@ -2,336 +2,207 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MiaD — About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Information — Frederik Frede</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-:root { --grey-dark:#4a4540; --grey-mid:#7a7470; --grey-light:#a8a39f; --border:#c8c3be; --bg:#fff; }
-body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
+  /* ── about.html only ── */
 
-
-
-/* PAGE */
-.page { max-width:100%; padding:64px 24px 96px; }
-
-/* BIG HEADLINE — Alright style */
-.page-kicker { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:24px; }
-.page-headline {
-  font-size:clamp(42px,7vw,92px);
-  font-weight:700;
-  line-height:0.97;
-  letter-spacing:-0.03em;
-  color:var(--grey-dark);
-  margin-bottom:48px;
-  max-width:100%;
-}
-.page-body {
-  font-size:clamp(17px,2vw,22px); font-weight:400; line-height:1.65;
-  color:var(--grey-mid); max-width:100%;
-  margin-bottom:28px;
-}
-
-/* SECTION BLOCKS — Alright lettered sections */
-.section { margin-top:96px; }
-.section-letter {
-  font-size:11px; font-weight:700; letter-spacing:0.09em;
-  text-transform:uppercase; color:var(--grey-light);
-  margin-bottom:24px;
-  padding-bottom:12px;
-  border-bottom:none;
-}
-
-/* Capabilities — two column tag list */
-.cap-list {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:0;
-}
-.cap-item {
-  font-size:14px; color:var(--grey-mid);
-  padding:10px 0;
-  border-bottom:none;
-}
-
-/* Services — label + description rows */
-.service-block { padding:20px 0; border-bottom:none; }
-.service-block:first-child { border-top:none; }
-.service-name { font-size:clamp(20px,2.5vw,32px); font-weight:700; color:var(--grey-dark); margin-bottom:10px; letter-spacing:-0.015em; }
-.service-desc { font-size:clamp(15px,1.6vw,19px); color:var(--grey-mid); line-height:1.65; max-width:680px; }
-
-/* Approach — large text statements */
-.approach-item { padding:24px 0; border-bottom:none; }
-.approach-item:first-child { border-top:none; }
-.approach-title { font-size:clamp(22px,3vw,40px); font-weight:700; color:var(--grey-dark); margin-bottom:12px; letter-spacing:-0.02em; }
-.approach-desc { font-size:clamp(15px,1.6vw,19px); color:var(--grey-mid); line-height:1.65; max-width:680px; }
-
-/* Contact */
-.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
-.contact-item { padding:16px 0; border-bottom:none; }
-.contact-item:first-child { border-top:none; }
-.contact-label { font-size:11px; font-weight:400; letter-spacing:0.07em; text-transform:uppercase; color:var(--grey-light); margin-bottom:6px; }
-.contact-val { font-size:clamp(16px,1.8vw,22px); color:var(--grey-mid); line-height:1.6; }
-.contact-val a { color:var(--grey-mid); text-decoration:none; }
-.contact-val a:hover { color:var(--grey-dark); }
-
-/* Clients — flowing list */
-.client-list { columns:2; column-gap:24px; }
-.client-item { font-size:13px; color:var(--grey-mid); padding:6px 0; border-bottom:none; break-inside:avoid; }
-
-/* People */
-.people-item { display:flex; justify-content:space-between; padding:12px 0; border-bottom:none; }
-.people-item:first-child { border-top:none; }
-.people-name { font-size:clamp(18px,2vw,26px); color:var(--grey-dark); font-weight:700; }
-.people-role { font-size:clamp(15px,1.6vw,20px); color:var(--grey-light); }
-
-/* FOOTER */
-.footer { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:none; }
-.footer-col { padding:32px 24px; border-right:1px solid var(--border); }
-.footer-col:last-child { border-right:none; }
-.footer-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:12px; }
-.footer-val { font-size:13px; color:var(--grey-mid); line-height:1.7; }
-.footer-val a { color:var(--grey-mid); text-decoration:none; }
-.footer-val a:hover { color:var(--grey-dark); }
-.footer-bottom { padding:20px 24px; border-top:none; display:flex; justify-content:space-between; }
-.footer-copy { font-size:11px; color:var(--grey-light); }
-
-/* NAV — Alright style */
-.nav {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:16px 24px;
-  border-bottom:none;
-  position:sticky; top:0; background:var(--bg); z-index:100;
-}
-.nav-left { display:flex; align-items:baseline; }
-.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.01em; color:var(--grey-dark); text-decoration:none; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
-.nav-studio { font-size:13px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
-.nav-links { display:flex; gap:0; list-style:none; align-items:center; }
-.nav-links li { display:inline; }
-.nav-links li::after { content:","; font-size:12px; color:var(--grey-light); margin-right:6px; }
-.nav-links li:last-child::after { content:""; margin-right:0; }
-.nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; letter-spacing:0.01em; margin-right:6px; }
-.nav-links a:hover { color:var(--grey-dark); }
-.nav-links a.active { font-weight:700; color:var(--grey-dark); }
-.hamburger { display:none; }
-
-/* FOOTER — Alright style */
-.footer-bar {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 24px;
-  border-top:1px solid var(--border);
-}
-.footer-copy { font-size:12px; color:var(--grey-light); }
-.footer-links { display:flex; gap:16px; }
-.footer-links a { font-size:12px; color:var(--grey-mid); text-decoration:none; }
-.footer-links a:hover { color:var(--grey-dark); }
-
-/* ── MOBILE ──────────────────────────────────────────────── */
-@media (max-width: 640px) {
-
-  /* Nav */
-  .nav { padding:14px 16px; position:relative; }
-  .nav-links { display:none; }
-  .nav-links.open {
-    display:flex; flex-direction:column;
-    position:absolute; top:100%; left:0; right:0;
-    background:var(--bg);
-    padding:12px 16px 20px;
-    gap:0;
-    z-index:200;
+  .page-title {
+    font-size: var(--t-ui);
+    font-weight: var(--bold);
+    text-align: center;
+    color: var(--dark);
+    letter-spacing: var(--ls-ui);
+    margin-bottom: 24px;
   }
-  .nav-links.open li { display:block; }
-  .nav-links.open li::after { display:none; }
-  .nav-links.open a { display:block; font-size:15px; padding:11px 0; margin:0; border-bottom:none; color:var(--grey-mid); }
-  .nav-links.open a.active { color:var(--grey-dark); }
-  .hamburger { display:flex; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
-  .hamburger span { display:block; width:22px; height:1.5px; background:var(--grey-dark); }
 
-  /* Page */
-  .page { padding:40px 16px 72px; }
+  .section-label {
+    font-size: var(--t-label);
+    font-weight: var(--regular);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--light);
+    margin-top: 72px;
+    margin-bottom: 32px;
+  }
 
-  /* Capabilities — single col */
-  .cap-list { grid-template-columns:1fr; }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 72px;
+  }
 
-  /* Contact grid — single col */
-  .contact-grid { grid-template-columns:1fr; }
+  .col-head {
+    font-size: var(--t-label);
+    font-weight: var(--regular);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--light);
+    padding-bottom: 16px;
+  }
 
-  /* Client list — single col */
-  .client-list { columns:1; }
+  .list-item {
+    font-size: var(--t-large);
+    font-weight: var(--bold);
+    letter-spacing: var(--ls-large);
+    line-height: 1;
+    color: var(--dark);
+    padding: 14px 0;
+  }
 
-  /* People — stack name + role */
-  .people-item { flex-direction:column; gap:4px; }
+  .clients-text {
+    font-size: var(--t-large);
+    font-weight: var(--bold);
+    letter-spacing: var(--ls-large);
+    line-height: 1.3;
+    color: var(--mid);
+  }
 
-  /* Sections */
-  .section { margin-top:64px; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 80px;
+  }
 
-  /* Footer */
-  .footer-bar { padding:16px 16px; }
+  .contact-label {
+    font-size: var(--t-label);
+    font-weight: var(--regular);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
 
-}
+  .contact-value {
+    font-size: clamp(18px, 2vw, 28px);
+    font-weight: var(--bold);
+    letter-spacing: -0.01em;
+    color: var(--dark);
+    line-height: 1.2;
+  }
 
+  .contact-value a { color: var(--dark); text-decoration: none; }
+
+  .person {
+    padding: 8px 0;
+    font-size: var(--t-ui);
+    font-weight: var(--regular);
+    letter-spacing: var(--ls-ui);
+    color: var(--mid);
+  }
+
+  @media (max-width: 640px) {
+    .two-col { grid-template-columns: 1fr; gap: 48px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="nav-left">
-    <a class="nav-logo" href="/miad-studio/">MiaD</a><a class="nav-studio" href="/miad-studio/about.html">&nbsp;Studio</a>
+  <a class="nav-logo" href="/">Frederik<span> Frede</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>,&nbsp;
+    <a href="/work.html">Work</a>,&nbsp;
+    <a href="/about.html" class="active">Information</a>,&nbsp;
+    <a href="/about.html#contact">Contact</a>
   </div>
-  <ul class="nav-links">
-    <li><a href="/miad-studio/">Home</a></li>
-    <li><a href="/miad-studio/work.html">Work</a></li>
-    <li><a href="/miad-studio/about.html" class="active">Information</a></li>
-    <li><a href="/miad-studio/about.html#contact">Contact</a></li>
-  </ul>
-  <button class="hamburger" id="hbg" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
     <span></span><span></span>
   </button>
 </nav>
 
 <div class="page">
 
-  <div class="page-kicker">Information</div>
+  <div class="page-title">Information</div>
 
-  <h1 class="page-headline">For over a decade, we've helped design and architecture brands move with purpose.</h1>
+  <div class="t-hero" style="margin-bottom:80px">Thirty years of culture,<br>brand, and building things<br>from scratch.</div>
 
-  <p class="page-body">It's never been easier to produce content. It's never been harder to make work that actually means something. At MiaD, we help our clients decide what needs to exist, what their work needs to say, and how to move through a world that's changing faster than most organisations can track.</p>
+  <div class="t-large dark" style="margin-bottom:48px">
+    Started as a graphic designer in Cologne. Spent the early years designing record sleeves, concert posters, and the visual world around music — earning gold records before most agencies knew what a website was.
+  </div>
 
-  <p class="page-body">We bring AI strategy and creative direction together — not as separate disciplines, but as one integrated practice. The result is work that is clear, considered, and built to last in the hands of people who know this industry from the inside.</p>
+  <div class="t-large indent" style="margin-bottom:48px">
+    Founded NoMoreSleep, sold it to TBWA. Built Freunde von Freunden into one of the most referenced creative platforms in Europe — publishing two books, running a community space in Berlin, and proving that timeless content beats the news cycle every time.
+  </div>
 
-  <!-- A — CAPABILITIES -->
-  <div class="section">
-    <div class="section-letter">A &nbsp;&nbsp; Capabilities</div>
-    <div class="cap-list">
-      <div class="cap-item">AI Strategy &amp; Roadmapping</div>
-      <div class="cap-item">Brand Design</div>
-      <div class="cap-item">Brand Language</div>
-      <div class="cap-item">Brand Strategy</div>
-      <div class="cap-item">Creative Direction</div>
-      <div class="cap-item">Content &amp; Editorial</div>
-      <div class="cap-item">Digital Design</div>
-      <div class="cap-item">Digital Transformation</div>
-      <div class="cap-item">Go-to-Market</div>
-      <div class="cap-item">Platform Strategy</div>
-      <div class="cap-item">Photo &amp; Video</div>
-      <div class="cap-item">Website Development</div>
+  <div class="t-large indent" style="margin-bottom:48px">
+    Started MoreSleep in 2012 and grew it into an internationally dispersed studio, with offices in Berlin and Los Angeles, working across brand strategy, identity, digital, and content for design-led clients around the world.
+  </div>
+
+  <div class="t-large indent" style="margin-bottom:0">
+    Now operating independently — advising, directing, and building. Developing AI frameworks that bring rigour and creative thinking into how brands work, not just what they make. The tools are new. The discipline isn't.
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="col-head">Capabilities</div>
+      <div class="list-item">Brand Strategy</div>
+      <div class="list-item">Visual Identity</div>
+      <div class="list-item">Creative Direction</div>
+      <div class="list-item">Digital Design</div>
+      <div class="list-item">Motion & Film</div>
+      <div class="list-item">Content Strategy</div>
+      <div class="list-item">Publishing</div>
+      <div class="list-item">AI Frameworks</div>
+      <div class="list-item">Platform & Product</div>
+    </div>
+    <div>
+      <div class="col-head">Services</div>
+      <div class="list-item">Brand Audit & Positioning</div>
+      <div class="list-item">Identity Systems</div>
+      <div class="list-item">Art Direction</div>
+      <div class="list-item">Digital Strategy</div>
+      <div class="list-item">Social & Content</div>
+      <div class="list-item">AI Integration</div>
+      <div class="list-item">Advisory & Mentorship</div>
+      <div class="list-item">Production Leadership</div>
     </div>
   </div>
 
-  <!-- B — SERVICES -->
-  <div class="section">
-    <div class="section-letter">B &nbsp;&nbsp; Services</div>
-    <div class="service-block">
-      <div class="service-name">Strategy</div>
-      <div class="service-desc">We treat this as mapmaking — combining research, writing, and creative thinking to identify and articulate the right opportunity. We build the case, then build the work on top of it.</div>
+  <div class="section-label">Clients</div>
+  <div class="clients-text">
+    Architonic · Louis Vuitton · NZZ · LAS Art Foundation · USM · Ritz-Carlton · Lewis · Umane · Signal LA · Frederik G. Pferdt · Bianca Chen · Vitra · HAY · Sonos · Thonet · Pernod Ricard · &Tradition · Tylko · Ruinart · BMW · Friends of Friends
+  </div>
+
+  <div class="section-label" id="contact">Contact</div>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-label">New Business</div>
+      <div class="contact-value"><a href="mailto:hello@frederikfrede.com">hello@frederikfrede.com</a></div>
     </div>
-    <div class="service-block">
-      <div class="service-name">Design</div>
-      <div class="service-desc">Our work is shaped by context over convention. No house style. No default aesthetic. We design systems that carry meaning — for the specific audience, moment, and medium that matters.</div>
+    <div>
+      <div class="contact-label">Based in</div>
+      <div class="contact-value">Berlin & Los Angeles</div>
     </div>
-    <div class="service-block">
-      <div class="service-name">AI Integration</div>
-      <div class="service-desc">We identify where AI creates real leverage in your operation and build the infrastructure to make it production-ready. Not demos. Not pilots. Systems that hold up in live environments.</div>
+    <div>
+      <div class="contact-label">Instagram</div>
+      <div class="contact-value"><a href="https://instagram.com" target="_blank">@frederikfrede</a></div>
     </div>
-    <div class="service-block">
-      <div class="service-name">Production</div>
-      <div class="service-desc">We operate as both creative agency and executional partner. We develop the idea, lead the production, and handle the delivery. One vision, carried all the way through.</div>
+    <div>
+      <div class="contact-label">LinkedIn</div>
+      <div class="contact-value"><a href="https://linkedin.com" target="_blank">Frederik Frede</a></div>
     </div>
   </div>
 
-  <!-- C — APPROACH -->
-  <div class="section">
-    <div class="section-letter">C &nbsp;&nbsp; Approach</div>
-    <div class="approach-item">
-      <div class="approach-title">Sector knowledge, not borrowed frameworks</div>
-      <div class="approach-desc">We have spent our careers inside Architecture &amp; Design. We understand the material culture, the dealer dynamics, the fair cycles, and the relationships that move the industry. That fluency is not background colour — it is the work.</div>
-    </div>
-    <div class="approach-item">
-      <div class="approach-title">AI that holds up in the real world</div>
-      <div class="approach-desc">We know the difference between an AI demo that works on clean data and a system that survives contact with a live organisation. We build the latter — practical, measurable, and integrated with what you already have.</div>
-    </div>
-    <div class="approach-item">
-      <div class="approach-title">No generalist answers</div>
-      <div class="approach-desc">Generic consulting produces generic results. We do not borrow from retail playbooks, SaaS frameworks, or adjacent industries. Every recommendation is calibrated to the specific reality of Architecture &amp; Design.</div>
-    </div>
-    <div class="approach-item">
-      <div class="approach-title">Make the work that matters</div>
-      <div class="approach-desc">The edge of our output is the intersection of judgment, taste, and systems thinking. We define what matters, show you why, and make it happen. Full stop.</div>
-    </div>
-  </div>
-
-  <!-- D — CONTACT -->
-  <div class="section" id="contact">
-    <div class="section-letter">D &nbsp;&nbsp; Contact</div>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <div class="contact-label">Est.</div>
-        <div class="contact-val">2025</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Based in</div>
-        <div class="contact-val">Berlin, DE &amp; New York, US</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">New Business</div>
-        <div class="contact-val"><a href="mailto:hello@miad.studio">hello@miad.studio</a></div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Follow</div>
-        <div class="contact-val">
-          <a href="#">Instagram</a><br>
-          <a href="#">LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- E — SELECT CLIENTS -->
-  <div class="section">
-    <div class="section-letter">E &nbsp;&nbsp; Select Clients</div>
-    <div class="client-list">
-      <div class="client-item">&amp;Tradition</div>
-      <div class="client-item">Architonic</div>
-      <div class="client-item">BMW</div>
-      <div class="client-item">Dauphin</div>
-      <div class="client-item">Frederik G. Pferdt</div>
-      <div class="client-item">Friends of Friends</div>
-      <div class="client-item">HAY</div>
-      <div class="client-item">LAS Art Foundation</div>
-      <div class="client-item">Lewis Group of Companies</div>
-      <div class="client-item">Louis Vuitton</div>
-      <div class="client-item">NZZ</div>
-      <div class="client-item">Pernod Ricard</div>
-      <div class="client-item">Ritz Carlton</div>
-      <div class="client-item">Ruinart</div>
-      <div class="client-item">Sonos</div>
-      <div class="client-item">Thonet</div>
-      <div class="client-item">Tylko</div>
-      <div class="client-item">USM</div>
-      <div class="client-item">Vitra</div>
-    </div>
-  </div>
-
-  <!-- F — PEOPLE -->
-  <div class="section">
-    <div class="section-letter">F &nbsp;&nbsp; People</div>
-    <div class="people-item">
-      <span class="people-name">Frederik Frede</span>
-      <span class="people-role">Co-Founder, Creative Director</span>
-    </div>
-    <div class="people-item">
-      <span class="people-name">Chuck Heckman</span>
-      <span class="people-role">Co-Founder, CMO Dauphin</span>
-    </div>
-  </div>
+  <div class="section-label">Collaborators</div>
+  <div class="person">Frederik Frede</div>
+  <div class="person">Torsten Bergler</div>
+  <div class="person">Alex Green</div>
+  <div class="person">Bob Wassermann</div>
+  <div class="person">Thomas Provost</div>
+  <div class="person">Juul Crooymans</div>
 
 </div>
 
-<div class="footer-bar">
-  <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:13px;">MiaD</span></span>
+<div class="footer">
+  <span>© 2026 <span class="footer-frak">Frede</span></span>
   <div class="footer-links">
-    <a href="#">Instagram</a>
-    <a href="#">LinkedIn</a>
+    <a href="https://instagram.com">Instagram</a>
+    <a href="https://linkedin.com">LinkedIn</a>
   </div>
 </div>
 
