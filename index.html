@@ -1,182 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
-    * { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    :root {
-      --grey-dark:  #4a4540;
-      --grey-mid:   #7a7470;
-      --grey-light: #a8a39f;
-      --border:     #c8c3be;
-      --bg:         #fff;
-    }
-    body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiaD</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root { --grey-dark:#4a4540; --grey-mid:#7a7470; --grey-light:#a8a39f; --border:#c8c3be; --bg:#fff; }
+body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
 
-    /* ── NAV ── */
-    .nav {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:16px 24px;
-      position:sticky; top:0; background:var(--bg); z-index:100;
-    }
-    .nav-left { display:flex; align-items:baseline; }
-    .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.01em; color:var(--grey-dark); text-decoration:none; }
-    .nav-studio { font-size:13px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
-    .nav-links { display:flex; gap:0; list-style:none; align-items:center; }
-    .nav-links li { display:inline; }
-    .nav-links li::after { content:","; font-size:12px; color:var(--grey-light); margin-right:6px; }
-    .nav-links li:last-child::after { content:""; margin-right:0; }
-    .nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; letter-spacing:0.01em; margin-right:6px; }
-    .nav-links a:hover { color:var(--grey-dark); }
-    .nav-links a.active { font-weight:700; color:var(--grey-dark); }
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
-    .hamburger span { display:block; width:22px; height:1.5px; background:var(--grey-dark); }
 
-    /* ── HERO ── */
-    .hero { padding:56px 24px 48px; }
-    .hero-headline { font-size:clamp(64px,11vw,130px); font-weight:700; line-height:0.91; letter-spacing:-0.03em; color:var(--grey-dark); margin-bottom:44px; }
-    .hero-sub { display:flex; justify-content:space-between; align-items:flex-end; gap:40px; }
-    .hero-desc { font-size:clamp(16px,2vw,26px); font-weight:700; line-height:1.3; max-width:800px; color:var(--grey-mid); letter-spacing:-0.01em; }
-    .hero-cta { display:flex; gap:12px; align-items:center; flex-shrink:0; }
 
-    /* ── BUTTONS ── */
-    .btn-p { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; display:inline-flex; align-items:center; font-size:14px; color:#fff; background:var(--grey-dark); border-radius:980px; padding:11px 24px; text-decoration:none; border:1px solid var(--grey-dark); line-height:1.4; white-space:nowrap; transition:background 0.15s; }
-    .btn-p:hover { background:var(--grey-mid); border-color:var(--grey-mid); }
-    .btn-s { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; display:inline-flex; align-items:center; font-size:14px; color:var(--grey-dark); background:transparent; border-radius:980px; padding:11px 24px; text-decoration:none; border:1px solid var(--grey-dark); line-height:1.4; white-space:nowrap; transition:border-color 0.15s; }
-    .btn-s:hover { border-color:var(--grey-mid); color:var(--grey-mid); }
-    .btn-s::after { content:' ›'; font-size:16px; }
+/* HERO */
+.hero { padding:56px 24px 48px;  }
+.hero-headline { font-size:clamp(64px,11vw,130px); font-weight:700; line-height:0.91; letter-spacing:-0.03em; color:var(--grey-dark); margin-bottom:44px; }
+.hero-sub { display:flex; justify-content:space-between; align-items:flex-end; gap:40px; }
+.hero-desc { font-size:clamp(16px,2vw,26px); font-weight:700; line-height:1.3; max-width:800px; color:var(--grey-mid); letter-spacing:-0.01em; }
+.hero-cta { display:flex; gap:12px; align-items:center; flex-shrink:0; }
+.btn-p { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; display:inline-flex; align-items:center; font-size:14px; color:#fff; background:var(--grey-dark); border-radius:980px; padding:11px 24px; text-decoration:none; border:1px solid var(--grey-dark); line-height:1.4; white-space:nowrap; transition:background 0.15s; }
+.btn-p:hover { background:var(--grey-mid); border-color:var(--grey-mid); }
+.btn-s { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; display:inline-flex; align-items:center; font-size:14px; color:var(--grey-dark); background:transparent; border-radius:980px;  padding:11px 24px; text-decoration:none; line-height:1.4; white-space:nowrap; transition:border-color 0.15s; }
+.btn-s:hover { border-color:var(--grey-mid); }
+.btn-s::after { content:' ›'; font-size:16px; }
 
-    /* ── PROJECT LIST (homepage, stacked Alright style) ── */
-    .project-list { width:100%; }
-    .project-item { display:block; text-decoration:none; color:var(--grey-dark); }
-    .project-item.landscape .img-wrap { width:100%; overflow:hidden; aspect-ratio:16/9; position:relative; }
-    .project-item.portrait { padding:48px 0; }
-    .project-item.portrait .img-wrap { width:35%; margin:0 auto; overflow:hidden; aspect-ratio:4/5; }
-    .project-item.square { padding:40px 0; }
-    .project-item.square .img-wrap { width:42%; margin:0 auto; overflow:hidden; aspect-ratio:1/1; }
-    .img-wrap img, .img-wrap video { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .project-item:hover .img-wrap img,
-    .project-item:hover .img-wrap video { transform:scale(1.02); }
-    .project-meta { display:flex; justify-content:space-between; align-items:baseline; padding:12px 24px 16px; }
-    .project-brand { font-size:12px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--grey-dark); }
-    .project-type { font-size:11px; color:var(--grey-light); }
+/* SECTION HEADER */
+.section-header { display:flex; justify-content:space-between; align-items:center; padding:14px 24px;   }
+.section-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-mid); }
+.section-count { font-size:11px; color:var(--grey-light); }
 
-    /* ── SECTION HEADER ── */
-    .section-header { display:flex; justify-content:space-between; align-items:center; padding:14px 24px; }
-    .section-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-mid); }
-    .section-count { font-size:11px; color:var(--grey-light); }
+/* PROJECT LIST — Alright style stacked */
+.project-list { width:100%; }
+.project-item { display:block; text-decoration:none; color:var(--grey-dark); }
 
-    /* ── FOOTER ── */
-    .footer-bar { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; }
-    .footer-copy { font-size:12px; color:var(--grey-light); }
-    .footer-links { display:flex; gap:16px; }
-    .footer-links a { font-size:12px; color:var(--grey-mid); text-decoration:none; }
-    .footer-links a:hover { color:var(--grey-dark); }
+/* Landscape: full bleed */
+.project-item.landscape .img-wrap { width:100%; overflow:hidden; aspect-ratio:16/9; }
 
-    /* ── MOBILE ── */
-    @media (max-width:640px) {
-      .nav { padding:14px 16px; position:relative; }
-      .nav-links { display:none; }
-      .nav-links.open {
-        display:flex; flex-direction:column;
-        position:absolute; top:100%; left:0; right:0;
-        background:var(--bg); padding:12px 16px 20px; gap:0; z-index:200;
-      }
-      .nav-links.open li { display:block; }
-      .nav-links.open li::after { display:none; }
-      .nav-links.open a { display:block; font-size:15px; padding:11px 0; margin:0; color:var(--grey-mid); }
-      .nav-links.open a.active { color:var(--grey-dark); }
-      .hamburger { display:flex; }
-      .hero { padding:32px 16px 36px; }
-      .hero-sub { flex-direction:column; align-items:flex-start; gap:24px; }
-      .hero-cta { flex-wrap:wrap; gap:10px; }
-      .project-item.portrait .img-wrap { width:80%; }
-      .project-item.portrait { padding:24px 0; }
-      .project-item.square .img-wrap { width:80%; }
-      .project-item.square { padding:20px 0; }
-      .project-meta { padding:10px 16px 14px; }
-      .section-header { padding:12px 16px; }
-      .footer-bar { padding:16px; }
-    }
-  </style>
+/* Portrait: centered ~50% width like Alright */
+.project-item.portrait .img-wrap { width:35%; margin:0 auto; overflow:hidden; aspect-ratio:4/5; }
+
+/* Square: centered ~55% */
+.project-item.portrait { padding:48px 0; }
+.project-item.square { padding:40px 0; }
+.project-item.square .img-wrap { width:42%; margin:0 auto; overflow:hidden; aspect-ratio:1/1; }
+
+.project-item.landscape .img-wrap { position:relative; }
+.img-wrap img, .img-wrap video {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.project-item:hover .img-wrap img,
+.project-item:hover .img-wrap video { transform:scale(1.02); }
+
+.project-meta { display:flex; justify-content:space-between; align-items:baseline; padding:12px 24px 16px; }
+.project-brand { font-size:12px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--grey-dark); }
+.project-type { font-size:11px; color:var(--grey-light); }
+
+/* ABOUT SNIPPET */
+.about-strip {
+  display:grid; grid-template-columns:1fr 1fr;
+  
+}
+.about-col { padding:56px 24px 64px; }
+.about-col:first-child {  }
+.about-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:28px; }
+.about-headline { font-size:clamp(28px,4vw,48px); font-weight:700; line-height:1.02; letter-spacing:-0.025em; color:var(--grey-dark); margin-bottom:24px; }
+.about-text { font-size:14px; line-height:1.7; color:var(--grey-mid); margin-bottom:12px; }
+.founder { display:grid; grid-template-columns:1fr auto; gap:16px; padding:22px 0;  }
+.founder:first-of-type {  }
+.founder-name { font-size:13px; font-weight:700; color:var(--grey-dark); margin-bottom:5px; }
+.founder-role { font-size:12px; color:var(--grey-mid); line-height:1.5; }
+.founder-num { font-size:11px; color:var(--grey-light); padding-top:2px; }
+
+/* FOOTER */
+.footer { display:grid; grid-template-columns:1fr 1fr 1fr;  }
+.footer-col { padding:32px 24px;  }
+.footer-col:last-child { border-right:none; }
+.footer-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:12px; }
+.footer-val { font-size:13px; color:var(--grey-mid); line-height:1.7; }
+.footer-val a { color:var(--grey-mid); text-decoration:none; }
+.footer-val a:hover { color:var(--grey-dark); }
+.footer-bottom { padding:20px 24px;  display:flex; justify-content:space-between; }
+.footer-copy { font-size:11px; color:var(--grey-light); }
+
+/* NAV — Alright style */
+.nav {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:16px 24px;
+  
+  position:sticky; top:0; background:var(--bg); z-index:100;
+}
+.nav-left { display:flex; align-items:baseline; }
+.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.01em; color:var(--grey-dark); text-decoration:none; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
+.nav-studio { font-size:13px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
+.nav-links { display:flex; gap:0; list-style:none; align-items:center; }
+.nav-links li { display:inline; }
+.nav-links li::after { content:","; font-size:12px; color:var(--grey-light); margin-right:6px; }
+.nav-links li:last-child::after { content:""; margin-right:0; }
+.nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; letter-spacing:0.01em; margin-right:6px; }
+.nav-links a:hover { color:var(--grey-dark); }
+.nav-links a.active { font-weight:700; color:var(--grey-dark); }
+.hamburger { display:none; }
+
+/* FOOTER — Alright style */
+.footer-bar {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 24px;
+  
+}
+.footer-copy { font-size:12px; color:var(--grey-light); }
+.footer-links { display:flex; gap:16px; }
+.footer-links a { font-size:12px; color:var(--grey-mid); text-decoration:none; }
+.footer-links a:hover { color:var(--grey-dark); }
+
+/* ── MOBILE ──────────────────────────────────────────────── */
+@media (max-width: 640px) {
+
+  /* Nav — hide links, keep logo */
+  .nav { padding:14px 16px; position:relative; }
+  .nav-links { display:none; }
+  .nav-links.open {
+    display:flex; flex-direction:column;
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--bg);
+    padding:12px 16px 20px;
+    gap:0;
+    z-index:200;
+  }
+  .nav-links.open li { display:block; }
+  .nav-links.open li::after { display:none; }
+  .nav-links.open a { display:block; font-size:15px; padding:11px 0; margin:0; border-bottom:none; color:var(--grey-mid); }
+  .nav-links.open a.active { color:var(--grey-dark); }
+  .hamburger { display:flex; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+  .hamburger span { display:block; width:22px; height:1.5px; background:var(--grey-dark); }
+
+  /* Hero */
+  .hero { padding:32px 16px 36px; }
+  .hero-sub { flex-direction:column; align-items:flex-start; gap:24px; }
+  .hero-cta { flex-wrap:wrap; gap:10px; }
+
+  /* Portrait items: full width on mobile */
+  .project-item.portrait .img-wrap { width:80%; }
+  .project-item.portrait { padding:24px 0; }
+  .project-item.square .img-wrap { width:80%; }
+  .project-item.square { padding:20px 0; }
+
+  /* Project meta */
+  .project-meta { padding:10px 16px 14px; }
+
+  /* Section header */
+  .section-header { padding:12px 16px; }
+
+  /* About strip — stack columns */
+  .about-strip { grid-template-columns:1fr; }
+  .about-col { padding:36px 16px 40px; }
+
+  /* Footer */
+  .footer-bar { padding:16px 16px; }
+
+}
+
+</style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav class="nav">
   <div class="nav-left">
-    <a class="nav-logo" href="/">Your Name</a>
-    <a class="nav-studio">&nbsp;Portfolio</a>
+    <a class="nav-logo" href="/miad-studio/">MiaD</a><a class="nav-studio" href="/miad-studio/about.html">&nbsp;Studio</a>
   </div>
   <ul class="nav-links">
-    <li><a href="/" class="active">Home</a></li>
-    <li><a href="/work.html">Work</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/about.html#contact">Contact</a></li>
+    <li><a href="/miad-studio/" class="active">Home</a></li>
+    <li><a href="/miad-studio/work.html">Work</a></li>
+    <li><a href="/miad-studio/about.html">Information</a></li>
+    <li><a href="/miad-studio/about.html#contact">Contact</a></li>
   </ul>
-  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+  <button class="hamburger" id="hbg" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
     <span></span><span></span>
   </button>
 </nav>
 
-<!-- ── HERO ── -->
 <div class="hero">
-  <h1 class="hero-headline">Your Headline<br>Goes Here.</h1>
+  <h1 class="hero-headline">Merging intelligence and Design.</h1>
   <div class="hero-sub">
-    <p class="hero-desc">One or two lines describing what you do.<br>Short. Confident. No generalist answers.</p>
+    <p class="hero-desc">AI strategy and creative direction for Architecture &amp; Design.<br>Deep sector knowledge. No generalist answers.</p>
     <div class="hero-cta">
-      <a class="btn-p" href="/about.html#contact">Get in touch</a>
-      <a class="btn-s" href="/work.html">See work</a>
+      <a class="btn-p" href="/miad-studio/about.html#contact">Start a conversation</a>
+      <a class="btn-s" href="/miad-studio/work.html">See use cases</a>
     </div>
   </div>
 </div>
 
-<!-- ── PROJECTS ── -->
-<div class="section-header">
-  <span class="section-label">Selected Work</span>
-  <span class="section-count">00</span>
+<div>
+  <div class="section-header">
+    <span class="section-label">Case Studies</span>
+    
+  </div>
+  <div class="project-list" id="case-list"></div>
 </div>
 
-<div class="project-list">
-
-  <!-- Landscape item -->
-  <a class="project-item landscape" href="#">
-    <div class="img-wrap">
-      <img src="your-image.jpg" alt="Project Name">
+<!-- ABOUT SNIPPET -->
+<div class="about-strip">
+  <div class="about-col">
+    <div class="about-label">About</div>
+    <h2 class="about-headline">Where sector knowledge meets design intelligence.</h2>
+    <p class="about-text">MIAD works at the intersection of AI strategy and creative direction for Architecture &amp; Design brands. We bring deep industry fluency — not generic AI consulting.</p>
+    <p class="about-text">Our work spans brand strategy, creative direction, digital transformation, and AI integration. We understand the material culture of the industry, the pace of its cycles, and the relationships that move it.</p>
+  </div>
+  <div class="about-col">
+    <div class="about-label">Founders</div>
+    <div class="founder">
+      <div>
+        <div class="founder-name">Frederik Frede</div>
+        <div class="founder-role">Co-Founder — Creative Director<br>Vitra, USM, HAY, &amp;Tradition, Architonic,<br>Thonet, Louis Vuitton, Sonos, Pernod Ricard</div>
+      </div>
+      <div class="founder-num">01</div>
     </div>
-    <div class="project-meta">
-      <span class="project-brand">Project Name</span>
-      <span class="project-type">Category</span>
+    <div class="founder">
+      <div>
+        <div class="founder-name">Chuck Heckman</div>
+        <div class="founder-role">Co-Founder — CMO, Dauphin<br>Matter Surfaces, Publicis, OneBillion!</div>
+      </div>
+      <div class="founder-num">02</div>
     </div>
-  </a>
-
-  <!-- Portrait item -->
-  <a class="project-item portrait" href="#">
-    <div class="img-wrap">
-      <img src="your-image.jpg" alt="Project Name">
-    </div>
-    <div class="project-meta">
-      <span class="project-brand">Project Name</span>
-      <span class="project-type">Category</span>
-    </div>
-  </a>
-
+  </div>
 </div>
 
-<!-- ── FOOTER ── -->
 <div class="footer-bar">
-  <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;">Your Name</span></span>
+  <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:13px;">MiaD</span></span>
   <div class="footer-links">
     <a href="#">Instagram</a>
     <a href="#">LinkedIn</a>
   </div>
 </div>
 
+<script>
+// orientation: landscape = full bleed 16/9, portrait = centered 50% 4/5, square = centered 55% 1/1
+const cases = [
+  { b:"Architonic",        t:"Platform Strategy",      o:"landscape", type:"video",
+    src:"https://storage.googleapis.com/system-on/homer/header-compressed.mp4", poster:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp" },
+  { b:"Dauphin",           t:"Go-to-Market",            o:"portrait",  type:"img",
+    src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg" },
+  { b:"USM",               t:"Digital Transformation",  o:"landscape", type:"vimeo",
+    src:"1048609984" },
+  { b:"NZZ",               t:"Brand &amp; Digital",     o:"landscape", type:"img",
+    src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" },
+  { b:"Lewis",             t:"Brand &amp; Digital",     o:"landscape", type:"video",
+    src:"https://lewisgroupofcompanies.com/wp-content/uploads/2023/08/Home_header-final.mp4",
+    poster:"https://www.moresleep.net/wp-content/uploads/2024/09/Lewis-Billboard_Nature-Mockup-1024x683.jpg" },
+  { b:"Frederik G. Pferdt",t:"Brand &amp; Identity",    o:"landscape", type:"video",
+    src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-02.mp4",
+    poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg" },
+  { b:"Vitra",             t:"Brand Strategy",          o:"portrait",  type:"img",
+    src:"https://static.vitra.com/products/41218500/LCH_41218500.LCH_MAS_01=02;LCH_41218500.LCH_VAN_01=05;LCH_41218500.LCH_COV_01=0075;LCH_41218500.BZF_LPF_01=66;LCH_41218500.LCH_BAS_01=02;LCH_41218500.LCH_BAS_ON_01=05;LCH_41218500.WPROMO_25_LCH=01;LCH_41218500.ZV99999_CHR_PAC01=K001.png" },
+  { b:"Louis Vuitton",     t:"Employer Branding",       o:"landscape", type:"video",
+    src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4",
+    poster:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton-a-global-employer-branding-campaign-and-extended-work-culture-documentary/Friends-of-Friends-LV-WorkshopsCreation-0392.jpg" },
+  { b:"LAS Art Foundation",t:"Branding &amp; Motion",   o:"landscape", type:"video",
+    src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65dc782cb4e5798707ac738e_LAS Digital Posters Final Animation-transcode.mp4",
+    poster:"" },
+];
+
+const list = document.getElementById('case-list');
+cases.forEach(p => {
+  const a = document.createElement('a');
+  a.className = 'project-item ' + p.o;
+  a.href = '/miad-studio/work.html';
+
+  let media = '';
+  if (p.type === 'video') {
+    media = `<video autoplay muted loop playsinline poster="${p.poster||''}"><source src="${p.src}" type="video/mp4"></video>`;
+  } else if (p.type === 'vimeo') {
+    media = `<iframe src="https://player.vimeo.com/video/${p.src}?autoplay=1&muted=1&loop=1&background=1&autopause=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>`;
+  } else {
+    media = `<img src="${p.src}" alt="${p.b}" loading="lazy" onerror="this.parentElement.style.background='#e4e0db';this.style.display='none'" />`;
+  }
+
+  a.innerHTML = `<div class="img-wrap">${media}</div>
+    <div class="project-meta">
+      <span class="project-brand">${p.b}</span>
+      <span class="project-type">${p.t}</span>
+    </div>`;
+  list.appendChild(a);
+});
+</script>
 </body>
 </html>
