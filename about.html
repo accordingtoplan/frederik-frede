@@ -1,491 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Frederik Frede — Brand strategy, identity & digital for design-led culture.">
-  <title>Information — Frederik Frede</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--grey-dark);
-      -webkit-font-smoothing: antialiased;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Information — Frederik Frede</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { min-height: 100vh; display: flex; flex-direction: column; }
+  main { flex: 1; padding: 0 48px 120px; }
 
-    /* ─── NAV ─────────────────────────────────────────────── */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  .page-title {
+    font-size: var(--t-ui);
+    font-weight: var(--bold);
+    text-align: center;
+    color: var(--grey-dark);
+    padding: 48px 0 32px;
+  }
 
-    
-    
+  .hero-statement {
+    font-size: var(--t-hero);
+    font-weight: var(--bold);
+    line-height: var(--lh-hero);
+    letter-spacing: var(--ls-hero);
+    color: var(--grey-dark);
+    margin-bottom: 64px;
+  }
 
-    /* ─── COLOUR SWITCHER ─────────────────────────────────── */
-    
-    
-    
-    .swatch:hover { opacity: 0.6; }
+  .body-para {
+    font-size: var(--t-large);
+    font-weight: var(--bold);
+    letter-spacing: var(--ls-large);
+    line-height: var(--lh-large);
+    color: var(--grey-mid);
+    margin-bottom: 40px;
+  }
+  .body-para.dark { color: var(--grey-dark); }
+  .body-para.indent { text-indent: 2em; }
 
-    /* ─── PAGE ─────────────────────────────────────────────── */
-    .page {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 80px 32px 140px;
-    }
+  .section-label {
+    font-size: var(--t-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--grey-light);
+    margin-top: 80px;
+    margin-bottom: 28px;
+  }
 
-    /* ─── INTRO ────────────────────────────────────────────── */
-    .intro { margin-bottom: 96px; }
-    .intro-statement {
-      font-size: clamp(32px, 4vw, 56px);
-      font-weight: 700;
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-      color: var(--grey-dark);
-      margin-bottom: 32px;
-      max-width: 800px;
-    }
-    .intro-body {
-      font-size: 17px;
-      line-height: 1.65;
-      color: var(--grey-mid);
-      max-width: 580px;
-    }
-    .intro-body p + p { margin-top: 16px; }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 48px;
+    margin-top: 80px;
+  }
 
-    /* ─── SECTIONS ─────────────────────────────────────────── */
-    .section { padding: 56px 0; }
+  .col-head {
+    font-size: var(--t-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--grey-light);
+    margin-bottom: 20px;
+  }
 
-    .section-header {
-      display: flex; align-items: baseline; gap: 10px;
-      margin-bottom: 32px;
-    }
-    .section-letter {
-      font-size: 11px; font-weight: 400;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--grey-light);
-    }
-    .section-title {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.09em; text-transform: uppercase;
-      color: var(--grey-dark);
-    }
+  .list-item {
+    font-size: var(--t-large);
+    font-weight: var(--bold);
+    letter-spacing: var(--ls-large);
+    line-height: 1;
+    color: var(--grey-dark);
+    padding: 12px 0;
+  }
 
-    /* A: Capabilities */
-    .cap-list { list-style: none; columns: 2; column-gap: 64px; }
-    .cap-list li { font-size: 17px; color: var(--grey-dark); line-height: 1.5; padding: 7px 0; break-inside: avoid; }
+  .clients-text {
+    font-size: var(--t-large);
+    font-weight: var(--bold);
+    letter-spacing: var(--ls-large);
+    line-height: 1.35;
+    color: var(--grey-mid);
+  }
 
-    /* B: Services */
-    .services-list { list-style: none; }
-    .service-item { padding: 20px 0; max-width: 640px; }
-    .service-name { font-size: 17px; font-weight: 700; color: var(--grey-dark); margin-bottom: 6px; }
-    .service-desc { font-size: 15px; color: var(--grey-mid); line-height: 1.65; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 80px;
+  }
 
-    /* C: Approach */
-    .statements { max-width: 800px; }
-    .statement {
-      font-size: clamp(22px, 3vw, 38px);
-      font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
-      color: var(--grey-dark); padding: 28px 0;
-    }
+  .contact-label {
+    font-size: var(--t-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--grey-light);
+    margin-bottom: 8px;
+  }
 
-    /* D: Contact */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 64px; max-width: 640px; }
-    .contact-label { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--grey-light); margin-bottom: 6px; }
-    .contact-value { font-size: 17px; color: var(--grey-dark); }
-    .contact-value a { color: var(--grey-dark); text-decoration: none; }
-    .contact-value a:hover { text-decoration: underline; }
+  .contact-value {
+    font-size: var(--t-large);
+    font-weight: var(--bold);
+    letter-spacing: var(--ls-large);
+    color: var(--grey-dark);
+    line-height: 1.2;
+  }
 
-    /* E: Clients */
-    .clients-list { list-style: none; columns: 3; column-gap: 64px; max-width: 720px; }
-    .clients-list li { font-size: 17px; color: var(--grey-mid); line-height: 1.5; padding: 5px 0; break-inside: avoid; }
+  .contact-value a { color: var(--grey-dark); text-decoration: none; }
+  .contact-value a:hover { color: var(--grey-mid); }
 
-    /* F: Features */
-    .features-list { list-style: none; max-width: 680px; }
-    .feature-item { padding: 10px 0; }
-    .feature-link { font-size: 17px; color: var(--grey-dark); text-decoration: none; font-weight: 700; }
-    .feature-link:hover { text-decoration: underline; }
-    .feature-desc { font-size: 15px; color: var(--grey-mid); margin-top: 2px; }
+  .person {
+    font-size: var(--t-ui);
+    font-weight: var(--regular);
+    color: var(--grey-mid);
+    padding: 6px 0;
+  }
 
-    /* G: Experience */
-    .experience-list { list-style: none; max-width: 680px; }
-    .experience-item { padding: 20px 0; }
-    .experience-company { font-size: 17px; font-weight: 700; color: var(--grey-dark); margin-bottom: 3px; }
-    .experience-company a { color: var(--grey-dark); text-decoration: none; }
-    .experience-company a:hover { text-decoration: underline; }
-    .experience-meta { font-size: 14px; color: var(--grey-light); margin-bottom: 8px; }
-    .experience-desc { font-size: 15px; color: var(--grey-mid); line-height: 1.65; max-width: 560px; }
-
-    /* ─── FOOTER ───────────────────────────────────────────── */
-    
-    
-    
-    
-    
-
-    /* ─── MOBILE ───────────────────────────────────────────── */
-    @media (max-width: 640px) {
-      
-      
-      
-      
-      
-      
-
-      .page { padding: 48px 20px 100px; }
-      .cap-list { columns: 1; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .clients-list { columns: 1; }
-      
-    }
-  </style>
+  @media (max-width: 640px) {
+    main { padding: 0 24px 80px; }
+    .two-col { grid-template-columns: 1fr; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="nav-left">
-      <a class="nav-logo" href="/frede-studio/">Frederik</a>
-      <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="/frede-studio/">Frederik</a>
+    <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch" style="background:#fff"    onclick="setTheme('white',this)"  title="White"></div>
+      <div class="swatch active" style="background:#111" onclick="setTheme('black',this)"  title="Black"></div>
+      <div class="swatch" style="background:#e8e4df" onclick="setTheme('warm',this)"   title="Warm"></div>
     </div>
-    <div class="nav-center">
-      <div class="swatches">
-        <div class="swatch" style="background:#fff"    onclick="setTheme('white',this)"  title="White"></div>
-        <div class="swatch active" style="background:#111" onclick="setTheme('black',this)"  title="Black"></div>
-        <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
-      </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <ul>
+      <li><a href="/frede-studio/">Home</a></li>
+      <li><a href="/frede-studio/work.html">Work</a></li>
+      <li><a href="/frede-studio/about.html" class="active">Information</a></li>
+      <li><a href="/frede-studio/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<main>
+
+  <div class="page-title">Information</div>
+
+  <div class="hero-statement">Thirty years of culture,<br>brand, and building things<br>from scratch.</div>
+
+  <div class="body-para dark">
+    Started as a graphic designer in Cologne. Spent the early years designing record sleeves, concert posters, and the visual world around music — earning gold records before most agencies knew what a website was.
+  </div>
+
+  <div class="body-para indent">
+    Founded NoMoreSleep, sold it to TBWA. Built Freunde von Freunden into one of the most referenced creative platforms in Europe — publishing two books, running a community space in Berlin, and proving that timeless content beats the news cycle every time.
+  </div>
+
+  <div class="body-para indent">
+    Started MoreSleep in 2012 and grew it into an internationally dispersed studio, with offices in Berlin and Los Angeles, working across brand strategy, identity, digital, and content for design-led clients around the world.
+  </div>
+
+  <div class="body-para indent">
+    Now operating independently — advising, directing, and building. Developing AI frameworks that bring rigour and creative thinking into how brands work, not just what they make. The tools are new. The discipline isn't.
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="col-head">Capabilities</div>
+      <div class="list-item">Brand Strategy</div>
+      <div class="list-item">Visual Identity</div>
+      <div class="list-item">Creative Direction</div>
+      <div class="list-item">Digital Design</div>
+      <div class="list-item">Motion & Film</div>
+      <div class="list-item">Content Strategy</div>
+      <div class="list-item">Publishing</div>
+      <div class="list-item">AI Frameworks</div>
+      <div class="list-item">Platform & Product</div>
     </div>
-    <div class="nav-right">
-      <ul class="nav-links" id="navLinks">
-        <li><a href="/frede-studio/">Home</a></li>
-        <li><a href="/frede-studio/work.html">Work</a></li>
-        <li><a href="/frede-studio/about.html" class="active">Information</a></li>
-        <li><a href="/frede-studio/about.html#contact">Contact</a></li>
-      </ul>
+    <div>
+      <div class="col-head">Services</div>
+      <div class="list-item">Brand Audit & Positioning</div>
+      <div class="list-item">Identity Systems</div>
+      <div class="list-item">Art Direction</div>
+      <div class="list-item">Digital Strategy</div>
+      <div class="list-item">Social & Content</div>
+      <div class="list-item">AI Integration</div>
+      <div class="list-item">Advisory & Mentorship</div>
+      <div class="list-item">Production Leadership</div>
     </div>
-    <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
-      <span></span><span></span>
-    </button>
-  </nav>
+  </div>
 
-  <div class="page">
+  <div class="section-label">Clients</div>
+  <div class="clients-text">
+    Architonic · Louis Vuitton · NZZ · LAS Art Foundation · USM · Ritz-Carlton · Lewis · Umane · Signal LA · Frederik G. Pferdt · Bianca Chen · Vitra · HAY · Sonos · Thonet · Pernod Ricard · &Tradition · Tylko · Ruinart · BMW · Friends of Friends
+  </div>
 
-    <div class="intro">
-      <p class="intro-statement">Where culture meets brand.</p>
-      <div class="intro-body">
-        <p>Frederik Frede is a creative director and brand strategist working at the intersection of design, culture, and commerce. Based in Berlin and Los Angeles, he helps design-led organisations find their voice and build the systems to sustain it.</p>
-        <p>Previously co-founder of MoreSleep and Freunde von Freunden, he has spent fifteen years shaping brands that live as confidently in galleries as they do in market.</p>
-      </div>
+  <div class="section-label" id="contact">Contact</div>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-label">New Business</div>
+      <div class="contact-value"><a href="mailto:hello@frederikfrede.com">hello@frederikfrede.com</a></div>
     </div>
-
-    <!-- A. Capabilities -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-letter">A</span>
-        <span class="section-title">Capabilities</span>
-      </div>
-      <ul class="cap-list">
-        <li>Brand Strategy</li>
-        <li>Creative Direction</li>
-        <li>Visual Identity</li>
-        <li>Digital Design</li>
-        <li>Content Strategy</li>
-        <li>Campaign &amp; Editorial</li>
-        <li>Motion &amp; Film</li>
-        <li>AI Frameworks &amp; Tooling</li>
-        <li>Platform &amp; Product Design</li>
-        <li>Publishing &amp; Books</li>
-      </ul>
+    <div>
+      <div class="contact-label">Based in</div>
+      <div class="contact-value">Berlin & Los Angeles</div>
     </div>
-
-    <!-- B. Services -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-letter">B</span>
-        <span class="section-title">Services</span>
-      </div>
-      <ul class="services-list">
-        <li class="service-item">
-          <div class="service-name">Strategy</div>
-          <div class="service-desc">Research, positioning, naming, and messaging. The thinking that gives design a reason to exist.</div>
-        </li>
-        <li class="service-item">
-          <div class="service-name">Design</div>
-          <div class="service-desc">Identity systems, typography, art direction, and print. Built for longevity, not trend cycles.</div>
-        </li>
-        <li class="service-item">
-          <div class="service-name">Digital</div>
-          <div class="service-desc">Website design, social systems, and campaign architecture. Coherent across every touchpoint.</div>
-        </li>
-        <li class="service-item">
-          <div class="service-name">Production</div>
-          <div class="service-desc">Film, photography, motion, and events. Creative leadership from concept through delivery.</div>
-        </li>
-      </ul>
+    <div>
+      <div class="contact-label">Instagram</div>
+      <div class="contact-value"><a href="https://instagram.com/frederikfrede" target="_blank">@frederikfrede</a></div>
     </div>
-
-    <!-- C. Approach -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-letter">C</span>
-        <span class="section-title">Approach</span>
-      </div>
-      <div class="statements">
-        <div class="statement">Trained as a graphic designer. Learned to think through music, production, and the culture around them.</div>
-        <div class="statement">Built businesses from zero. Agencies, platforms, communities. Before building for others became the work.</div>
-        <div class="statement">Was there when culture went digital. Helped brands understand what the internet meant for who they were, not just how they looked.</div>
-        <div class="statement">Now working where it is shifting again. Developing AI frameworks that make creative work faster, sharper, and more considered. Not less human.</div>
-        <div class="statement">The discipline doesn't change. The tools do.</div>
-      </div>
+    <div>
+      <div class="contact-label">LinkedIn</div>
+      <div class="contact-value"><a href="https://linkedin.com/in/frederikfrede" target="_blank">Frederik Frede</a></div>
     </div>
+  </div>
 
-    <!-- D. Contact -->
-    <div class="section" id="contact">
-      <div class="section-header">
-        <span class="section-letter">D</span>
-        <span class="section-title">Contact</span>
-      </div>
-      <div class="contact-grid">
-        <div>
-          <div class="contact-label">New Business</div>
-          <div class="contact-value"><a href="mailto:frederikfrede@gmail.com">frederikfrede@gmail.com</a></div>
-        </div>
-        <div>
-          <div class="contact-label">Based in</div>
-          <div class="contact-value">Berlin &amp; Los Angeles</div>
-        </div>
-        <div>
-          <div class="contact-label">Instagram</div>
-          <div class="contact-value"><a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">@frederikfrede</a></div>
-        </div>
-        <div>
-          <div class="contact-label">LinkedIn</div>
-          <div class="contact-value"><a href="https://linkedin.com/frederikfrede" target="_blank" rel="noopener">Frederik Frede</a></div>
-        </div>
-      </div>
-    </div>
+  <div class="section-label">Collaborators</div>
+  <div class="person">Torsten Bergler</div>
+  <div class="person">Alex Green</div>
+  <div class="person">Bob Wassermann</div>
+  <div class="person">Thomas Provost</div>
+  <div class="person">Juul Crooymans</div>
 
-    <!-- E. Clients -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-letter">E</span>
-        <span class="section-title">Clients</span>
-      </div>
-      <ul class="clients-list">
-        <li>Architonic</li>
-        <li>Louis Vuitton</li>
-        <li>NZZ</li>
-        <li>LAS Art Foundation</li>
-        <li>USM</li>
-        <li>Ritz-Carlton</li>
-        <li>Lewis</li>
-        <li>Umane</li>
-        <li>Signal LA</li>
-        <li>Frederik G. Pferdt</li>
-        <li>Bianca Chen</li>
-        <li>Vitra</li>
-        <li>HAY</li>
-        <li>Sonos</li>
-        <li>Thonet</li>
-        <li>Pernod Ricard</li>
-        <li>&amp;Tradition</li>
-        <li>Tylko</li>
-        <li>Ruinart</li>
-        <li>BMW</li>
-        <li>Friends of Friends</li>
-      </ul>
-    </div>
+</main>
 
-    <!-- F. Features -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-letter">F</span>
-        <span class="section-title">Features</span>
-      </div>
-      <ul class="features-list">
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.zeit.de/lebensart/2012-03/freunde-von-freunden-interview" target="_blank" rel="noopener">Zeit Online</a>
-          <div class="feature-desc">Freunde von Freunden Interview</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.tagesspiegel.de/gesellschaft/medien/zimmer-mit-einsicht-6477268.html" target="_blank" rel="noopener">Der Tagesspiegel</a>
-          <div class="feature-desc">Zimmer mit Einsicht</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.morgenpost.de/berlin/article108703844/Wie-Freunde-von-Freunden-Blicke-in-fremde-Wohnungen-erlauben.html" target="_blank" rel="noopener">Berliner Morgenpost</a>
-          <div class="feature-desc">Wie Freunde von Freunden Blicke in fremde Wohnungen erlauben</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.wallpaper.com/design/book-freunde-von-freunden" target="_blank" rel="noopener">Wallpaper*</a>
-          <div class="feature-desc">Book: Freunde von Freunden</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.itsnicethat.com/articles/frederik-frede" target="_blank" rel="noopener">It's Nice That</a>
-          <div class="feature-desc">An Interview with Freunde von Freunden Founder Frederik Frede</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.ad-magazin.de/article/ad-design-award-2016-die-jury" target="_blank" rel="noopener">AD Magazin</a>
-          <div class="feature-desc">AD Design Award 2016, Jury Member</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://openhouse-magazine.com/shop/product/issue-no2/" target="_blank" rel="noopener">Open House Magazine</a>
-          <div class="feature-desc">Issue No. 2, Featured</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.artemide.de/tolomeo/storys/frederik-frede" target="_blank" rel="noopener">Artemide</a>
-          <div class="feature-desc">Tolomeo Stories: Frederik Frede</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.dwell.com/article/interview-frederik-frede-40711219" target="_blank" rel="noopener">Dwell</a>
-          <div class="feature-desc">Interview: Frederik Frede</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://magculture.com/frederick-frede-freunde-von-freunden/" target="_blank" rel="noopener">magCulture</a>
-          <div class="feature-desc">Frederik Frede, Freunde von Freunden</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.canal180.pt/story/what-is-the-future-of-publishing/" target="_blank" rel="noopener">Canal 180</a>
-          <div class="feature-desc">What Is the Future of Publishing?</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://cargocollective.com/dropmag/Frederik-Frede" target="_blank" rel="noopener">Drop Magazine</a>
-          <div class="feature-desc">Frederik Frede</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://musotrees.com/blogs/interviews/berlin-frederik-frede-founder-of-freunde-von-freunden" target="_blank" rel="noopener">Musotrees</a>
-          <div class="feature-desc">Berlin: Frederik Frede, Founder of Freunde von Freunden</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.meltingbutter.com/the-editors-frederik-frede-of-freunde-von-freunden-on-berlin-and-creativity/" target="_blank" rel="noopener">Melting Butter</a>
-          <div class="feature-desc">The Editors: Frederik Frede on Berlin and Creativity</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://blog.osk.de/fvf-im-interview-vernetzung-als-erfolgsprinzip" target="_blank" rel="noopener">OSK</a>
-          <div class="feature-desc">FvF im Interview: Vernetzung als Erfolgsprinzip</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.deutschlandfunkkultur.de/deutsche-wohnzimmer-die-neue-spiessigkeit-liegt-im-trend-100.html" target="_blank" rel="noopener">Deutschlandfunk Kultur</a>
-          <div class="feature-desc">Deutsche Wohnzimmer: Die neue Spießigkeit liegt im Trend</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.stuttgarter-zeitung.de/inhalt.messe-blickfang-patina-ist-immer-gut.a94ced96-c801-4703-a462-1d73ed80573f.html" target="_blank" rel="noopener">Stuttgarter Zeitung</a>
-          <div class="feature-desc">Messe Blickfang: Patina ist immer gut</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://journalistenpreise.de/preis-preistraeger/on-line-medienpreis" target="_blank" rel="noopener">Journalistenpreise</a>
-          <div class="feature-desc">Online Medienpreis, Winner</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://music.apple.com/de/playlist/frederik-frede-shape-your-mood-with-sonos/pl.9e4f2e0fbae74efaa61bcfbacc15b01e" target="_blank" rel="noopener">Apple Music / Sonos</a>
-          <div class="feature-desc">Shape Your Mood: Playlist by Frederik Frede</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.freundevonfreunden.com/stories/the-sooner-now-sharing-ideas-for-a-life-in-the-city/" target="_blank" rel="noopener">Freunde von Freunden</a>
-          <div class="feature-desc">The Sooner Now: Sharing Ideas for a Life in the City</div>
-        </li>
-        <li class="feature-item">
-          <a class="feature-link" href="https://www.cube-magazin.de/artikel/wohnen-raini-peters-philipp-mainzer/" target="_blank" rel="noopener">Cube Magazin</a>
-          <div class="feature-desc">Featured</div>
-        </li>
-      </ul>
-    </div>
+<div class="footer-bar">
+  <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:15px;letter-spacing:0;text-transform:none">Frede</span></span>
+  <div class="footer-links">
+    <a href="https://instagram.com/frederikfrede" target="_blank">Instagram</a>
+    <a href="https://linkedin.com/in/frederikfrede" target="_blank">LinkedIn</a>
+  </div>
+</div>
 
-    <!-- G. Experience -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-letter">G</span>
-        <span class="section-title">Experience</span>
-      </div>
-      <ul class="experience-list">
-        <li class="experience-item">
-          <div class="experience-company">MoreSleep</div>
-          <div class="experience-meta">Co-Founder &amp; Creative Director, Berlin / Los Angeles</div>
-          <div class="experience-desc">Brand strategy and creative direction agency working across culture, architecture, hospitality, and design.</div>
-        </li>
-        <li class="experience-item">
-          <div class="experience-company"><a href="https://www.freundevonfreunden.com" target="_blank" rel="noopener">Freunde von Freunden</a></div>
-          <div class="experience-meta">Co-Founder &amp; Creative Director, Berlin</div>
-          <div class="experience-desc">Founded one of the most influential lifestyle and culture publications in Europe. Built a global network of creatives across editorial, books, events, and brand partnerships.</div>
-        </li>
-        <li class="experience-item">
-          <div class="experience-company">NZZ</div>
-          <div class="experience-meta">Creative Direction, Zurich</div>
-          <div class="experience-desc">Brand and digital strategy for Neue Zürcher Zeitung and the NZZ media group.</div>
-        </li>
-        <li class="experience-item">
-          <div class="experience-company">Architonic</div>
-          <div class="experience-meta">Creative Direction, Berlin</div>
-          <div class="experience-desc">Platform strategy and brand identity for the leading architecture and design product platform.</div>
-        </li>
-        <li class="experience-item">
-          <div class="experience-company">TBWA</div>
-          <div class="experience-meta">Creative Direction</div>
-        </li>
-        <li class="experience-item">
-          <div class="experience-company">NoMoreSleep</div>
-          <div class="experience-meta">Co-Founder, Berlin</div>
-          <div class="experience-desc">Early creative agency and production studio. Predecessor to MoreSleep.</div>
-        </li>
-        <li class="experience-item">
-          <div class="experience-company">Bread &amp; Butter Berlin</div>
-          <div class="experience-meta">Creative Direction, Berlin</div>
-        </li>
-        <li class="experience-item">
-          <div class="experience-company">Neubau Berlin</div>
-          <div class="experience-meta">Creative Direction, Berlin</div>
-        </li>
-        <li class="experience-item">
-          <div class="experience-company">U&amp;IvsALL</div>
-          <div class="experience-meta">Creative Direction, Berlin</div>
-        </li>
-        <li class="experience-item">
-          <div class="experience-company">SmithGroup Shanghai</div>
-          <div class="experience-meta">Creative Direction, Shanghai</div>
-        </li>
-      </ul>
-    </div>
-
-  </div><!-- /page -->
-
-  <footer>
-    <div class="footer-bar">
-      <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:15px">Frede</span></span>
-      <div class="footer-links">
-        <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://linkedin.com/frederikfrede" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const themes = {
-      white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',                border:'#c8c3be' },
-      black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
-      signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
-    };
-    function setTheme(name, el) {
-      const t = themes[name]; const r = document.documentElement.style;
-      r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
-      r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
-      r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
-      r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
-      r.setProperty('--grey-light', t.light);
-      document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
-      if (el) el.classList.add('active');
+<script>
+  const themes = {
+    white: { bg:'#fff', 'bg-card':'#f5f3f1', 'grey-dark':'#4a4540', 'grey-mid':'#7a7470', 'grey-light':'#a8a39f' },
+    black: { bg:'#111', 'bg-card':'#1a1a1a', 'grey-dark':'#f0ede8', 'grey-mid':'#a8a39f', 'grey-light':'#6a6560' },
+    warm:  { bg:'#e8e4df', 'bg-card':'#ddd9d4', 'grey-dark':'#4a4540', 'grey-mid':'#7a7470', 'grey-light':'#a8a39f' },
+  };
+  function setTheme(name, el) {
+    const t = themes[name], r = document.documentElement.style;
+    r.setProperty('--bg', t.bg);
+    r.setProperty('--bg-card', t['bg-card']);
+    r.setProperty('--grey-dark', t['grey-dark']);
+    r.setProperty('--grey-mid', t['grey-mid']);
+    r.setProperty('--grey-light', t['grey-light']);
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    localStorage.setItem('ff-theme', name);
+  }
+  (function(){
+    const saved = localStorage.getItem('ff-theme');
+    if (saved) {
+      const el = document.querySelector(`.swatch[title="${saved.charAt(0).toUpperCase()+saved.slice(1)}"]`);
+      if (el) setTheme(saved, el);
     }
-    setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
-  </script>
+  })();
+</script>
 
 </body>
 </html>
