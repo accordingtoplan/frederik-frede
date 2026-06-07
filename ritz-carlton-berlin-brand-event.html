@@ -3,103 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Ritz-Carlton Berlin — Frederik Frede</title>
-<meta name="description" content="Concepted and produced end-to-end: a Roaring Twenties-inspired Golden Gala for the grand reopening of the Ritz-Carlton Berlin — PR, artist programming, interior, styling, and the rebranding of five restaurants and bars.">
+<title>Ritz-Carlton Berlin — Frederik Frede</title>
+<meta name="description" content="A Roaring Twenties gala reopens the Ritz-Carlton Berlin — concept, production and art direction by MoreSleep.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>/* ── Case study — page-specific only ── */
+<style>
 .cs-header{padding:80px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
 .cs-title{font-size:clamp(56px,8vw,96px);font-weight:700;line-height:0.92;letter-spacing:-0.035em;color:var(--grey-dark);margin:0}
 .cs-meta{display:flex;flex-direction:column;gap:20px;padding-bottom:4px}
 .cs-tags{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--grey-light)}
 .cs-tagline{font-size:clamp(20px,2.8vw,32px);font-weight:700;color:var(--grey-dark);line-height:1.1;letter-spacing:-0.02em}
 .cs-desc{font-size:15px;color:var(--grey-mid);line-height:1.65;max-width:420px}
-.cs-intro{padding:0 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.cs-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0}
-.cs-media-full{padding:0 48px;margin-bottom:24px}
-.cs-media-full video,.cs-media-full img{width:100%;display:block;object-fit:unset}
-.cs-caption{padding:18px 48px 64px;display:flex;justify-content:space-between;align-items:baseline}
-.cs-caption-label{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light)}
-.cs-caption-text{font-size:14px;color:var(--grey-mid);max-width:480px;text-align:right}
-.cs-strategy{padding:80px 48px}
-.cs-section-label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-light);margin-bottom:48px;display:block}
-.cs-strategy-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px;align-items:start}
-.cs-strategy-intro h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.025em;line-height:1.05;color:var(--grey-dark);margin:0}
-.cs-strategy-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0;padding-top:6px}
-.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
-.cs-grid video,.cs-grid img{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
-.cs-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
-.cs-grid-3 img,.cs-grid-3 video{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
-.cs-pullquote{padding:80px 48px}
-.cs-pullquote blockquote{font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--grey-dark);margin:0;max-width:900px}
-.cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
-.cs-description{max-width:50%}
-.cs-description p{font-size:15px;font-weight:700;color:var(--grey-dark);line-height:1.6;margin-bottom:20px}
-.cs-description p:last-child{margin-bottom:0}
-.cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right;align-content:start}
-.cs-credit-group{margin-bottom:28px}
-.cs-credit-group dt{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light);margin-bottom:4px}
-.cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
-.cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
-.cs-credit-group dd a:hover{opacity:0.6}
+.cs-full{padding:0 48px;margin-bottom:24px}
+.cs-full img,.cs-full video{width:100%;display:block}
+.cs-2col{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 48px;margin-bottom:24px}
+.cs-2col img{width:100%;display:block}
+.cs-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;padding:0 48px;margin-bottom:24px}
+.cs-3col img{width:100%;display:block}
+.cs-item{overflow:hidden}
+.cs-item img{width:100%;display:block;transition:transform 0.5s ease}
+.cs-item:hover img{transform:scale(1.02)}
+.cs-spacer{height:48px}
+.cs-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:80px}
+.cs-nav-item{display:flex;flex-direction:column;padding:40px 48px;text-decoration:none;color:inherit;transition:opacity 0.2s;gap:16px}
+.cs-nav-item:hover{opacity:0.5}
+.cs-nav-dir{font-size:clamp(18px,2vw,28px);font-weight:700;letter-spacing:-0.02em;color:var(--grey-light)}
+.cs-nav-name{font-size:clamp(28px,4vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:0.95;color:var(--grey-dark)}
+.cs-nav-item.next{text-align:right}
 @media(max-width:640px){
-  .cs-header,.cs-intro,.cs-strategy-intro{grid-template-columns:1fr}
-  .cs-bottom{padding:48px 24px}
-  .cs-description{max-width:100%}
-  .cs-credits-cols{position:static;text-align:left;margin-top:40px}
-  .cs-header{padding:48px 24px 40px}
-  .cs-intro{padding:0 24px 48px}
-  .cs-strategy{padding:48px 24px}
-  .cs-pullquote{padding:48px 24px}
-  .cs-caption{flex-direction:column;gap:6px;padding:16px 24px 48px}
-  .cs-caption-text{text-align:left}
-  .cs-desc{max-width:100%}
-  .cs-grid{grid-template-columns:1fr;padding:0 24px}
-  .cs-grid-3{grid-template-columns:1fr 1fr;padding:0 24px}
+  .cs-header{grid-template-columns:1fr;padding:48px 24px 40px}
+  .cs-full,.cs-2col,.cs-3col{padding:0 24px}
+  .cs-2col,.cs-3col{grid-template-columns:1fr}
+  .cs-nav{grid-template-columns:1fr}
+  .cs-nav-item{padding:32px 24px}
+  .cs-nav-item.next{text-align:left}
 }
-/* ── Prev / Next navigation ── */
-.cs-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 80px;
-}
-.cs-nav-item {
-  display: flex;
-  flex-direction: column;
-  padding: 40px 48px;
-  text-decoration: none;
-  color: inherit;
-  transition: opacity 0.2s;
-  gap: 16px;
-}
-.cs-nav-item:hover { opacity: 0.5; }
-.cs-nav-dir {
-  font-size: clamp(18px, 2vw, 28px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--grey-light);
-}
-.cs-nav-name {
-  font-size: clamp(28px, 4vw, 64px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
-  color: var(--grey-dark);
-}
-.cs-nav-item.next { text-align: right; }
-@media (max-width: 640px) {
-  .cs-nav { grid-template-columns: 1fr; }
-  .cs-nav-item { padding: 32px 24px; }
-  .cs-nav-item.next { text-align: left; }
-}
-
-
-/* ── Footer logo ── */
-.footer-left { display: flex; flex-direction: column; gap: 8px; }
-.footer-logo-link { display: block; color: var(--grey-dark); line-height: 0; }
-.footer-logo-link svg { display: block; }
 </style>
 </head>
 <body>
@@ -116,10 +56,10 @@
       <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
     </div>
   </div>
-  <div class="nav-right" id="navLinks">
-    <ul>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
       <li><a href="/frede-studio/">Home</a></li>
-      <li><a href="/frede-studio/work.html">Work</a></li>
+      <li><a href="/frede-studio/work.html" class="active">Work</a></li>
       <li><a href="/frede-studio/about.html">Information</a></li>
       <li><a href="/frede-studio/about.html#contact">Contact</a></li>
     </ul>
@@ -129,96 +69,115 @@
   </button>
 </nav>
 
-
-<header class="cs-header">
-  <h1 class="cs-title">The<br>Ritz-Carlton<br>Berlin</h1>
-  <div class="cs-meta">
-    <span class="cs-tags">Event Production · Art Direction · Social Media</span>
-    <p class="cs-tagline">"A Roaring '20s gala reopens a grand hotel."</p>
-    <p class="cs-desc">Concepted and produced end-to-end: a Roaring Twenties-inspired Golden Gala for the grand reopening of the Ritz-Carlton Berlin — PR, artist programming, interior, styling, and the rebranding of five restaurants and bars.</p>
+<main>
+  <div class="cs-header">
+    <h1 class="cs-title">Ritz-Carlton Berlin</h1>
+    <div class="cs-meta">
+      <span class="cs-tags">2019 · Art Direction · Event · Social Media</span>
+      <p class="cs-tagline">A Roaring Twenties gala reopens the Ritz-Carlton Berlin.</p>
+      <p class="cs-desc">To celebrate the grand reopening of the Ritz-Carlton Berlin, we concepted and produced a Roaring Twenties-inspired Golden Gala from start to finish — PR, artist programming, invitations, interior decoration, production and styling. Over 1,000 celebrities and VIPs attended, 500 bottles of champagne were poured, 7 artists performed.</p>
+    </div>
   </div>
-</header>
-<div class="cs-media-full"><img src="https://www.moresleep.net/wp-content/uploads/2019/02/Freunde-von-Freunden-Ritz-Gala-0295-1024x683.jpg" alt="" loading="lazy"></div>
-<div class="cs-intro"><p>To celebrate the grand reopening of the Ritz-Carlton Berlin, we concepted and produced a Roaring Twenties-inspired Golden Gala from start to finish.</p><p>We oversaw every aspect of the event: PR, artist programming, bookings, invitations and programs, interior decoration, production and styling, right down to the precise layout of the champagne tower and ensuring pitch-perfect music.</p></div>
 
-<div class="cs-media-full"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala-Social_Media-press.gif" alt="" loading="lazy"></div>
-<div class="cs-strategy">
-  <span class="cs-section-label">01 — Event Production</span>
-  <div class="cs-strategy-intro">
-    <h2>Every detail, from first invite to last note.</h2>
-    <p>Over 1,000 celebrities and VIPs attended, 500 bottles of champagne were poured, 7 artists performed and one grand hotel was reborn — all produced and directed end to end by our team.</p>
+  <!-- Hero -->
+  <div class="cs-full">
+    <img src="https://www.moresleep.net/wp-content/uploads/2019/02/Freunde-von-Freunden-Ritz-Gala-0295-1024x683.jpg" alt="Ritz-Carlton Berlin Golden Gala" loading="lazy">
   </div>
-</div>
-<div class="cs-grid"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala-Invite-1024x561.jpg" alt="" loading="lazy"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala-Guide-1024x561.jpg" alt="" loading="lazy"></div>
-<div class="cs-strategy">
-  <span class="cs-section-label">02 — Brand Identity</span>
-  <div class="cs-strategy-intro">
-    <h2>Social, print and event collateral.</h2>
-    <p>We designed all visual communications for the gala — invitations, programs, social media content and on-site materials — in a bespoke Roaring Twenties visual language.</p>
+
+  <!-- Film -->
+  <div class="cs-full">
+    <video autoplay muted loop playsinline>
+      <source src="https://www.moresleep.net/wp-content/uploads/2019/06/20190320-Ritz_Carlton-Gala_Night-LV-MASTER.mov" type="video/mp4">
+    </video>
   </div>
-</div>
-<div class="cs-grid"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/Freunde-von-Freunden-Ritz-Gala-0852-1024x683.jpg" alt="" loading="lazy"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/Freunde-von-Freunden-Ritz-Gala-1416-1024x683.jpg" alt="" loading="lazy"></div>
-<div class="cs-pullquote">
-  <blockquote>Over 1,000 celebrities, 500 bottles of champagne, 7 artists, one unforgettable night.</blockquote>
-</div>
 
-<div class="cs-bottom">
-  <div class="cs-description"><p>To celebrate the grand reopening of the Ritz-Carlton Berlin, we concepted and produced a Roaring Twenties-inspired Golden Gala from start to finish — overseeing every aspect of the event: PR, artist programming, bookings, invitations and programs, interior decoration, production and styling, right down to the layout of the champagne tower.</p><p>After several months of work, over 1,000 celebrities and VIPs attended, 500 bottles of champagne were poured, 7 artists performed and one grand hotel was reborn. We also led the rebranding and redesign of five restaurants and bars within the hotel.</p></div>
-  <dl class="cs-credits-cols">
-    <div class="cs-credit-group"><dt>Live site</dt><dd><a href="https://www.ritzcarlton.com" target="_blank" rel="noopener">www.ritzcarlton.com ↗</a></dd></div>
-    <div class="cs-credit-group"><dt>Collaborators</dt><dd>—</dd></div>
-    <div class="cs-credit-group"><dt>Year</dt><dd>2019</dd></div>
-  </dl>
-</div>
+  <div class="cs-spacer"></div>
 
-<nav class="cs-nav">
-  <a class="cs-nav-item prev" href="/frede-studio/usm-modular-furniture-brand-digital.html">
-    <span class="cs-nav-dir">← Previous</span>
-    <span class="cs-nav-name">USM</span>
-  </a>
-  <a class="cs-nav-item next" href="/frede-studio/friends-of-friends-brand-identity-web.html">
-    <span class="cs-nav-dir">Next →</span>
-    <span class="cs-nav-name">Friends of Friends</span>
-  </a>
-</nav>
+  <!-- Social visuals -->
+  <div class="cs-2col">
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala-Social_Media-press.gif" alt="Golden Gala social media" loading="lazy"></div>
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala-Social_Media-instagram.gif" alt="Golden Gala Instagram" loading="lazy"></div>
+  </div>
 
+  <!-- Invite + guide -->
+  <div class="cs-2col">
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala-Invite-1024x561.jpg" alt="Golden Gala invitation" loading="lazy"></div>
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala-Guide-1024x561.jpg" alt="Golden Gala guide" loading="lazy"></div>
+  </div>
+
+  <div class="cs-spacer"></div>
+
+  <!-- Event visuals -->
+  <div class="cs-full">
+    <img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala_6-1024x543.png" alt="Golden Gala visual" loading="lazy">
+  </div>
+
+  <div class="cs-2col">
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala_5-1-1024x604.png" alt="Golden Gala visual" loading="lazy"></div>
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala_3-1024x923.png" alt="Golden Gala visual" loading="lazy"></div>
+  </div>
+
+  <div class="cs-spacer"></div>
+
+  <!-- Photography -->
+  <div class="cs-full">
+    <img src="https://www.moresleep.net/wp-content/uploads/2019/06/02_THE-RITZ-CARLTON-BERLIN_GRAND-RE-OPENING_.LENA-MEYER-LANDRUT_02_GETTY-IMAGES-1024x683.jpg" alt="Ritz-Carlton Berlin reopening — Getty Images" loading="lazy">
+  </div>
+
+  <div class="cs-2col">
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala_1-1024x604.png" alt="Golden Gala" loading="lazy"></div>
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/190507-MS-Visuals-The_Golden_Gala_2-1-1024x604.jpg" alt="Golden Gala" loading="lazy"></div>
+  </div>
+
+  <div class="cs-2col">
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/Freunde-von-Freunden-Ritz-Gala-0852-1024x683.jpg" alt="Ritz-Carlton Gala" loading="lazy"></div>
+    <div class="cs-item"><img src="https://www.moresleep.net/wp-content/uploads/2019/06/Freunde-von-Freunden-Ritz-Gala-1416-1024x683.jpg" alt="Ritz-Carlton Gala" loading="lazy"></div>
+  </div>
+
+  <div class="cs-nav">
+    <a href="/frede-studio/rooms-hotels.html" class="cs-nav-item prev">
+      <span class="cs-nav-dir">← Previous</span>
+      <span class="cs-nav-name">Rooms Hotels</span>
+    </a>
+    <a href="/frede-studio/bianca-chen-brand-identity.html" class="cs-nav-item next">
+      <span class="cs-nav-dir">Next →</span>
+      <span class="cs-nav-name">Bianca Chen</span>
+    </a>
+  </div>
+</main>
 
 <footer>
-    <div class="footer-bar">
-      <div class="footer-left">
-        <img src="/frede-studio/frede-logo.png" alt="FREDE" class="footer-logo">
-        <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/frede-studio/imprint.html" class="footer-copy-link">Imprint</a></span>
-      </div>
-      <div class="footer-links">
-        <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://substack.com/@frederikfrede" target="_blank" rel="noopener">Substack</a>
-      </div>
-      <form class="footer-subscribe" action="https://substack.com/api/v1/free" method="get" target="_blank">
-        <input type="email" name="email" placeholder="your@email.com" class="subscribe-input" required>
-        <button type="submit" class="subscribe-btn">Subscribe</button>
-      </form>
+  <div class="footer-bar">
+    <div class="footer-left">
+      <img src="/frede-studio/frede-logo.png" alt="FREDE" class="footer-logo">
+      <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/frede-studio/imprint.html" class="footer-copy-link">Imprint</a></span>
     </div>
-  </footer>
+    <div class="footer-links">
+      <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://substack.com/@frederikfrede" target="_blank" rel="noopener">Substack</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-  const themes={
-    white:{bg:'#fff',card:'#f5f3f1',fg:'#4a4540',mid:'#7a7470',light:'#a8a39f',border:'#c8c3be'},
-    black:{bg:'#111',card:'#1a1a1a',fg:'#fff',mid:'rgba(255,255,255,0.55)',light:'rgba(255,255,255,0.30)',border:'rgba(255,255,255,0.12)'},
-    signal:{bg:'#e63222',card:'#cc2b1d',fg:'#000',mid:'rgba(0,0,0,0.55)',light:'rgba(0,0,0,0.35)',border:'transparent'},
+  const themes = {
+    white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',               border:'#c8c3be' },
+    black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
+    signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
   };
-  function setTheme(name,el){
-    const t=themes[name];const r=document.documentElement.style;
-    r.setProperty('--bg',t.bg);r.setProperty('--bg-card',t.card);
-    r.setProperty('--fg',t.fg);r.setProperty('--fg-mid',t.mid);
-    r.setProperty('--fg-light',t.light);r.setProperty('--border',t.border);
-    r.setProperty('--grey-dark',t.fg);r.setProperty('--grey-mid',t.mid);
-    r.setProperty('--grey-light',t.light);
-    document.documentElement.setAttribute('data-theme',name);
-    document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
-    if(el)el.classList.add('active');
+  function setTheme(name, el) {
+    const t = themes[name]; const r = document.documentElement.style;
+    r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
+    r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
+    r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
+    r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
+    r.setProperty('--grey-light', t.light);
+    document.documentElement.setAttribute('data-theme', name);
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    if (el) el.classList.add('active');
   }
-  setTheme('black',document.querySelector('.swatch[onclick*="white"]'));
+  setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
 </script>
 </body>
 </html>
