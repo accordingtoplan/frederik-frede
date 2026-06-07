@@ -16,13 +16,8 @@
 .cs-tags{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--grey-light)}
 .cs-tagline{font-size:clamp(20px,2.8vw,32px);font-weight:700;color:var(--grey-dark);line-height:1.1;letter-spacing:-0.02em}
 .cs-desc{font-size:15px;color:var(--grey-mid);line-height:1.65;max-width:420px}
-.cs-media-full{padding:0 48px;margin-bottom:24px}
-.cs-media-full img{width:100%;display:block}
-.cs-caption{padding:18px 48px 64px;display:flex;justify-content:space-between;align-items:baseline}
-.cs-caption-label{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light)}
-.cs-caption-text{font-size:14px;color:var(--grey-mid);max-width:480px;text-align:right}
 .cs-slides{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px}
-.cs-slide{overflow:hidden;background:#1a1a1a}
+.cs-slide{overflow:hidden;background:var(--bg-card)}
 .cs-slide img{width:100%;display:block;transition:transform 0.5s ease}
 .cs-slide:hover img{transform:scale(1.02)}
 .cs-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:80px}
@@ -33,9 +28,7 @@
 .cs-nav-item.next{text-align:right}
 @media(max-width:640px){
   .cs-header{grid-template-columns:1fr;padding:48px 24px 40px}
-  .cs-media-full{padding:0 24px}
-  .cs-caption{padding:12px 24px 48px}
-  .cs-slides{padding:0 24px!important}
+  .cs-slides{padding:0 24px!important;grid-template-columns:1fr}
   .cs-nav{grid-template-columns:1fr}
   .cs-nav-item{padding:32px 24px}
   .cs-nav-item.next{text-align:left}
@@ -75,18 +68,14 @@
     <div class="cs-meta">
       <span class="cs-tags">2004 · Identity · Screenprint · Web</span>
       <p class="cs-tagline">Limited series. DIN A0. Screen and handprinted.</p>
-      <p class="cs-desc">Creative direction for Seppuku Industries — website in Flash, a limited series of 5 unique DIN A0 screenprint posters, and a collection of t-shirts. Each poster unique, each run limited to 10 × 3 pieces.</p>
+      <p class="cs-desc">Creative direction for Seppuku Industries — website in Flash, a limited series of 5 unique DIN A0 screenprint posters, and a collection of t-shirts. Each run limited to 10 × 3 pieces.</p>
     </div>
   </div>
 
-  <div class="cs-media-full">
-    <img src="/frede-studio/assets/img/archive/spku/spku_spku12_b.gif" alt="Website — Flash" loading="lazy">
-  </div>
-  <div class="cs-caption">
-    <span class="cs-caption-label">01</span>
-    <span class="cs-caption-text">Website — Flash</span>
-  </div>
-  <div class="cs-slides" style="padding:0 48px;margin-bottom:3px">
+  <div class="cs-slides" style="padding:0 48px;gap:3px;margin-bottom:3px">
+    <div class="cs-slide">
+      <img src="/frede-studio/assets/img/archive/spku/spku_spku12_b.gif" alt="Website — Flash" loading="lazy">
+    </div>
     <div class="cs-slide">
       <img src="/frede-studio/assets/img/archive/spku/spku_spku1_b.jpg" alt="Limited DIN A0 poster series" loading="lazy">
     </div>
