@@ -110,9 +110,9 @@
   </div>
   <div class="nav-center">
     <div class="swatches">
-      <div class="swatch" style="background:#fff" onclick="setTheme('black',this)" title="White"></div>
+      <div class="swatch" style="background:#fff" onclick="setTheme('white',this)" title="White"></div>
       <div class="swatch active" style="background:#111" onclick="setTheme('black',this)" title="Black"></div>
-      <div class="swatch" style="background:#e63222" onclick="setTheme('black',this)" title="Red"></div>
+      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
     </div>
   </div>
   <div class="nav-right" id="navLinks">
@@ -223,6 +223,7 @@
     r.setProperty('--fg-light',t.light);r.setProperty('--border',t.border);
     r.setProperty('--grey-dark',t.fg);r.setProperty('--grey-mid',t.mid);
     r.setProperty('--grey-light',t.light);
+    document.documentElement.setAttribute('data-theme',name);
     document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
     if(el)el.classList.add('active');
   }
