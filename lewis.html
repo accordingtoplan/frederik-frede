@@ -34,18 +34,20 @@
 .cs-grid-3 img,.cs-grid-3 video{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
 .cs-pullquote{padding:80px 48px}
 .cs-pullquote blockquote{font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--grey-dark);margin:0;max-width:900px}
-.cs-bottom{padding:80px 48px 100px;display:grid;grid-template-columns:1fr 1fr;gap:64px;border-top:1px solid var(--border);margin-top:80px}
+.cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
+.cs-description{max-width:50%}
 .cs-description p{font-size:15px;font-weight:700;color:var(--grey-dark);line-height:1.6;margin-bottom:20px}
 .cs-description p:last-child{margin-bottom:0}
-.cs-credits-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;align-content:start}
+.cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right;align-content:start}
 .cs-credit-group{margin-bottom:28px}
 .cs-credit-group dt{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light);margin-bottom:4px}
 .cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
 .cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
 .cs-credit-group dd a:hover{opacity:0.6}
 @media(max-width:640px){
-  .cs-header,.cs-intro,.cs-strategy-intro,.cs-credits-cols{grid-template-columns:1fr}
-  .cs-bottom{grid-template-columns:1fr;gap:40px;padding:48px 24px}
+  .cs-header,.cs-intro,.cs-strategy-intro,.cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right;align-content:start}
+  .cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
+.cs-description{max-width:50%}
   .cs-header{padding:48px 24px 40px}
   .cs-intro{padding:0 24px 48px}
   .cs-strategy{padding:48px 24px}
@@ -172,11 +174,9 @@
 <div class="cs-bottom">
   <div class="cs-description"><p>Lewis Group of Companies is a family-owned real estate development firm with over 60 years of history in California and Nevada — specialising in mixed-use communities, residential developments, and commercial spaces. They came to us for a comprehensive rebrand to align their identity with their vision for the next chapter.</p><p>We immersed ourselves in the deep-rooted values of this family business and crafted a refreshed identity that bridges their storied past with forward-looking ambition — from logo redesign to full digital presence, business development consulting, and a new website that brings their community-driven portfolio to life.</p></div>
   <dl class="cs-credits-cols">
-    <div class="cs-credit-group"><dt>Client</dt><dd>Lewis Group of Companies</dd></div>
-    <div class="cs-credit-group"><dt>Year</dt><dd>2024</dd></div>
-    <div class="cs-credit-group"><dt>Studio</dt><dd>MoreSleep</dd></div>
     <div class="cs-credit-group"><dt>Live site</dt><dd><a href="https://lewisgroupofcompanies.com/" target="_blank" rel="noopener">lewisgroupofcompanies.com ↗</a></dd></div>
-    <div class="cs-credit-group"><dt>Team</dt><dd>Frederik Frede<br>Quasi Object (dev)</dd></div>
+    <div class="cs-credit-group"><dt>Collaborators</dt><dd>Frederik Frede<br>Quasi Object</dd></div>
+    <div class="cs-credit-group"><dt>Year</dt><dd>2024</dd></div>
   </dl>
 </div>
 
