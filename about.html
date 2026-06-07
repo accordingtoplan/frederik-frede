@@ -15,31 +15,24 @@
 
   /* Intro */
   .intro { padding-top: 28vh; margin-bottom: 80px; }
-  .intro-headline-wrap {
-    display: flex;
-    align-items: flex-start;
-    gap: 0;
-    margin-bottom: 40px;
-  }
   .intro-statement {
     font-size: var(--t-hero);
     font-weight: var(--bold);
     line-height: var(--lh-hero);
     letter-spacing: var(--ls-hero);
     color: var(--grey-dark);
-    margin-bottom: 0;
-    flex-shrink: 0;
+    margin-bottom: 40px;
+  }
+  .marker-note-wrap {
+    padding: 0 48px 40px;
   }
   .marker-note {
-    width: 230px;
-    margin-top: 1.8em;
-    margin-left: 340px;
-    flex-shrink: 0;
+    width: 200px;
+    display: block;
     overflow: visible;
   }
   @media (max-width: 640px) {
-    .intro-headline-wrap { flex-direction: column; }
-    .marker-note { margin-left: 0; margin-top: 20px; width: 200px; }
+    .marker-note-wrap { padding: 0 20px 32px; }
   }
   .intro-body p {
     font-size: var(--t-large);
@@ -235,24 +228,7 @@
 <div class="page">
 
   <div class="intro">
-    <div class="intro-headline-wrap">
-      <p class="intro-statement">Stacking skills<br>with passion.</p>
-      <svg class="marker-note" viewBox="0 0 210 80" xmlns="http://www.w3.org/2000/svg" aria-label="vibecoded. no code knowledge or CMS needed.">
-        <defs>
-          <filter id="ink">
-            <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-        </defs>
-        <g filter="url(#ink)" transform="rotate(-3.5, 0, 0)">
-          <text font-family="'Permanent Marker', cursive" font-size="18" fill="#c01719" letter-spacing="0.2">
-            <tspan x="0" y="22">vibecoded.</tspan>
-            <tspan x="0" dy="24">without coding skills.</tspan>
-            <tspan x="0" dy="24">Just prompted.</tspan>
-          </text>
-        </g>
-      </svg>
-    </div>
+    <p class="intro-statement">Stacking skills<br>with passion.</p>
     <div class="intro-body">
       <p>Built on design and creativity, scaled through agency life, platform building and studio founding. From selling NoMoreSleep to TBWA, to growing Freunde von Freunden into one of Europe's most referenced creative platforms, to running an internationally dispersed studio across Berlin and Los Angeles. The through line was never a category or a sector. Always the same question: does this earn its place, or is it just adding to the noise.</p>
       <p>Working closely with founders, clients and collaborators who share that ambition. Across strategy, identity, and the thinking that connects them.</p>
@@ -436,6 +412,24 @@
 
   </div><!-- /fg-grid -->
 </div><!-- /page -->
+
+<div class="marker-note-wrap">
+  <svg class="marker-note" viewBox="0 0 210 80" xmlns="http://www.w3.org/2000/svg" aria-label="vibecoded. without coding skills. Just prompted.">
+    <defs>
+      <filter id="ink">
+        <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+    <g filter="url(#ink)" transform="rotate(-3.5, 0, 0)">
+      <text font-family="'Permanent Marker', cursive" font-size="18" fill="#c01719" letter-spacing="0.2">
+        <tspan x="0" y="22">vibecoded.</tspan>
+        <tspan x="0" dy="24">without coding skills.</tspan>
+        <tspan x="0" dy="24">Just prompted.</tspan>
+      </text>
+    </g>
+  </svg>
+</div>
 
 <div class="footer-bar">
   <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:15px;letter-spacing:0;text-transform:none">Frede</span></span>
