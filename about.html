@@ -11,7 +11,7 @@
 <style>
   body { min-height: 100vh; display: flex; flex-direction: column; }
 
-  .page { flex: 1; padding: 0 48px 120px; }
+  .page { flex: 1; padding: 0 32px 120px; }
 
   /* Intro */
   .intro { padding-top: 28vh; margin-bottom: 80px; }
@@ -255,6 +255,8 @@
         <div class="service-name">AI &amp; Tooling</div>
         <div class="service-desc">Frameworks and workflows that make creative work faster, sharper, and more considered.</div>
       </li>
+      <li class="feature-item"><a class="feature-link" href="https://www.decor8blog.com/blog/2013/01/09/meet-me-friends-at-we-are-social-imm-cologne" target="_blank" rel="noopener">We Are Social, IMM Cologne — Speaker</a></li>
+      <li class="feature-item"><a class="feature-link" href="https://vimeo.com/188835446" target="_blank" rel="noopener">Vimeo / Conference Talk — Speaker</a></li>
     </ul>
   </div>
 
@@ -401,10 +403,7 @@
 </div><!-- /page -->
 
 <div class="footer-bar">
-  <div class="footer-left">
-    <img src="/frede-studio/frede-logo.png" alt="FREDE" class="footer-logo">
-    <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/frede-studio/imprint.html" class="footer-copy-link">Imprint</a></span>
-  </div>
+  <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:15px;letter-spacing:0;text-transform:none">Frede</span></span>
   <div class="footer-links">
     <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
         <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
@@ -429,7 +428,6 @@
       r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
       r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
       r.setProperty('--grey-light', t.light);
-      document.documentElement.setAttribute('data-theme', name);
       document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
       if (el) el.classList.add('active');
     }
