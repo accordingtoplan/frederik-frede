@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Republish — Frederik Frede</title>
+<meta name="description" content="Concept, art direction, coding and marketing for republish.org — brand identity and website for the Berlin-based platform, including a series of t-shi">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.cs-header{padding:80px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.cs-title{font-size:clamp(56px,8vw,96px);font-weight:700;line-height:0.92;letter-spacing:-0.035em;color:var(--grey-dark);margin:0}
+.cs-meta{display:flex;flex-direction:column;gap:20px;padding-bottom:4px}
+.cs-tags{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--grey-light)}
+.cs-tagline{font-size:clamp(20px,2.8vw,32px);font-weight:700;color:var(--grey-dark);line-height:1.1;letter-spacing:-0.02em}
+.cs-desc{font-size:15px;color:var(--grey-mid);line-height:1.65;max-width:420px}
+.cs-media-full{padding:0 48px;margin-bottom:24px}
+.cs-media-full img{width:100%;display:block}
+.cs-caption{padding:18px 48px 64px;display:flex;justify-content:space-between;align-items:baseline}
+.cs-caption-label{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light)}
+.cs-caption-text{font-size:14px;color:var(--grey-mid);max-width:480px;text-align:right}
+.cs-slides{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px}
+.cs-slide{overflow:hidden;background:#1a1a1a}
+.cs-slide img{width:100%;display:block;transition:transform 0.5s ease}
+.cs-slide:hover img{transform:scale(1.02)}
+.cs-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:80px}
+.cs-nav-item{display:flex;flex-direction:column;padding:40px 48px;text-decoration:none;color:inherit;transition:opacity 0.2s;gap:16px}
+.cs-nav-item:hover{opacity:0.5}
+.cs-nav-dir{font-size:clamp(18px,2vw,28px);font-weight:700;letter-spacing:-0.02em;color:var(--grey-light)}
+.cs-nav-name{font-size:clamp(28px,4vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:0.95;color:var(--grey-dark)}
+.cs-nav-item.next{text-align:right}
+@media(max-width:640px){
+  .cs-header{grid-template-columns:1fr;padding:48px 24px 40px}
+  .cs-media-full{padding:0 24px}
+  .cs-caption{padding:12px 24px 48px}
+  .cs-slides{padding:0 24px!important}
+  .cs-nav{grid-template-columns:1fr}
+  .cs-nav-item{padding:32px 24px}
+  .cs-nav-item.next{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="/frede-studio/">Frederik</a>
+    <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch" style="background:#fff" onclick="setTheme('white',this)" title="White"></div>
+      <div class="swatch active" style="background:#111" onclick="setTheme('black',this)" title="Black"></div>
+      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
+    </div>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/frede-studio/">Home</a></li>
+      <li><a href="/frede-studio/work.html" class="active">Work</a></li>
+      <li><a href="/frede-studio/about.html">Information</a></li>
+      <li><a href="/frede-studio/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <div class="cs-header">
+    <h1 class="cs-title">Republish</h1>
+    <div class="cs-meta">
+      <span class="cs-tags">2003 · Identity · Web · Coding</span>
+      <p class="cs-tagline">The Berlin crow.</p>
+      <p class="cs-desc">Concept, art direction, coding and marketing for republish.org — brand identity and website for the Berlin-based platform, including a series of t-shirts centred around the now-iconic Berlin crow logo.</p>
+    </div>
+  </div>
+
+  <div class="cs-media-full">
+    <img src="/frede-studio/assets/img/archive/rep/rep_rep2_b.gif" alt="Brand identity" loading="lazy">
+  </div>
+  <div class="cs-caption">
+    <span class="cs-caption-label">01</span>
+    <span class="cs-caption-text">Brand identity</span>
+  </div>
+  <div class="cs-slides" style="padding:0 48px;margin-bottom:3px">
+    <div class="cs-slide">
+      <img src="/frede-studio/assets/img/archive/rep/rep_rep1_b.jpg" alt="Website" loading="lazy">
+    </div>
+    <div class="cs-slide">
+      <img src="/frede-studio/assets/img/archive/rep/rep_rep3_b.gif" alt="T-shirt — Berlin crow" loading="lazy">
+    </div>
+    <div class="cs-slide">
+      <img src="/frede-studio/assets/img/archive/rep/rep_rep4_b.gif" alt="T-shirt #2" loading="lazy">
+    </div>
+    <div class="cs-slide">
+      <img src="/frede-studio/assets/img/archive/rep/rep_rep5_b.gif" alt="Handdrawn typo shirt" loading="lazy">
+    </div>
+    <div class="cs-slide">
+      <img src="/frede-studio/assets/img/archive/rep/rep_rep6_b.gif" alt="Church of republish t-shirt" loading="lazy">
+    </div>
+  </div>
+
+  <div class="cs-nav">
+    <a href="/frede-studio/grimetime-berlin.html" class="cs-nav-item prev">
+      <span class="cs-nav-dir">← Previous</span>
+      <span class="cs-nav-name">Grimetime Berlin</span>
+    </a>
+    <a href="/frede-studio/seppuku-industries.html" class="cs-nav-item next">
+      <span class="cs-nav-dir">Next →</span>
+      <span class="cs-nav-name">Seppuku Industries</span>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-bar">
+    <div class="footer-left">
+      <img src="/frede-studio/frede-logo.png" alt="FREDE" class="footer-logo">
+      <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/frede-studio/imprint.html" class="footer-copy-link">Imprint</a></span>
+    </div>
+    <div class="footer-links">
+      <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://substack.com/@frederikfrede" target="_blank" rel="noopener">Substack</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const themes = {
+    white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',               border:'#c8c3be' },
+    black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
+    signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
+  };
+  function setTheme(name, el) {
+    const t = themes[name]; const r = document.documentElement.style;
+    r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
+    r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
+    r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
+    r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
+    r.setProperty('--grey-light', t.light);
+    document.documentElement.setAttribute('data-theme', name);
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+  setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
+</script>
+</body>
+</html>
