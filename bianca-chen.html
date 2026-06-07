@@ -71,21 +71,57 @@
 .cs-grid-wide img,
 .cs-grid-wide video { aspect-ratio: 16/7; object-fit: cover; width: 100%; display: block; }
 
-/* Credits */
-.cs-credits { padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; border-top: 1px solid var(--border); }
-.cs-credits h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey-light); margin: 0 0 32px; }
-.cs-credit-row { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
-.cs-credit-key { color: var(--grey-light); font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; }
-.cs-credit-val { color: var(--grey-dark); font-weight: 500; text-align: right; }
-.cs-credit-val a { color: var(--grey-dark); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.2s; }
-.cs-credit-val a:hover { border-color: var(--grey-dark); }
+/* Credits — Mouthwash style */
+.cs-bottom {
+  padding: 80px 48px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  border-top: 1px solid var(--border);
+  margin-top: 80px;
+}
+.cs-description p {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--grey-dark);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.cs-description p:last-child { margin-bottom: 0; }
+.cs-credits-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 32px;
+  align-content: start;
+}
+.cs-credit-group { margin-bottom: 28px; }
+.cs-credit-group dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--grey-light);
+  margin-bottom: 4px;
+}
+.cs-credit-group dd {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--grey-dark);
+  margin: 0;
+  line-height: 1.5;
+}
+.cs-credit-group dd a {
+  color: var(--grey-dark);
+  text-decoration: none;
+}
+.cs-credit-group dd a:hover { opacity: 0.6; }
 
 /* Mobile */
 @media (max-width: 640px) {
   .cs-header,
   .cs-intro,
   .cs-strategy-intro,
-  .cs-credits { grid-template-columns: 1fr; gap: 24px; padding: 48px 24px; }
+  .cs-credits-cols { grid-template-columns: 1fr 1fr; }
+  .cs-bottom { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px; }
   .cs-intro { padding-top: 0; }
   .cs-strategy { padding: 48px 24px; }
   .cs-pullquote { padding: 48px 24px; }
@@ -284,58 +320,47 @@
   </div>
 </div>
 
-<!-- CREDITS -->
-<div class="cs-credits">
-  <div>
-    <h3>Project Details</h3>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">Client</span>
-      <span class="cs-credit-val">Bianca Chen</span>
-    </div>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">Studio</span>
-      <span class="cs-credit-val">MoreSleep</span>
-    </div>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">Team</span>
-      <span class="cs-credit-val">Frederik Frede, Sveta Koliada, Thomas Provost</span>
-    </div>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">Year</span>
-      <span class="cs-credit-val">2024</span>
-    </div>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">Typefaces</span>
-      <span class="cs-credit-val">New Edge 666 · Bookish</span>
-    </div>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">Live site</span>
-      <span class="cs-credit-val"><a href="https://www.biancachen.com/" target="_blank" rel="noopener">biancachen.com ↗</a></span>
-    </div>
+<!-- BOTTOM: description + credits -->
+<div class="cs-bottom">
+  <div class="cs-description">
+    <p>Bianca Chen is an independent curator based in Los Angeles, devoted to elevating the city's diverse art landscape and championing emerging artists from around the world.</p>
+    <p>We developed a comprehensive brand strategy from scratch — defining her purpose, audiences, positioning, and narrative before a single mark was drawn. The resulting visual identity, which we termed "Curated Chaos," captures Los Angeles's dynamic energy through a vibrant colour palette combined with a functional but distinctive typographic and layout approach.</p>
+    <p>The Webflow website was designed to showcase Bianca's curatorial projects, incorporating hover animations and interactive elements that reflect her innovative approach. It serves as a hub for art enthusiasts to explore her exhibitions, upcoming projects, and philanthropic initiatives supporting economic opportunity and gender equity for artisans worldwide.</p>
   </div>
-  <div>
-    <h3>Scope</h3>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">01</span>
-      <span class="cs-credit-val">Brand Strategy</span>
+  <dl class="cs-credits-cols">
+    <div class="cs-credit-group">
+      <dt>Client</dt>
+      <dd>Bianca Chen</dd>
     </div>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">02</span>
-      <span class="cs-credit-val">Visual Identity</span>
+    <div class="cs-credit-group">
+      <dt>Year</dt>
+      <dd>2024</dd>
     </div>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">03</span>
-      <span class="cs-credit-val">Motion Design</span>
+    <div class="cs-credit-group">
+      <dt>Studio</dt>
+      <dd>MoreSleep</dd>
     </div>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">04</span>
-      <span class="cs-credit-val">Web Design</span>
+    <div class="cs-credit-group">
+      <dt>Live site</dt>
+      <dd><a href="https://www.biancachen.com/" target="_blank" rel="noopener">biancachen.com ↗</a></dd>
     </div>
-    <div class="cs-credit-row">
-      <span class="cs-credit-key">05</span>
-      <span class="cs-credit-val">Webflow Development</span>
+    <div class="cs-credit-group">
+      <dt>Strategy &amp; Direction</dt>
+      <dd>Frederik Frede</dd>
     </div>
-  </div>
+    <div class="cs-credit-group">
+      <dt>Typefaces</dt>
+      <dd>New Edge 666<br>Bookish</dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Identity &amp; Web</dt>
+      <dd>Thomas Provost<br>Sveta Koliada</dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Scope</dt>
+      <dd>Brand Strategy<br>Visual Identity<br>Motion Design<br>Web Design<br>Webflow Dev</dd>
+    </div>
+  </dl>
 </div>
 
 <!-- FOOTER -->
