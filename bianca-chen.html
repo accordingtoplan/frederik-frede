@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* ── Case study page layout — page-specific only ── */
+/* ── Case study — page-specific only ── */
 
 .cs-header {
   padding: 80px 48px 64px;
@@ -27,45 +27,14 @@
   color: var(--grey-dark);
   margin: 0;
 }
-.cs-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-bottom: 4px;
-}
-.cs-tags {
-  font-size: 11px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--grey-light);
-}
-.cs-tagline {
-  font-size: clamp(20px, 2.8vw, 32px);
-  font-weight: 700;
-  color: var(--grey-dark);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-.cs-desc {
-  font-size: 15px;
-  color: var(--grey-mid);
-  line-height: 1.65;
-  max-width: 420px;
-}
+.cs-meta { display: flex; flex-direction: column; gap: 20px; padding-bottom: 4px; }
+.cs-tags { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--grey-light); }
+.cs-tagline { font-size: clamp(20px, 2.8vw, 32px); font-weight: 700; color: var(--grey-dark); line-height: 1.1; letter-spacing: -0.02em; }
+.cs-desc { font-size: 15px; color: var(--grey-mid); line-height: 1.65; max-width: 420px; }
 
 /* Intro */
-.cs-intro {
-  padding: 0 48px 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-}
-.cs-intro p {
-  font-size: 15px;
-  color: var(--grey-mid);
-  line-height: 1.7;
-  margin: 0;
-}
+.cs-intro { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.cs-intro p { font-size: 15px; color: var(--grey-mid); line-height: 1.7; margin: 0; }
 
 /* Full-width media */
 .cs-media-full { width: 100%; margin-bottom: 4px; }
@@ -73,139 +42,42 @@
 .cs-media-full img { width: 100%; display: block; object-fit: unset; }
 
 /* Caption */
-.cs-caption {
-  padding: 18px 48px 64px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.cs-caption-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--grey-light);
-}
-.cs-caption-text {
-  font-size: 14px;
-  color: var(--grey-mid);
-  max-width: 480px;
-  text-align: right;
-}
+.cs-caption { padding: 18px 48px 64px; display: flex; justify-content: space-between; align-items: baseline; }
+.cs-caption-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--grey-light); }
+.cs-caption-text { font-size: 14px; color: var(--grey-mid); max-width: 480px; text-align: right; }
 
-/* Strategy section */
+/* Strategy */
 .cs-strategy { padding: 80px 48px; }
-.cs-section-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--grey-light);
-  margin-bottom: 48px;
-  display: block;
-}
-.cs-strategy-intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 48px;
-  align-items: start;
-}
-.cs-strategy-intro h2 {
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  color: var(--grey-dark);
-  margin: 0;
-}
-.cs-strategy-intro p {
-  font-size: 15px;
-  color: var(--grey-mid);
-  line-height: 1.7;
-  margin: 0;
-  padding-top: 6px;
-}
-.cs-slides {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-}
+.cs-section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey-light); margin-bottom: 48px; display: block; }
+.cs-strategy-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 48px; align-items: start; }
+.cs-strategy-intro h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; color: var(--grey-dark); margin: 0; }
+.cs-strategy-intro p { font-size: 15px; color: var(--grey-mid); line-height: 1.7; margin: 0; padding-top: 6px; }
+.cs-slides { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
 .cs-slide { overflow: hidden; background: #1a1a1a; }
-.cs-slide img {
-  width: 100%;
-  display: block;
-  transition: transform 0.5s ease;
-}
+.cs-slide img { width: 100%; display: block; transition: transform 0.5s ease; }
 .cs-slide:hover img { transform: scale(1.02); }
 
 /* Pull quote */
 .cs-pullquote { padding: 80px 48px; }
-.cs-pullquote blockquote {
-  font-size: clamp(28px, 5vw, 64px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.0;
-  color: var(--grey-dark);
-  margin: 0;
-  max-width: 900px;
-}
+.cs-pullquote blockquote { font-size: clamp(28px, 5vw, 64px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; color: var(--grey-dark); margin: 0; max-width: 900px; }
 
-/* Media grid */
-.cs-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
-  margin-bottom: 4px;
-}
+/* Media grids */
+.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 4px; }
 .cs-grid video,
-.cs-grid img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  aspect-ratio: 4/3;
-}
+.cs-grid img { width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3; }
+.cs-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-bottom: 4px; }
+.cs-grid-3 img { width: 100%; display: block; object-fit: cover; aspect-ratio: 3/4; }
 .cs-grid-wide { grid-column: span 2; }
-.cs-grid-wide img { aspect-ratio: 16/7; object-fit: cover; }
+.cs-grid-wide img,
+.cs-grid-wide video { aspect-ratio: 16/7; object-fit: cover; width: 100%; display: block; }
 
 /* Credits */
-.cs-credits {
-  padding: 80px 48px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  border-top: 1px solid var(--border);
-}
-.cs-credits h3 {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--grey-light);
-  margin: 0 0 32px;
-}
-.cs-credit-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 14px;
-}
-.cs-credit-key {
-  color: var(--grey-light);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
-.cs-credit-val {
-  color: var(--grey-dark);
-  font-weight: 500;
-  text-align: right;
-}
-.cs-credit-val a {
-  color: var(--grey-dark);
-  text-decoration: none;
-  border-bottom: 1px solid var(--border);
-  transition: border-color 0.2s;
-}
+.cs-credits { padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; border-top: 1px solid var(--border); }
+.cs-credits h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey-light); margin: 0 0 32px; }
+.cs-credit-row { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.cs-credit-key { color: var(--grey-light); font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; }
+.cs-credit-val { color: var(--grey-dark); font-weight: 500; text-align: right; }
+.cs-credit-val a { color: var(--grey-dark); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.2s; }
 .cs-credit-val a:hover { border-color: var(--grey-dark); }
 
 /* Mobile */
@@ -218,9 +90,12 @@
   .cs-strategy { padding: 48px 24px; }
   .cs-pullquote { padding: 48px 24px; }
   .cs-slides,
-  .cs-grid { grid-template-columns: 1fr; }
+  .cs-grid,
+  .cs-grid-3 { grid-template-columns: 1fr; }
   .cs-grid-wide { grid-column: span 1; }
-  .cs-grid-wide img { aspect-ratio: 4/3; }
+  .cs-grid-wide img,
+  .cs-grid-wide video { aspect-ratio: 4/3; }
+  .cs-grid-3 img { aspect-ratio: 4/3; }
   .cs-caption { flex-direction: column; gap: 6px; padding: 16px 24px 48px; }
   .cs-caption-text { text-align: left; }
   .cs-desc { max-width: 100%; }
@@ -265,14 +140,14 @@
   </div>
 </header>
 
-<!-- HERO VIDEO -->
+<!-- HERO: Multiple posters animation -->
 <div class="cs-media-full">
   <video autoplay muted loop playsinline>
     <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639068317eaccf226164b07_Bianca_Chen-Multiple_Posters_Animation-hq-transcode.mp4" type="video/mp4">
   </video>
 </div>
 
-<!-- INTRO -->
+<!-- INTRO TEXT -->
 <div class="cs-intro">
   <p>Bianca Chen is an independent curator based in Los Angeles, where she's devoted her life to elevating the city's diverse art landscape, connecting its creative community, and championing emerging artists from around the world. Born and raised in LA, she grew up surrounded by art and design as the elder daughter of legendary tastemaker JF Chen.</p>
   <p>Her curatorial approach — which we termed "Curated Chaos" — blends traditional and contemporary elements, bridging cultures, ideas, and geographies. We developed a full brand strategy, vibrant visual identity, and Webflow website from scratch, positioning her as a key influencer in the global art scene while honouring her family's deep LA legacy.</p>
@@ -287,6 +162,13 @@
 <div class="cs-caption">
   <span class="cs-caption-label">Identity</span>
   <span class="cs-caption-text">Logo construction — layers of the mark built from a vibrant, LA-rooted colour system.</span>
+</div>
+
+<!-- LOGO COLOURS + CURATED BY + SHAPES GIF — 3 col -->
+<div class="cs-grid-3">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638ee86acfb06657caf0f0b_bianca-MAIN_LOGO-all_colors.gif" alt="Logo colour variants" loading="lazy">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f0292c60d54b5b31f947_BC-Curated_by-visual_black.webp" alt="Curated by visual" loading="lazy">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639ece5ac073812f57277b0_BC-shapes-details_GIF.gif" alt="Brand shapes detail" loading="lazy">
 </div>
 
 <!-- STRATEGY SECTION -->
@@ -317,8 +199,34 @@
   <blockquote>No one else can connect LA like Bianca Chen.</blockquote>
 </div>
 
-<!-- ABOUT PAGE VIDEO -->
-<div class="cs-media-full">
+<!-- POSTER GRID: portrait posters + calendar + A4 mockup -->
+<div class="cs-grid">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639f344d9da35f34644c9da_BC-mulitple_posters-portrait.webp" alt="Portrait posters" loading="lazy">
+  <div style="display:grid;gap:4px;">
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638fad1b95cf1175bd23de7_BC-Poster_Calendar.webp" alt="Poster calendar" loading="lazy" style="aspect-ratio:4/3;object-fit:cover;">
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638e88dc66a1970a771a26c_BC-A4-Poster_Mockup.webp" alt="A4 poster mockup" loading="lazy" style="aspect-ratio:4/3;object-fit:cover;">
+  </div>
+</div>
+
+<!-- POSTER CONSTRUCTION VIDEO -->
+<div class="cs-media-full" style="margin-top:4px;">
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663a5b16b571d6f9c33a5f54_Bianca_Chen-Poster_Construction-Animation copy-transcode.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Motion</span>
+  <span class="cs-caption-text">Poster construction system — an identity that builds itself, frame by frame.</span>
+</div>
+
+<!-- COLOURS + TYPEFACES -->
+<div class="cs-grid">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663a588a14783340918b7d0a_Bianca_Chen-Colors.jpg" alt="Brand colour system" loading="lazy">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663a58a3993746fa81b55549_Bianca_Chen-Typefaces.jpg" alt="Brand typefaces" loading="lazy">
+</div>
+
+<!-- ABOUT PAGE ANIMATION -->
+<div class="cs-media-full" style="margin-top:4px;">
   <video autoplay muted loop playsinline>
     <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f08604f600c373a04d05_Bianca_Chen-About_page-animation-transcode.mp4" type="video/mp4">
   </video>
@@ -328,20 +236,9 @@
   <span class="cs-caption-text">About page animation — dynamic hover interactions designed in Webflow.</span>
 </div>
 
-<!-- MEDIA GRID -->
-<div class="cs-grid">
-  <div>
-    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638ee86acfb06657caf0f0b_bianca-MAIN_LOGO-all_colors.gif" alt="Bianca Chen logo colour variants" loading="lazy">
-  </div>
-  <div>
-    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f02bb1fb80b6192e1048_Shapes-GIF_printed.gif" alt="Brand shapes system" loading="lazy">
-  </div>
-  <div>
-    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f02917cb39e6edbd82e6_BC-Card_Mockup.webp" alt="Business card mockup" loading="lazy">
-  </div>
-  <div>
-    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f029b5a2edbf99315bb1_BC-Tote_Bag-Mockup.webp" alt="Tote bag mockup" loading="lazy">
-  </div>
+<!-- DESKTOP MOCKUP full width -->
+<div class="cs-media-full">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f02a77854d41b4e9649f_BC-Desktop_Mac-mockup.webp" alt="Desktop website mockup" loading="lazy">
 </div>
 
 <!-- HOME SCROLL VIDEO -->
@@ -355,28 +252,36 @@
   <span class="cs-caption-text">Homepage scroll — the site as a living exhibition space for Bianca's curatorial work.</span>
 </div>
 
-<!-- COLOUR + TYPE + DESKTOP -->
+<!-- UI DETAILS: mobile menu + project page + hover interactions -->
 <div class="cs-grid">
-  <div>
-    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663a588a14783340918b7d0a_Bianca_Chen-Colors.jpg" alt="Brand colour system" loading="lazy">
-  </div>
-  <div>
-    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663a58a3993746fa81b55549_Bianca_Chen-Typefaces.jpg" alt="Brand typefaces" loading="lazy">
-  </div>
-  <div class="cs-grid-wide">
-    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f02a77854d41b4e9649f_BC-Desktop_Mac-mockup.webp" alt="Desktop website mockup" loading="lazy">
-  </div>
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639ef8dd689aa172e0d987a_BC-Menu_focus-Mobile-v2.webp" alt="Mobile menu" loading="lazy">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639ef4a464c0810b8a5effb_BC-Project-page.webp" alt="Project page" loading="lazy">
 </div>
 
-<!-- POSTER CONSTRUCTION VIDEO -->
-<div class="cs-media-full" style="margin-top:4px;">
-  <video autoplay muted loop playsinline>
-    <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663a5b16b571d6f9c33a5f54_Bianca_Chen-Poster_Construction-Animation copy-transcode.mp4" type="video/mp4">
+<!-- UI HOVER VIDEO + IG STORY + ICON ANIMATION -->
+<div class="cs-grid" style="margin-top:4px;">
+  <video autoplay muted loop playsinline style="aspect-ratio:4/3;object-fit:cover;width:100%;display:block;">
+    <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639dcb9b3883789ae81ffae_Bianca_Chen-UI-Details-Hover-transcode.mp4" type="video/mp4">
+  </video>
+  <video autoplay muted loop playsinline style="aspect-ratio:4/3;object-fit:cover;width:100%;display:block;">
+    <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65e6f64ab83565f6fb4544de_Bianca_Chen-02-transcode.mp4" type="video/mp4">
   </video>
 </div>
-<div class="cs-caption">
-  <span class="cs-caption-label">Motion</span>
-  <span class="cs-caption-text">Poster construction system — an identity that builds itself, frame by frame.</span>
+
+<!-- IG STORY + IG POST + WRISTBAND — merch/social -->
+<div class="cs-grid-3" style="margin-top:4px;">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65e6f2df60f9ee4b1ea7984e_Bianca_Chen-IG-Story.webp" alt="Instagram Story" loading="lazy">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65e6f2e0d1796a72bf8b985e_Bianca_Chen-IG-Post.webp" alt="Instagram Post" loading="lazy">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65e6f2df87dbec8f2986d515_Bianca_Chen-Wristband.webp" alt="Wristband" loading="lazy">
+</div>
+
+<!-- POSTER 01 + WEB ICON ANIMATION + CARD + TOTE -->
+<div class="cs-grid" style="margin-top:4px;">
+  <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65e6f2e1d022654d8aae0284_Bianca_Poster-01.webp" alt="Poster 01" loading="lazy">
+  <div style="display:grid;gap:4px;">
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f02917cb39e6edbd82e6_BC-Card_Mockup.webp" alt="Business card" loading="lazy" style="aspect-ratio:4/3;object-fit:cover;">
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f029b5a2edbf99315bb1_BC-Tote_Bag-Mockup.webp" alt="Tote bag" loading="lazy" style="aspect-ratio:4/3;object-fit:cover;">
+  </div>
 </div>
 
 <!-- CREDITS -->
