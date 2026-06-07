@@ -253,7 +253,7 @@ footer{margin-top:auto}
     <div class="archive-col-client">
       <h3>Client / Project</h3>
       <span class="ar-client"><a href="/cases/nzz.html">NZZ Mediengruppe</a></span>
-      <span class="ar-client">Architonic</span>
+      <span class="ar-client"><a href="/frede-studio/architonic.html">Architonic</a></span>
       <span class="ar-client">The Ritz-Carlton, Berlin</span>
       <span class="ar-client">Engel &amp; Völkers Berlin</span>
       <span class="ar-client">Episode Hotels</span>
@@ -422,6 +422,8 @@ const MS = 'https://www.moresleep.net/wp-content/uploads/';
 // 4-col grid: projects NOT on homepage
 // Homepage: Architonic, NZZ, LAS Art Foundation, Lewis, Umane, Louis Vuitton, Pferdt, USM, Signal LA, Ritz-Carlton, Bianca Chen
 const projects = [
+  { b:"Architonic",        t:"Brand Strategy & Platform", type:"video", link:"/frede-studio/architonic.html",
+    src:"../Architonic_HP_Video-header.mp4" },
   { b:"Vitra",              t:"Brand Strategy",          type:"carousel" },
   { b:"Friends of Friends", t:"Publication & Brand",     type:"img",
     src: MS+"2021/02/FF-iPhone_Collection-3-Wide-1024x641.jpg" },
@@ -468,11 +470,11 @@ const VITRA = [
 function buildGrid() {
   const grid = document.getElementById('grid');
   projects.forEach((p, i) => {
-    const div = document.createElement('div');
-    div.className = 'case';
     let inner = '';
     if (p.type === 'img') {
       inner = `<img src="${p.src}" alt="${p.b}" loading="lazy">`;
+    } else if (p.type === 'video') {
+      inner = `<video autoplay muted loop playsinline><source src="${p.src}" type="video/mp4"></video>`;
     } else if (p.type === 'carousel') {
       const slides = VITRA.map(s => `<div class="carousel-slide"><img src="${s}" alt="Vitra" loading="lazy"></div>`).join('');
       inner = `<div class="carousel" id="c${i}">
@@ -481,13 +483,25 @@ function buildGrid() {
         <button class="carousel-btn next" onclick="slide('c${i}',1)">&#8250;</button>
       </div>`;
     }
-    div.innerHTML = `
+    const content = `
       <div class="case-media"><div class="case-media-inner">${inner}</div></div>
       <div class="case-info">
         <span class="case-brand">${p.b}</span>
         <span class="case-tag">${p.t}</span>
       </div>`;
-    grid.appendChild(div);
+    if (p.link) {
+      const a = document.createElement('a');
+      a.href = p.link;
+      a.className = 'case';
+      a.style.cssText = 'display:block;text-decoration:none;color:inherit;cursor:pointer;';
+      a.innerHTML = content;
+      grid.appendChild(a);
+    } else {
+      const div = document.createElement('div');
+      div.className = 'case';
+      div.innerHTML = content;
+      grid.appendChild(div);
+    }
   });
   document.getElementById('grid-count').textContent = projects.length + ' projects';
 }
