@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bianca Chen — Frederik Frede</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── Page-specific layout ── */
+.cs-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Header */
+.cs-header {
+  padding: 80px 32px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
+.cs-title {
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--grey-dark);
+  margin: 0;
+}
+.cs-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 6px;
+}
+.cs-tags {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  font-weight: 500;
+}
+.cs-tagline {
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 700;
+  color: var(--grey-dark);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.cs-desc {
+  font-size: 15px;
+  color: var(--grey-mid);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* Intro */
+.cs-intro {
+  padding: 0 32px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.cs-intro p {
+  font-size: 16px;
+  color: var(--grey-mid);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Full-width media */
+.cs-media-full {
+  width: 100%;
+  margin-bottom: 4px;
+}
+.cs-media-full video,
+.cs-media-full img {
+  width: 100%;
+  display: block;
+  object-fit: unset;
+}
+
+/* Caption */
+.cs-caption {
+  padding: 20px 32px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.cs-caption-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-light);
+}
+.cs-caption-text {
+  font-size: 14px;
+  color: var(--grey-mid);
+  max-width: 480px;
+  text-align: right;
+}
+
+/* Strategy section */
+.cs-strategy {
+  padding: 80px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cs-section-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--grey-light);
+  margin-bottom: 48px;
+  display: block;
+}
+.cs-strategy-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+  align-items: start;
+}
+.cs-strategy-intro h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--grey-dark);
+  margin: 0;
+}
+.cs-strategy-intro p {
+  font-size: 15px;
+  color: var(--grey-mid);
+  line-height: 1.7;
+  margin: 0;
+  padding-top: 8px;
+}
+.cs-slides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+}
+.cs-slide {
+  overflow: hidden;
+  background: #f0ede9;
+}
+.cs-slide img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.cs-slide:hover img {
+  transform: scale(1.02);
+}
+
+/* Pull quote */
+.cs-pullquote {
+  padding: 80px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cs-pullquote blockquote {
+  font-size: clamp(24px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--grey-dark);
+  margin: 0;
+  max-width: 800px;
+}
+
+/* Media grid */
+.cs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.cs-grid video,
+.cs-grid img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+.cs-grid-wide {
+  grid-column: span 2;
+}
+.cs-grid-wide video,
+.cs-grid-wide img {
+  aspect-ratio: 16/7;
+}
+
+/* Credits */
+.cs-credits {
+  padding: 80px 32px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  border-top: 1px solid var(--border);
+}
+.cs-credits-col h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--grey-light);
+  margin: 0 0 32px;
+}
+.cs-credit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.cs-credit-key {
+  color: var(--grey-light);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.cs-credit-val {
+  color: var(--grey-dark);
+  font-weight: 500;
+  text-align: right;
+}
+.cs-credit-val a {
+  color: var(--grey-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--grey-light);
+}
+
+/* Nav back link */
+.cs-nav-back {
+  padding: 24px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cs-nav-back a {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cs-nav-back a:hover { color: var(--grey-dark); }
+
+@media (max-width: 640px) {
+  .cs-header,
+  .cs-intro,
+  .cs-strategy-intro,
+  .cs-credits {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .cs-slides { grid-template-columns: 1fr; }
+  .cs-grid { grid-template-columns: 1fr; }
+  .cs-grid-wide { grid-column: span 1; }
+  .cs-grid-wide video,
+  .cs-grid-wide img { aspect-ratio: 4/3; }
+  .cs-title { font-size: 48px; }
+  .cs-caption { flex-direction: column; gap: 8px; }
+  .cs-caption-text { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="/">Frederik</a>
+    <a class="nav-studio" href="/"> Frede</a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/work.html">Work</a></li>
+      <li><a href="/about.html">Information</a></li>
+      <li><a href="/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<!-- HEADER -->
+<header class="cs-header">
+  <h1 class="cs-title">Bianca<br>Chen</h1>
+  <div class="cs-meta">
+    <span class="cs-tags">Brand Strategy &nbsp;·&nbsp; Identity &nbsp;·&nbsp; Web Design &nbsp;·&nbsp; Motion &nbsp;·&nbsp; 2024</span>
+    <p class="cs-tagline">"Curated Chaos"</p>
+    <p class="cs-desc">A full brand strategy, visual identity, and digital presence for an independent Los Angeles curator — daughter of legendary tastemaker JF Chen.</p>
+  </div>
+</header>
+
+<!-- HERO VIDEO -->
+<div class="cs-media-full">
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639068317eaccf226164b07_Bianca_Chen-Multiple_Posters_Animation-hq-transcode.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- INTRO -->
+<div class="cs-intro">
+  <p>Bianca Chen is an independent curator based in Los Angeles, where she's devoted her life to elevating the city's diverse art landscape, connecting its creative community, and championing emerging artists from around the world. Born and raised in LA, she grew up surrounded by art and design as the elder daughter of legendary tastemaker JF Chen.</p>
+  <p>Her curatorial approach — which we termed "Curated Chaos" — blends traditional and contemporary elements, bridging cultures, ideas, and geographies. We developed a full brand strategy, vibrant visual identity, and Webflow website from scratch, positioning her as a key influencer in the global art scene while honouring her family's deep LA legacy.</p>
+</div>
+
+<!-- LOGO CONSTRUCTION VIDEO -->
+<div class="cs-media-full">
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638eeb035b5229f14257965_Bianca_Chen-Full Logo Animation-Construction_&_Images-16x9-transcode.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Identity</span>
+  <span class="cs-caption-text">Logo construction — layers of the mark built from a vibrant, LA-rooted colour system.</span>
+</div>
+
+<!-- STRATEGY SECTION -->
+<div class="cs-strategy">
+  <span class="cs-section-label">Strategy</span>
+  <div class="cs-strategy-intro">
+    <h2>Brand strategy built on three convictions.</h2>
+    <p>Before a single mark was drawn, we developed a comprehensive brand strategy grounded in cultural insight — defining Bianca's purpose, audiences, positioning, and narrative. The work below shows select slides from the strategy document delivered to the client.</p>
+  </div>
+  <div class="cs-slides">
+    <!-- Slide: Positioning trio -->
+    <div class="cs-slide">
+      <img src="strategy-slides/slide-positioning.jpg" alt="Positioning — No one else can connect LA, knows art, or cares like Bianca Chen" loading="lazy">
+    </div>
+    <!-- Slide: Values -->
+    <div class="cs-slide">
+      <img src="strategy-slides/slide-values.jpg" alt="Values — Independence, Connection, Fluidity, Joy" loading="lazy">
+    </div>
+    <!-- Slide: Narrative -->
+    <div class="cs-slide">
+      <img src="strategy-slides/slide-narrative.jpg" alt="Narrative — Bianca Chen is an independent curator based in Los Angeles" loading="lazy">
+    </div>
+    <!-- Slide: Tone -->
+    <div class="cs-slide">
+      <img src="strategy-slides/slide-tone.jpg" alt="Tone — Contemporary, Inclusive, Expressive, Vibrant" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<!-- PULL QUOTE -->
+<div class="cs-pullquote">
+  <blockquote>No one else can connect LA like Bianca Chen.</blockquote>
+</div>
+
+<!-- ABOUT PAGE VIDEO -->
+<div class="cs-media-full">
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f08604f600c373a04d05_Bianca_Chen-About_page-animation-transcode.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Web Design</span>
+  <span class="cs-caption-text">About page animation — dynamic hover interactions designed in Webflow.</span>
+</div>
+
+<!-- MEDIA GRID -->
+<div class="cs-grid">
+  <div>
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638ee86acfb06657caf0f0b_bianca-MAIN_LOGO-all_colors.gif" alt="Bianca Chen logo colour variants" loading="lazy">
+  </div>
+  <div>
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f02bb1fb80b6192e1048_Shapes-GIF_printed.gif" alt="Brand shapes system" loading="lazy">
+  </div>
+  <div>
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f02917cb39e6edbd82e6_BC-Card_Mockup.webp" alt="Business card mockup" loading="lazy">
+  </div>
+  <div>
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f029b5a2edbf99315bb1_BC-Tote_Bag-Mockup.webp" alt="Tote bag mockup" loading="lazy">
+  </div>
+</div>
+
+<!-- HOME SCROLL VIDEO -->
+<div class="cs-media-full" style="margin-top:4px;">
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663903a07460087f4ff08254_Bianca_Chen-Home_Scroll-Updated-transcode.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Digital</span>
+  <span class="cs-caption-text">Homepage scroll — the site as a living exhibition space for Bianca's curatorial work.</span>
+</div>
+
+<!-- POSTER GRID -->
+<div class="cs-grid">
+  <div>
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663a588a14783340918b7d0a_Bianca_Chen-Colors.jpg" alt="Brand colour system" loading="lazy">
+  </div>
+  <div>
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663a58a3993746fa81b55549_Bianca_Chen-Typefaces.jpg" alt="Brand typefaces" loading="lazy">
+  </div>
+  <div class="cs-grid-wide">
+    <img src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638f02a77854d41b4e9649f_BC-Desktop_Mac-mockup.webp" alt="Desktop website mockup" loading="lazy">
+  </div>
+</div>
+
+<!-- POSTER CONSTRUCTION VIDEO -->
+<div class="cs-media-full" style="margin-top:4px;">
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/663a5b16b571d6f9c33a5f54_Bianca_Chen-Poster_Construction-Animation copy-transcode.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Motion</span>
+  <span class="cs-caption-text">Poster construction system — an identity that builds itself, frame by frame.</span>
+</div>
+
+<!-- CREDITS -->
+<div class="cs-credits">
+  <div class="cs-credits-col">
+    <h3>Project Details</h3>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">Client</span>
+      <span class="cs-credit-val">Bianca Chen</span>
+    </div>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">Studio</span>
+      <span class="cs-credit-val">MoreSleep</span>
+    </div>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">Team</span>
+      <span class="cs-credit-val">Frederik Frede, Sveta Koliada, Thomas Provost</span>
+    </div>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">Year</span>
+      <span class="cs-credit-val">2024</span>
+    </div>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">Typefaces</span>
+      <span class="cs-credit-val">New Edge 666 · Bookish</span>
+    </div>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">Live site</span>
+      <span class="cs-credit-val"><a href="https://www.biancachen.com/" target="_blank" rel="noopener">biancachen.com ↗</a></span>
+    </div>
+  </div>
+  <div class="cs-credits-col">
+    <h3>Scope</h3>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">01</span>
+      <span class="cs-credit-val">Brand Strategy</span>
+    </div>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">02</span>
+      <span class="cs-credit-val">Visual Identity</span>
+    </div>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">03</span>
+      <span class="cs-credit-val">Motion Design</span>
+    </div>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">04</span>
+      <span class="cs-credit-val">Web Design</span>
+    </div>
+    <div class="cs-credit-row">
+      <span class="cs-credit-key">05</span>
+      <span class="cs-credit-val">Webflow Development</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-bar">
+    <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:15px">Frederik</span></span>
+    <div class="footer-links">
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
