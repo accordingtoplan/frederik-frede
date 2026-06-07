@@ -68,6 +68,10 @@ main{flex:1;padding:0 32px}
 .ar-cat{display:block;font-size:var(--t-label);color:var(--grey-light);font-weight:var(--regular);padding:3px 0;line-height:var(--lh-ui)}
 .ar-pitch{font-size:var(--t-label);color:var(--grey-light);font-style:italic;margin-left:6px}
 
+.work-grid-header{display:flex;justify-content:space-between;align-items:baseline;padding:48px 0 16px;border-top:1px solid var(--border);margin-bottom:0}
+.work-grid-label{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--grey-light)}
+.work-grid-count{font-size:11px;letter-spacing:0.09em;color:var(--grey-light)}
+
 /* FOOTER */
 footer{margin-top:auto}
 
@@ -128,6 +132,10 @@ footer{margin-top:auto}
     <h1 class="page-headline">Some of the work.<br>And the full archive.</h1>
   </div>
 
+  <div class="work-grid-header">
+    <span class="work-grid-label">Selected Work</span>
+    <span class="work-grid-count" id="grid-count"></span>
+  </div>
   <div class="grid" id="grid"></div>
 
   <div class="archive-section">
