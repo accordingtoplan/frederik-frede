@@ -24,7 +24,7 @@
 
 
 /* MAIN */
-main{flex:1;padding:0 48px}
+main{flex:1;padding:0}
 
 /* SECTION HEADER */
 .section-header{display:flex;justify-content:space-between;align-items:baseline;padding:48px 0 24px}
@@ -32,7 +32,7 @@ main{flex:1;padding:0 48px}
 .section-count{font-size:var(--t-ui);color:var(--grey-light)}
 
 /* 4-COL GRID */
-.grid{columns:4;column-gap:16px;margin-bottom:96px}
+.grid{columns:4;column-gap:16px;margin-bottom:96px;padding:0 48px}
 .case{break-inside:avoid;margin-bottom:24px;cursor:pointer}
 .case-media{margin-bottom:8px;background:#f5f3f1;border-radius:4px;overflow:hidden}
 .case-media-inner{transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
@@ -53,7 +53,7 @@ main{flex:1;padding:0 48px}
 .carousel-btn.next{right:6px}
 
 /* ARCHIVE */
-.archive-section{margin-bottom:96px}
+.archive-section{margin-bottom:96px;padding:0 48px}
 .archive-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 24px;align-items:start;margin-top:64px}
 .archive-grid+.archive-grid{margin-top:48px}
 .archive-col-label h3,
@@ -83,8 +83,9 @@ footer{margin-top:auto}
 @media(max-width:760px){.grid{columns:2}}
 @media(max-width:640px){
   
-  main{padding:0 20px}
-  .grid{columns:2;column-gap:10px}
+  main{padding:0}
+  .grid{padding:0 20px;columns:2;column-gap:10px}
+  .archive-section{padding:0 20px}
   .archive-grid{grid-template-columns:1fr 1fr;gap:0 16px}
   .archive-col-label{display:none}
   
