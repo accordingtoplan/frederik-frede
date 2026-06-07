@@ -421,7 +421,10 @@
 
   <footer>
     <div class="footer-bar">
-      <img src="/frede-studio/frede-logo.png" alt="FREDE" class="footer-logo">
+      <div class="footer-left">
+        <img src="/frede-studio/frede-logo.png" alt="FREDE" class="footer-logo">
+        <span class="footer-copy">© 2026 Frederik Frede</span>
+      </div>
       <div class="footer-links">
         <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
         <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
@@ -504,11 +507,7 @@
       }
 
 
-      const liveRow = c.live ? `<span class="case-credit-row"><span class="label">Live site</span><span class="value"><a href="${c.liveHref}" target="_blank" rel="noopener">${c.live} ↗</a></span></span>` : '';
-      const collabRow = `<span class="case-credit-row"><span class="label">Collaborators</span><span class="value">${c.collab || '—'}</span></span>`;
-      const yearRow = `<span class="case-credit-row"><span class="label">Year</span><span class="value">${c.year || ''}</span></span>`;
-      const credits = `<div class="case-credits">${liveRow}${collabRow}${yearRow}</div>`;
-      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}</div>${credits}</div>`;
+      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}</div><div class="case-tagline">${c.desc}</div></div>`;
       if (c.link) {
         const a = document.createElement('a');
         a.href = c.link;
