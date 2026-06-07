@@ -126,8 +126,15 @@ body {
 .footer-bar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 24px 48px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .footer-copy {
@@ -138,18 +145,15 @@ body {
 }
 
 .footer-logo {
-  height: 32px;
+  height: 40px;
   width: auto;
   display: block;
-  mix-blend-mode: multiply;
-  opacity: 0.85;
+  margin-bottom: 10px;
+  filter: invert(1);
 }
 
-/* invert on dark/red backgrounds */
-[data-theme="black"] .footer-logo,
-[data-theme="red"] .footer-logo {
-  mix-blend-mode: normal;
-  filter: invert(1);
+[data-theme="white"] .footer-logo {
+  filter: invert(0);
 }
 
 .footer-links { display: flex; gap: 24px; }
