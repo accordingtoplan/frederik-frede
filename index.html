@@ -445,7 +445,7 @@
         src:"https://cdn.prod.website-files.com/66e30c0fc33687ad22c38f24/66e30f9b5a6d4fad335d3800_SIGNAL-2023-Logo_White.svg",
         ratio:"ratio-land" },
       { b:"Bianca Chen",        tag:"Brand & Identity",       desc:"Curated Chaos — identity for an independent LA-based art curator.",
-        type:"video",
+        link:"/frede-studio/bianca-chen.html", type:"video",
         src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639068317eaccf226164b07_Bianca_Chen-Multiple_Posters_Animation-hq-transcode.mp4",
         poster:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638ee86acfb06657caf0f0b_bianca-MAIN_LOGO-all_colors.gif",
         ratio:"ratio-land" },
@@ -477,8 +477,18 @@
       }
 
 
-      div.innerHTML = `${media}<div class="case-info"><div class="case-brand">${c.b}</div><div class="case-tagline">${c.desc}</div></div>`;
-      grid.appendChild(div);
+      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}</div><div class="case-tagline">${c.desc}</div></div>`;
+      if (c.link) {
+        const a = document.createElement('a');
+        a.href = c.link;
+        a.className = div.className;
+        a.style.cssText = 'display:block;text-decoration:none;color:inherit;';
+        a.innerHTML = inner;
+        grid.appendChild(a);
+      } else {
+        div.innerHTML = inner;
+        grid.appendChild(div);
+      }
     });
 
 
