@@ -135,6 +135,17 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+  position: relative;
+}
+
+.footer-marker {
+  position: absolute;
+  bottom: 100%;
+  left: 80px;
+  margin-bottom: 8px;
+  width: 200px;
+  overflow: visible;
+  pointer-events: none;
 }
 
 .footer-copy {
