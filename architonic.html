@@ -81,17 +81,11 @@
 .cs-testimonial-tag { font-size: 11px; color: var(--grey-light); letter-spacing: 0.04em; }
 
 /* Credits */
-.cs-bottom {
-  padding: 80px 48px 100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  border-top: 1px solid var(--border);
-  margin-top: 80px;
-}
+.cs-bottom { padding: 80px 48px 100px; position: relative; border-top: 1px solid var(--border); margin-top: 80px; }
+.cs-description { max-width: 50%; }
 .cs-description p { font-size: 15px; font-weight: 700; color: var(--grey-dark); line-height: 1.6; margin-bottom: 20px; }
 .cs-description p:last-child { margin-bottom: 0; }
-.cs-credits-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; align-content: start; }
+.cs-credits-cols { position: absolute; right: 48px; top: 80px; text-align: right; align-content: start; }
 .cs-credit-group { margin-bottom: 28px; }
 .cs-credit-group dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--grey-light); margin-bottom: 4px; }
 .cs-credit-group dd { font-size: 14px; font-weight: 700; color: var(--grey-dark); margin: 0; line-height: 1.5; }
@@ -200,7 +194,7 @@
 <header class="cs-header">
   <h1 class="cs-title">Archi<br>tonic</h1>
   <div class="cs-meta">
-    <span class="cs-tags">Brand Strategy &nbsp;·&nbsp; Identity &nbsp;·&nbsp; Platform Design &nbsp;·&nbsp; Campaign &nbsp;·&nbsp; 2023–2025</span>
+    <span class="cs-tags">Brand Strategy &nbsp;·&nbsp; Identity &nbsp;·&nbsp; Platform Design &nbsp;·&nbsp; Campaign</span>
     <p class="cs-tagline">"Ideas. Specified."</p>
     <p class="cs-desc">A complete rebrand, platform redesign, and global campaign for Europe's leading architectural products platform — evolving Architonic from database to living workspace.</p>
   </div>
