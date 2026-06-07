@@ -416,6 +416,7 @@
     r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
     r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
     r.setProperty('--grey-light', t.light);
+    document.documentElement.setAttribute('data-theme', name);
     document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
     if (el) el.classList.add('active');
   }
