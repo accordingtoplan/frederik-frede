@@ -31,18 +31,20 @@
 .cs-strategy-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px;align-items:start}
 .cs-strategy-intro h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.025em;line-height:1.05;color:var(--grey-dark);margin:0}
 .cs-strategy-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0;padding-top:6px}
-.cs-bottom{padding:80px 48px 100px;display:grid;grid-template-columns:1fr 1fr;gap:64px;border-top:1px solid var(--border);margin-top:80px}
+.cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
+.cs-description{max-width:50%}
 .cs-description p{font-size:15px;font-weight:700;color:var(--grey-dark);line-height:1.6;margin-bottom:20px}
 .cs-description p:last-child{margin-bottom:0}
-.cs-credits-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;align-content:start}
+.cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right;align-content:start}
 .cs-credit-group{margin-bottom:28px}
 .cs-credit-group dt{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light);margin-bottom:4px}
 .cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
 .cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
 .cs-credit-group dd a:hover{opacity:0.6}
 @media(max-width:640px){
-  .cs-header,.cs-intro,.cs-strategy-intro,.cs-credits-cols{grid-template-columns:1fr}
-  .cs-bottom{grid-template-columns:1fr;gap:40px;padding:48px 24px}
+  .cs-header,.cs-intro,.cs-strategy-intro,.cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right;align-content:start}
+  .cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
+.cs-description{max-width:50%}
   .cs-header{padding:48px 24px 40px}
   .cs-intro{padding:0 24px 48px}
   .cs-strategy,.cs-pullquote{padding:48px 24px}
@@ -138,11 +140,9 @@
 <div class="cs-bottom">
   <div class="cs-description"><p>IAC is one of the world's most exclusive club networks — connecting high-net-worth individuals across cities globally. The existing brand felt corporate and dated; it didn't reflect the cultural ambitions of its members.</p><p>We led a lifestyle repositioning and website redesign — shifting the brand language from transactional to aspirational, from institutional to experiential.</p></div>
   <dl class="cs-credits-cols">
-    <div class="cs-credit-group"><dt>Client</dt><dd>IAC</dd></div>
-    <div class="cs-credit-group"><dt>Year</dt><dd>2018</dd></div>
-    <div class="cs-credit-group"><dt>Studio</dt><dd>MoreSleep</dd></div>
     <div class="cs-credit-group"><dt>Live site</dt><dd><a href="https://www.iac.com" target="_blank" rel="noopener">www.iac.com ↗</a></dd></div>
-    <div class="cs-credit-group"><dt>Team</dt><dd>Frederik Frede</dd></div>
+    <div class="cs-credit-group"><dt>Collaborators</dt><dd>Frederik Frede</dd></div>
+    <div class="cs-credit-group"><dt>Year</dt><dd>2018</dd></div>
   </dl>
 </div>
 
