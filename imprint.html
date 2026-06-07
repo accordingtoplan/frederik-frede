@@ -298,6 +298,7 @@
     const t = themes[name];
     if (!t) return;
     Object.entries(t).forEach(([k,v]) => document.documentElement.style.setProperty(k,v));
+    document.documentElement.setAttribute('data-theme', name);
     document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
     if (el) el.classList.add('active');
   }
