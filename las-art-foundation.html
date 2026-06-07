@@ -92,21 +92,11 @@
   .cs-nav-item.next { text-align: left; }
 }
 
-/* ── Logo mark ── */
-.cs-logo-mark {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 48px;
-}
-.cs-logo-img {
-  width: 120px;
-  height: auto;
-  opacity: 0.15;
-  transition: opacity 0.3s;
-  filter: invert(1);
-}
-.cs-logo-img:hover { opacity: 0.4; }
+
+/* ── Footer logo ── */
+.footer-left { display: flex; flex-direction: column; gap: 8px; }
+.footer-logo-link { display: block; color: var(--grey-dark); line-height: 0; }
+.footer-logo-link svg { display: block; }
 </style>
 </head>
 <body>
@@ -203,13 +193,25 @@
   </a>
 </nav>
 
-<div class="cs-logo-mark">
-  <img src="/frede-studio/assets/logo12_b.png" alt="Frederik Frede" class="cs-logo-img">
-</div>
 
 <footer>
   <div class="footer-bar">
-    <span class="footer-copy">© 2026 <span class="footer-frak">Frederik Frede</span></span>
+    <div class="footer-left">
+      <a href="/frede-studio/" class="footer-logo-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" fill="currentColor" width="80" height="64">
+  <rect x="20" y="2" width="160" height="100" rx="10" ry="10"/>
+  <rect x="26" y="8" width="148" height="88" rx="6" ry="6" fill="var(--bg)"/>
+  <text x="36" y="58" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="900" font-size="44" fill="currentColor" letter-spacing="-1">FRE</text>
+  <text x="36" y="92" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="900" font-size="44" fill="currentColor" letter-spacing="-1">DE&#x2122;</text>
+  <rect x="14" y="108" width="172" height="46" rx="8" ry="8"/>
+  <rect x="20" y="113" width="160" height="28" rx="3" ry="3" fill="var(--bg)"/>
+  <rect x="22" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="32" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="42" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="52" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="62" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="72" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="82" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="92" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="102" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="112" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="122" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="132" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="142" y="115" width="8" height="6" rx="1" fill="currentColor"/><rect x="152" y="115" width="14" height="6" rx="1" fill="currentColor"/>
+  <rect x="22" y="123" width="12" height="6" rx="1" fill="currentColor"/><rect x="36" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="46" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="56" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="66" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="76" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="86" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="96" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="106" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="116" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="126" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="136" y="123" width="8" height="6" rx="1" fill="currentColor"/><rect x="146" y="123" width="20" height="6" rx="1" fill="currentColor"/>
+  <rect x="22" y="131" width="16" height="6" rx="1" fill="currentColor"/><rect x="40" y="131" width="8" height="6" rx="1" fill="currentColor"/><rect x="50" y="131" width="8" height="6" rx="1" fill="currentColor"/><rect x="60" y="131" width="8" height="6" rx="1" fill="currentColor"/><rect x="70" y="131" width="52" height="6" rx="1" fill="currentColor"/><rect x="124" y="131" width="8" height="6" rx="1" fill="currentColor"/><rect x="134" y="131" width="8" height="6" rx="1" fill="currentColor"/><rect x="144" y="131" width="6" height="6" rx="1" fill="currentColor"/><rect x="152" y="131" width="6" height="6" rx="1" fill="currentColor"/><rect x="160" y="131" width="6" height="6" rx="1" fill="currentColor"/>
+  <rect x="80" y="141" width="40" height="8" rx="3" ry="3" fill="var(--bg)"/>
+  <rect x="86" y="150" width="28" height="4" rx="2" ry="2" fill="var(--bg)"/>
+</svg></a>
+      <span class="footer-copy">© 2026 <span class="footer-frak">Frederik Frede</span></span>
+    </div>
     <div class="footer-links">
       <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
       <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
