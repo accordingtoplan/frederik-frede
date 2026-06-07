@@ -89,7 +89,7 @@ body {
 
 .nav-studio {
   font-size: var(--t-ui);
-  font-weight: var(--regular);
+  font-weight: var(--bold);
   color: var(--grey-mid);
   text-decoration: none;
 }
@@ -106,7 +106,7 @@ body {
 .nav-right ul { list-style: none; display: flex; align-items: center; }
 .nav-right ul li::after { content: ',\00a0'; color: var(--grey-light); font-size: var(--t-ui); }
 .nav-right ul li:last-child::after { content: ''; }
-.nav-right ul a { font-size: var(--t-ui); color: var(--grey-mid); text-decoration: none; font-weight: var(--regular); }
+.nav-right ul a { font-size: var(--t-ui); color: var(--grey-mid); text-decoration: none; font-weight: var(--bold); }
 .nav-right ul a.active { color: var(--grey-dark); font-weight: var(--bold); }
 .nav-right ul a:hover { color: var(--grey-dark); }
 
@@ -179,7 +179,7 @@ body {
 
 .t-ui {
   font-size: var(--t-ui);
-  font-weight: var(--regular);
+  font-weight: var(--bold);
   letter-spacing: var(--ls-ui);
   line-height: var(--lh-ui);
   color: var(--grey-mid);
@@ -189,7 +189,7 @@ body {
 
 .t-label {
   font-size: var(--t-label);
-  font-weight: var(--regular);
+  font-weight: var(--bold);
   letter-spacing: var(--ls-label);
   line-height: var(--lh-label);
   text-transform: uppercase;
@@ -297,7 +297,7 @@ body {
 
 .page-descriptor {
   font-size: var(--t-ui);
-  font-weight: var(--regular);
+  font-weight: var(--bold);
   color: var(--grey-mid);
   text-align: right;
   line-height: var(--lh-ui);
