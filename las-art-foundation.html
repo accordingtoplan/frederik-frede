@@ -66,9 +66,9 @@
   </div>
   <div class="nav-center">
     <div class="swatches">
-      <div class="swatch" style="background:#fff" onclick="setTheme('signal',this)" title="White"></div>
-      <div class="swatch" style="background:#111" onclick="setTheme('signal',this)" title="Black"></div>
-      <div class="swatch active" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
+      <div class="swatch" style="background:#fff" onclick="setTheme('black',this)" title="White"></div>
+      <div class="swatch active" style="background:#111" onclick="setTheme('black',this)" title="Black"></div>
+      <div class="swatch" style="background:#e63222" onclick="setTheme('black',this)" title="Red"></div>
     </div>
   </div>
   <div class="nav-right" id="navLinks">
@@ -171,7 +171,7 @@
     document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
     if(el)el.classList.add('active');
   }
-  setTheme('signal',document.querySelector('.swatch[onclick*="white"]'));
+  setTheme('black',document.querySelector('.swatch[onclick*="white"]'));
 </script>
 </body>
 </html>
