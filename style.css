@@ -132,10 +132,17 @@ body {
 
 .footer-left {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.footer-left-text {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
-  position: relative;
+  padding-top: 4px;
 }
 
 .footer-marker {
@@ -143,11 +150,6 @@ body {
   width: 180px;
   overflow: visible;
   pointer-events: none;
-  margin-top: 48px;
-  margin-left: 4px;
-  position: absolute;
-  left: 96px;
-  top: 0;
 }
 
 .footer-copy {
