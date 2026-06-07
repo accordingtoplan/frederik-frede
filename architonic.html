@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architonic — Frederik Frede</title>
+<meta name="description" content="Full rebrand, platform redesign, and campaign for Architonic — Europe's leading platform for architectural products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── Case study — page-specific only ── */
+
+.cs-header {
+  padding: 80px 48px 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
+.cs-title {
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--grey-dark);
+  margin: 0;
+}
+.cs-meta { display: flex; flex-direction: column; gap: 20px; padding-bottom: 4px; }
+.cs-tags { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--grey-light); }
+.cs-tagline { font-size: clamp(20px, 2.8vw, 32px); font-weight: 700; color: var(--grey-dark); line-height: 1.1; letter-spacing: -0.02em; }
+.cs-desc { font-size: 15px; color: var(--grey-mid); line-height: 1.65; max-width: 420px; }
+
+/* Intro */
+.cs-intro { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.cs-intro p { font-size: 15px; color: var(--grey-mid); line-height: 1.7; margin: 0; }
+
+/* Full-width media */
+.cs-media-full { width: 100%; margin-bottom: 4px; }
+.cs-media-full video,
+.cs-media-full img { width: 100%; display: block; object-fit: unset; }
+
+/* Caption */
+.cs-caption { padding: 18px 48px 64px; display: flex; justify-content: space-between; align-items: baseline; }
+.cs-caption-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--grey-light); }
+.cs-caption-text { font-size: 14px; color: var(--grey-mid); max-width: 480px; text-align: right; }
+
+/* Strategy / text section */
+.cs-strategy { padding: 80px 48px; }
+.cs-section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey-light); margin-bottom: 48px; display: block; }
+.cs-strategy-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 48px; align-items: start; }
+.cs-strategy-intro h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; color: var(--grey-dark); margin: 0; }
+.cs-strategy-intro p { font-size: 15px; color: var(--grey-mid); line-height: 1.7; margin: 0; padding-top: 6px; }
+.cs-slides { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.cs-slide { overflow: hidden; }
+.cs-slide img { width: 100%; display: block; transition: transform 0.5s ease; }
+.cs-slide:hover img { transform: scale(1.02); }
+
+/* Pull quote */
+.cs-pullquote { padding: 80px 48px; }
+.cs-pullquote blockquote { font-size: clamp(28px, 5vw, 64px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; color: var(--grey-dark); margin: 0; max-width: 900px; }
+
+/* Media grids */
+.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 4px; }
+.cs-grid video,
+.cs-grid img { width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3; }
+.cs-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-bottom: 4px; }
+.cs-grid-3 img,
+.cs-grid-3 video { width: 100%; display: block; object-fit: cover; aspect-ratio: 3/4; }
+.cs-grid-wide { grid-column: span 2; }
+.cs-grid-wide img,
+.cs-grid-wide video { aspect-ratio: 16/7; object-fit: cover; width: 100%; display: block; }
+
+/* Testimonial grid — portrait videos */
+.cs-testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 4px; }
+.cs-testimonial-item {}
+.cs-testimonial-video video { width: 100%; display: block; object-fit: cover; aspect-ratio: 9/16; }
+.cs-testimonial-info { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0 0; }
+.cs-testimonial-studio { font-size: 13px; font-weight: 700; color: var(--grey-dark); }
+.cs-testimonial-tag { font-size: 11px; color: var(--grey-light); letter-spacing: 0.04em; }
+
+/* Credits */
+.cs-bottom {
+  padding: 80px 48px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  border-top: 1px solid var(--border);
+  margin-top: 80px;
+}
+.cs-description p { font-size: 15px; font-weight: 700; color: var(--grey-dark); line-height: 1.6; margin-bottom: 20px; }
+.cs-description p:last-child { margin-bottom: 0; }
+.cs-credits-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; align-content: start; }
+.cs-credit-group { margin-bottom: 28px; }
+.cs-credit-group dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--grey-light); margin-bottom: 4px; }
+.cs-credit-group dd { font-size: 14px; font-weight: 700; color: var(--grey-dark); margin: 0; line-height: 1.5; }
+.cs-credit-group dd a { color: var(--grey-dark); text-decoration: none; }
+.cs-credit-group dd a:hover { opacity: 0.6; }
+
+/* Mobile */
+@media (max-width: 640px) {
+  .cs-header,
+  .cs-intro,
+  .cs-strategy-intro,
+  .cs-credits-cols { grid-template-columns: 1fr; }
+  .cs-bottom { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px; }
+  .cs-header { padding: 48px 24px 40px; }
+  .cs-intro { padding: 0 24px 48px; }
+  .cs-strategy { padding: 48px 24px; }
+  .cs-pullquote { padding: 48px 24px; }
+  .cs-caption { flex-direction: column; gap: 6px; padding: 16px 24px 48px; }
+  .cs-caption-text { text-align: left; }
+  .cs-desc { max-width: 100%; }
+  .cs-slides,
+  .cs-grid { grid-template-columns: 1fr; }
+  .cs-grid-3,
+  .cs-testimonials { grid-template-columns: 1fr 1fr; }
+  .cs-grid-wide { grid-column: span 1; }
+  .cs-grid-wide img,
+  .cs-grid-wide video { aspect-ratio: 4/3; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="/frede-studio/">Frederik</a>
+    <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch active" style="background:#fff" onclick="setTheme('white',this)" title="White"></div>
+      <div class="swatch" style="background:#111" onclick="setTheme('black',this)" title="Black"></div>
+      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <ul>
+      <li><a href="/frede-studio/">Home</a></li>
+      <li><a href="/frede-studio/work.html">Work</a></li>
+      <li><a href="/frede-studio/about.html">Information</a></li>
+      <li><a href="/frede-studio/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<!-- HEADER -->
+<header class="cs-header">
+  <h1 class="cs-title">Archi<br>tonic</h1>
+  <div class="cs-meta">
+    <span class="cs-tags">Brand Strategy &nbsp;·&nbsp; Identity &nbsp;·&nbsp; Platform Design &nbsp;·&nbsp; Campaign &nbsp;·&nbsp; 2023–2025</span>
+    <p class="cs-tagline">"Ideas. Specified."</p>
+    <p class="cs-desc">A complete rebrand, platform redesign, and global campaign for Europe's leading architectural products platform — evolving Architonic from database to living workspace.</p>
+  </div>
+</header>
+
+<!-- HERO: Homepage video -->
+<div class="cs-media-full">
+  <video autoplay muted loop playsinline>
+    <source src="Architonic_HP_Video-header.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- INTRO TEXT -->
+<div class="cs-intro">
+  <p>Architonic is Europe's leading platform for architectural products and materials — trusted by architects, interior designers, and specifiers for over two decades. But the brand had drifted. The platform had outgrown its identity, and the positioning no longer matched the ambition of where the product was heading.</p>
+  <p>The brief was total: new brand strategy, new visual identity, a complete product redesign, and a campaign to launch it all. The shift wasn't cosmetic — Architonic was evolving from a celebrated product database into a living workspace. From first sketch to final spec. In one place. Ideas. Specified.</p>
+</div>
+
+<!-- MILAN METRO: full bleed -->
+<div class="cs-media-full">
+  <img src="assets/architonic/Poster_Mockup_Milan_03.jpg" alt="Architonic brand in Milan Duomo metro station" loading="lazy">
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">OOH — Milan</span>
+  <span class="cs-caption-text">Campaign launch during Salone del Mobile — Duomo metro station takeover, May 2025.</span>
+</div>
+
+<!-- IDENTITY SECTION -->
+<div class="cs-strategy">
+  <span class="cs-section-label">01 — Identity</span>
+  <div class="cs-strategy-intro">
+    <h2>A mark built for confidence at every scale.</h2>
+    <p>The new identity centres on a bolder, more confident wordmark — stacked, compressed, unmissable. Coral red was already in Architonic's DNA; we made it the undisputed brand colour across every surface. The underscore beneath the wordmark became a structural signature: a platform, a foundation, a line to build from. The system had to work in a phone notification and on the wall of a Milanese apartment building. It does both.</p>
+  </div>
+</div>
+
+<!-- LOGO MOCKUPS -->
+<div class="cs-grid">
+  <img src="assets/architonic/AT_Logo_on_Coral_Mockup_01.jpg" alt="Architonic app splash screen" loading="lazy">
+  <img src="assets/architonic/AT_Logo_on_Coral_Mockup_04.jpg" alt="Architonic brand on device" loading="lazy">
+</div>
+<div class="cs-grid">
+  <img src="assets/architonic/_AT_Logo_on_Coral_Display_01.jpg" alt="Architonic outdoor display" loading="lazy">
+  <img src="assets/architonic/_AT_Logo_on_Coral_Display_03.jpg" alt="Architonic building banner" loading="lazy">
+</div>
+<div class="cs-media-full" style="margin-top:4px;">
+  <img src="assets/architonic/AT___Co__Mockup.jpg" alt="Architonic Salone del Mobile partnership" loading="lazy">
+</div>
+
+<!-- PULL QUOTE -->
+<div class="cs-pullquote">
+  <blockquote>From database to living workspace. Ideas. Specified.</blockquote>
+</div>
+
+<!-- PLATFORM SECTION -->
+<div class="cs-strategy">
+  <span class="cs-section-label">02 — Platform Design</span>
+  <div class="cs-strategy-intro">
+    <h2>Search rebuilt for the way architects actually think.</h2>
+    <p>The product redesign started from how architects and designers actually research — by image, by material, by a half-formed idea. Smart Search with natural language. Visual Search that accepts a photo and returns the closest match. A 3D configurator for real-time material exploration. AT Studio introduced collaborative boards that replace email chains with a single interactive canvas. Live Link keeps every spec sheet current the moment a manufacturer updates it.</p>
+  </div>
+  <!-- Wireframe + product screen side by side -->
+  <div class="cs-slides">
+    <div class="cs-slide">
+      <img src="assets/architonic/IMG_7577.jpeg" alt="Hand-drawn wireframe for new Architonic platform" loading="lazy">
+    </div>
+    <div class="cs-slide">
+      <img src="assets/architonic/New_AT_Interface_Smart_Search.jpg" alt="Architonic smart search" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<!-- PLATFORM SCREENS -->
+<div class="cs-grid">
+  <img src="assets/architonic/New_AT_Interface_Visual_Search_Results_06.jpg" alt="Architonic visual search" loading="lazy">
+  <img src="assets/architonic/New_AT_Interface_Text_Search_Results.jpg" alt="Architonic text search results" loading="lazy">
+</div>
+<div class="cs-grid">
+  <img src="assets/architonic/New_AT_Interface_Product_Page_02.jpg" alt="Architonic product page" loading="lazy">
+  <img src="assets/architonic/New_AT_Interface_Product_Page_3D_Configurator_01.jpg" alt="Architonic 3D configurator" loading="lazy">
+</div>
+<div class="cs-grid">
+  <img src="assets/architonic/New_AT_Interface_Brand_Page_Products_03.jpg" alt="Architonic brand products page" loading="lazy">
+  <img src="assets/architonic/New_AT_Interface_Brand_Presentation_03.jpg" alt="Architonic brand presentation" loading="lazy">
+</div>
+
+<!-- CAMPAIGN SECTION -->
+<div class="cs-strategy">
+  <span class="cs-section-label">03 — Campaign</span>
+  <div class="cs-strategy-intro">
+    <h2>The ultimate tool for research and collaboration.</h2>
+    <p>The relaunch campaign distilled the new Architonic into a single promise: a living workspace that carries an idea from the line to a fully reliable specification. Bold kinetic poster design, layered typography, and the coral palette — designed to stop you in a Milan metro corridor at 8am. The campaign ran across the Milan metro network during Salone del Mobile, digital, and trade press — reaching architects at the exact moment they were most immersed in product discovery.</p>
+  </div>
+</div>
+
+<!-- POSTER SERIES -->
+<div class="cs-grid-3">
+  <img src="assets/architonic/AT_Poster_01.jpg" alt="Architonic campaign poster — Your Creative Journey Starts Here" loading="lazy">
+  <img src="assets/architonic/AT_Poster_02.jpg" alt="Architonic campaign poster — The best tool for research and collaboration" loading="lazy">
+  <img src="assets/architonic/AT_Poster_03.jpg" alt="Architonic campaign poster street setting" loading="lazy">
+</div>
+
+<div class="cs-media-full">
+  <img src="assets/architonic/Ultimate.jpg" alt="Architonic Ultimate campaign poster" loading="lazy">
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Campaign</span>
+  <span class="cs-caption-text">"The ultimate tool for research and collaboration" — the final campaign poster, designed for large-format street display.</span>
+</div>
+
+<!-- MILAN OOH IN CONTEXT -->
+<div class="cs-grid">
+  <img src="assets/architonic/Poster_Mockup_Milan_01.jpg" alt="Architonic Duomo metro station" loading="lazy">
+  <img src="assets/architonic/Poster_Mockup_Milan_02.jpg" alt="Architonic vertical OOH Milan" loading="lazy">
+</div>
+<div class="cs-grid">
+  <img src="assets/architonic/Poster_Mockup_Milan_04.jpg" alt="Architonic OOH horizontal Milan" loading="lazy">
+  <img src="assets/architonic/Poster_Mockup_Milan_05.jpg" alt="Architonic Milan bus shelter" loading="lazy">
+</div>
+<div class="cs-media-full">
+  <img src="assets/architonic/Poster_Mockup_Milan_06.jpg" alt="Architonic building wall banner Milan" loading="lazy">
+</div>
+
+<!-- FILM SECTION -->
+<div class="cs-strategy">
+  <span class="cs-section-label">04 — Film</span>
+  <div class="cs-strategy-intro">
+    <h2>The relaunch film.</h2>
+    <p>A 90-second platform film launched June 12, 2025 — site takeover, social activation, and trade press simultaneously. Five narrative chapters: Spark, Shape, Trust, Momentum, Invitation. The coral branding, four-word supers, and logo animations act as visual glue throughout.</p>
+  </div>
+</div>
+
+<div class="cs-media-full">
+  <video controls muted loop playsinline>
+    <source src="https://storage.googleapis.com/system-on/homer/summary-video-subs.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Film</span>
+  <span class="cs-caption-text">Architonic relaunch — summary film with subtitles. Launch: architonic.com, June 12 2025.</span>
+</div>
+
+<div class="cs-grid">
+  <video autoplay muted loop playsinline style="aspect-ratio:4/3;object-fit:cover;width:100%;display:block;">
+    <source src="https://storage.googleapis.com/system-on/homer/header-compressed.mp4" type="video/mp4">
+  </video>
+  <video autoplay muted loop playsinline style="aspect-ratio:4/3;object-fit:cover;width:100%;display:block;">
+    <source src="https://storage.googleapis.com/system-on/homer/250512_Teaser_4_Best_Of_30sec_V002.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- MOTION: AT Loop -->
+<div class="cs-media-full" style="margin-top:4px;">
+  <video autoplay muted loop playsinline>
+    <source src="assets/architonic/AT_v7_Loop.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Motion</span>
+  <span class="cs-caption-text">AT brand loop — the identity in motion, used across digital channels and social.</span>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="cs-strategy">
+  <span class="cs-section-label">05 — Testimonials</span>
+  <div class="cs-strategy-intro">
+    <h2>Studios speak.</h2>
+    <p>The campaign proof layer: real architects and designers at Kinzo Berlin and OOS Zurich using Architonic in their actual workflow. Four pillars, four studios, four films — Discover. Design. Trust. Deliver.</p>
+  </div>
+</div>
+
+<div class="cs-testimonials">
+  <div class="cs-testimonial-item">
+    <div class="cs-testimonial-video">
+      <video autoplay muted loop playsinline>
+        <source src="assets/architonic/Kinzo_Berlin_1_15_sec.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="cs-testimonial-info">
+      <span class="cs-testimonial-studio">Kinzo Berlin</span>
+      <span class="cs-testimonial-tag">Design Together</span>
+    </div>
+  </div>
+  <div class="cs-testimonial-item">
+    <div class="cs-testimonial-video">
+      <video autoplay muted loop playsinline>
+        <source src="assets/architonic/Kinzo_Berlin_4_11_sec.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="cs-testimonial-info">
+      <span class="cs-testimonial-studio">Kinzo Berlin</span>
+      <span class="cs-testimonial-tag">Design Together</span>
+    </div>
+  </div>
+  <div class="cs-testimonial-item">
+    <div class="cs-testimonial-video">
+      <video autoplay muted loop playsinline>
+        <source src="assets/architonic/OOS_Zurich_1_10sec.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="cs-testimonial-info">
+      <span class="cs-testimonial-studio">OOS Zurich</span>
+      <span class="cs-testimonial-tag">Discover Smarter</span>
+    </div>
+  </div>
+  <div class="cs-testimonial-item">
+    <div class="cs-testimonial-video">
+      <video autoplay muted loop playsinline>
+        <source src="assets/architonic/OOS_Zurich_2_7sec.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="cs-testimonial-info">
+      <span class="cs-testimonial-studio">OOS Zurich</span>
+      <span class="cs-testimonial-tag">Discover Smarter</span>
+    </div>
+  </div>
+  <div class="cs-testimonial-item">
+    <div class="cs-testimonial-video">
+      <video autoplay muted loop playsinline>
+        <source src="assets/architonic/OOS_Zurich_3_9sec.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="cs-testimonial-info">
+      <span class="cs-testimonial-studio">OOS Zurich</span>
+      <span class="cs-testimonial-tag">Trust the Data</span>
+    </div>
+  </div>
+  <div class="cs-testimonial-item">
+    <div class="cs-testimonial-video">
+      <video autoplay muted loop playsinline>
+        <source src="assets/architonic/OOS_Zurich_4_10sec.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="cs-testimonial-info">
+      <span class="cs-testimonial-studio">OOS Zurich</span>
+      <span class="cs-testimonial-tag">Discover Smarter</span>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM: description + credits -->
+<div class="cs-bottom">
+  <div class="cs-description">
+    <p>Architonic is Europe's leading platform for architectural products and materials, trusted by architects, interior designers, and specifiers for over two decades.</p>
+    <p>We led a comprehensive rebrand across every layer of the business — brand strategy and positioning, visual identity, full platform redesign, and a global launch campaign. The strategic shift repositioned Architonic from product database to living workspace: a single environment where discovery, collaboration, and specification happen without friction.</p>
+    <p>The campaign launched at Salone del Mobile 2025, with a Milan metro takeover at Duomo station, a 90-second hero film, testimonial series with leading studios, and a full digital activation — reaching architects at the exact moment they were most immersed in product research.</p>
+  </div>
+  <dl class="cs-credits-cols">
+    <div class="cs-credit-group">
+      <dt>Client</dt>
+      <dd>Architonic / Daaily</dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Year</dt>
+      <dd>2023–2025</dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Live site</dt>
+      <dd><a href="https://www.architonic.com" target="_blank" rel="noopener">architonic.com ↗</a></dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Campaign tagline</dt>
+      <dd>Ideas. Specified.</dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Strategy &amp; Direction</dt>
+      <dd>Frederik Frede</dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Testimonial studios</dt>
+      <dd>Kinzo Berlin<br>OOS Zurich</dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>OOH</dt>
+      <dd>Milan Metro<br>IGP Decaux</dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Scope</dt>
+      <dd>Brand Strategy<br>Visual Identity<br>Platform Design<br>Campaign &amp; OOH<br>Motion &amp; Film</dd>
+    </div>
+  </dl>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bar">
+    <span class="footer-copy">© 2026 <span class="footer-frak">Frederik Frede</span></span>
+    <div class="footer-links">
+      <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://substack.com/@frederikfrede" target="_blank" rel="noopener">Substack</a>
+    </div>
+    <form class="footer-subscribe" action="https://substack.com/api/v1/free" method="get" target="_blank">
+      <input type="email" name="email" placeholder="your@email.com" class="subscribe-input" required>
+      <button type="submit" class="subscribe-btn">Subscribe</button>
+    </form>
+  </div>
+</footer>
+
+<script>
+  const themes = {
+    white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',               border:'#c8c3be' },
+    black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
+    signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
+  };
+  function setTheme(name, el) {
+    const t = themes[name]; const r = document.documentElement.style;
+    r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
+    r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
+    r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
+    r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
+    r.setProperty('--grey-light', t.light);
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+  setTheme('white', document.querySelector('.swatch[onclick*="white"]'));
+</script>
+
+</body>
+</html>
