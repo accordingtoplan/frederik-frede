@@ -275,3 +275,44 @@ body {
     transition: color 0.2s;
   }
   .subscribe-btn:hover { color: var(--grey-dark); }
+
+/* ─── PAGE HERO — shared across all pages ──────────────────
+   Same structure: nav → page-hero (headline + descriptor) → content
+   Measurements match index.html hero-top exactly            */
+
+.page-hero {
+  padding: 160px 48px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.page-headline {
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: var(--bold);
+  line-height: 0.91;
+  letter-spacing: -0.035em;
+  color: var(--grey-dark);
+}
+
+.page-descriptor {
+  font-size: var(--t-ui);
+  font-weight: var(--regular);
+  color: var(--grey-mid);
+  text-align: right;
+  line-height: var(--lh-ui);
+  flex-shrink: 0;
+  max-width: 260px;
+  align-self: flex-end;
+  padding-bottom: 6px;
+}
+
+@media (max-width: 640px) {
+  .page-hero {
+    padding: 80px 24px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .page-descriptor { text-align: left; }
+}
