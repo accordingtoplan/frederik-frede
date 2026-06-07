@@ -406,7 +406,7 @@ footer{margin-top:auto}
 
 <footer>
   <div class="footer-bar">
-    <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:15px">Frederik Frede</span></span>
+    <img src="/frede-studio/frede-logo.png" alt="FREDE" class="footer-logo">
     <div class="footer-links">
       <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
       <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
@@ -541,6 +541,7 @@ buildGrid();
       r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
       r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
       r.setProperty('--grey-light', t.light);
+      document.documentElement.setAttribute('data-theme', name);
       document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
       if (el) el.classList.add('active');
     }
