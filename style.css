@@ -341,3 +341,21 @@ body {
   }
   .page-descriptor { text-align: left; }
 }
+
+/* ── Inline text links ── */
+.ar-client a,
+.cs-desc a,
+p a,
+.text-body a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.ar-client a:hover,
+.cs-desc a:hover,
+p a:hover,
+.text-body a:hover {
+  color: #e63222;
+  text-decoration: none;
+}
