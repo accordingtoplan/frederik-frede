@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal — Frederik Frede</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { min-height: 100vh; display: flex; flex-direction: column; }
+  .page { flex: 1; padding: 0 32px 120px; }
+
+  .intro { padding-top: 28vh; margin-bottom: 80px; }
+  .intro-statement {
+    font-size: var(--t-hero);
+    font-weight: var(--bold);
+    line-height: var(--lh-hero);
+    letter-spacing: var(--ls-hero);
+    color: var(--grey-dark);
+    margin-bottom: 40px;
+  }
+  .intro-body p {
+    font-size: var(--t-large);
+    font-weight: var(--bold);
+    letter-spacing: var(--ls-large);
+    line-height: var(--lh-large);
+    color: var(--grey-mid);
+    max-width: 640px;
+  }
+
+  .section { margin-bottom: 96px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .section-letter {
+    font-size: var(--t-label);
+    font-weight: var(--bold);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--grey-light);
+  }
+  .section-title {
+    font-size: var(--t-ui);
+    font-weight: var(--bold);
+    color: var(--grey-dark);
+    letter-spacing: var(--ls-ui);
+  }
+
+  .legal-block { margin-bottom: 40px; max-width: 640px; }
+  .legal-block:last-child { margin-bottom: 0; }
+
+  .legal-label {
+    font-size: var(--t-label);
+    font-weight: var(--bold);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--grey-light);
+    margin-bottom: 8px;
+  }
+  .legal-body {
+    font-size: var(--t-ui);
+    font-weight: var(--bold);
+    color: var(--grey-mid);
+    line-height: var(--lh-ui);
+  }
+  .legal-body strong { color: var(--grey-dark); }
+  .legal-body a { color: var(--grey-dark); text-decoration: underline; text-underline-offset: 3px; }
+  .legal-body a:hover { color: var(--grey-mid); }
+
+  .address {
+    font-size: var(--t-ui);
+    font-weight: var(--bold);
+    color: var(--grey-mid);
+    line-height: 2;
+  }
+  .address strong { color: var(--grey-dark); }
+
+  .ph {
+    background: color-mix(in srgb, var(--grey-light) 15%, transparent);
+    border: 1px dashed var(--border);
+    border-radius: 2px;
+    padding: 2px 7px;
+    font-size: 11px;
+    font-weight: var(--bold);
+    color: var(--grey-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .optout-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: var(--t-ui);
+    font-weight: var(--bold);
+    color: var(--grey-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font);
+  }
+  .optout-link:hover { color: var(--grey-mid); }
+
+  @media (max-width: 640px) {
+    .page { padding: 32px 24px 80px; }
+    .intro { padding-top: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="/frede-studio/">Frederik</a>
+    <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch"        style="background:#fff"    onclick="setTheme('white',this)"  title="White"></div>
+      <div class="swatch active" style="background:#111"    onclick="setTheme('black',this)"  title="Black"></div>
+      <div class="swatch"        style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <ul>
+      <li><a href="/frede-studio/">Home</a></li>
+      <li><a href="/frede-studio/work.html">Work</a></li>
+      <li><a href="/frede-studio/about.html">Information</a></li>
+      <li><a href="/frede-studio/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="page">
+
+  <div class="intro">
+    <div class="intro-statement">Legal</div>
+    <div class="intro-body">
+      <p>Imprint and privacy policy in accordance with German and European law.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-letter">A</span>
+      <span class="section-title">Imprint</span>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Information pursuant to § 5 TMG</div>
+      <div class="address">
+        <strong>Frederik Frede</strong><br>
+        <span class="ph">Street + Number</span><br>
+        <span class="ph">Postcode City</span><br>
+        Germany
+      </div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Contact</div>
+      <div class="legal-body"><a href="mailto:frederikfrede@gmail.com">frederikfrede@gmail.com</a></div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Tax</div>
+      <div class="legal-body">
+        Tax number: <span class="ph">Steuernummer</span><br>
+        Freelance activity in brand strategy, visual identity, and digital design (Freiberufler).
+      </div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Responsible for content pursuant to § 55 para. 2 RStV</div>
+      <div class="legal-body">Frederik Frede, address as above.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-letter">B</span>
+      <span class="section-title">Liability</span>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Content</div>
+      <div class="legal-body">The contents of this website have been prepared with the utmost care. However, no guarantee can be given for correctness, completeness, or topicality. As a service provider, I am responsible for my own content on these pages in accordance with general law (§ 7 para. 1 TMG). According to §§ 8 to 10 TMG, I am not obligated to monitor transmitted or stored third-party information.</div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">External links</div>
+      <div class="legal-body">This website may contain links to external third-party websites over whose content I have no control. The respective provider or operator is always responsible for the content of linked pages. No legal infringements were apparent at the time of linking. Upon notification of such infringements, the relevant links will be removed immediately.</div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Copyright</div>
+      <div class="legal-body">The content and works created by the site operator on these pages are subject to German copyright law. Reproduction, editing, distribution, and any kind of exploitation beyond the limits of copyright law require the written consent of the respective author or creator.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-letter">C</span>
+      <span class="section-title">Privacy</span>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Overview</div>
+      <div class="legal-body">The protection of your personal data is important to me. This privacy policy informs you about what personal data is collected when you visit this website, for what purpose, and what rights you have. The controller within the meaning of the GDPR is Frederik Frede (address as per imprint).</div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Hosting &amp; server log files</div>
+      <div class="legal-body">This website is hosted on GitHub Pages (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). When you visit, your browser automatically transmits information stored in server log files: browser type and version, operating system, referrer URL, hostname, time of the server request, and IP address. This data is not merged with other data sources. Legal basis: Art. 6 para. 1 lit. f GDPR (legitimate interest in secure, error-free operation). See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Fonts &amp; media</div>
+      <div class="legal-body">All fonts, images, and videos on this website are served exclusively from GitHub Pages. No external font or media services are embedded — no data is transferred to third parties in this regard.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-letter">D</span>
+      <span class="section-title">Analytics</span>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Google Analytics</div>
+      <div class="legal-body">
+        This website uses Google Analytics, a web analytics service provided by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. Google Analytics uses cookies to enable analysis of your use of the website. The information generated is generally transmitted to and stored on a Google server in the USA.<br><br>
+        Google Analytics is only activated with your explicit consent (Art. 6 para. 1 lit. a GDPR). You can withdraw consent at any time. IP anonymisation is enabled — your IP address is truncated within the EU before transmission to the USA. Google has joined the EU-US Data Privacy Framework. For more information, see <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">Google Analytics privacy policy</a>.
+      </div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Opt-out</div>
+      <div class="legal-body">
+        To prevent Google Analytics from collecting your data in this browser, click below. An opt-out cookie will be set that persists across future visits.<br>
+        <button class="optout-link" onclick="gaOptout()">Disable Google Analytics</button><br><br>
+        Alternatively, install the Google browser plugin: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">tools.google.com/dlpage/gaoptout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-letter">E</span>
+      <span class="section-title">Your Rights</span>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Under GDPR you have the right to</div>
+      <div class="legal-body">
+        <strong>Access</strong> — obtain confirmation of whether personal data concerning you is being processed, and if so, access to that data (Art. 15 GDPR).<br><br>
+        <strong>Rectification</strong> — have inaccurate data corrected without undue delay (Art. 16 GDPR).<br><br>
+        <strong>Erasure</strong> — have your data deleted where there is no compelling legal basis for continued processing (Art. 17 GDPR).<br><br>
+        <strong>Restriction</strong> — request restriction of processing under certain circumstances (Art. 18 GDPR).<br><br>
+        <strong>Portability</strong> — receive your data in a structured, commonly used, machine-readable format (Art. 20 GDPR).<br><br>
+        <strong>Object</strong> — object to processing based on legitimate interests at any time (Art. 21 GDPR).<br><br>
+        <strong>Withdrawal</strong> — withdraw consent (e.g. for Google Analytics) at any time with effect for the future.
+      </div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Supervisory authority</div>
+      <div class="legal-body">You have the right to lodge a complaint with a data protection authority. The competent authority for Berlin is the Berliner Beauftragte für Datenschutz und Informationsfreiheit: <a href="https://www.datenschutz-berlin.de" target="_blank" rel="noopener">datenschutz-berlin.de</a></div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-label">Data protection enquiries</div>
+      <div class="legal-body"><a href="mailto:frederikfrede@gmail.com">frederikfrede@gmail.com</a></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-letter">F</span>
+      <span class="section-title">Last updated</span>
+    </div>
+    <div class="legal-block">
+      <div class="legal-body">June 2026</div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer-bar">
+  <span class="footer-copy">© 2026 <span style="font-family:var(--font-frak);font-size:15px">Frede</span></span>
+  <div class="footer-links">
+    <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  const themes = {
+    white:  { '--bg':'#fff',   '--fg':'#4a4540', '--grey-dark':'#4a4540', '--grey-mid':'#7a7470', '--grey-light':'#a8a39f', '--border':'#c8c3be', '--bg-card':'#f5f3f1' },
+    black:  { '--bg':'#111',   '--fg':'#e8e4e0', '--grey-dark':'#e8e4e0', '--grey-mid':'#a8a39f', '--grey-light':'#6a6460', '--border':'#2a2a2a', '--bg-card':'#1a1a1a' },
+    signal: { '--bg':'#e63222','--fg':'#fff',    '--grey-dark':'#fff',    '--grey-mid':'rgba(255,255,255,0.7)', '--grey-light':'rgba(255,255,255,0.45)', '--border':'rgba(255,255,255,0.3)', '--bg-card':'rgba(255,255,255,0.1)' }
+  };
+  function setTheme(name, el) {
+    const t = themes[name];
+    if (!t) return;
+    Object.entries(t).forEach(([k,v]) => document.documentElement.style.setProperty(k,v));
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+  setTheme('black', document.querySelector('.swatch[title="Black"]'));
+
+  // TODO before launch: replace G-XXXXXXXXXX with real GA Measurement ID
+  var GA_ID = 'G-XXXXXXXXXX';
+  window['ga-disable-' + GA_ID] = (document.cookie.indexOf('ga-disable-' + GA_ID + '=true') > -1);
+  function gaOptout() {
+    document.cookie = 'ga-disable-' + GA_ID + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+    window['ga-disable-' + GA_ID] = true;
+    alert('Google Analytics has been disabled for this browser.');
+  }
+</script>
+
+</body>
+</html>
