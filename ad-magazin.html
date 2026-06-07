@@ -42,12 +42,17 @@
 .cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
 .cs-credit-group dd a:hover{opacity:0.6}
 @media(max-width:640px){
-  .cs-header,.cs-intro,.cs-strategy-intro,.cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right;align-content:start}
-  .cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
-.cs-description{max-width:50%}
+  .cs-header,.cs-intro,.cs-strategy-intro{grid-template-columns:1fr}
+  .cs-bottom{padding:48px 24px}
+  .cs-description{max-width:100%}
+  .cs-credits-cols{position:static;text-align:left;margin-top:40px}
   .cs-header{padding:48px 24px 40px}
   .cs-intro{padding:0 24px 48px}
-  .cs-strategy,.cs-pullquote{padding:48px 24px}
+  .cs-strategy{padding:48px 24px}
+  .cs-pullquote{padding:48px 24px}
+  .cs-caption{flex-direction:column;gap:6px;padding:16px 24px 48px}
+  .cs-caption-text{text-align:left}
+  .cs-desc{max-width:100%}
   .cs-grid{grid-template-columns:1fr}
   .cs-grid-3{grid-template-columns:1fr 1fr}
 }
