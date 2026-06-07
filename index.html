@@ -221,6 +221,32 @@
       line-height: 1.4;
       text-align: right;
     }
+    .case-credits {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .case-credit-row {
+      display: block;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .case-credit-row .label {
+      color: var(--grey-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 9px;
+      display: block;
+      margin-top: 6px;
+    }
+    .case-credit-row .value {
+      color: var(--grey-dark);
+      font-weight: 700;
+    }
+    .case-credit-row a {
+      color: var(--grey-dark);
+      text-decoration: none;
+    }
+    .case-credit-row a:hover { opacity: 0.6; }
 
 
 
@@ -412,50 +438,49 @@
     const cases = [
       { b:"Architonic",         tag:"Platform Strategy",      desc:"Redefining a global architecture platform from the inside out.",
         full:true, type:"video", link:"/frede-studio/architonic.html",
-        src:"Architonic_HP_Video-header.mp4",
-        ratio:"ratio-land" },
+        src:"Architonic_HP_Video-header.mp4", ratio:"ratio-land",
+        year:"2023–2025", live:"architonic.com", liveHref:"https://www.architonic.com", collab:"—" },
       { b:"NZZ",                tag:"Brand & Digital",        desc:"Brand and digital transformation for Switzerland's leading media house.",
-        type:"img",
-        src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png",
-        ratio:"ratio-land" },
-      { b:"USM",                link:"/frede-studio/usm.html",                tag:"Digital Transformation", desc:"Digital transformation for one of modernism's most iconic furniture brands.",
-        type:"vimeo", src:"1048609984",
-        ratio:"ratio-land" },
-      { b:"Frederik G. Pferdt", link:"/frede-studio/pferdt.html", tag:"Brand & Identity",       desc:"Personal brand for Google's first Chief Innovation Evangelist.",
-        type:"video",
-        src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-02.mp4",
-        poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg",
-        ratio:"ratio-land" },
-      { b:"Frederik G. Pferdt", tag:"Brand & Identity",       desc:"Speaker brand, book design, and digital presence for a thought leader in innovation.",
-        type:"video",
-        src:"https://www.dropbox.com/scl/fi/o0ddcsezn039zm7kr9j80/230807-FGP-Screen_Rec-SM.mp4?rlkey=fbr3fp32zmij8og92wq10amf3&st=c5ezqmbt&dl=1",
-        poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg",
-        ratio:"ratio-land" },
-      { b:"Umane",              tag:"Brand & Identity",       desc:"Identity for a new generation of athletic health clubs.",
-        type:"video", src:"logo_anim_umane.mp4",
-        ratio:"ratio-land" },
-      { b:"Ritz-Carlton",        link:"/frede-studio/ritz-carlton.html",       tag:"Hospitality & Brand",    desc:"Rebranding five interior spaces at the Ritz-Carlton Berlin.",
-        type:"img",
-        src:"https://www.moresleep.net/wp-content/uploads/2019/02/Freunde-von-Freunden-Ritz-Gala-0295-1024x683.jpg",
-        ratio:"ratio-land" },
-      { b:"MINI",               tag:"Brand & Platform",       desc:"Creative direction, brand strategy, and platform for a multi-city conference exploring the future of urban living — with MINI Germany.",
-        full:true, type:"img",
-        src:"https://www.moresleep.net/wp-content/uploads/2019/11/TSN-Banner-Cities.gif",
-        ratio:"ratio-land" },
-      { b:"Signal LA",          tag:"Brand & Identity",       desc:"Brand identity for an architectural retail enclave in the Los Angeles Arts District.",
-        type:"placeholder-logo",
-        src:"https://cdn.prod.website-files.com/66e30c0fc33687ad22c38f24/66e30f9b5a6d4fad335d3800_SIGNAL-2023-Logo_White.svg",
-        ratio:"ratio-land" },
-      { b:"Bianca Chen",        tag:"Brand & Identity",       desc:"Curated Chaos — identity for an independent LA-based art curator.",
+        type:"img", src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png",
+        ratio:"ratio-land",
+        year:"2018", live:"ad-magazin.de", liveHref:"https://www.ad-magazin.de", collab:"—" },
+      { b:"USM",                link:"/frede-studio/usm.html", tag:"Digital Transformation", desc:"Digital transformation for one of modernism's most iconic furniture brands.",
+        type:"vimeo", src:"1048609984", ratio:"ratio-land",
+        year:"2017", live:"personalities-by-usm.com", liveHref:"https://www.personalities-by-usm.com/en/", collab:"Friends of Friends" },
+      { b:"Frederik G. Pferdt", link:"/frede-studio/pferdt.html", tag:"Brand & Identity", desc:"Personal brand for Google's first Chief Innovation Evangelist.",
+        type:"video", src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-02.mp4",
+        poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg", ratio:"ratio-land",
+        year:"2023–2024", live:"frederikgpferdt.com", liveHref:"https://www.frederikgpferdt.com/", collab:"Stefan Schuster, Thomas Provost, Emely Wensky, Sveta Koliada" },
+      { b:"Frederik G. Pferdt", tag:"Brand & Identity", desc:"Speaker brand, book design, and digital presence for a thought leader in innovation.",
+        type:"video", src:"https://www.dropbox.com/scl/fi/o0ddcsezn039zm7kr9j80/230807-FGP-Screen_Rec-SM.mp4?rlkey=fbr3fp32zmij8og92wq10amf3&st=c5ezqmbt&dl=1",
+        poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg", ratio:"ratio-land",
+        year:"2023–2024", live:"frederikgpferdt.com", liveHref:"https://www.frederikgpferdt.com/", collab:"Stefan Schuster, Thomas Provost, Emely Wensky, Sveta Koliada" },
+      { b:"Umane",              tag:"Brand & Identity", desc:"Identity for a new generation of athletic health clubs.",
+        type:"video", src:"logo_anim_umane.mp4", ratio:"ratio-land",
+        year:"2024", collab:"—" },
+      { b:"Ritz-Carlton",       link:"/frede-studio/ritz-carlton.html", tag:"Hospitality & Brand", desc:"Rebranding five interior spaces at the Ritz-Carlton Berlin.",
+        type:"img", src:"https://www.moresleep.net/wp-content/uploads/2019/02/Freunde-von-Freunden-Ritz-Gala-0295-1024x683.jpg",
+        ratio:"ratio-land",
+        year:"2019", live:"ritzcarlton.com", liveHref:"https://www.ritzcarlton.com", collab:"—" },
+      { b:"MINI",               tag:"Brand & Platform", desc:"Creative direction, brand strategy, and platform for a multi-city conference exploring the future of urban living — with MINI Germany.",
+        full:true, type:"img", src:"https://www.moresleep.net/wp-content/uploads/2019/11/TSN-Banner-Cities.gif",
+        ratio:"ratio-land",
+        year:"2019", live:"mini.com", liveHref:"https://www.mini.com", collab:"—" },
+      { b:"Signal LA",          tag:"Brand & Identity", desc:"Brand identity for an architectural retail enclave in the Los Angeles Arts District.",
+        type:"placeholder-logo", src:"https://cdn.prod.website-files.com/66e30c0fc33687ad22c38f24/66e30f9b5a6d4fad335d3800_SIGNAL-2023-Logo_White.svg",
+        ratio:"ratio-land",
+        year:"2023", collab:"—" },
+      { b:"Bianca Chen",        tag:"Brand & Identity", desc:"Curated Chaos — identity for an independent LA-based art curator.",
         link:"/frede-studio/bianca-chen.html", type:"video",
         src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639068317eaccf226164b07_Bianca_Chen-Multiple_Posters_Animation-hq-transcode.mp4",
         poster:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638ee86acfb06657caf0f0b_bianca-MAIN_LOGO-all_colors.gif",
-        ratio:"ratio-land" },
-      { b:"LAS Art Foundation", link:"/frede-studio/las-art-foundation.html", tag:"Branding & Motion",      desc:"Visual identity and motion design for a Berlin-based art institution.",
+        ratio:"ratio-land",
+        year:"2024", live:"biancachen.com", liveHref:"https://www.biancachen.com/", collab:"Thomas Provost, Sveta Koliada" },
+      { b:"LAS Art Foundation", link:"/frede-studio/las-art-foundation.html", tag:"Branding & Motion", desc:"Visual identity and motion design for a Berlin-based art institution.",
         full:true, type:"video",
         src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65dc782cb4e5798707ac738e_LAS Digital Posters Final Animation-transcode.mp4",
-        poster:"",
-        ratio:"ratio-land" },
+        poster:"", ratio:"ratio-land",
+        year:"2023", live:"las-art.foundation", liveHref:"https://www.las-art.foundation", collab:"—" },
     ];
 
     const grid = document.getElementById('cases');
@@ -479,7 +504,11 @@
       }
 
 
-      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}</div><div class="case-tagline">${c.desc}</div></div>`;
+      const liveRow = c.live ? `<span class="case-credit-row"><span class="label">Live site</span><span class="value"><a href="${c.liveHref}" target="_blank" rel="noopener">${c.live} ↗</a></span></span>` : '';
+      const collabRow = `<span class="case-credit-row"><span class="label">Collaborators</span><span class="value">${c.collab || '—'}</span></span>`;
+      const yearRow = `<span class="case-credit-row"><span class="label">Year</span><span class="value">${c.year || ''}</span></span>`;
+      const credits = `<div class="case-credits">${liveRow}${collabRow}${yearRow}</div>`;
+      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}</div>${credits}</div>`;
       if (c.link) {
         const a = document.createElement('a');
         a.href = c.link;
