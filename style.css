@@ -145,13 +145,13 @@ body {
 }
 
 .footer-logo {
-  height: 56px;
+  height: 80px;
   width: auto;
   display: block;
   margin-bottom: 10px;
 }
 
-[data-theme="white"] .footer-logo {
+[data-theme="black"] .footer-logo {
   filter: invert(1);
 }
 
