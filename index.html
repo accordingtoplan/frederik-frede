@@ -393,7 +393,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 20px 48px;
+      padding: 12px 40px;
       border-radius: 999px;
       border: 1.5px solid var(--fg);
       text-decoration: none;
@@ -404,12 +404,13 @@
       text-transform: uppercase;
       white-space: nowrap;
       will-change: transform;
-      transition: background 0.25s, color 0.25s;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
       cursor: none;
     }
     .work-mag-btn:hover {
-      background: var(--fg);
-      color: var(--bg);
+      background: #e63222;
+      border-color: #e63222;
+      color: #fff;
     }
     .work-mag-btn .mag-arrow {
       font-size: 16px;
@@ -495,7 +496,6 @@
       <div class="work-mag-zone" id="magZone">
         <a class="work-mag-btn" href="/frede-studio/work.html" id="magBtn">
           <span>More Work</span>
-          <span class="mag-arrow">→</span>
         </a>
       </div>
     </div>
