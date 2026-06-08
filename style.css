@@ -137,12 +137,11 @@ body {
   gap: 8px;
 }
 
-.footer-left-text {
+.footer-logo-row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  gap: 4px;
-  padding-top: 4px;
+  gap: 20px;
 }
 
 .footer-marker {
@@ -150,14 +149,7 @@ body {
   width: 160px;
   overflow: visible;
   pointer-events: none;
-  margin-top: 6px;
-}
-
-.footer-logo {
-  height: 80px;
-  width: auto;
-  display: block;
-  margin-bottom: 0;
+  padding-top: 4px;
 }
 
 [data-theme="black"] .footer-logo {
@@ -177,7 +169,12 @@ body {
 
 .footer-links a:hover { color: var(--grey-dark); }
 
-.footer-copy-link {
+.footer-copy {
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--grey-light);
+}
   color: var(--grey-light);
   text-decoration: none;
 }
