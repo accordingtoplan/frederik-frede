@@ -41,8 +41,30 @@
 .cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
 .cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
 .cs-credit-group dd a:hover{opacity:0.6}
-@media(max-width:640px){
-  .cs-header,.cs-intro,.cs-strategy-intro{grid-template-columns:1fr}
+/* Mobile */
+@media (max-width: 640px) {
+  .cs-header { padding: 80px 20px 36px; grid-template-columns: 1fr; gap: 24px; }
+  .cs-title { font-size: clamp(36px, 10vw, 56px); }
+  .cs-tagline { font-size: clamp(18px, 5vw, 24px); }
+  .cs-intro { padding: 0 20px 48px; grid-template-columns: 1fr; gap: 24px; }
+  .cs-strategy-intro { grid-template-columns: 1fr; gap: 24px; }
+  .cs-media-full { padding: 0 20px; }
+  .cs-caption { flex-direction: column; gap: 6px; padding: 16px 20px 40px; }
+  .cs-caption-text { text-align: left; }
+  .cs-strategy { padding: 48px 20px; }
+  .cs-pullquote { padding: 48px 20px; }
+  .cs-pullquote blockquote { font-size: clamp(24px, 7vw, 40px); }
+  .cs-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 20px; }
+  .cs-grid-3 { grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px; }
+  .cs-grid-wide { grid-column: span 1; }
+  .cs-grid-wide img, .cs-grid-wide video { aspect-ratio: 16/9; }
+  .cs-slides { grid-template-columns: 1fr; gap: 2px; }
+  .cs-testimonials { grid-template-columns: 1fr 1fr; gap: 4px; }
+  .cs-bottom { padding: 40px 20px 64px; }
+  .cs-description { max-width: 100%; }
+  .cs-credits-cols { position: static; text-align: left; margin-top: 40px; }
+  .cs-desc { max-width: 100%; }
+}
   .cs-bottom{padding:48px 24px}
   .cs-description{max-width:100%}
   .cs-credits-cols{position:static;text-align:left;margin-top:40px}
@@ -88,7 +110,11 @@
 .cs-nav-item.next { text-align: right; }
 @media (max-width: 640px) {
   .cs-nav { grid-template-columns: 1fr; }
-  .cs-nav-item { padding: 32px 24px; }
+  .cs-nav-item { padding: 28px 20px; }
+  .cs-nav-item.next { text-align: left; border-top: 1px solid var(--border); }
+  .cs-nav-name { font-size: clamp(24px, 8vw, 40px); }
+  .cs-nav-dir { font-size: clamp(14px, 4vw, 20px); }
+}
   .cs-nav-item.next { text-align: left; }
 }
 
