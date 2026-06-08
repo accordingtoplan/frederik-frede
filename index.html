@@ -397,8 +397,10 @@
     .work-ticker-item {
       display: flex;
       align-items: center;
-      gap: 32px;
-      padding-right: 64px;
+      justify-content: space-between;
+      width: 100vw;
+      padding: 0 48px;
+      box-sizing: border-box;
       white-space: nowrap;
       font-size: 17px;
       font-weight: 700;
@@ -411,8 +413,8 @@
       opacity: 0.4;
     }
     @keyframes ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0%   { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
     }
 
 </style>
@@ -589,7 +591,7 @@
       if (!track) return;
       var seg = '<span class="work-ticker-item">View all work<span class="ticker-arrow">→</span></span>';
       var html = '';
-      for (var i = 0; i < 16; i++) html += seg;
+      for (var i = 0; i < 2; i++) html += seg;
       track.innerHTML = html;
     })();
   </script>
