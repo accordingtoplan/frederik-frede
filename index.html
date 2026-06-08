@@ -424,19 +424,18 @@
     }
     .work-mag-cursor {
       position: fixed;
-      width: 12px;
-      height: 12px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: var(--fg);
+      background: rgba(0,0,0,0.5);
       pointer-events: none;
-      mix-blend-mode: exclusion;
       transform: translate(-50%, -50%);
       transition: width 0.2s, height 0.2s, opacity 0.2s;
       z-index: 9999;
       opacity: 0;
     }
     .work-mag-cursor.visible { opacity: 1; }
-    .work-mag-cursor.expanded { width: 48px; height: 48px; }
+    .work-mag-cursor.expanded { width: 20px; height: 20px; }
 
 </style>
 </head>
