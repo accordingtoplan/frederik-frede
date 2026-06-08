@@ -373,28 +373,46 @@
     
     .swatch:hover { opacity: 0.6; }
 
-      .work-footer-row {
-      display: flex;
-      justify-content: center;
-      padding: 72px 0 24px;
+          /* ── View all ticker ── */
+    .work-ticker-wrap {
+      margin-top: 72px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      cursor: pointer;
     }
-
-    .work-cta {
-      display: inline-block;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .work-ticker-wrap a {
+      display: block;
       text-decoration: none;
-      color: var(--fg);
-      border: 1.5px solid var(--fg);
-      padding: 14px 36px;
-      transition: background 0.2s, color 0.2s;
     }
-
-    .work-cta:hover {
-      background: var(--fg);
-      color: var(--bg);
+    .work-ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 14s linear infinite;
+      padding: 18px 0;
+    }
+    .work-ticker-wrap:hover .work-ticker-track {
+      animation-play-state: paused;
+    }
+    .work-ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding-right: 64px;
+      white-space: nowrap;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+    .work-ticker-item .ticker-arrow {
+      font-size: 20px;
+      font-weight: 400;
+      opacity: 0.4;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
 </style>
@@ -451,8 +469,10 @@
       <a class="work-header-link" href="/frede-studio/work.html">View all</a>
     </div>
     <div class="cases-grid" id="cases"></div>
-    <div class="work-footer-row">
-      <a class="work-cta" href="/frede-studio/work.html">View all work</a>
+    <div class="work-ticker-wrap">
+      <a href="/frede-studio/work.html" tabindex="0" aria-label="View all work">
+        <div class="work-ticker-track" id="tickerTrack"></div>
+      </a>
     </div>
   </section>
 
@@ -562,5 +582,16 @@
     setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
   </script>
 
+
+  <script>
+    (function(){
+      var track = document.getElementById('tickerTrack');
+      if (!track) return;
+      var seg = '<span class="work-ticker-item">View all work<span class="ticker-arrow">→</span></span>';
+      var html = '';
+      for (var i = 0; i < 16; i++) html += seg;
+      track.innerHTML = html;
+    })();
+  </script>
 </body>
 </html>
