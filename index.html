@@ -381,8 +381,8 @@
     }
     .work-mag-zone {
       position: relative;
-      width: 220px;
-      height: 220px;
+      width: 320px;
+      height: 140px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -392,9 +392,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
+      gap: 10px;
+      padding: 20px 48px;
+      border-radius: 999px;
       border: 1.5px solid var(--fg);
       text-decoration: none;
       color: var(--fg);
@@ -402,20 +402,17 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      white-space: nowrap;
       will-change: transform;
-      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      transition: background 0.25s, color 0.25s;
       cursor: none;
-      overflow: hidden;
     }
     .work-mag-btn:hover {
       background: var(--fg);
       color: var(--bg);
     }
     .work-mag-btn .mag-arrow {
-      position: absolute;
-      bottom: 38px;
-      right: 38px;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 400;
       opacity: 0.5;
       transition: opacity 0.2s, transform 0.2s;
@@ -497,7 +494,7 @@
     <div class="work-mag-wrap">
       <div class="work-mag-zone" id="magZone">
         <a class="work-mag-btn" href="/frede-studio/work.html" id="magBtn">
-          <span>View all<br>work</span>
+          <span>More Work</span>
           <span class="mag-arrow">→</span>
         </a>
       </div>
