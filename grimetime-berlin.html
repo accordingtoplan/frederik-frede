@@ -73,10 +73,11 @@
   </div>
   <div class="nav-right">
     <ul class="nav-links" id="navLinks">
-      <li><a href="/frede-studio/">Home</a></li>
-      <li><a href="/frede-studio/work.html" class="active">Work</a></li>
-      <li><a href="/frede-studio/about.html">Information</a></li>
-      <li><a href="/frede-studio/about.html#contact">Contact</a></li>
+      <button class="nav-close" aria-label="Close menu" onclick="document.getElementById('navLinks').classList.remove('open')">×</button>
+      <li><a href="/frede-studio/" onclick="document.getElementById(\'navLinks\').classList.remove(\'open\')">Home</a></li>
+      <li><a href="/frede-studio/work.html" onclick="document.getElementById(\'navLinks\').classList.remove(\'open\')" class="active">Work</a></li>
+      <li><a href="/frede-studio/about.html" onclick="document.getElementById(\'navLinks\').classList.remove(\'open\')">Information</a></li>
+      <li><a href="/frede-studio/about.html#contact" onclick="document.getElementById(\'navLinks\').classList.remove(\'open\')">Contact</a></li>
     </ul>
   </div>
   <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
