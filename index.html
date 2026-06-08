@@ -373,7 +373,31 @@
     
     .swatch:hover { opacity: 0.6; }
 
-  </style>
+      .work-footer-row {
+      display: flex;
+      justify-content: center;
+      padding: 72px 0 24px;
+    }
+
+    .work-cta {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--fg);
+      border: 1.5px solid var(--fg);
+      padding: 14px 36px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .work-cta:hover {
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+</style>
 </head>
 <body>
 
@@ -428,7 +452,7 @@
     </div>
     <div class="cases-grid" id="cases"></div>
     <div class="work-footer-row">
-      <a class="work-header-link" href="/frede-studio/work.html">View all</a>
+      <a class="work-cta" href="/frede-studio/work.html">View all work</a>
     </div>
   </section>
 
