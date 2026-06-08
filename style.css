@@ -152,6 +152,12 @@ body {
   padding-top: 4px;
 }
 
+.footer-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
 [data-theme="black"] .footer-logo {
   filter: invert(1);
 }
@@ -175,8 +181,13 @@ body {
   text-transform: uppercase;
   color: var(--grey-light);
 }
+
+.footer-copy-link {
   color: var(--grey-light);
   text-decoration: none;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: inherit;
 }
 .footer-copy-link:hover { color: var(--grey-dark); }
 
