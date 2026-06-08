@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umane — Brand Identity · Frederik Frede</title>
+<meta name="description" content="A modern performance brand built for ambition, driven by purpose. Identity, type, colour, and design system for Umane — a holistic wellness club in Berlin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.cs-header{padding:80px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.cs-title{font-size:clamp(56px,8vw,96px);font-weight:700;line-height:0.92;letter-spacing:-0.035em;color:var(--grey-dark);margin:0}
+.cs-meta{display:flex;flex-direction:column;gap:20px;padding-bottom:4px}
+.cs-tags{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--grey-light)}
+.cs-tagline{font-size:clamp(20px,2.8vw,32px);font-weight:700;color:var(--grey-dark);line-height:1.1;letter-spacing:-0.02em}
+.cs-desc{font-size:15px;color:var(--grey-mid);line-height:1.65;max-width:420px}
+.cs-intro{padding:0 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.cs-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0}
+.cs-media-full{padding:0 48px;margin-bottom:24px}
+.cs-media-full video,.cs-media-full img{width:100%;display:block}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
+.cs-grid img,.cs-grid video{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
+.cs-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
+.cs-grid-3 img{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
+.cs-pullquote{padding:80px 48px}
+.cs-pullquote blockquote{font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--grey-dark);margin:0;max-width:900px}
+.cs-strategy{padding:80px 48px}
+.cs-section-label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-light);margin-bottom:48px;display:block}
+.cs-strategy-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px;align-items:start}
+.cs-strategy-intro h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.025em;line-height:1.05;color:var(--grey-dark);margin:0}
+.cs-strategy-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0;padding-top:6px}
+.cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
+.cs-description{max-width:50%}
+.cs-description p{font-size:15px;font-weight:700;color:var(--grey-dark);line-height:1.6;margin-bottom:20px}
+.cs-description p:last-child{margin-bottom:0}
+.cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right}
+.cs-credit-group{margin-bottom:28px}
+.cs-credit-group dt{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light);margin-bottom:4px}
+.cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
+.cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
+.cs-credit-group dd a:hover{opacity:0.6}
+/* Colour swatch row */
+.cs-swatches{display:flex;gap:12px;padding:0 48px;margin-bottom:24px}
+.cs-swatch{flex:1;height:120px;border-radius:4px;display:flex;align-items:flex-end;padding:12px;font-size:11px;font-weight:700;letter-spacing:0.06em}
+/* Nav */
+.cs-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:80px}
+.cs-nav-item{display:flex;flex-direction:column;padding:40px 48px;text-decoration:none;color:inherit;transition:opacity 0.2s;gap:16px}
+.cs-nav-item:hover{opacity:0.5}
+.cs-nav-dir{font-size:clamp(18px,2vw,28px);font-weight:700;letter-spacing:-0.02em;color:var(--grey-light)}
+.cs-nav-name{font-size:clamp(28px,4vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:0.95;color:var(--grey-dark)}
+.cs-nav-item.next{text-align:right}
+/* Mobile */
+@media(max-width:640px){
+  .cs-header{padding:80px 20px 36px;grid-template-columns:1fr;gap:24px}
+  .cs-title{font-size:clamp(36px,10vw,56px)}
+  .cs-intro{padding:0 20px 48px;grid-template-columns:1fr;gap:24px}
+  .cs-strategy{padding:48px 20px}
+  .cs-strategy-intro{grid-template-columns:1fr;gap:24px}
+  .cs-pullquote{padding:48px 20px}
+  .cs-pullquote blockquote{font-size:clamp(24px,7vw,40px)}
+  .cs-media-full{padding:0 20px}
+  .cs-grid{grid-template-columns:1fr;gap:12px;padding:0 20px}
+  .cs-grid-3{grid-template-columns:1fr 1fr;gap:12px;padding:0 20px}
+  .cs-swatches{padding:0 20px;flex-wrap:wrap}
+  .cs-swatch{flex:1 1 40%;height:80px}
+  .cs-bottom{padding:40px 20px 64px}
+  .cs-description{max-width:100%}
+  .cs-credits-cols{position:static;text-align:left;margin-top:40px}
+  .cs-nav{grid-template-columns:1fr}
+  .cs-nav-item{padding:28px 20px}
+  .cs-nav-item.next{text-align:left;border-top:1px solid var(--border)}
+  .cs-nav-name{font-size:clamp(24px,8vw,40px)}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="/frede-studio/">Frederik</a>
+    <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch" style="background:#fff" onclick="setTheme('white',this)"></div>
+      <div class="swatch active" style="background:#111" onclick="setTheme('black',this)"></div>
+      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)"></div>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <ul>
+      <button class="nav-close" aria-label="Close menu" onclick="document.getElementById('navLinks').classList.remove('open')">×</button>
+      <li><a href="/frede-studio/">Home</a></li>
+      <li><a href="/frede-studio/work.html">Work</a></li>
+      <li><a href="/frede-studio/about.html">Information</a></li>
+      <li><a href="/frede-studio/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span></button>
+</nav>
+
+<header class="cs-header">
+  <h1 class="cs-title">Umane</h1>
+  <div class="cs-meta">
+    <span class="cs-tags">Brand Identity · Design System · Motion · Digital</span>
+    <p class="cs-tagline">"Built for movement, shaped by care."</p>
+    <p class="cs-desc">A modern performance brand for a Berlin wellness club built for ambition and driven by purpose. Identity, typography, colour, texture, and a full design system built to move.</p>
+  </div>
+</header>
+
+<!-- Hero: logo animation -->
+<div class="cs-media-full">
+  <video autoplay muted loop playsinline>
+    <source src="/frede-studio/logo_anim_umane.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="cs-intro">
+  <p>Umane is a holistic wellness space in Berlin: exclusive locations for movement, recovery, and cutting-edge health technology, guided by top specialists and personalised programs. A modern performance system built for ambition, driven by purpose.</p>
+  <p>MoreSleep led the complete brand design: naming rationale, visual identity, typography system, colour palette, gradients, texture language, and a modular design system. The brief demanded a brand that feels intelligent, grounded, and quietly aspirational — not just a gym, a place to recharge, to heal, to transform.</p>
+</div>
+
+<!-- Section 01: Logo -->
+<div class="cs-strategy">
+  <span class="cs-section-label">01 — Logo</span>
+  <div class="cs-strategy-intro">
+    <h2>A wordmark built from circles.</h2>
+    <p>The Umane logo is the visual cornerstone of the identity: each letterform constructed from overlapping circles, echoing the brand's core forms — the human body in motion, the dot pattern system, the gradient language. It represents who they are and what they stand for in a single, ownable mark. A lock-up system extends the wordmark across sub-brands: Umane Club, Umane Foods, Umane Health, Umane Coach.</p>
+  </div>
+</div>
+
+<div class="cs-grid">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Logo_Off-White-1024x683.jpg" alt="Umane wordmark on off-white" loading="lazy">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Logo_Dark-1024x683.jpg" alt="Umane wordmark on dark" loading="lazy">
+</div>
+
+<div class="cs-grid">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_App-Icon_Off-White-1024x683.jpg" alt="Umane app icon" loading="lazy">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Logo-Sub-Brands-1024x683.jpg" alt="Umane sub-brand lock-ups" loading="lazy">
+</div>
+
+<!-- Section 02: Typography -->
+<div class="cs-strategy">
+  <span class="cs-section-label">02 — Typography</span>
+  <div class="cs-strategy-intro">
+    <h2>Geometric precision and human warmth.</h2>
+    <p>Two typefaces define the Umane voice. Milling Duplex brings geometric precision and confident structure to headlines. Tiempos brings warmth and clarity to body copy. Together they reflect the brand's core duality: evidence-based and human-centred, structured and approachable. A system that plays with scale, weight, and contrast to breathe life into every surface.</p>
+  </div>
+</div>
+
+<div class="cs-media-full">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Typography-1024x576.jpg" alt="Umane typography system" loading="lazy">
+</div>
+
+<div class="cs-pullquote">
+  <blockquote>We bring evidence to life, grounded in precision and elevated by warmth.</blockquote>
+</div>
+
+<!-- Section 03: Colour -->
+<div class="cs-strategy">
+  <span class="cs-section-label">03 — Colour</span>
+  <div class="cs-strategy-intro">
+    <h2>Restrained, warm, and tactile.</h2>
+    <p>Color is restrained with neutral foundations punctuated by thoughtful accents. Soft backgrounds — Healing Blue, Pale Green, Sand — create a calming atmosphere that supports mental well-being. Energetic contrasts in cyan, mint, and yellow energise and motivate. Every palette decision serves the body and the mind.</p>
+  </div>
+</div>
+
+<div class="cs-swatches">
+  <div class="cs-swatch" style="background:#202925;color:rgba(255,255,255,0.5)">Black</div>
+  <div class="cs-swatch" style="background:#F4F0E8;color:#202925;border:1px solid #e5e0d8">Off-white</div>
+  <div class="cs-swatch" style="background:#C2CBCB;color:#202925">Healing Blue</div>
+  <div class="cs-swatch" style="background:#97A675;color:#202925">Pale Green</div>
+  <div class="cs-swatch" style="background:#D9B692;color:#202925">Sand</div>
+</div>
+
+<div class="cs-swatches">
+  <div class="cs-swatch" style="background:#00FFFF;color:#202925">Cyan</div>
+  <div class="cs-swatch" style="background:#00FF9B;color:#202925">Mint</div>
+  <div class="cs-swatch" style="background:#EEFF55;color:#202925">Yellow</div>
+</div>
+
+<div class="cs-grid">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Colour-Soft-1024x683.jpg" alt="Umane soft colour palette" loading="lazy">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Colour-Vivid-1024x683.jpg" alt="Umane vivid colour accents" loading="lazy">
+</div>
+
+<!-- Section 04: Gradients -->
+<div class="cs-strategy">
+  <span class="cs-section-label">04 — Gradients & Texture</span>
+  <div class="cs-strategy-intro">
+    <h2>Soft circles that breathe and flow.</h2>
+    <p>Three named gradients — Clarity, Balance, Focus — echo the circular forms of the logo. Fluid transitions reflect the rhythm of the human body in motion: stretching, shifting, flowing with purpose. Layered over them, a dotted texture pattern introduces tactile depth and dynamic movement, referencing the logo grid at scale. The system is modular: it moves, breathes, and organises.</p>
+  </div>
+</div>
+
+<div class="cs-media-full">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Gradients-1024x576.jpg" alt="Umane gradient system" loading="lazy">
+</div>
+
+<div class="cs-grid">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Texture-Pattern-1024x683.jpg" alt="Umane texture pattern" loading="lazy">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Gradient-Texture-1024x683.jpg" alt="Umane gradient and texture combined" loading="lazy">
+</div>
+
+<!-- Section 05: Design System / Applications -->
+<div class="cs-strategy">
+  <span class="cs-section-label">05 — Design System</span>
+  <div class="cs-strategy-intro">
+    <h2>Every element modular and intentional.</h2>
+    <p>The design system combines logo grid, marker shapes, gradient language, and dot texture into a single cohesive toolkit. Applied across web, app, social, and print: precise brand visuals generated from a simple system. Designed not to impress, but to resonate. The result is a visual identity that feels intelligent, grounded, and quietly aspirational — a direct reflection of the brand's promise: capability, calibrated.</p>
+  </div>
+</div>
+
+<div class="cs-media-full">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Brand-System-1024x576.jpg" alt="Umane brand system overview" loading="lazy">
+</div>
+
+<div class="cs-grid">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Web-App-1024x683.jpg" alt="Umane web application" loading="lazy">
+  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Social-Motion-1024x683.jpg" alt="Umane social and motion" loading="lazy">
+</div>
+
+<div class="cs-pullquote">
+  <blockquote>Capability, calibrated.</blockquote>
+</div>
+
+<div class="cs-bottom">
+  <div class="cs-description">
+    <p>Umane is a holistic wellness club in Berlin. A modern performance system built for ambition, driven by purpose. MoreSleep led the full brand design from identity concept through to complete design system: naming rationale, logo, typography (Milling Duplex + Tiempos), colour palette, gradients, texture language, motion, and digital application.</p>
+    <p>The visual language is built on balance: clarity and character, structure and softness. Every element modular and intentional, designed not to impress but to resonate.</p>
+  </div>
+  <dl class="cs-credits-cols">
+    <div class="cs-credit-group">
+      <dt>Year</dt>
+      <dd>2024</dd>
+    </div>
+  </dl>
+</div>
+
+<nav class="cs-nav">
+  <a class="cs-nav-item prev" href="/frede-studio/signal-la-brand-identity.html">
+    <span class="cs-nav-dir">← Previous</span>
+    <span class="cs-nav-name">Signal LA</span>
+  </a>
+  <a class="cs-nav-item next" href="/frede-studio/ritz-carlton-berlin-brand-event.html">
+    <span class="cs-nav-dir">Next →</span>
+    <span class="cs-nav-name">Ritz-Carlton</span>
+  </a>
+</nav>
+
+<footer>
+  <div id="footer-mount"></div>
+</footer>
+<script src="/frede-studio/footer.js"></script>
+<script>
+  const themes={white:{bg:'#fff',card:'#f5f3f1',fg:'#4a4540',mid:'#7a7470',light:'#a8a39f',border:'#c8c3be'},black:{bg:'#111',card:'#1a1a1a',fg:'#fff',mid:'rgba(255,255,255,0.55)',light:'rgba(255,255,255,0.30)',border:'rgba(255,255,255,0.12)'},signal:{bg:'#e63222',card:'#cc2b1d',fg:'#000',mid:'rgba(0,0,0,0.55)',light:'rgba(0,0,0,0.35)',border:'transparent'}};
+  function setTheme(n,el){const t=themes[n],r=document.documentElement.style;r.setProperty('--bg',t.bg);r.setProperty('--bg-card',t.card);r.setProperty('--fg',t.fg);r.setProperty('--fg-mid',t.mid);r.setProperty('--fg-light',t.light);r.setProperty('--border',t.border);r.setProperty('--grey-dark',t.fg);r.setProperty('--grey-mid',t.mid);r.setProperty('--grey-light',t.light);document.documentElement.setAttribute('data-theme',n);document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));if(el)el.classList.add('active');}
+  setTheme('black',document.querySelector('.swatch[onclick*="black"]'));
+</script>
+</body>
+</html>
