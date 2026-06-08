@@ -121,20 +121,39 @@ body {
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
 .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--grey-dark); }
 
+/* Close button inside mobile nav overlay — hidden by default, shown only when overlay is open */
+.nav-close {
+  display: none;
+  position: fixed;
+  top: 14px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--grey-dark);
+  z-index: 101;
+  padding: 4px 8px;
+  font-family: inherit;
+}
+.nav-links.open .nav-close,
+.nav-right.open .nav-close { display: block; }
+
 /* ─── FOOTER ──────────────────────────────────────────────── */
 
 .footer-bar {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   padding: 24px 48px;
 }
 
 .footer-left {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  gap: 8px;
+  gap: 24px;
 }
 
 .footer-left-text {
