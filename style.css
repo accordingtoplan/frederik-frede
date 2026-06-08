@@ -151,9 +151,9 @@ body {
 
 .footer-left {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 6px;
 }
 
 .footer-left-text {
@@ -306,7 +306,12 @@ body {
     align-items: flex-start;
     gap: 20px;
   }
-  .footer-left { flex-direction: column; gap: 12px; }
+  .footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
   .footer-logo { height: 56px; }
   .footer-marker { display: none; }
   .footer-links { gap: 16px; }
