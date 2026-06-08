@@ -373,49 +373,72 @@
     
     .swatch:hover { opacity: 0.6; }
 
-          /* ── View all ticker ── */
-    .work-ticker-wrap {
-      margin-top: 72px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .work-ticker-wrap a {
-      display: block;
-      text-decoration: none;
-    }
-    .work-ticker-track {
+          /* ── Magnetic CTA ── */
+    .work-mag-wrap {
       display: flex;
-      width: max-content;
-      animation: ticker 14s linear infinite;
-      padding: 18px 0;
+      justify-content: center;
+      padding: 80px 0 60px;
     }
-    .work-ticker-wrap:hover .work-ticker-track {
-      animation-play-state: paused;
-    }
-    .work-ticker-item {
+    .work-mag-zone {
+      position: relative;
+      width: 220px;
+      height: 220px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      width: 100vw;
-      padding: 0 48px;
-      box-sizing: border-box;
-      white-space: nowrap;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      justify-content: center;
+    }
+    .work-mag-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 1.5px solid var(--fg);
+      text-decoration: none;
       color: var(--fg);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      will-change: transform;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      cursor: none;
+      overflow: hidden;
     }
-    .work-ticker-item .ticker-arrow {
-      font-size: 20px;
+    .work-mag-btn:hover {
+      background: var(--fg);
+      color: var(--bg);
+    }
+    .work-mag-btn .mag-arrow {
+      position: absolute;
+      bottom: 38px;
+      right: 38px;
+      font-size: 18px;
       font-weight: 400;
-      opacity: 0.4;
+      opacity: 0.5;
+      transition: opacity 0.2s, transform 0.2s;
     }
-    @keyframes ticker {
-      0%   { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
+    .work-mag-btn:hover .mag-arrow {
+      opacity: 1;
+      transform: translate(2px, -2px);
     }
+    .work-mag-cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--fg);
+      pointer-events: none;
+      mix-blend-mode: exclusion;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, opacity 0.2s;
+      z-index: 9999;
+      opacity: 0;
+    }
+    .work-mag-cursor.visible { opacity: 1; }
+    .work-mag-cursor.expanded { width: 48px; height: 48px; }
 
 </style>
 </head>
@@ -471,11 +494,15 @@
       <a class="work-header-link" href="/frede-studio/work.html">View all</a>
     </div>
     <div class="cases-grid" id="cases"></div>
-    <div class="work-ticker-wrap">
-      <a href="/frede-studio/work.html" tabindex="0" aria-label="View all work">
-        <div class="work-ticker-track" id="tickerTrack"></div>
-      </a>
+    <div class="work-mag-wrap">
+      <div class="work-mag-zone" id="magZone">
+        <a class="work-mag-btn" href="/frede-studio/work.html" id="magBtn">
+          <span>View all<br>work</span>
+          <span class="mag-arrow">→</span>
+        </a>
+      </div>
     </div>
+    <div class="work-mag-cursor" id="magCursor"></div>
   </section>
 
   <footer>
@@ -587,12 +614,59 @@
 
   <script>
     (function(){
-      var track = document.getElementById('tickerTrack');
-      if (!track) return;
-      var seg = '<span class="work-ticker-item">View all work<span class="ticker-arrow">→</span></span>';
-      var html = '';
-      for (var i = 0; i < 2; i++) html += seg;
-      track.innerHTML = html;
+      var zone = document.getElementById('magZone');
+      var btn  = document.getElementById('magBtn');
+      var cur  = document.getElementById('magCursor');
+      if (!zone || !btn || !cur) return;
+
+      var strength = 0.4;
+      var cx = 0, cy = 0;
+      var bx = 0, by = 0;
+      var vx = 0, vy = 0;
+      var inside = false;
+      var raf;
+
+      function lerp(a, b, t){ return a + (b - a) * t; }
+
+      function animate(){
+        if (inside) {
+          var rect = zone.getBoundingClientRect();
+          var zx = rect.left + rect.width  / 2;
+          var zy = rect.top  + rect.height / 2;
+          var dx = cx - zx;
+          var dy = cy - zy;
+          var tx = dx * strength;
+          var ty = dy * strength;
+          bx = lerp(bx, tx, 0.12);
+          by = lerp(by, ty, 0.12);
+        } else {
+          bx = lerp(bx, 0, 0.1);
+          by = lerp(by, 0, 0.1);
+        }
+        btn.style.transform = 'translate(' + bx.toFixed(2) + 'px,' + by.toFixed(2) + 'px)';
+        raf = requestAnimationFrame(animate);
+      }
+
+      document.addEventListener('mousemove', function(e){
+        cx = e.clientX;
+        cy = e.clientY;
+        cur.style.left = cx + 'px';
+        cur.style.top  = cy + 'px';
+      });
+
+      zone.addEventListener('mouseenter', function(){
+        inside = true;
+        cur.classList.add('visible','expanded');
+        if (!raf) raf = requestAnimationFrame(animate);
+      });
+
+      zone.addEventListener('mouseleave', function(){
+        inside = false;
+        cur.classList.remove('expanded');
+        setTimeout(function(){ cur.classList.remove('visible'); }, 200);
+      });
+
+      raf = requestAnimationFrame(animate);
     })();
   </script>
 </body>
