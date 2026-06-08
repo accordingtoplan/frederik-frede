@@ -166,8 +166,6 @@ body {
 
 .footer-links a {
   font-size: var(--t-label);
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
   color: var(--grey-light);
   text-decoration: none;
   transition: color 0.2s;
@@ -307,8 +305,6 @@ body {
   .subscribe-btn {
     font-family: var(--font);
     font-size: var(--t-label);
-    letter-spacing: var(--ls-label);
-    text-transform: uppercase;
     color: var(--grey-light);
     background: none;
     border: none;
