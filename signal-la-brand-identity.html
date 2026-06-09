@@ -68,6 +68,18 @@
 .footer-left{display:flex;flex-direction:column;gap:8px}
 .footer-logo-link{display:block;color:var(--grey-dark);line-height:0}
 .footer-logo-link svg{display:block}
+
+/* ── Slideshow ── */
+.cs-slideshow{position:relative;width:100%;overflow:hidden;margin-bottom:24px}
+.cs-slideshow-track{display:flex;transition:transform 0.7s cubic-bezier(0.4,0,0.2,1)}
+.cs-slideshow-track img{width:100%;flex-shrink:0;display:block;object-fit:cover;aspect-ratio:16/9}
+.cs-slide-btn{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:16px;color:#fff;font-size:24px;line-height:1;opacity:0.7;transition:opacity 0.2s;z-index:2}
+.cs-slide-btn:hover{opacity:1}
+.cs-slide-prev{left:16px}
+.cs-slide-next{right:16px}
+.cs-slide-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.cs-slide-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.5);border:none;cursor:pointer;padding:0;transition:background 0.2s}
+.cs-slide-dot.active{background:#fff}
 </style>
 </head>
 <body>
@@ -112,9 +124,19 @@
   <p>The identity draws on the language of place: an address, a directory, a signal. The wordmark occupies space the way a building does — without apology. Applied across print, signage, merch, and digital, the system scales from a pavement A-frame to a full-bleed website hero without losing its composure.</p>
 </div>
 
-<!-- Hero — building visual -->
-<div class="cs-media-full">
-  <img src="/frede-studio/assets/signal/SIGNAL-BG-img-visual.jpg" alt="Signal LA building exterior" loading="lazy">
+<!-- Hero slideshow -->
+<div class="cs-slideshow" id="signalSlideshow">
+  <div class="cs-slideshow-track" id="slideshowTrack">
+    <img src="/frede-studio/assets/signal/BG-Web_01.jpg" alt="Signal LA courtyard" loading="eager">
+    <img src="/frede-studio/assets/signal/BG-Web_02.jpg" alt="Signal LA building exterior" loading="lazy">
+    <img src="/frede-studio/assets/signal/BG-Web_03.jpg" alt="Signal LA rooftop" loading="lazy">
+    <img src="/frede-studio/assets/signal/BG-Web_04.jpg" alt="Signal LA interior event space" loading="lazy">
+    <img src="/frede-studio/assets/signal/BG-Web_05.jpg" alt="Signal LA Concierge Coffee" loading="lazy">
+    <img src="/frede-studio/assets/signal/BG-Web_06.jpg" alt="Signal LA Period Correct" loading="lazy">
+  </div>
+  <button class="cs-slide-btn cs-slide-prev" aria-label="Previous" onclick="slideMove(-1)">&#8592;</button>
+  <button class="cs-slide-btn cs-slide-next" aria-label="Next" onclick="slideMove(1)">&#8594;</button>
+  <div class="cs-slide-dots" id="slideDots"></div>
 </div>
 
 <!-- 01 Identity -->
@@ -125,9 +147,7 @@
     <p>A high-contrast serif wordmark anchored in deep forest green. The identity operates as a directory system — the brand's tenants listed as typographic content, turning the who into the what. Consistent across every surface, the system reads as institutional without feeling corporate.</p>
   </div>
 </div>
-<div class="cs-media-full">
-  <img src="/frede-studio/assets/signal/SIGNAL-BG-img-visual-2.jpg" alt="Signal LA rooftop event" loading="lazy">
-</div>
+
 
 <!-- 02 Print & Signage -->
 <div class="cs-strategy">
@@ -215,6 +235,31 @@
     if(el)el.classList.add('active');
   }
   setTheme('black',document.querySelector('.swatch[onclick*="black"]'));
+
+// Slideshow
+(function(){
+  const track = document.getElementById('slideshowTrack');
+  const dotsEl = document.getElementById('slideDots');
+  if(!track) return;
+  const imgs = track.querySelectorAll('img');
+  let cur = 0;
+  // build dots
+  imgs.forEach((_,i) => {
+    const d = document.createElement('button');
+    d.className = 'cs-slide-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  });
+  function goTo(n){
+    cur = (n + imgs.length) % imgs.length;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dotsEl.querySelectorAll('.cs-slide-dot').forEach((d,i) => d.classList.toggle('active', i===cur));
+  }
+  window.slideMove = (dir) => goTo(cur + dir);
+  // auto-advance every 4s
+  setInterval(() => goTo(cur + 1), 4000);
+})();
 </script>
 </body>
 </html>
