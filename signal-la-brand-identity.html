@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal LA — Frederik Frede</title>
+<meta name="description" content="Brand identity for an architectural retail enclave in the Los Angeles Arts District: identity system, print, signage, merch, and digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>/* ── Case study — page-specific only ── */
+.cs-header{padding:80px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.cs-title{font-size:clamp(56px,8vw,96px);font-weight:700;line-height:0.92;letter-spacing:-0.035em;color:var(--grey-dark);margin:0}
+.cs-meta{display:flex;flex-direction:column;gap:20px;padding-bottom:4px}
+.cs-tags{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--grey-light)}
+.cs-tagline{font-size:clamp(20px,2.8vw,32px);font-weight:700;color:var(--grey-dark);line-height:1.1;letter-spacing:-0.02em}
+.cs-desc{font-size:15px;color:var(--grey-mid);line-height:1.65;max-width:420px}
+.cs-intro{padding:0 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.cs-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0}
+.cs-media-full{padding:0 48px;margin-bottom:24px}
+.cs-media-full video,.cs-media-full img{width:100%;display:block;object-fit:unset}
+.cs-strategy{padding:80px 48px}
+.cs-section-label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-light);margin-bottom:48px;display:block}
+.cs-strategy-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px;align-items:start}
+.cs-strategy-intro h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.025em;line-height:1.05;color:var(--grey-dark);margin:0}
+.cs-strategy-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0;padding-top:6px}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
+.cs-grid video,.cs-grid img{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
+.cs-pullquote{padding:80px 48px}
+.cs-pullquote blockquote{font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--grey-dark);margin:0;max-width:900px}
+.cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
+.cs-description{max-width:50%}
+.cs-description p{font-size:15px;font-weight:700;color:var(--grey-dark);line-height:1.6;margin-bottom:20px}
+.cs-description p:last-child{margin-bottom:0}
+.cs-credits-cols{position:absolute;right:48px;top:80px;display:grid;grid-template-columns:1fr;gap:0;align-content:start;text-align:right}
+.cs-credit-group{margin-bottom:28px}
+.cs-credit-group dt{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light);margin-bottom:4px}
+.cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
+.cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
+.cs-credit-group dd a:hover{opacity:0.6}
+.cs-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:80px}
+.cs-nav-item{display:flex;flex-direction:column;padding:40px 48px;text-decoration:none;color:inherit;transition:opacity 0.2s;gap:16px}
+.cs-nav-item:hover{opacity:0.5}
+.cs-nav-dir{font-size:clamp(18px,2vw,28px);font-weight:700;letter-spacing:-0.02em;color:var(--grey-light)}
+.cs-nav-name{font-size:clamp(28px,4vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:0.95;color:var(--grey-dark)}
+.cs-nav-item.next{text-align:right}
+@media(max-width:640px){
+  .cs-header{padding:80px 20px 36px;grid-template-columns:1fr;gap:24px}
+  .cs-title{font-size:clamp(36px,10vw,56px)}
+  .cs-intro{padding:0 20px 48px;grid-template-columns:1fr;gap:24px}
+  .cs-strategy-intro{grid-template-columns:1fr;gap:24px}
+  .cs-media-full{padding:0 20px}
+  .cs-strategy{padding:48px 20px}
+  .cs-pullquote{padding:48px 20px}
+  .cs-pullquote blockquote{font-size:clamp(24px,7vw,40px)}
+  .cs-grid{grid-template-columns:1fr;gap:12px;padding:0 20px}
+  .cs-bottom{padding:40px 20px 64px}
+  .cs-description{max-width:100%}
+  .cs-credits-cols{position:static;text-align:left;margin-top:40px}
+  .cs-desc{max-width:100%}
+  .cs-nav{grid-template-columns:1fr}
+  .cs-nav-item{padding:28px 20px}
+  .cs-nav-item.next{text-align:left;border-top:1px solid var(--border)}
+  .cs-nav-name{font-size:clamp(24px,8vw,40px)}
+  .cs-nav-dir{font-size:clamp(14px,4vw,20px)}
+}
+.footer-left{display:flex;flex-direction:column;gap:8px}
+.footer-logo-link{display:block;color:var(--grey-dark);line-height:0}
+.footer-logo-link svg{display:block}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="/frede-studio/">Frederik</a>
+    <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch" style="background:#fff" onclick="setTheme('white',this)" title="White"></div>
+      <div class="swatch active" style="background:#111" onclick="setTheme('black',this)" title="Black"></div>
+      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <button class="nav-close" aria-label="Close menu" onclick="document.getElementById('navLinks').classList.remove('open')">×</button>
+    <ul>
+      <li><a href="/frede-studio/" onclick="document.getElementById('navLinks').classList.remove('open')">Home</a></li>
+      <li><a href="/frede-studio/work.html" onclick="document.getElementById('navLinks').classList.remove('open')">Work</a></li>
+      <li><a href="/frede-studio/about.html" onclick="document.getElementById('navLinks').classList.remove('open')">Information</a></li>
+      <li><a href="/frede-studio/about.html#contact" onclick="document.getElementById('navLinks').classList.remove('open')">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<header class="cs-header">
+  <h1 class="cs-title">Signal<br>LA</h1>
+  <div class="cs-meta">
+    <span class="cs-tags">Brand Identity · Print · Digital</span>
+    <p class="cs-tagline">An architectural retail enclave<br>in the Arts District.</p>
+    <p class="cs-desc">Brand identity for Signal — a curated multi-brand retail destination at 821 Traction Avenue, Los Angeles, bringing together design, fashion, and culture under one roof.</p>
+  </div>
+</header>
+
+<div class="cs-intro">
+  <p>Signal is a curated retail enclave in Los Angeles's Arts District, uniting a constellation of independent brands — from Alchemy Works and Flamingo Estate to Period Correct and Please Do Not Enter — under a shared architectural identity. The brief called for a brand language that could hold its own against the building's presence: quiet authority, deep green, and a typographic system rooted in editorial publishing.</p>
+  <p>The identity draws on the language of place: an address, a directory, a signal. The wordmark occupies space the way a building does — without apology. Applied across print, signage, merch, and digital, the system scales from a pavement A-frame to a full-bleed website hero without losing its composure.</p>
+</div>
+
+<!-- Hero — building visual -->
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/signal/SIGNAL-BG-img-visual.jpg" alt="Signal LA building exterior" loading="lazy">
+</div>
+
+<!-- 01 Identity -->
+<div class="cs-strategy">
+  <span class="cs-section-label">01 — Brand Identity</span>
+  <div class="cs-strategy-intro">
+    <h2>Typography as architecture.</h2>
+    <p>A high-contrast serif wordmark anchored in deep forest green. The identity operates as a directory system — the brand's tenants listed as typographic content, turning the who into the what. Consistent across every surface, the system reads as institutional without feeling corporate.</p>
+  </div>
+</div>
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/signal/SIGNAL-BG-img-visual-2.jpg" alt="Signal LA rooftop event" loading="lazy">
+</div>
+
+<!-- 02 Print & Signage -->
+<div class="cs-strategy">
+  <span class="cs-section-label">02 — Print &amp; Signage</span>
+  <div class="cs-strategy-intro">
+    <h2>The pavement is part of the brand.</h2>
+    <p>The A-frame sandwich board extends the identity into the street — a deep green field, the wordmark at full bleed, the tenant directory as body copy. Poster formats follow the same logic: the SIGNAL masthead as editorial cover, tenant names as content, the building's address as provenance.</p>
+  </div>
+</div>
+<div class="cs-grid">
+  <img src="/frede-studio/assets/signal/SIGNAL-ARTD-AFrame_Mockup.jpg" alt="Signal LA A-frame signage" loading="lazy">
+  <img src="/frede-studio/assets/signal/SIGNAL-Poster-Visuals.jpg" alt="Signal LA poster system" loading="lazy">
+</div>
+
+<!-- 03 Merch -->
+<div class="cs-strategy">
+  <span class="cs-section-label">03 — Merchandise</span>
+  <div class="cs-strategy-intro">
+    <h2>Wearable wayfinding.</h2>
+    <p>The t-shirt extends the directory logic into merch — the full tenant list printed in small-cap text beneath the wordmark, turning the garment into a walking map of the enclave. Tone-on-tone in Signal green: legible to those who know, invisible to those who don't.</p>
+  </div>
+</div>
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/signal/SIGNAL-t-shirt_mockup-updated.jpg" alt="Signal LA t-shirt" loading="lazy">
+</div>
+
+<!-- 04 Digital -->
+<div class="cs-strategy">
+  <span class="cs-section-label">04 — Digital</span>
+  <div class="cs-strategy-intro">
+    <h2>The address as the homepage.</h2>
+    <p>The website carries the same editorial logic as print: the wordmark centred, the address as coordinates, the tenant directory as navigation. Photography takes over where typography ends — the building's arched facades and light-filled interiors doing the rest of the work.</p>
+  </div>
+</div>
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/signal/SIGNAL-Website_Desktop-Screen.jpg" alt="Signal LA website" loading="lazy">
+</div>
+
+<div class="cs-pullquote">
+  <blockquote>A brand that behaves like a building.</blockquote>
+</div>
+
+<div class="cs-bottom">
+  <div class="cs-description">
+    <p>Signal is a multi-brand retail destination at 821 Traction Avenue in Los Angeles's Arts District, bringing together a curated selection of independent brands in design, fashion, and culture. The identity system was built to match the architectural ambition of the space — a mark with the permanence of an address and the flexibility of a publishing platform.</p>
+  </div>
+  <dl class="cs-credits-cols">
+    <div class="cs-credit-group"><dt>Live site</dt><dd><a href="https://signal-la.com" target="_blank" rel="noopener">signal-la.com ↗</a></dd></div>
+    <div class="cs-credit-group"><dt>Collaborators</dt><dd>Klein Agency<br>Maša Kleinhample<br>Jon Kleinhample</dd></div>
+    <div class="cs-credit-group"><dt>Year</dt><dd>2023</dd></div>
+  </dl>
+</div>
+
+<nav class="cs-nav">
+  <a class="cs-nav-item prev" href="/frede-studio/mini-the-sooner-now-brand-campaign.html">
+    <span class="cs-nav-dir">← Previous</span>
+    <span class="cs-nav-name">MINI</span>
+  </a>
+  <a class="cs-nav-item next" href="/frede-studio/bianca-chen-brand-identity.html">
+    <span class="cs-nav-dir">Next →</span>
+    <span class="cs-nav-name">Bianca Chen</span>
+  </a>
+</nav>
+
+<footer>
+  <div id="footer-mount"></div>
+</footer>
+<script src="/frede-studio/footer.js"></script>
+
+<script>
+  const themes={
+    white:{bg:'#fff',card:'#f5f3f1',fg:'#4a4540',mid:'#7a7470',light:'#a8a39f',border:'#c8c3be'},
+    black:{bg:'#111',card:'#1a1a1a',fg:'#fff',mid:'rgba(255,255,255,0.55)',light:'rgba(255,255,255,0.30)',border:'rgba(255,255,255,0.12)'},
+    signal:{bg:'#e63222',card:'#cc2b1d',fg:'#000',mid:'rgba(0,0,0,0.55)',light:'rgba(0,0,0,0.35)',border:'transparent'},
+  };
+  function setTheme(name,el){
+    const t=themes[name];const r=document.documentElement.style;
+    r.setProperty('--bg',t.bg);r.setProperty('--bg-card',t.card);
+    r.setProperty('--fg',t.fg);r.setProperty('--fg-mid',t.mid);
+    r.setProperty('--fg-light',t.light);r.setProperty('--border',t.border);
+    r.setProperty('--grey-dark',t.fg);r.setProperty('--grey-mid',t.mid);
+    r.setProperty('--grey-light',t.light);
+    document.documentElement.setAttribute('data-theme',name);
+    document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
+    if(el)el.classList.add('active');
+  }
+  setTheme('black',document.querySelector('.swatch[onclick*="black"]'));
+</script>
+</body>
+</html>
