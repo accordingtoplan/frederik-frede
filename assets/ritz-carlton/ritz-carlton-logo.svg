@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" fill="white">
-  <text x="200" y="32" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="normal" text-anchor="middle" letter-spacing="6">THE</text>
-  <text x="200" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="normal" text-anchor="middle" letter-spacing="4">RITZ-CARLTON</text>
-  <line x1="40" y1="66" x2="360" y2="66" stroke="white" stroke-width="0.8"/>
-  <text x="200" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="9" font-weight="normal" text-anchor="middle" letter-spacing="5">BERLIN</text>
-</svg>
