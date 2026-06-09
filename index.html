@@ -579,7 +579,7 @@
         full:true, type:"vimeo", src:"1048609984", ratio:"ratio-land",
         year:"2017", live:"personalities-by-usm.com", liveHref:"https://www.personalities-by-usm.com/en/", collab:"Friends of Friends" },
       { b:"Concierge Coffee",    tag:"Brand & Web", desc:"Coffee as a cultural vehicle. LA Arts District, Berlin.",
-        type:"placeholder-logo", src:"https://images.squarespace-cdn.com/content/v1/5b878d03b40b9dd757ddd599/1535614905062-UEDQ4GIAJI135KNLU00W/ConciergeCoffee_logo2.png?format=2500w", bg:"#f0ebe3", logoClass:"cc-logo",
+        type:"placeholder-logo", src:"https://images.squarespace-cdn.com/content/v1/5b878d03b40b9dd757ddd599/1535614905062-UEDQ4GIAJI135KNLU00W/ConciergeCoffee_logo2.png?format=2500w", bg:"/frede-studio/assets/signal/BG-Web_05.jpg", logoClass:"cc-logo",
         link:"/frede-studio/concierge-coffee-brand-web.html",
         year:"2025", collab:"Klein Agency" },
       { b:"Umane",              tag:"Brand & Identity", desc:"Identity for a new generation of athletic health clubs.",
@@ -596,6 +596,7 @@
         year:"2019", live:"mini.com", liveHref:"https://www.mini.com", collab:"—" },
       { b:"Signal LA",          tag:"Brand & Identity", desc:"Brand identity for an architectural retail enclave in the Los Angeles Arts District.",
         type:"placeholder-logo", src:"https://cdn.prod.website-files.com/66e30c0fc33687ad22c38f24/66e30f9b5a6d4fad335d3800_SIGNAL-2023-Logo_White.svg",
+        bg:"/frede-studio/assets/signal/BG-Web_01.jpg",
         ratio:"ratio-land", link:"/frede-studio/signal-la-brand-identity.html",
         year:"2023", collab:"—" },
       { b:"Bianca Chen",        tag:"Brand & Identity", desc:"Curated Chaos — identity for an independent LA-based art curator.",
@@ -629,7 +630,7 @@
         let tileAttrs = '';
         if (c.bg) {
           if (c.bg.startsWith('#')) tileAttrs = `style="background:${c.bg}"`;
-          else tileAttrs = `data-bg="${c.bg}"`;
+          else tileAttrs = `style="background-image:url('${c.bg}');background-size:cover;background-position:center"`;
         }
         const imgClass = c.logoClass ? `class="${c.logoClass}"` : '';
         media = `<div class="case-media ${ratio}"><div class="logo-tile ${c.bg && !c.bg.startsWith('#') ? c.bg+'-tile' : ''}" ${tileAttrs}><img src="${c.src}" alt="${c.b}" ${imgClass}></div></div>`;
