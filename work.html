@@ -521,9 +521,39 @@ const VITRA = [
   "https://static.vitra.com/media/asset/1553003/storage/v_fullbleed_1440x/16993902.jpg",
 ];
 
+function shuffleMixed(arr) {
+  // Separate portrait vs landscape, shuffle each, then interleave
+  const isPortrait = p => p.src && (p.src.includes('819x1024') || p.src.includes('Portrait') || p.src.includes('IG-FGP'));
+  let L = arr.filter(p => !isPortrait(p));
+  let P = arr.filter(p => isPortrait(p));
+  // Fisher-Yates each pool
+  [L, P].forEach(pool => {
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+  });
+  // Interleave alternating rows: [L,P] or [P,L] randomly per row
+  const result = [];
+  let li = 0, pi = 0;
+  let rowStart = Math.random() < 0.5; // true = L first
+  while (li < L.length || pi < P.length) {
+    if (rowStart) {
+      if (li < L.length) result.push(L[li++]);
+      if (pi < P.length) result.push(P[pi++]);
+    } else {
+      if (pi < P.length) result.push(P[pi++]);
+      if (li < L.length) result.push(L[li++]);
+    }
+    rowStart = !rowStart;
+  }
+  return result;
+}
+
 function buildGrid() {
   const grid = document.getElementById('grid');
-  projects.forEach((p, i) => {
+  const shuffled = shuffleMixed(projects);
+  shuffled.forEach((p, i) => {
     let inner = '';
     if (p.type === 'img') {
       inner = `<img src="${p.src}" alt="${p.b}" loading="lazy">`;
