@@ -591,7 +591,7 @@
         link:"/frede-studio/concierge-coffee-brand-web.html",
         year:"2025", collab:"Klein Agency" },
       { b:"Umane",              tag:"Brand & Identity", desc:"Identity for a new generation of athletic health clubs.",
-        type:"video", src:"umane-mockup.mp4", ratio:"ratio-land",
+        type:"video", src:"umane-mockup.mp4", overlay:"logo_anim_umane.mp4", ratio:"ratio-land",
         link:"/frede-studio/umane-brand-identity.html",
         year:"2024", collab:"—" },
       { b:"Ritz-Carlton",       link:"/frede-studio/ritz-carlton-berlin-brand-event.html", tag:"Hospitality & Brand", desc:"Rebranding five interior spaces at the Ritz-Carlton Berlin.",
@@ -629,7 +629,8 @@
       let media = '';
       const ratio = c.ratio || 'ratio-land';
       if (c.type === 'video') {
-        media = `<div class="case-media ratio-auto"><video autoplay muted loop playsinline${c.poster ? ` poster="${c.poster}"` : ''}><source src="${c.src}" type="video/mp4"></video></div>`;
+        const overlay = c.overlay ? `<video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;pointer-events:none"><source src="${c.overlay}" type="video/mp4"></video>` : '';
+        media = `<div class="case-media ratio-auto"${c.overlay ? ' style="position:relative"' : ''}><video autoplay muted loop playsinline${c.poster ? ` poster="${c.poster}"` : ''}><source src="${c.src}" type="video/mp4"></video>${overlay}</div>`;
       } else if (c.type === 'img') {
         media = `<div class="case-media ${ratio}"><img src="${c.src}" alt="${c.b}" loading="lazy"></div>`;
       } else if (c.type === 'vimeo') {
