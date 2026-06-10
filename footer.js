@@ -2,7 +2,7 @@
   const FOOTER_HTML = `<div class="footer-bar">
       <div class="footer-top-row">
         <div class="footer-logo-row">
-          <img src="/frede-studio/frede-logo.png" alt="FREDE" class="footer-logo">
+          <img src="/frederik-frede/frede-logo.png" alt="FREDE" class="footer-logo">
           <svg class="footer-marker" viewBox="0 0 210 65" xmlns="http://www.w3.org/2000/svg" aria-label="vibecoded. with a lot of prompts.">
             <defs>
               <filter id="ink-footer">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="footer-bottom-row">
-        <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/frede-studio/imprint.html" class="footer-copy-link">Imprint</a></span>
+        <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/frederik-frede/imprint.html" class="footer-copy-link">Imprint</a></span>
         <div class="footer-links">
           <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
           <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
