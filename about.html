@@ -198,6 +198,15 @@
     .fg-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+  <style>
+  .outside-block { margin-bottom: 48px; }
+  .outside-label { font-size: var(--t-ui, 11px); letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-light); margin-bottom: 12px; }
+  .outside-desc { font-size: var(--t-large, 18px); color: var(--grey-mid); max-width: 600px; margin: 0 0 24px; line-height: 1.5; }
+  .playlist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; }
+  .playlist-meta { font-size: var(--t-ui, 11px); color: var(--grey-light); margin-bottom: 8px; }
+  @media (max-width: 640px) { .playlist-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -411,6 +420,41 @@
       <li class="feature-item"><a class="feature-link" href="https://vimeo.com/188835446" target="_blank" rel="noopener">IAM Conference, Barcelona</a></li>
       <li class="feature-item"><a class="feature-link" href="https://www.cube-magazin.de/artikel/wohnen-raini-peters-philipp-mainzer/" target="_blank" rel="noopener">Cube Magazin</a></li>
     </ul>
+  </div>
+
+
+  <!-- G. Outside -->
+  <div class="section section-outside">
+    <div class="section-header">
+      <span class="section-letter">G</span>
+      <span class="section-title">Outside</span>
+    </div>
+
+    <div class="outside-block">
+      <div class="outside-label">Sound</div>
+      <p class="outside-desc">Playlists running in the background of the work for 20 years. Some personal, some made for clients — &amp;Tradition showrooms, Sonos homes, FvF apartments.</p>
+      <div class="playlist-grid">
+        <div class="playlist-item">
+          <div class="playlist-meta">Vibin &mdash; 1,000 songs, 72 hours</div>
+          <iframe style="border-radius:4px" src="https://open.spotify.com/embed/playlist/30oBZh1HEP8140KloVlllR?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="playlist-item">
+          <div class="playlist-meta">2026 &mdash; updated through the year</div>
+          <iframe style="border-radius:4px" src="https://open.spotify.com/embed/playlist/0am3lu3uYGr45A6OmpZNO0?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="outside-block">
+      <div class="outside-label">Movement</div>
+      <p class="outside-desc">Running, swimming, cycling, strength, yoga. Tracked across Garmin, Wahoo, Oura and Strava — synthesised in Claude. Not performance. Staying healthy, flexible and clear-headed for the long run. The same logic as the work.</p>
+    </div>
+
+    <div class="outside-block">
+      <div class="outside-label">The Library</div>
+      <p class="outside-desc">Ten-plus years of visual sourcing in Eagle. Original photography, licensed assets, tagged references. A well-kept library makes decks taste right and saves days. The inputs matter.</p>
+    </div>
+
   </div>
 
   </div><!-- /fg-grid -->
