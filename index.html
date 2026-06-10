@@ -578,7 +578,7 @@
         year:"2023–2025", live:"architonic.com", liveHref:"https://www.architonic.com", collab:"—" },
       { b:"NZZ",                tag:"Brand & Digital",        desc:"Brand and digital transformation for Switzerland's leading media house.",
         type:"img", src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png",
-        ratio:"ratio-land",
+        ratio:"ratio-land", coming:true,
         year:"2018", live:"ad-magazin.de", liveHref:"https://www.ad-magazin.de", collab:"—" },
       { b:"Frederik G. Pferdt", link:"/frederik-frede/frederik-pferdt-personal-brand-identity.html", tag:"Brand & Identity", desc:"Personal brand for Google's first Chief Innovation Evangelist.",
         type:"video", src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-02.mp4",
@@ -649,7 +649,8 @@
       }
 
 
-      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}</div><div class="case-tagline">${c.desc}</div></div>`;
+      const comingSoon = c.coming ? `<span class="case-coming">Coming soon</span>` : '';
+      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}${comingSoon}</div><div class="case-tagline">${c.desc}</div></div>`;
       if (c.link) {
         const a = document.createElement('a');
         a.href = c.link;
