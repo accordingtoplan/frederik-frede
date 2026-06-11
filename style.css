@@ -408,3 +408,27 @@ p a:hover,
   color: #e63222;
   text-decoration: none;
 }
+
+/* ── Scroll reveal ── */
+.case,
+.cs-media-full,
+.cs-grid > *,
+.cs-grid-3 > * {
+  opacity: 0;
+  transform: translateY(14px) scale(0.97);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.case.in-view,
+.cs-media-full.in-view,
+.cs-grid > *.in-view,
+.cs-grid-3 > *.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .case, .cs-media-full, .cs-grid > *, .cs-grid-3 > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
