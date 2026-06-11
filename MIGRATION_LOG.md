@@ -31,6 +31,46 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 - 01-aleo-hightec-1024x641.jpg (80K)
 - ms-aleo-0336-1024x684.jpg (73K)
 
+### 25hours-hotels-brand-identity.html — 6/6 ✓
+- artboard-2-1024x513.jpg (54K)
+- artboard-3-1024x513.jpg (30K)
+- freunde-von-freunden-companion-12-6241-1024x683.jpg (121K)
+- freunde-von-freunden-companion-magazine-districttour-134-1024x683.jpg (154K)
+- freunde-von-freunden-leo-valls-114-1600x1080-1024x691.jpg (134K)
+- moresleep-companion.gif (5.6M)
+
+### adidas-journeys-interactive-campaign.html — 6/6 ✓
+- 1309-01-189-1024x683.jpg (104K)
+- addidas-jouneys-website-video.mp4 (5.5M)
+- adidasjourneys-12-1024x724.jpg (163K)
+- mockup-1-1024x513.jpg (30K)
+- mockup-5-1-1024x513.jpg (33K)
+- moresleep-website-adidas-header-1024x561.jpg (208K)
+
+### friends-of-friends-brand-identity-web.html — 6/6 ✓
+- ff-iphone-collection-4-1024x768.jpg (114K)
+- ff-poster-mockup-the-templates-agency-003-1024x683.jpg (157K)
+- ff-pinterest-some-new-logo-1024x576.jpg (56K)
+- ff-website-case-study-01-1024x622.jpg (91K)
+- ff-website-case-study-02-1024x622.jpg (109K)
+- ff-website-case-study-03-1024x622.jpg (78K)
+
+### iac-brand-digital.html — 6/6 ✓
+- 190220-ms-iac-header-coming-soon-1-1024x561.jpg (257K)
+- san-domenico-golf-2-1024x683.jpg (104K)
+- 190327-ms-iac-visuals-01-1024x569.png (281K)
+- 190327-ms-iac-visuals-03-1024x569.png (378K)
+- 190327-ms-iac-visuals-05-1024x569.png (162K)
+- 190327-ms-iac-visuals-06-1-1024x569.png (351K)
+
+### orgreen-optics-brand-digital.html — 6/6 ✓
+- 20180219-moresleep-showreel-orgreen-1x1.mp4 (8.2M)
+- 02-ms-orgreen-visual-2-ipads-1024x747.jpg (256K)
+- 04-ms-orgreen-visual-browser-1024x569.jpg (249K)
+- 05-ms-orgreen-visual-ipadiphone-1024x569.jpg (123K)
+- 190128-orgreen-screenshot-2019-01-25-at-11.45.09-1024x634.png (481K)
+- 200617-orgreen37632-772x1024.jpg (125K)
+
 ### engel-volkers-web-design.html — 7/7 ✓ (5 new + 2 reused from assets/spot/)
 - euv-image-break-1024x480.png (389K)
 - euv-macbook-mockup-10-1024x427.png (129K)
