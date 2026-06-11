@@ -6,6 +6,33 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 
 ## Localized
 
+### facebook-privacy-interactive.html — 7/7 ✓
+- yourhomefb-chapter-1-desktop-1024x674.png (119K)
+- yourhomefb-chapter-2-desktop-1024x674.png (204K)
+- yourhomefb-chapter-3-desktop-1024x674.png (146K)
+- yourhomefb-chapters-mobile-1024x576.png (174K)
+- yourhomefb-header-1024x576.jpg (41K)
+- yourhomefb-phone-summary-1024x674.jpg (44K)
+- yourhomefb-process-1024x575.png (315K)
+
+### grill-royal-group-brand-digital.html — 7/7 ✓
+- freunde-von-freunden-kin-dee-0659-683x1024.jpg (322K)
+- freunde-von-freunden-pauly-saal-9258-683x1024.jpg (684K)
+- freunde-von-freunden-petit-royal-6283-683x1024.jpg (418K)
+- freunde-von-freunden-einstein-7186-683x1024.jpg (442K)
+- ms-grill-royal-group-ci-01-1024x371.jpg (20K)
+- ms-grill-royal-ipone-1024x569.jpg (63K)
+- grill-royal-seatfridge1-1024x707.jpg (149K)
+
+### mohab-brand-identity.html — 7/7 ✓
+- mohab-stationary4-1024x569.jpg (81K)
+- moresleep-mohab-bts-workshop-02-copy-958x1024.jpg (107K)
+- moresleep-mohab-naming-01-1-1024x576.jpg (66K)
+- mohab-2022-05-1024x682.jpg (103K)
+- mohab-2022-08-771x1024.jpg (241K)
+- mohab-2022-10-1024x683.jpg (80K)
+- mohab-logo-on-photography-gif.gif (6.6M)
+
 ### episode-hotels-brand-identity.html — 8/8 ✓
 - episode-logo-on-photography.mp4 (6.5M)
 - episode-posters-mockup-1024x683.jpg (127K)
