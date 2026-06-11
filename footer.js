@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="cookie-consent" id="cookieConsent">
-      <span class="cookie-text">This site uses analytics. <a href="/imprint.html">Imprint</a></span>
+      <span class="cookie-text">This site uses analytics.</span>
       <div class="cookie-actions">
         <button id="cookieDecline">Decline</button>
         <button id="cookieAccept">Accept</button>
