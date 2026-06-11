@@ -6,6 +6,40 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 
 ## Localized
 
+### roterfaden-brand-digital.html — 6/6 ✓
+- roterfaden-colors-895x1024.jpg (47K)
+- roterfaden-header-1024x682.jpg (101K)
+- roterfaden-logo-leather-1024x683.jpg (185K)
+- roterfaden-stamp-evolution-1024x674.jpg (38K)
+- roterfaden-typography-895x1024.jpg (76K)
+- roterfaden-website-screens-casestudy-1024x852.jpg (87K)
+
+### wefox-web-design.html — 6/6 ✓
+- moresleep-wefox-website-redesign-art-direction-02-1024x569.jpg (452K)
+- moresleep-wefox-website-redesign-art-direction-03-1024x569.jpg (479K)
+- moresleep-wefox-website-redesign-art-direction-04-1024x569.jpg (646K)
+- moresleep-wefox-website-redesign-desktop-mobile-01-1024x569.jpg (122K)
+- moresleep-wefox-website-redesign-animation-1.mp4 (11M)
+- freunde-von-freunden-wefox-felix-maschefski-883-1024x683.jpg (115K)
+
+### aleo-solar-brand-digital.html — 7/7 ✓
+- ms-aleo-0090-1024x684.jpg (84K)
+- ms-aleo-0602-684x1024.jpg (89K)
+- ms-aleo-0838-preview-1024x684.jpg (197K)
+- mockup-4-1024x513.jpg (32K)
+- mockup-8-1024x478.jpg (41K)
+- 01-aleo-hightec-1024x641.jpg (80K)
+- ms-aleo-0336-1024x684.jpg (73K)
+
+### engel-volkers-web-design.html — 7/7 ✓ (5 new + 2 reused from assets/spot/)
+- euv-image-break-1024x480.png (389K)
+- euv-macbook-mockup-10-1024x427.png (129K)
+- euv-pages.gif (1.7M)
+- euv-iphone-series-1-1024x487.png (194K)
+- euv-iphone-series-2-1-1024x491.png (123K)
+- → spot-ev-website-screens-compressed.mp4 (reused from assets/spot/)
+- → frame-958-1-1024x576.jpg (reused from assets/spot/)
+
 ### facebook-privacy-interactive.html — 7/7 ✓
 - yourhomefb-chapter-1-desktop-1024x674.png (119K)
 - yourhomefb-chapter-2-desktop-1024x674.png (204K)
