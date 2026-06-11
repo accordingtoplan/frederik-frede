@@ -6,6 +6,16 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 
 ## Localized
 
+### mini-the-sooner-now-brand-campaign.html — 8/8 ✓
+- 01-logo-1024x569.jpg (19K)
+- 02-typography-1024x569.jpg (33K)
+- 03-colour-1024x569.jpg (23K)
+- 09-collateral-1024x569.jpg (58K)
+- 12-collateral-1024x569.jpg (43K)
+- 13-website-1024x569.jpg (63K)
+- 14-header-1024x684.jpg (188K)
+- tsn-banner-cities.gif (19M) ← also used by index.html
+
 ### spot-asset-management-system.html — 9/9 ✓
 - spot-3-in-1-websites-animation-compressed.mp4 (7.7M)
 - spot-ev-website-screens-compressed.mp4 (4.9M) ← also used by engel-volkers
