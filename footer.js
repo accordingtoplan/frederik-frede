@@ -35,4 +35,22 @@
 
   const mount = document.getElementById('footer-mount');
   if (mount) mount.innerHTML = FOOTER_HTML;
+
+  /* ─── SCROLL REVEAL ───────────────────────────────────── */
+  function initReveal() {
+    const targets = document.querySelectorAll('.case, .cs-media-full, .cs-grid > *, .cs-grid-3 > *');
+    if (!targets.length) return;
+    const isMobile = window.innerWidth <= 640;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = (i % 2) * 90 + 'ms';
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: isMobile ? 0.05 : 0.15, rootMargin: isMobile ? '0px 0px -10% 0px' : '0px 0px -40px 0px' });
+    targets.forEach(el => observer.observe(el));
+  }
+  window.addEventListener('load', () => setTimeout(initReveal, 50));
 })();
