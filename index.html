@@ -590,8 +590,8 @@
         ratio:"ratio-land", coming:true,
         year:"2018", live:"ad-magazin.de", liveHref:"https://www.ad-magazin.de", collab:"—" },
       { b:"Frederik G. Pferdt", link:"/frederik-pferdt-personal-brand-identity.html", tag:"Brand & Identity", desc:"Personal brand for Google's first Chief Innovation Evangelist.",
-        type:"video", src:"/frederik-frede/assets/friends-of-friends/ig-fgp-02.mp4",
-        poster:"/frederik-frede/assets/friends-of-friends/ig-fgp-01-scaled.jpg", ratio:"ratio-land",
+        type:"video", src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-02.mp4",
+        poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg", ratio:"ratio-land",
         year:"2023–2024", live:"frederikgpferdt.com", liveHref:"https://www.frederikgpferdt.com/", collab:"Stefan Schuster, Thomas Provost, Emely Wensky, Sveta Koliada" },
       { b:"Louis Vuitton",      tag:"Employer Branding", desc:"Employer branding campaign and work culture documentary across Louis Vuitton's global ateliers, shot in Paris and Los Angeles.",
         full:true, type:"video", link:"/louis-vuitton-employer-branding-campaign.html",
@@ -615,7 +615,7 @@
         link:"/umane-brand-identity.html",
         year:"2024", collab:"—" },
       { b:"MINI",               tag:"Brand & Platform", desc:"Creative direction, brand strategy, and platform for a multi-city conference exploring the future of urban living — with MINI Germany.",
-        full:true, type:"img", src:"/frederik-frede/assets/mini/tsn-banner-cities.gif",
+        full:true, type:"img", src:"https://www.moresleep.net/wp-content/uploads/2019/11/TSN-Banner-Cities.gif",
         ratio:"ratio-land",
         year:"2019", live:"mini.com", liveHref:"https://www.mini.com", collab:"—" },
       { b:"Signal LA",          tag:"Brand & Identity", desc:"Brand identity for an architectural retail enclave in the Los Angeles Arts District.",
@@ -645,12 +645,12 @@
       let media = '';
       const ratio = c.ratio || 'ratio-land';
       if (c.type === 'video') {
-        const overlay = c.overlay ? `<video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;pointer-events:none"><source src="${c.overlay}" type="video/mp4"></video>` : '';
-        media = `<div class="case-media ratio-auto"${c.overlay ? ' style="position:relative"' : ''}><video autoplay muted loop playsinline${c.poster ? ` poster="${c.poster}"` : ''}><source src="${c.src}" type="video/mp4"></video>${overlay}</div>`;
+        const overlay = c.overlay ? `<video class="lazy-video" autoplay muted loop playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;pointer-events:none"><source data-src="${c.overlay}" type="video/mp4"></video>` : '';
+        media = `<div class="case-media ratio-auto"${c.overlay ? ' style="position:relative"' : ''}><video class="lazy-video" autoplay muted loop playsinline preload="none"${c.poster ? ` poster="${c.poster}"` : ''}><source data-src="${c.src}" type="video/mp4"></video>${overlay}</div>`;
       } else if (c.type === 'img') {
         media = `<div class="case-media ${ratio}"><img src="${c.src}" alt="${c.b}" loading="lazy"></div>`;
       } else if (c.type === 'vimeo') {
-        media = `<div class="case-media ${ratio}"><div class="vimeo-bg"><iframe src="https://player.vimeo.com/video/${c.src}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe></div></div>`;
+        media = `<div class="case-media ${ratio}"><div class="vimeo-bg"><iframe class="lazy-vimeo" data-src="https://player.vimeo.com/video/${c.src}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe></div></div>`;
       } else if (c.type === 'placeholder-logo') {
         let tileAttrs = '';
         if (c.bg) {
@@ -678,6 +678,29 @@
         grid.appendChild(div);
       }
     });
+
+    // Lazy-load below-fold video/vimeo media
+    const lazyMediaObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.querySelectorAll('video.lazy-video source[data-src]').forEach(src => {
+          src.src = src.getAttribute('data-src');
+          src.removeAttribute('data-src');
+        });
+        el.querySelectorAll('video.lazy-video').forEach(v => {
+          v.load();
+          v.play().catch(() => {});
+        });
+        el.querySelectorAll('iframe.lazy-vimeo[data-src]').forEach(f => {
+          f.src = f.getAttribute('data-src');
+          f.removeAttribute('data-src');
+        });
+        obs.unobserve(el);
+      });
+    }, { rootMargin: '300px 0px' });
+
+    document.querySelectorAll('.case').forEach(el => lazyMediaObserver.observe(el));
 
 
     /* ─── COLOUR SWITCHER ─────────────────────────────────── */
@@ -748,3 +771,4 @@
   </script>
 </body>
 </html>
+
