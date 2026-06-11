@@ -6,6 +6,21 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 
 ## Localized
 
+### ritz-carlton-berlin-brand-event.html — 13/13 ✓
+- freunde-von-freunden-ritz-gala-0295-1024x683.jpg (161K)
+- 02-the-ritz-carlton-berlin-grand-re-opening-.lena-meyer-landrut-02-getty-images-1024x683.jpg (656K)
+- 190507-ms-visuals-the-golden-gala-guide-1024x561.jpg (35K)
+- 190507-ms-visuals-the-golden-gala-invite-1024x561.jpg (150K)
+- 190507-ms-visuals-the-golden-gala-social-media-instagram.gif (870K)
+- 190507-ms-visuals-the-golden-gala-social-media-press.gif (1.7M)
+- 190507-ms-visuals-the-golden-gala-1-1024x604.png (428K)
+- 190507-ms-visuals-the-golden-gala-2-1-1024x604.jpg (355K)
+- 190507-ms-visuals-the-golden-gala-3-1024x923.png (758K)
+- 190507-ms-visuals-the-golden-gala-5-1-1024x604.png (349K)
+- 190507-ms-visuals-the-golden-gala-6-1024x543.png (667K)
+- freunde-von-freunden-ritz-gala-0852-1024x683.jpg (934K)
+- freunde-von-freunden-ritz-gala-1416-1024x683.jpg (1.1M)
+
 ### rooms-hotels.html — 18/18 ✓
 - ms-rooms-hotels-4448-683x1024.jpg (98K)
 - ms-rooms-hotels-4858-1024x683.jpg (152K)
