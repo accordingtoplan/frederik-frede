@@ -6,6 +6,16 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 
 ## Localized
 
+### lewis-group-brand-identity-web-design.html — 8/8 ✓
+- 230817-lewis-animated-logo-videos-background-opti.mp4 (11M)
+- lewis-billboard-poster-mockup-retail-1024x683.jpg (137K)
+- lewis-hat-mockup-1024x666.jpg (122K)
+- lewis-stationary-a4-mockup-copy-1024x683.jpg (124K)
+- lewis-website-screens-gif.gif (1.6M)
+- lewis-mockup-grabdrop-00072-sign-copy-1024x683.jpg (92K)
+- lewis-bus-top-1024x683.png (1.1M)
+- lewis-billboard-nature-mockup-1024x683.jpg (181K)
+
 ### mini-the-sooner-now-brand-campaign.html — 8/8 ✓
 - 01-logo-1024x569.jpg (19K)
 - 02-typography-1024x569.jpg (33K)
