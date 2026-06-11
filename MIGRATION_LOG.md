@@ -31,6 +31,41 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 - 01-aleo-hightec-1024x641.jpg (80K)
 - ms-aleo-0336-1024x684.jpg (73K)
 
+### markilux-b2b-platform.html — 5/5 ✓
+- mxpro-dashboard-1024x606.jpg (35K)
+- mxpro-header-1024x575.jpg (21K)
+- mxpro-media-mobile-1024x575.png (349K)
+- mxpro-media-v2-1024x606.jpg (39K)
+- mxpro-shop-1024x606.jpg (36K)
+
+### mauermuseum-web-design.html — 5/5 ✓
+- 01-ms-mauermuseum-1024x569.jpg (114K)
+- 02-ms-mauermuseum-1024x569.jpg (103K)
+- 03-ms-mauermuseum-1024x569.jpg (177K)
+- 04-ms-mauermuseum-1024x569.jpg (105K)
+- cc-8kontrollp-bei-nacht-rz-copy-1024x780.jpg (113K)
+
+### roots-management-brand-digital.html — 5/5 ✓
+- post-4-1024x682.png (706K)
+- post-7-1024x682.png (1.1M)
+- post-8-1024x682.png (999K)
+- post-9-1024x682.png (1.2M)
+- roots-mngmt-header-bg-img-1024x640.jpg (99K)
+
+### wildling-regenerative-sounds.html — 5/5 ✓
+- moresleep-wildling-collage-1024x683.jpg (80K)
+- moresleep-wildling-header-1024x682.jpg (82K)
+- moresleep-wildling-mockup-macbook-1024x606.jpg (57K)
+- moresleep-wildling-mockup-phone-1024x636.jpg (51K)
+- moresleep-wildling-tool-bar-1024x683.jpg (25K)
+
+### wirtschaftsclub-dusseldorf-web-design.html — 5/5 ✓
+- moresleep-wcd-header-1024x575.jpg (69K)
+- moresleep-wcd-illustrations-1024x674.jpg (29K)
+- moresleep-wcd-mobile-screens-1024x683.jpg (58K)
+- moresleep-wcd-mockup-macbook-home-1024x607.jpg (50K)
+- moresleep-wcd-stack-01-1024x683.jpg (103K)
+
 ### 25hours-hotels-brand-identity.html — 6/6 ✓
 - artboard-2-1024x513.jpg (54K)
 - artboard-3-1024x513.jpg (30K)
