@@ -6,6 +6,18 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 
 ## Localized
 
+### berlin-green-brand-identity.html — 10/10 ✓
+- moresleep-berlin-green-brand-strategy-01-1024x511.png (36K)
+- moresleep-berlin-green-brand-strategy-02-1024x511.png (48K)
+- moresleep-berlin-green-greenbox-packaging-1024x683.jpg (46K)
+- moresleep-berlin-green-greenbox-product-booklet-1024x683.jpg (46K)
+- moresleep-berlin-green-poster-set-01-1024x645.jpg (95K)
+- moresleep-berlin-green-product-01-1024x576.jpg (103K)
+- moresleep-berlin-green-seeds-packaging-1024x683.jpg (150K)
+- bg-guidelines-visual-16x9-1-1024x576.jpg (67K)
+- bg-mobile-screens-16x9-1-1024x576.jpg (74K)
+- bg-mobile-screens-16x9-2-1024x576.jpg (55K)
+
 ### ritz-carlton-berlin-brand-event.html — 13/13 ✓
 - freunde-von-freunden-ritz-gala-0295-1024x683.jpg (161K)
 - 02-the-ritz-carlton-berlin-grand-re-opening-.lena-meyer-landrut-02-getty-images-1024x683.jpg (656K)
