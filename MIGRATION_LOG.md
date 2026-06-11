@@ -6,6 +6,17 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 
 ## Localized
 
+### spot-asset-management-system.html — 9/9 ✓
+- spot-3-in-1-websites-animation-compressed.mp4 (7.7M)
+- spot-ev-website-screens-compressed.mp4 (4.9M) ← also used by engel-volkers
+- spot-markilux-website-screens-animation-compressed.mp4 (9.5M)
+- spot-shattenfinder-website-screens-compressed.mp4 (2.3M)
+- frame-956-1-1024x576.jpg (98K)
+- frame-957-1-1024x576.jpg (91K)
+- frame-958-1-1024x576.jpg (77K) ← also used by engel-volkers
+- header-5-1024x576.jpg (20K)
+- signoff.jpg (35K)
+
 ### berlin-green-brand-identity.html — 10/10 ✓
 - moresleep-berlin-green-brand-strategy-01-1024x511.png (36K)
 - moresleep-berlin-green-brand-strategy-02-1024x511.png (48K)
