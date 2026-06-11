@@ -304,8 +304,7 @@
   }
   setTheme('black', document.querySelector('.swatch[title="Black"]'));
 
-  // TODO before launch: replace G-XXXXXXXXXX with real GA Measurement ID
-  var GA_ID = 'G-XXXXXXXXXX';
+  var GA_ID = 'G-QGPYRWBXZ9';
   window['ga-disable-' + GA_ID] = (document.cookie.indexOf('ga-disable-' + GA_ID + '=true') > -1);
   function gaOptout() {
     document.cookie = 'ga-disable-' + GA_ID + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
