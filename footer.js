@@ -31,6 +31,13 @@
           <button type="submit" class="subscribe-btn">Subscribe</button>
         </form>
       </div>
+    </div>
+    <div class="cookie-consent" id="cookieConsent">
+      <span class="cookie-text">This site uses analytics. <a href="/imprint.html">Imprint</a></span>
+      <div class="cookie-actions">
+        <button id="cookieDecline">Decline</button>
+        <button id="cookieAccept">Accept</button>
+      </div>
     </div>`;
 
   const mount = document.getElementById('footer-mount');
@@ -53,4 +60,38 @@
     targets.forEach(el => observer.observe(el));
   }
   window.addEventListener('load', () => setTimeout(initReveal, 50));
+
+  /* ─── COOKIE CONSENT + GA ───────────────────────────────── */
+  const GA_ID = 'G-QGPYRWBXZ9';
+  function loadGA() {
+    if (window.gaLoaded) return;
+    window.gaLoaded = true;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  }
+  const consent = localStorage.getItem('cookie-consent');
+  if (consent === 'accepted') {
+    loadGA();
+  } else if (consent !== 'declined') {
+    const banner = document.getElementById('cookieConsent');
+    if (banner) {
+      requestAnimationFrame(() => banner.classList.add('visible'));
+      document.getElementById('cookieAccept').addEventListener('click', () => {
+        localStorage.setItem('cookie-consent', 'accepted');
+        banner.classList.remove('visible');
+        loadGA();
+      });
+      document.getElementById('cookieDecline').addEventListener('click', () => {
+        localStorage.setItem('cookie-consent', 'declined');
+        banner.classList.remove('visible');
+      });
+    }
+  }
 })();
