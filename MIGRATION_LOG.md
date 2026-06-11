@@ -6,6 +6,16 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 
 ## Localized
 
+### episode-hotels-brand-identity.html — 8/8 ✓
+- episode-logo-on-photography.mp4 (6.5M)
+- episode-posters-mockup-1024x683.jpg (127K)
+- episode-stationary-mockup-1024x683.jpg (86K)
+- 200507-eh-interior-mockup-02-1024x576.png (678K)
+- 200610-ms-episode-hotels-case-study-02-1-1024x569.jpg (19K)
+- 200610-ms-episode-hotels-case-study-04-video-1024x569.png (71K)
+- 200610-ms-episode-hotels-case-study-05-1024x569.jpg (23K)
+- img-0795-768x1024.jpg (128K)
+
 ### lewis-group-brand-identity-web-design.html — 8/8 ✓
 - 230817-lewis-animated-logo-videos-background-opti.mp4 (11M)
 - lewis-billboard-poster-mockup-retail-1024x683.jpg (137K)
