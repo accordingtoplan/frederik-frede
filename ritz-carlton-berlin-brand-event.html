@@ -27,6 +27,10 @@
 .cs-item img{width:100%;display:block;transition:transform 0.5s ease}
 .cs-item:hover img{transform:scale(1.02)}
 .cs-spacer{height:48px}
+.cs-bottom{padding:80px 48px 0;position:relative}
+.cs-credits-cols{display:flex;gap:48px;flex-wrap:wrap}
+.cs-credit-group dt{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light);margin-bottom:4px}
+.cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
 .cs-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:80px}
 .cs-nav-item{display:flex;flex-direction:column;padding:40px 48px;text-decoration:none;color:inherit;transition:opacity 0.2s;gap:16px}
 .cs-nav-item:hover{opacity:0.5}
@@ -162,6 +166,12 @@
   <!-- HR Film -->
   <div class="cs-full">
     <iframe src="https://player.vimeo.com/video/785680877?h=ae8ce59eb7&byline=0&portrait=0" title="Ritz-Carlton Berlin HR film" style="width:100%;aspect-ratio:16/9;border:0;display:block" loading="lazy" allowfullscreen></iframe>
+  </div>
+
+  <div class="cs-bottom">
+    <dl class="cs-credits-cols">
+      <div class="cs-credit-group"><dt>Collaborators</dt><dd>Shai Levy</dd></div>
+    </dl>
   </div>
 
   <div class="cs-nav">
