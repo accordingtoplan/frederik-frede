@@ -91,3 +91,20 @@ also be localized).
   and ideally don't touch it in this sprint at all.
 - Maintain the "Frederik Frede excluded from Collaborators" rule if any credits blocks
   are incidentally touched while editing a page (don't re-add it).
+
+---
+
+## Status log — 2026-06-12
+
+49 new rows appended to `full-hotlink-inventory.csv` for the 9 new MoreSleep
+case studies added this session (ORNO, Swayed, Brutø, Internetstores,
+Weiler, PURO Hotels, Ziegert, Mezcla, Selfnation) — all moresleep.net assets.
+Auto-generated `new_path` values follow the same convention but the
+`[description]` segment is mechanical (derived from the original filename);
+feel free to tidy these up during the sprint using page context, same as the
+existing note above for Webflow assets.
+
+Going forward: whenever a new case study is added in a hosted-Claude session
+and it references external/hotlinked media, append rows to this CSV in the
+same format (`old_url,source_files,new_path`) so this file stays the single
+authoritative backlog for the next Claude Code sprint.
