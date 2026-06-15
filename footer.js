@@ -53,11 +53,36 @@
         if (entry.isIntersecting) {
           entry.target.style.transitionDelay = (i % 2) * 90 + 'ms';
           entry.target.classList.add('in-view');
+          // Autoplay alone can leave a video paused on its first frame (looks
+          // like a stuck poster). Explicitly play any video as it reveals —
+          // covers plain-src videos that aren't wired to the lazy-loader.
+          entry.target.querySelectorAll('video').forEach(v => {
+            const p = v.play();
+            if (p && p.catch) p.catch(() => {});
+          });
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: isMobile ? 0.05 : 0.15, rootMargin: isMobile ? '0px 0px -10% 0px' : '0px 0px -40px 0px' });
     targets.forEach(el => observer.observe(el));
+    // Safety net: if anything ALREADY IN/near the viewport is still hidden a
+    // moment after load (observer raced, errored, or never fired), reveal +
+    // play it. Scoped to the visible region so below-fold content keeps its
+    // staggered scroll-reveal instead of all popping in at once.
+    setTimeout(() => {
+      targets.forEach(el => {
+        if (el.classList.contains('in-view')) return;
+        const r = el.getBoundingClientRect();
+        const near = r.top < window.innerHeight + 200 && r.bottom > -200;
+        if (near) {
+          el.classList.add('in-view');
+          el.querySelectorAll('video').forEach(v => {
+            const p = v.play();
+            if (p && p.catch) p.catch(() => {});
+          });
+        }
+      });
+    }, 2500);
   }
   window.addEventListener('load', () => setTimeout(initReveal, 50));
 
