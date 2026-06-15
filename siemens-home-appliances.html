@@ -24,8 +24,14 @@
 .cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
 .cs-grid img,.cs-grid video{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
 .cs-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
-.cs-grid-3 img{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
-.cs-grid-3 video{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
+.cs-grid-3 img,.cs-grid-3 video{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
+/* Orientation-aware cells: media keeps a box matching its own shape so nothing
+   is cropped against its grain. Rows stay aligned because every cell in a grid
+   shares the same modifier. .land = landscape box, .port = portrait box,
+   .natural = no forced ratio (true proportions). */
+.cs-grid img.land,.cs-grid video.land,.cs-grid-3 img.land,.cs-grid-3 video.land{aspect-ratio:16/9}
+.cs-grid img.port,.cs-grid video.port,.cs-grid-3 img.port,.cs-grid-3 video.port{aspect-ratio:4/5}
+.cs-grid img.natural,.cs-grid video.natural,.cs-grid-3 img.natural,.cs-grid-3 video.natural{aspect-ratio:auto;object-fit:unset}
 .cs-grid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 .cs-pullquote{padding:80px 48px}
 .cs-pullquote blockquote{font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--grey-dark);margin:0;max-width:900px}
@@ -230,7 +236,7 @@
 </header>
 
 <div class="cs-media-full">
-  <video autoplay muted loop playsinline>
+  <video class="land" autoplay muted loop playsinline>
     <source src="/assets/siemens/siemens-culinary-encounters-20180115-siemens-culinary-encounters-mar.mp4" type="video/mp4">
   </video>
 </div>
@@ -262,13 +268,13 @@
 </div>
 
 <div class="cs-grid-3">
-  <video autoplay muted loop playsinline>
+  <video class="land" autoplay muted loop playsinline>
     <source src="/assets/siemens/siemens-culinary-encounters-20180115-siemens-culinary-encounters-mar.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline>
+  <video class="land" autoplay muted loop playsinline>
     <source src="/assets/siemens/siemens-culinary-encounters-20180115-siemens-culinary-encounters-chr.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline>
+  <video class="land" autoplay muted loop playsinline>
     <source src="/assets/siemens/siemens-culinary-encounters-20180116-siemens-culinary-encounters-lin.mp4" type="video/mp4">
   </video>
 </div>
@@ -285,7 +291,7 @@
 </div>
 
 <div class="cs-media-full">
-  <video autoplay muted loop playsinline>
+  <video class="land" autoplay muted loop playsinline>
     <source src="/assets/siemens/siemens-culinary-encounters-20180114-siemens-culinary-encounters-sop.mp4" type="video/mp4">
   </video>
 </div>
