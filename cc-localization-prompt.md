@@ -133,3 +133,25 @@ The two Friends Space <img> hotlinks are the only *live* external refs on the pa
 Also flagged (not on CSV, needs Frederik's input): 6 unidentified YouTube IDs are
 embedded in a WIP cs-grid-3 block on the page marked "to identify" — these are
 placeholders to review/prune, not localization targets.
+
+
+---
+
+## Status log — 2026-06-15 (Siemens full rebuild)
+
+Siemens page rebuilt into FOUR sections: 01 Culinary Encounters, 02 Home Stories,
+03 Architect Dialogues (NEW series — Barkow Leibinger/Berlin, Antonin Ziegler/Paris,
+Marc Koehler/Amsterdam, Joanna Laajisto/Helsinki, all 2019), 04 Friends Space.
+Now spans 2015–2021, reframed as campaign + content partnership.
+
+9 more rows appended to CSV: 4 Home Stories real FvF hero images (Astridge, John
+Henry, Kevin Chu, De Grijze Silo), all 4 Architect Dialogues hero images, + John
+Henry loop video. These are LIVE hotlinks rendering on the page now — localize in
+this sprint. Some Home Stories cards (Judin, Kolja, Brandlhuber, Veerle Wenes) use
+img.youtube.com thumbnails as heroes — those are YT-hosted, lower priority, but
+could be upgraded to real FvF stills during the sprint (real hero images exist on
+each FvF story page's og:image where the og:image points to app/uploads rather
+than img.youtube.com).
+
+Captions are wired via new .cs-fig / .cs-figrid figure styles (name + meta).
+6 unidentified YT IDs still in the WIP cs-grid-3 — awaiting Frederik's review/prune.
