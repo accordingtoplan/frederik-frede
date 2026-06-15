@@ -44,6 +44,15 @@
 .cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
 .cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
 .cs-credit-group dd a:hover{opacity:0.6}
+/* Captioned media figures */
+.cs-figrid{display:grid;grid-template-columns:1fr 1fr;gap:24px 24px;margin-bottom:24px;padding:0 48px}
+.cs-figrid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
+.cs-fig{display:flex;flex-direction:column;gap:10px;margin:0}
+.cs-fig img,.cs-fig video,.cs-fig iframe{width:100%;display:block;object-fit:cover;aspect-ratio:4/3;border:0}
+.cs-fig iframe{aspect-ratio:16/9}
+.cs-fig figcaption{display:flex;justify-content:space-between;gap:12px;font-size:12px;line-height:1.4}
+.cs-fig .cap-name{font-weight:700;color:var(--grey-dark)}
+.cs-fig .cap-meta{color:var(--grey-light);text-align:right;white-space:nowrap}
 /* Mobile */
 @media (max-width: 640px) {
   .cs-header { padding: 80px 20px 36px; grid-template-columns: 1fr; gap: 24px; }
@@ -59,6 +68,9 @@
   .cs-pullquote blockquote { font-size: clamp(24px, 7vw, 40px); }
   .cs-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 20px; }
   .cs-grid-3 { grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px; }
+  .cs-figrid { grid-template-columns: 1fr; gap: 20px; padding: 0 20px; }
+  .cs-figrid-3 { grid-template-columns: 1fr; gap: 20px; padding: 0 20px; }
+  .cs-fig figcaption { font-size: 11px; }
   .cs-bottom { padding: 40px 20px 64px; }
   .cs-description { max-width: 100%; }
   .cs-credits-cols { position: static; text-align: left; margin-top: 40px; }
@@ -205,8 +217,8 @@
 </div>
 
 <div class="cs-intro">
-  <p>Over several years, Siemens Home Appliances became a long-standing content partner. The work moved between two editorial series and a shared physical space, each built on the same idea: that products are best understood inside real homes and real lives.</p>
-  <p>What started as a handful of Berlin home portraits grew into an international series, running alongside a kitchen-focused film series with a new generation of European chefs.</p>
+  <p>For more than five years, Siemens Home Appliances was a long-standing campaign and content partner. The work ran across three editorial series and a shared physical space, built on a single idea: that appliances are best understood inside real homes, real kitchens and the working lives of the people who use them.</p>
+  <p>What began in 2015 as three home portraits in Berlin grew into an international programme. Documentary films and long-form interviews were produced across Europe, Asia and Australia, then distributed across Siemens Home Appliances channels and partner outlets including FRAME and Baumeister. Three series anchored the partnership: Culinary Encounters, Home Stories and Architect Dialogues.</p>
 </div>
 
 <!-- ════════ 01 CULINARY ENCOUNTERS ════════ -->
@@ -214,7 +226,7 @@
   <span class="cs-section-label">01 — Culinary Encounters</span>
   <div class="cs-strategy-intro">
     <h2>Four kitchens, four cities.</h2>
-    <p>Culinary Encounters stepped into the kitchens of four up-and-coming chefs across Oslo, Paris, Berlin and Maastricht, examining how a new generation approaches food, kitchen culture and recipe development. Each chef was filmed and interviewed in their own kitchen, with Siemens Home Appliances integrated into the everyday rituals of preparation, plating and conversation.</p>
+    <p>Culinary Encounters stepped into the kitchens of four up-and-coming chefs across Oslo, Paris, Berlin and Maastricht. The series examined how a new generation approaches food, kitchen culture and recipe development, with each chef filmed and interviewed in their own kitchen. Siemens Home Appliances sat inside the everyday rituals of preparation, plating and conversation.</p>
   </div>
 </div>
 
@@ -230,15 +242,21 @@
   </video>
 </div>
 
+<div class="cs-figrid">
+  <figure class="cs-fig">
+    <iframe src="https://www.youtube.com/embed/dgfTiruHrjc" title="Culinary Encounters — Christina Hjeltnes Grønning" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">Christina Hjeltnes Grønning</span><span class="cap-meta">Chef · Oslo · 2018</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <iframe src="https://www.youtube.com/embed/4JYR0ElP24k" title="Culinary Encounters — Sophia Rudolph" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">Sophia Rudolph</span><span class="cap-meta">Chef · Berlin · 2019</span></figcaption>
+  </figure>
+</div>
+
 <div class="cs-media-full">
   <video autoplay muted loop playsinline>
     <source src="/assets/siemens/siemens-culinary-encounters-20180114-siemens-culinary-encounters-sop.mp4" type="video/mp4">
   </video>
-</div>
-
-<div class="cs-grid">
-  <iframe src="https://www.youtube.com/embed/dgfTiruHrjc" title="Culinary Encounters — Christina Hjeltnes Grønning, Oslo" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/4JYR0ElP24k" title="Culinary Encounters — Sophia Rudolph, Berlin" loading="lazy" allowfullscreen></iframe>
 </div>
 
 <div class="cs-pullquote"><blockquote>A new generation, cooking on its own terms.</blockquote></div>
@@ -248,29 +266,109 @@
   <span class="cs-section-label">02 — Home Stories</span>
   <div class="cs-strategy-intro">
     <h2>Innovative living, in real homes.</h2>
-    <p>Home Stories explored innovative urban living through the people who shape it: architects, gallerists and makers in unusual homes across global cities. It began with three Berlin portraits and extended to Stockholm, London, Hong Kong, Antwerp, Melbourne and the Dutch countryside. Filmed on location with cinematographer Shai Levy, each portrait paired a documentary film with a long-form interview.</p>
+    <p>Home Stories explored innovative urban living through the people who shape it: architects, gallerists and makers in unusual homes across modern global cities. The series presented unusual spaces alongside the lives inside them, highlighting their aesthetic and technological qualities. It began with three Berlin portraits in 2015 and extended to London, Melbourne, Hong Kong, Antwerp and the Dutch countryside, filmed on location with cinematographer Shai Levy.</p>
   </div>
 </div>
 
-<div class="cs-grid">
-  <iframe src="https://www.youtube.com/embed/lPsbOT2dG9A" title="Home Stories — Juerg Judin, Berlin (converted gas station)" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/3fiK0Vwnyzo" title="Home Stories — Kolja Stegemann, Berlin (houseboat)" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/CeT4sboZGJw" title="Home Stories — Arno Brandlhuber, Antivilla" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/wyp8PeZOSR4" title="Home Stories — Simon Astridge, London" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/fpW9bC-3Bgs" title="Home Stories — Kevin Chu & Giulia Dibonaventura, Hong Kong" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/0f2fUuHQTxE" title="Home Stories — De Grijze Silo, Deventer" loading="lazy" allowfullscreen></iframe>
+<div class="cs-figrid">
+  <figure class="cs-fig">
+    <img src="https://img.youtube.com/vi/lPsbOT2dG9A/maxresdefault.jpg" alt="Juerg Judin, Berlin" loading="lazy">
+    <figcaption><span class="cap-name">Juerg Judin</span><span class="cap-meta">Gallerist · Berlin · 2015</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="https://img.youtube.com/vi/3fiK0Vwnyzo/maxresdefault.jpg" alt="Kolja Stegemann, Berlin" loading="lazy">
+    <figcaption><span class="cap-name">Kolja Stegemann</span><span class="cap-meta">Houseboat · Berlin · 2015</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <iframe src="https://www.youtube.com/embed/lPsbOT2dG9A" title="Home Stories — Juerg Judin" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">Converted gas station</span><span class="cap-meta">Schöneberg, Berlin</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <iframe src="https://www.youtube.com/embed/3fiK0Vwnyzo" title="Home Stories — Kolja Stegemann" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">A floating home</span><span class="cap-meta">Rummelsburg, Berlin</span></figcaption>
+  </figure>
 </div>
 
-<div class="cs-grid">
-  <iframe src="https://www.youtube.com/embed/2fxOrxYuHg0" title="Home Stories — Allan Spiegel, Stockholm (Villa Altona)" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/lt8a-X-7WgQ" title="Home Stories — Allan Spiegel, Stockholm (alt cut)" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://player.vimeo.com/video/192776613?color=ffffff" title="Home Stories — Veerle Wenes, Antwerp" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/0wYcbTTAY3o" title="Home Stories — portrait" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://player.vimeo.com/video/150920334?color=ffffff" title="Home Stories — series reel" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/lPsbOT2dG9A" title="Home Stories — Juerg Judin (alt)" loading="lazy" allowfullscreen></iframe>
+<div class="cs-figrid">
+  <figure class="cs-fig">
+    <img src="https://www.freundevonfreunden.com/app/uploads/Freunde-von-Freunden-Simon-Astridge-3879.jpg" alt="Simon Astridge, London" loading="lazy">
+    <figcaption><span class="cap-name">Simon Astridge</span><span class="cap-meta">Architect · London · 2016</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="https://www.freundevonfreunden.com/app/uploads/john-henry/Freunde-von-Freunden-John-Henry-0126.jpg" alt="John Henry, Melbourne" loading="lazy">
+    <figcaption><span class="cap-name">John Henry</span><span class="cap-meta">Architect · Melbourne · 2017</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <iframe src="https://www.youtube.com/embed/wyp8PeZOSR4" title="Home Stories — Simon Astridge" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">Homes for the everyday</span><span class="cap-meta">London</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <iframe src="https://www.youtube.com/embed/TAJhXU3HsY4" title="Home Stories — John Henry" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">The Research House</span><span class="cap-meta">Melbourne</span></figcaption>
+  </figure>
 </div>
 
-<!-- WIP: additional/unsorted Home Stories & Culinary Encounters cuts — review & prune -->
+<div class="cs-figrid">
+  <figure class="cs-fig">
+    <img src="https://www.freundevonfreunden.com/app/uploads/kevin-chu/Freunde-von-Freunden-Kevin-Chu-Giulia-Dibonaventura-1123.jpg" alt="Kevin Chu and Giulia Dibonaventura, Hong Kong" loading="lazy">
+    <figcaption><span class="cap-name">Kevin Chu &amp; Giulia Dibonaventura</span><span class="cap-meta">Hong Kong · 2017</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="https://www.freundevonfreunden.com/app/uploads/a-testament-to-preserving-industrial-heritage-in-the-dutch-countryside-with-the-de-grijze-silo/Freunde-von-Freunden-Anjo-van-den-Brink-Jose-van-der-Griendt-279.jpg" alt="De Grijze Silo, Deventer" loading="lazy">
+    <figcaption><span class="cap-name">Anjo van den Brink &amp; José van der Griendt</span><span class="cap-meta">De Grijze Silo · Deventer · 2018</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <iframe src="https://www.youtube.com/embed/fpW9bC-3Bgs" title="Home Stories — Kevin Chu" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">A sustainable home</span><span class="cap-meta">Lantau Island, Hong Kong</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <iframe src="https://www.youtube.com/embed/0f2fUuHQTxE" title="Home Stories — De Grijze Silo" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">A grain silo, reimagined</span><span class="cap-meta">Deventer, Netherlands</span></figcaption>
+  </figure>
+</div>
+
+<div class="cs-figrid">
+  <figure class="cs-fig">
+    <iframe src="https://www.youtube.com/embed/CeT4sboZGJw" title="Home Stories — Arno Brandlhuber, Antivilla" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">Arno Brandlhuber</span><span class="cap-meta">Antivilla · Krampnitz · 2015</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <iframe src="https://player.vimeo.com/video/192776613?color=ffffff" title="Home Stories — Veerle Wenes, Antwerp" loading="lazy" allowfullscreen></iframe>
+    <figcaption><span class="cap-name">Veerle Wenes</span><span class="cap-meta">Gallerist · Antwerp</span></figcaption>
+  </figure>
+</div>
+
+<div class="cs-pullquote"><blockquote>The home as a window into how people really live.</blockquote></div>
+
+<!-- ════════ 03 ARCHITECT DIALOGUES ════════ -->
+<div class="cs-strategy">
+  <span class="cs-section-label">03 — Architect Dialogues</span>
+  <div class="cs-strategy-intro">
+    <h2>Design philosophies, four cities.</h2>
+    <p>Architect Dialogues was a joint series with Siemens Home, exploring the homes and work environments of award-winning architects and interior designers across Berlin, Paris, Helsinki and Amsterdam. Each conversation examined current design philosophies, urban living trends and the challenges shaping how cities are built. Select interviews were carried to wider audiences through FRAME and Baumeister.</p>
+  </div>
+</div>
+
+<div class="cs-figrid">
+  <figure class="cs-fig">
+    <img src="https://www.freundevonfreunden.com/app/uploads/barkow-leibinger-siemens-arch-dialogues/Freunde-von-Freunden-Barkow-Leibinger-130-header.jpg" alt="Barkow Leibinger, Berlin" loading="lazy">
+    <figcaption><span class="cap-name">Barkow Leibinger</span><span class="cap-meta">Architecture · Berlin · 2019</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="https://www.freundevonfreunden.com/app/uploads/antonin-ziegler-siemens-arch-dialogues/Freunde-von-Freunden-Siemens-Antonin-Ziegler-960.jpg" alt="Antonin Ziegler, Paris" loading="lazy">
+    <figcaption><span class="cap-name">Antonin Ziegler</span><span class="cap-meta">Architect · Paris · 2019</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="https://www.freundevonfreunden.com/app/uploads/marc-koehler-siemens-arch-dialogues/Freunde-von-Freunden-Marc-Koehler-7427-1.jpg" alt="Marc Koehler, Amsterdam" loading="lazy">
+    <figcaption><span class="cap-name">Marc Koehler</span><span class="cap-meta">Architect · Amsterdam · 2019</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="https://www.freundevonfreunden.com/app/uploads/joanna-laajisto-siemens-arch-dialogues/Freunde-von-Freunden-Joanna-Laajisto_0624.jpg" alt="Joanna Laajisto, Helsinki" loading="lazy">
+    <figcaption><span class="cap-name">Joanna Laajisto</span><span class="cap-meta">Interior architect · Helsinki · 2019</span></figcaption>
+  </figure>
+</div>
+
+<!-- WIP: additional/unsorted Siemens cuts — review &amp; prune -->
 <div class="cs-grid-3">
   <iframe src="https://www.youtube.com/embed/1zQ3OtqGdRI" title="Siemens — film (WIP, to identify)" loading="lazy" allowfullscreen></iframe>
   <iframe src="https://www.youtube.com/embed/6BwYzJA8MMo" title="Siemens — film (WIP, to identify)" loading="lazy" allowfullscreen></iframe>
@@ -280,14 +378,12 @@
   <iframe src="https://www.youtube.com/embed/n64YZYqoyCw" title="Siemens — film (WIP, to identify)" loading="lazy" allowfullscreen></iframe>
 </div>
 
-<div class="cs-pullquote"><blockquote>The home as a window into how people really live.</blockquote></div>
-
-<!-- ════════ 03 FRIENDS SPACE ════════ -->
+<!-- ════════ 04 FRIENDS SPACE ════════ -->
 <div class="cs-strategy">
-  <span class="cs-section-label">03 — Friends Space</span>
+  <span class="cs-section-label">04 — Friends Space</span>
   <div class="cs-strategy-intro">
     <h2>A kitchen built to bring people together.</h2>
-    <p>The partnership extended into a shared physical space. The Friends Space kitchen in Berlin's Kreuzberg was a collaboration with Siemens Home Appliances: an open design with state-of-the-art appliances at its centre, built to host dinners, gatherings and conversations within the wider network.</p>
+    <p>The partnership extended into a shared physical space. The Friends Space kitchen in Berlin's Kreuzberg was a collaboration with Siemens Home Appliances: an open design with state-of-the-art appliances at its centre, built to host dinners, gatherings and conversations across the wider network.</p>
   </div>
 </div>
 
@@ -298,11 +394,11 @@
 
 <div class="cs-bottom">
   <div class="cs-description">
-    <p>A multi-year content partnership with Siemens Home Appliances, spanning two editorial film series and a shared physical space.</p>
-    <p>Documentary portraits connecting the brand's products to the everyday practice of chefs, architects and makers, produced across European and global cities.</p>
+    <p>A multi-year campaign and content partnership with Siemens Home Appliances, spanning three editorial film series and a shared physical space.</p>
+    <p>Documentary portraits connecting the brand's products to the everyday practice of chefs, architects and makers, produced across European, Asian and Australian cities and distributed through Siemens channels and design-press partners.</p>
   </div>
   <dl class="cs-credits-cols">
-    <div class="cs-credit-group"><dt>Collaborators</dt><dd>Friends of Friends · Marino Coates-Chitty · Samuel Templeton · Philip Müeller · Megan Courtis · Shai Levy · Ailine Liefeld · Philipp Langenheim</dd></div>
+    <div class="cs-credit-group"><dt>Collaborators</dt><dd>Friends of Friends · Marino Coates-Chitty · Samuel Templeton · Philip Müeller · Megan Courtis · Shai Levy · Daniel Gebhart de Koekkoek · Sebastian Wolf · Ailine Liefeld</dd></div>
     <div class="cs-credit-group"><dt>Year</dt><dd>2015–2021</dd></div>
   </dl>
 </div>
