@@ -89,10 +89,15 @@ def check_leaked_grid(files):
 
 
 def check_dead_internal_links(files):
-    """href to a local .html page that does not exist in the repo."""
+    """href to a local .html page that does not exist in the repo.
+
+    The set of valid targets is ALWAYS the full repo, not just the files being
+    checked — otherwise single-file mode reports every cross-page link as dead.
+    """
     existing = set()
-    for path in files:
-        existing.add('/' + path); existing.add(path)
+    for path in glob.glob('**/*.html', recursive=True):
+        rel = path.lstrip('./')
+        existing.add('/' + rel); existing.add(rel)
     out = []
     for path, html in files.items():
         for m in re.finditer(r'href=["\']([^"\'#?]+\.html)(?:[#?][^"\']*)?["\']', html):
