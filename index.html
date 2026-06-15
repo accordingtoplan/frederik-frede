@@ -705,9 +705,21 @@
           src.removeAttribute('data-src');
         });
         el.querySelectorAll('video.lazy-video').forEach(v => {
-          v.addEventListener('loadeddata', () => { v.style.opacity = '1'; }, { once: true });
+          const reveal = () => { v.style.opacity = '1'; };
+          // Reveal on whichever signal fires first; cover the case where the
+          // video is already playing/buffered by the time we attach (readyState
+          // >= 2 means current frame data is available). A single loadeddata
+          // listener races with the dynamic load() and can miss, leaving the
+          // poster visible forever.
+          v.addEventListener('loadeddata', reveal, { once: true });
+          v.addEventListener('playing', reveal, { once: true });
+          v.addEventListener('canplay', reveal, { once: true });
           v.load();
           v.play().catch(() => {});
+          if (v.readyState >= 2) reveal();
+          // Safety net: if no media event has revealed it shortly after load,
+          // reveal anyway so a flaky event never strands the poster on screen.
+          setTimeout(() => { if (v.style.opacity !== '1') reveal(); }, 1200);
         });
         el.querySelectorAll('iframe.lazy-vimeo[data-src]').forEach(f => {
           f.src = f.getAttribute('data-src');
