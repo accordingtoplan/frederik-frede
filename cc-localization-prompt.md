@@ -108,3 +108,28 @@ Going forward: whenever a new case study is added in a hosted-Claude session
 and it references external/hotlinked media, append rows to this CSV in the
 same format (`old_url,source_files,new_path`) so this file stays the single
 authoritative backlog for the next Claude Code sprint.
+
+
+---
+
+## Status log — 2026-06-15
+
+Added new page `siemens-home-appliances.html` (renamed from
+`siemens-culinary-encounters.html`, old slug deleted, all inbound links
+updated: index.html, work.html, dr-hauschka, classpass). Page restructured
+into three sections: 01 Culinary Encounters, 02 Home Stories, 03 Friends Space.
+
+WIP STATE — Home Stories currently uses YouTube/Vimeo **embeds** (sandbox can't
+reach freundevonfreunden.com). 8 self-hosted assets appended to the CSV for this
+sprint: 2 Friends Space images (FvF + &Tradition CDN) used as live <img> hotlinks
+that SHOULD be localized, plus 6 Home Stories/Culinary loop videos (.mov/.mp4/.webm)
+available to download and optionally swap in to replace the YT embeds with quiet
+background loops (matching the site's autoplay-muted-loop convention).
+
+Note: .mov files need re-encoding to .mp4 (H.264) on download (see Pferdt note).
+The two Friends Space <img> hotlinks are the only *live* external refs on the page
+— prioritize those so the page is fully self-hosted for its visible assets.
+
+Also flagged (not on CSV, needs Frederik's input): 6 unidentified YouTube IDs are
+embedded in a WIP cs-grid-3 block on the page marked "to identify" — these are
+placeholders to review/prune, not localization targets.
