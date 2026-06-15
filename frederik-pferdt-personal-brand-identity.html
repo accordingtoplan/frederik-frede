@@ -33,6 +33,12 @@
 .cs-grid video,.cs-grid img{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
 .cs-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
 .cs-grid-3 img,.cs-grid-3 video{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
+/* Orientation-aware cells: media keeps a box matching its own shape so nothing
+   is cropped against its grain. Rows stay aligned via a shared modifier.
+   .land = landscape box, .port = portrait box, .natural = true proportions. */
+.cs-grid img.land,.cs-grid video.land,.cs-grid-3 img.land,.cs-grid-3 video.land{aspect-ratio:16/9}
+.cs-grid img.port,.cs-grid video.port,.cs-grid-3 img.port,.cs-grid-3 video.port{aspect-ratio:4/5}
+.cs-grid img.natural,.cs-grid video.natural,.cs-grid-3 img.natural,.cs-grid-3 video.natural{aspect-ratio:auto;object-fit:unset}
 .cs-pullquote{padding:80px 48px}
 .cs-pullquote blockquote{font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--grey-dark);margin:0;max-width:900px}
 .cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right;align-content:start}
@@ -228,9 +234,9 @@
 </div>
 
 <div class="cs-grid-3">
-  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-640w.webp 640w, /assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup.jpg" width="2400" height="1650" alt="Frederik G. Pferdt brand identity on iPhone" fetchpriority="high"></picture>
-  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-mockup-phone-640w.webp 640w, /assets/pferdt/pferdt-fgp-mockup-phone-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-mockup-phone-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/pferdt/pferdt-fgp-mockup-phone.jpg" width="2400" height="1600" alt="Frederik G. Pferdt mobile mockup" loading="lazy"></picture>
-  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-iphone-14-pro-13-standard-mockup-640w.webp 640w, /assets/pferdt/pferdt-fgp-iphone-14-pro-13-standard-mockup-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-iphone-14-pro-13-standard-mockup-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/pferdt/pferdt-fgp-iphone-14-pro-13-standard-mockup.jpg" width="2400" height="1650" alt="Frederik G. Pferdt iPhone mockup" loading="lazy"></picture>
+  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-640w.webp 640w, /assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img class="land" src="/assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup.jpg" width="2400" height="1650" alt="Frederik G. Pferdt brand identity on iPhone" fetchpriority="high"></picture>
+  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-mockup-phone-640w.webp 640w, /assets/pferdt/pferdt-fgp-mockup-phone-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-mockup-phone-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img class="land" src="/assets/pferdt/pferdt-fgp-mockup-phone.jpg" width="2400" height="1600" alt="Frederik G. Pferdt mobile mockup" loading="lazy"></picture>
+  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-iphone-14-pro-13-standard-mockup-640w.webp 640w, /assets/pferdt/pferdt-fgp-iphone-14-pro-13-standard-mockup-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-iphone-14-pro-13-standard-mockup-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img class="land" src="/assets/pferdt/pferdt-fgp-iphone-14-pro-13-standard-mockup.jpg" width="2400" height="1650" alt="Frederik G. Pferdt iPhone mockup" loading="lazy"></picture>
 </div>
 
 <!-- 02 Keynote & Video -->
@@ -243,8 +249,8 @@
 </div>
 
 <div class="cs-grid">
-  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-keynote-01-640w.webp 640w, /assets/pferdt/pferdt-fgp-keynote-01-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-keynote-01-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" width="2400" height="1596" alt="Frederik G. Pferdt keynote" loading="lazy"></picture>
-  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-mockupmaison-dd-e11-640w.webp 640w, /assets/pferdt/pferdt-fgp-mockupmaison-dd-e11-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-mockupmaison-dd-e11-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/pferdt/pferdt-fgp-mockupmaison-dd-e11.jpg" width="1600" height="2400" alt="Frederik G. Pferdt venue screen mockup" loading="lazy"></picture>
+  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-keynote-01-640w.webp 640w, /assets/pferdt/pferdt-fgp-keynote-01-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-keynote-01-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img class="land" src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" width="2400" height="1596" alt="Frederik G. Pferdt keynote" loading="lazy"></picture>
+  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-mockupmaison-dd-e11-640w.webp 640w, /assets/pferdt/pferdt-fgp-mockupmaison-dd-e11-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-mockupmaison-dd-e11-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img class="port" src="/assets/pferdt/pferdt-fgp-mockupmaison-dd-e11.jpg" width="1600" height="2400" alt="Frederik G. Pferdt venue screen mockup" loading="lazy"></picture>
 </div>
 
 <!-- 03 Digital -->
@@ -261,13 +267,13 @@
   </video>
 </div>
 <div class="cs-grid-3">
-  <video autoplay muted loop playsinline style="aspect-ratio:9/16;object-fit:cover;width:100%">
+  <video class="port" autoplay muted loop playsinline style="aspect-ratio:9/16;object-fit:cover;width:100%">
     <source src="/assets/pferdt/pferdt-fgp-screen-rec-desktop-1.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline style="aspect-ratio:9/16;object-fit:cover;width:100%">
+  <video class="port" autoplay muted loop playsinline style="aspect-ratio:9/16;object-fit:cover;width:100%">
     <source src="/assets/pferdt/pferdt-fgp-ig-stories-slider-animated-shapes.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline style="aspect-ratio:9/16;object-fit:cover;width:100%">
+  <video class="port" autoplay muted loop playsinline style="aspect-ratio:9/16;object-fit:cover;width:100%">
     <source src="/assets/pferdt/pferdt-fgp-website-mobile-animated.mp4" type="video/mp4">
   </video>
 </div>
@@ -291,8 +297,8 @@
   </video>
 </div>
 <div class="cs-grid">
-  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-mockup-macbok-640w.webp 640w, /assets/pferdt/pferdt-fgp-mockup-macbok-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-mockup-macbok-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/pferdt/pferdt-fgp-mockup-macbok.jpg" width="2400" height="1601" alt="Frederik G. Pferdt social media mockup" loading="lazy"></picture>
-  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-640w.webp 640w, /assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup.jpg" width="2400" height="1650" alt="Frederik G. Pferdt Instagram mockup" loading="lazy"></picture>
+  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-mockup-macbok-640w.webp 640w, /assets/pferdt/pferdt-fgp-mockup-macbok-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-mockup-macbok-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img class="land" src="/assets/pferdt/pferdt-fgp-mockup-macbok.jpg" width="2400" height="1601" alt="Frederik G. Pferdt social media mockup" loading="lazy"></picture>
+  <picture><source type="image/webp" srcset="/assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-640w.webp 640w, /assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-1280w.webp 1280w, /assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img class="land" src="/assets/pferdt/pferdt-fgp-iphone-14-pro-10-standard-mockup.jpg" width="2400" height="1650" alt="Frederik G. Pferdt Instagram mockup" loading="lazy"></picture>
 </div>
 
 <div class="cs-pullquote">
