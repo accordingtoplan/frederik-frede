@@ -194,3 +194,25 @@ CONTENT FIXES alongside images:
 TODO next sprint: selfnation + egon-zehnder still-thin; full-gallery harvest for all 4
 fixed cases (Chrome ext / Eagle); re-check whether OTHER older Film & Content cases
 (la-marzocco, closed editorial, etc.) have the same video-only gap.
+
+
+## 2026-06-15 — CORRECTION: full FvF galleries ARE sandbox-reachable
+
+Earlier claim ("only the og:image hero is reachable; in-body galleries are JS-lazy and
+absent from static HTML") was WRONG. The galleries ARE in the static HTML — in
+**data-src** attributes (lazy-load), not src. Method: curl the story page, grep
+data-src/src for the protagonist's /app/uploads/ images. CATCH: the data-src host is
+often **www.friendsoffriends.com** (alias) which is NOT allowlisted (403 host_not_allowed)
+— rewrite the host to **www.freundevonfreunden.com** and the SAME file returns 200 (full
+original, e.g. 3748x2500). So NO Chrome extension needed for galleries after all; only
+needed for sites that truly hard-block (USM/Squarespace/Webflow). Folder gotcha: some
+protagonist images live under a DIFFERENT slug folder than the story slug (e.g. Klietz
+images are under app/uploads/classpass-marie-luise-klietz/, not her story slug) — always
+read the exact data-src URLs from the page, don't assume the folder.
+
+ClassPass now upgraded: section 02 rebuilt into 3 named protagonist blocks (Gizem Emre/
+Berlin, Louise Damas/Paris, Marie-Luise Klietz/Munich), each with an <h3> name (SEO),
+a link to their FvF story, the video portrait + 2 extra stills (cs-fig captioned figures).
++ a 2-up Paris/Munich place-setting grid before the pull-quote. 8 new gallery stills
+self-hosted in /assets/classpass/. Picked best 2-3 per person from full galleries
+(Gizem 7, Louise 14, Klietz ~10 available).
