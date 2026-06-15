@@ -216,3 +216,35 @@ a link to their FvF story, the video portrait + 2 extra stills (cs-fig captioned
 + a 2-up Paris/Munich place-setting grid before the pull-quote. 8 new gallery stills
 self-hosted in /assets/classpass/. Picked best 2-3 per person from full galleries
 (Gizem 7, Louise 14, Klietz ~10 available).
+
+
+## 2026-06-15 — Siemens page: killed redundant YT-thumbnail stills, self-hosted real FvF story imagery
+
+PROBLEM (Frederik): Home Stories / Architect Dialogues cards were using img.youtube.com/vi/<ID>/maxresdefault.jpg
+as the still — which IS the video's own preview frame (so the same image showed twice) and often has
+burned-in titles/graphics. Also "hero" was ambiguous: the ARTICLE/STORY hero (the editorial photo FvF opens
+the story with) is the right image, NOT the video poster.
+
+FIX: harvested each protagonist's FvF STORY hero + context/space shots via the data-src method (entry 16),
+self-hosted 36 stills (3 per protagonist) + 1 Friends Space image -> /assets/siemens/. Rebuilt sections 02
+(Home Stories, 8 protagonists) + 03 (Architect Dialogues, 4) into named blocks: <h3> name + "Read the story
+on Friends of Friends ↗" link + video (where it exists) + portrait + 2 context shots in cs-figrid-3 with
+captions. 0 img.youtube thumbnails left; 0 FvF /app/uploads hotlinks left.
+
+Story URL map (for future retrofits): judin=art/juerg-judin; stegemann=stories/kolja-stegemann;
+brandlhuber=architecture/arno-brandlhuber-anti-villa; astridge=architecture/london-architect-simon-astridge-on-creating-homes-with-an-emphasis-on-everyday-experience;
+john-henry=stories/john-henry; kevin-chu=architecture/architect-kevin-chu-giulia-dibonaventura-sustainable-lifestyle;
+grijze-silo=architecture/a-testament-to-preserving-industrial-heritage-in-the-dutch-countryside-with-the-de-grijze-silo;
+veerle=art/the-gallery-of-veerle-wenes-dissolves-the-boundaries-between-public-and-private-art;
+barkow=architecture/room-for-inventions-with-the-tech-focused-architecture-firm-barkow-leibinger;
+ziegler=architecture/architect-antonin-ziegler-transforms-humble-structures-into-industrial-yet-serene-residences;
+koehler=architecture/marc-koehler-wants-to-build-cities-of-the-future-one-flexible-sustainable-community-at-a-time;
+laajisto=architecture/exploring-the-changing-landscape-of-finnish-design-with-interior-architect-joanna-laajisto.
+
+GALLERY-FOLDER NOTE: Brandlhuber + Astridge gallery images sit in the uploads ROOT (named by protagonist),
+not a slug folder — filter root refs by name. Arch-dialogues folks use *-siemens-arch-dialogues/ folders.
+ONE remaining hotlink: Friends Space Kreuzberg image is on wp.andtradition.com (403 from sandbox, hard-block)
+— left as hotlink, renders in browser; needs Chrome ext / local session to self-host.
+
+RULE LEARNED: never use a YouTube maxresdefault thumbnail as a "still" next to its own embed — it's redundant
+and often has burned-in type. Pull the article/story hero + context shots instead.
