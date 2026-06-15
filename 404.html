@@ -148,9 +148,82 @@
     .nf-links a { color: var(--grey-light); text-decoration: none; }
     .nf-links a:hover { color: var(--grey-dark); }
     .nf-links span { color: var(--grey-light); }
+
+    /* Work strip */
+    .nf-work { padding: 8px 48px 80px; }
+    .nf-work-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+    .nf-work-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--grey-dark);
+    }
+    .nf-work-all {
+      font-size: 11px; color: var(--grey-light);
+      text-decoration: none; letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nf-work-all:hover { color: var(--grey-mid); }
+    .nf-work-all::after { content: ' →'; }
+    .nf-work-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .nf-card { text-decoration: none; display: block; }
+    .nf-card-media {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--bg-card);
+    }
+    .nf-card-media video {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .nf-card:hover .nf-card-media video { transform: scale(1.03); }
+    .nf-card-row {
+      display: flex; flex-direction: column;
+      gap: 2px; margin-top: 12px;
+    }
+    .nf-card-b {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.02em;
+      color: var(--grey-dark);
+    }
+    .nf-card-t {
+      font-size: 12px; font-weight: 700;
+      color: var(--grey-mid);
+    }
+
+    @media (max-width: 900px) {
+      .nf-work-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nf-work { padding: 8px 24px 64px; }
+      .nf-work-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
+  <script>
+    /* Default to red (signal) on load, before paint, to avoid a white flash */
+    (function(){
+      var r = document.documentElement.style;
+      r.setProperty('--bg', '#e63222');   r.setProperty('--bg-card', '#cc2b1d');
+      r.setProperty('--fg', '#000');       r.setProperty('--fg-mid', 'rgba(0,0,0,0.55)');
+      r.setProperty('--fg-light', 'rgba(0,0,0,0.35)'); r.setProperty('--border', 'transparent');
+      r.setProperty('--grey-dark', '#000'); r.setProperty('--grey-mid', 'rgba(0,0,0,0.55)');
+      r.setProperty('--grey-light', 'rgba(0,0,0,0.35)');
+      document.documentElement.setAttribute('data-theme', 'signal');
+    })();
+  </script>
 
   <nav class="nav">
     <div class="nav-left">
@@ -160,8 +233,8 @@
     <div class="nav-center">
       <div class="swatches">
         <div class="swatch" style="background:#fff"    onclick="setTheme('white',this)"  title="White"></div>
-        <div class="swatch active" style="background:#111" onclick="setTheme('black',this)"  title="Black"></div>
-        <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
+        <div class="swatch" style="background:#111" onclick="setTheme('black',this)"  title="Black"></div>
+        <div class="swatch active" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
       </div>
     </div>
     <div class="nav-right">
@@ -204,6 +277,39 @@
       <a href="/about.html">Information</a>
     </div>
   </main>
+
+  <section class="nf-work">
+    <div class="nf-work-head">
+      <span class="nf-work-label">Or start here</span>
+      <a class="nf-work-all" href="/work.html">View all work</a>
+    </div>
+    <div class="nf-work-grid">
+      <a class="nf-card" href="/architonic-brand-strategy-platform-design.html">
+        <div class="nf-card-media">
+          <video src="/Architonic_HP_Video-header.mp4" poster="/assets/architonic/architonic-poster.jpg" autoplay muted loop playsinline></video>
+        </div>
+        <div class="nf-card-row"><span class="nf-card-b">Architonic</span><span class="nf-card-t">Platform Strategy</span></div>
+      </a>
+      <a class="nf-card" href="/louis-vuitton-employer-branding-campaign.html">
+        <div class="nf-card-media">
+          <video src="/assets/lv/lv-showreel.mp4" poster="/assets/lv/lv-poster.jpg" autoplay muted loop playsinline></video>
+        </div>
+        <div class="nf-card-row"><span class="nf-card-b">Louis Vuitton</span><span class="nf-card-t">Employer Branding</span></div>
+      </a>
+      <a class="nf-card" href="/frederik-pferdt-personal-brand-identity.html">
+        <div class="nf-card-media">
+          <video src="/assets/pferdt/pferdt-fgp-macbook-mockup-animation.mp4" poster="/assets/pferdt/pferdt-poster.jpg" autoplay muted loop playsinline></video>
+        </div>
+        <div class="nf-card-row"><span class="nf-card-b">Frederik G. Pferdt</span><span class="nf-card-t">Brand &amp; Identity</span></div>
+      </a>
+      <a class="nf-card" href="/usm-modular-furniture-brand-digital.html">
+        <div class="nf-card-media">
+          <video src="/assets/usm/usm-journey.mp4" poster="/assets/usm/usm-poster.jpg" autoplay muted loop playsinline></video>
+        </div>
+        <div class="nf-card-row"><span class="nf-card-b">USM</span><span class="nf-card-t">Digital Transformation</span></div>
+      </a>
+    </div>
+  </section>
 
   <div id="footer-mount"></div>
   <script src="/footer.js"></script>
