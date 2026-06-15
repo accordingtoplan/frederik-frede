@@ -61,6 +61,37 @@
   }
   window.addEventListener('load', () => setTimeout(initReveal, 50));
 
+  /* ─── VIDEO LAZY-LOAD ─────────────────────────────────── */
+  /* Loads <video data-lazy> sources only when near the viewport.
+     Source URLs live in data-src; swapped to src on intersection.
+     Videos using a plain src= keep working untouched. */
+  function initVideoLazy() {
+    const vids = document.querySelectorAll('video[data-lazy]');
+    if (!vids.length) return;
+    const load = (video) => {
+      if (video.dataset.loaded) return;
+      video.dataset.loaded = '1';
+      video.querySelectorAll('source[data-src]').forEach(s => {
+        s.src = s.dataset.src;
+      });
+      video.load();
+      // autoplay videos resume once buffered; ignore promise rejection
+      const p = video.play();
+      if (p && p.catch) p.catch(() => {});
+    };
+    if (!('IntersectionObserver' in window)) { vids.forEach(load); return; }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          load(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '600px 0px' });
+    vids.forEach(v => observer.observe(v));
+  }
+  window.addEventListener('load', () => setTimeout(initVideoLazy, 50));
+
   /* ─── COOKIE CONSENT + GA ───────────────────────────────── */
   const GA_ID = 'G-QGPYRWBXZ9';
   function loadGA() {
