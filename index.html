@@ -449,6 +449,13 @@
       margin: 0 auto;
       animation: cc-glitch 3.5s infinite;
     }
+    .siemens-logo {
+      width: 58% !important;
+      display: block;
+      margin: 0 auto;
+      filter: brightness(0) invert(1);
+      animation: cc-glitch 3.5s infinite;
+    }
 
     @keyframes cc-glitch {
       0%   { opacity: 1;   transform: translate(0,0) skewX(0deg); filter: none; }
@@ -612,7 +619,7 @@
         full:true, type:"video", src:"/assets/usm/usm-journey.mp4", poster:"/assets/usm/usm-poster.jpg", ratio:"ratio-land",
         year:"2017", live:"personalities-by-usm.com", liveHref:"https://www.personalities-by-usm.com/en/", collab:"Friends of Friends" },
       { b:"Siemens",            link:"/siemens-home-appliances.html", tag:"Brand & Content", desc:"A multi-year content partnership for Siemens Home Appliances.",
-        type:"img", src:"/assets/siemens/siemens-culinary-encounters-marente-table-card.jpg", ratio:"ratio-land",
+        type:"placeholder-logo", src:"/assets/siemens/siemens-logo.svg", bg:"/assets/siemens/siemens-home-stories-arno-brandlhuber-krampnitz-interior.jpg", logoClass:"siemens-logo", ratio:"ratio-land",
         year:"2015–2019", collab:"Friends of Friends" },
       { b:"Engel & Völkers",    link:"/engel-volkers-web-design.html", tag:"Real Estate & Digital", desc:"Digital experience for the global real estate brand.",
         type:"img", src:"/assets/engel-volkers/engel-volkers-web-design-teaser-portrait.jpg", ratio:"ratio-land",
