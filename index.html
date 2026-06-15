@@ -654,8 +654,15 @@
       if (c.type === 'video') {
         const overlay = c.overlay ? `<video class="lazy-video" autoplay muted loop playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;pointer-events:none"><source data-src="${c.overlay}" type="video/mp4"></video>` : '';
         const vclass = c.crop ? ' video-crop' : '';
-        const mediaRatio = c.crop ? (c.ratio || 'ratio-land') : 'ratio-auto';
-        media = `<div class="case-media ${mediaRatio}"${c.overlay ? ' style="position:relative"' : ''}><video class="lazy-video${vclass}" autoplay muted loop playsinline preload="none"${c.poster ? ` poster="${c.poster}"` : ''}><source data-src="${c.src}" type="video/mp4"></video>${overlay}</div>`;
+        // Use the declared ratio when we have a poster (so the still fills the box
+        // before the video loads); otherwise fall back to natural height.
+        const mediaRatio = c.crop ? (c.ratio || 'ratio-land') : (c.poster ? (c.ratio || 'ratio-land') : 'ratio-auto');
+        const mediaStyle = [];
+        if (c.overlay) mediaStyle.push('position:relative');
+        if (c.poster) mediaStyle.push(`background-image:url('${c.poster}')`, 'background-size:cover', 'background-position:center');
+        const mediaStyleAttr = mediaStyle.length ? ` style="${mediaStyle.join(';')}"` : '';
+        const posterStyle = c.poster ? ' style="opacity:0;transition:opacity .4s ease"' : '';
+        media = `<div class="case-media ${mediaRatio}"${mediaStyleAttr}><video class="lazy-video${vclass}" autoplay muted loop playsinline preload="none"${c.poster ? ` poster="${c.poster}"` : ''}${posterStyle}><source data-src="${c.src}" type="video/mp4"></video>${overlay}</div>`;
       } else if (c.type === 'img') {
         media = `<div class="case-media ${ratio}"><img src="${c.src}" alt="${c.b}" loading="lazy"></div>`;
       } else if (c.type === 'vimeo') {
@@ -698,6 +705,7 @@
           src.removeAttribute('data-src');
         });
         el.querySelectorAll('video.lazy-video').forEach(v => {
+          v.addEventListener('loadeddata', () => { v.style.opacity = '1'; }, { once: true });
           v.load();
           v.play().catch(() => {});
         });
