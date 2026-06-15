@@ -81,6 +81,18 @@
 .cs-testimonial-studio { font-size: 13px; font-weight: 700; color: var(--grey-dark); }
 .cs-testimonial-tag { font-size: 11px; color: var(--grey-light); letter-spacing: 0.04em; }
 
+/* Per-studio testimonial: full film + clips underneath */
+.cs-studio { padding: 0 48px; margin-bottom: 64px; }
+.cs-studio-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+.cs-studio-name { font-size: 15px; font-weight: 700; color: var(--grey-dark); }
+.cs-studio-meta { font-size: 12px; color: var(--grey-light); letter-spacing: 0.04em; }
+.cs-studio-film { width: 100%; aspect-ratio: 16/9; margin-bottom: 4px; background: #f0eeec; }
+.cs-studio-film iframe { width: 100%; height: 100%; display: block; border: 0; }
+.cs-studio-film video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.cs-studio-clips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.cs-studio-clips .cs-testimonial-video video { aspect-ratio: 9/16; }
+.cs-studio-soon { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 16/9; background: #f0eeec; color: var(--grey-light); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+
 /* Credits */
 .cs-bottom { padding: 80px 48px 100px; position: relative; border-top: 1px solid var(--border); margin-top: 80px; }
 .cs-description { max-width: 50%; }
@@ -112,23 +124,12 @@
   .cs-grid-wide img, .cs-grid-wide video { aspect-ratio: 16/9; }
   .cs-slides { grid-template-columns: 1fr; gap: 2px; }
   .cs-testimonials { grid-template-columns: 1fr 1fr; gap: 4px; }
+  .cs-studio { padding: 0 20px; margin-bottom: 40px; }
+  .cs-studio-clips { grid-template-columns: 1fr 1fr; }
   .cs-bottom { padding: 40px 20px 64px; }
   .cs-description { max-width: 100%; }
   .cs-credits-cols { position: static; text-align: left; margin-top: 40px; }
   .cs-desc { max-width: 100%; }
-}
-  .cs-bottom { padding: 48px 24px; }
-  .cs-description { max-width: 100%; }
-  .cs-credits-cols { position: static; text-align: left; margin-top: 40px; }
-  .cs-header { padding: 48px 24px 40px; }
-  .cs-intro { padding: 0 24px 48px; }
-  .cs-strategy { padding: 48px 24px; }
-  .cs-pullquote { padding: 48px 24px; }
-  .cs-caption { flex-direction: column; gap: 6px; padding: 16px 24px 48px; }
-  .cs-caption-text { text-align: left; }
-  .cs-desc { max-width: 100%; }
-  .cs-grid { grid-template-columns: 1fr; }
-  .cs-grid-3 { grid-template-columns: 1fr 1fr; }
 }
 
 /* ── Prev / Next navigation ── */
@@ -318,8 +319,9 @@
   <img src="assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt="Architonic outdoor display" loading="lazy">
   <img src="assets/architonic/architonic-at-logo-on-coral-display-03.jpg" alt="Architonic building banner" loading="lazy">
 </div>
-<div class="cs-media-full" style="margin-top:4px;">
+<div class="cs-grid">
   <img src="assets/architonic/architonic-at-co-mockup.jpg" alt="Architonic Salone del Mobile partnership" loading="lazy">
+  <img src="assets/architonic/architonic-at-logo-on-coral-mockup-12.jpg" alt="Architonic brand on laptop display" loading="lazy">
 </div>
 
 <!-- PULL QUOTE -->
@@ -397,6 +399,105 @@
   <img src="assets/architonic/architonic-poster-mockup-milan-06.jpg" alt="Architonic building wall banner Milan" loading="lazy">
 </div>
 
+<!-- TESTIMONIALS (part of the campaign launch) -->
+<div class="cs-strategy" style="padding-bottom:40px;">
+  <span class="cs-section-label">03 — Campaign · Studios</span>
+  <div class="cs-strategy-intro">
+    <h2>Studios speak.</h2>
+<p>The campaign proof layer launched alongside the posters and film: real architects and designers using Architonic in their actual workflow. Four pillars, four studios. Discover. Design. Trust. Deliver.</p>
+  </div>
+</div>
+
+<!-- Kinzo Berlin -->
+<div class="cs-studio">
+  <div class="cs-studio-head">
+    <span class="cs-studio-name">Kinzo Berlin</span>
+    <span class="cs-studio-meta">Design Together</span>
+  </div>
+  <!-- TODO: full studio film. Replace cs-studio-soon with a YouTube embed once URL is supplied:
+       <div class="cs-studio-film"><iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" title="Kinzo Berlin — Architonic" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> -->
+  <div class="cs-studio-soon">Full film — coming soon</div>
+  <div class="cs-studio-clips">
+    <div class="cs-testimonial-item">
+      <div class="cs-testimonial-video">
+        <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-kinzo-berlin-1-15-sec-poster.jpg">
+          <source data-src="assets/architonic/architonic-kinzo-berlin-1-15-sec.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="cs-testimonial-item">
+      <div class="cs-testimonial-video">
+        <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-kinzo-berlin-4-11-sec-poster.jpg">
+          <source data-src="assets/architonic/architonic-kinzo-berlin-4-11-sec.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OOS Zurich -->
+<div class="cs-studio">
+  <div class="cs-studio-head">
+    <span class="cs-studio-name">OOS Zurich</span>
+    <span class="cs-studio-meta">Discover Smarter · Trust the Data</span>
+  </div>
+  <!-- TODO: full studio film. Replace cs-studio-soon with a YouTube embed once URL is supplied. -->
+  <div class="cs-studio-soon">Full film — coming soon</div>
+  <div class="cs-studio-clips">
+    <div class="cs-testimonial-item">
+      <div class="cs-testimonial-video">
+        <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-oos-zurich-1-10sec-poster.jpg">
+          <source data-src="assets/architonic/architonic-oos-zurich-1-10sec.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="cs-testimonial-item">
+      <div class="cs-testimonial-video">
+        <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-oos-zurich-2-7sec-poster.jpg">
+          <source data-src="assets/architonic/architonic-oos-zurich-2-7sec.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="cs-testimonial-item">
+      <div class="cs-testimonial-video">
+        <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-oos-zurich-3-9sec-poster.jpg">
+          <source data-src="assets/architonic/architonic-oos-zurich-3-9sec.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="cs-testimonial-item">
+      <div class="cs-testimonial-video">
+        <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-oos-zurich-4-10sec-poster.jpg">
+          <source data-src="assets/architonic/architonic-oos-zurich-4-10sec.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ippolito Fleitz Group — Stuttgart. ASSETS PENDING (film + clips) -->
+<div class="cs-studio">
+  <div class="cs-studio-head">
+    <span class="cs-studio-name">Ippolito Fleitz Group</span>
+    <span class="cs-studio-meta">Stuttgart</span>
+  </div>
+  <!-- TODO: full studio film + clips. Source from architonic.com relaunch page (needs allowlist)
+       or FvF Productions delivery. Add a cs-studio-clips row of <video> blocks below the film,
+       matching the Kinzo/OOS pattern, once assets are localized to /assets/architonic/. -->
+  <div class="cs-studio-soon">Film & clips — coming soon</div>
+</div>
+
+<!-- Sigurd Larsen — Berlin. ASSETS PENDING (film + clips) -->
+<div class="cs-studio">
+  <div class="cs-studio-head">
+    <span class="cs-studio-name">Sigurd Larsen</span>
+    <span class="cs-studio-meta">Berlin</span>
+  </div>
+  <!-- TODO: full studio film + clips. Same as above. -->
+  <div class="cs-studio-soon">Film & clips — coming soon</div>
+</div>
+
+
 <!-- FILM SECTION -->
 <div class="cs-strategy">
   <span class="cs-section-label">04 — Film</span>
@@ -434,84 +535,6 @@
 <div class="cs-caption">
   <span class="cs-caption-label">Motion</span>
   <span class="cs-caption-text">AT brand loop: the identity in motion, used across digital channels and social.</span>
-</div>
-
-<!-- TESTIMONIALS -->
-<div class="cs-strategy">
-  <span class="cs-section-label">05 — Testimonials</span>
-  <div class="cs-strategy-intro">
-    <h2>Studios speak.</h2>
-<p>The campaign proof layer: real architects and designers at Kinzo Berlin and OOS Zurich using Architonic in their actual workflow. Four pillars, four studios, four films: Discover. Design. Trust. Deliver.</p>
-  </div>
-</div>
-
-<div class="cs-testimonials">
-  <div class="cs-testimonial-item">
-    <div class="cs-testimonial-video">
-      <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-kinzo-berlin-1-15-sec-poster.jpg">
-        <source data-src="assets/architonic/architonic-kinzo-berlin-1-15-sec.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="cs-testimonial-info">
-      <span class="cs-testimonial-studio">Kinzo Berlin</span>
-      <span class="cs-testimonial-tag">Design Together</span>
-    </div>
-  </div>
-  <div class="cs-testimonial-item">
-    <div class="cs-testimonial-video">
-      <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-kinzo-berlin-4-11-sec-poster.jpg">
-        <source data-src="assets/architonic/architonic-kinzo-berlin-4-11-sec.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="cs-testimonial-info">
-      <span class="cs-testimonial-studio">Kinzo Berlin</span>
-      <span class="cs-testimonial-tag">Design Together</span>
-    </div>
-  </div>
-  <div class="cs-testimonial-item">
-    <div class="cs-testimonial-video">
-      <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-oos-zurich-1-10sec-poster.jpg">
-        <source data-src="assets/architonic/architonic-oos-zurich-1-10sec.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="cs-testimonial-info">
-      <span class="cs-testimonial-studio">OOS Zurich</span>
-      <span class="cs-testimonial-tag">Discover Smarter</span>
-    </div>
-  </div>
-  <div class="cs-testimonial-item">
-    <div class="cs-testimonial-video">
-      <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-oos-zurich-2-7sec-poster.jpg">
-        <source data-src="assets/architonic/architonic-oos-zurich-2-7sec.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="cs-testimonial-info">
-      <span class="cs-testimonial-studio">OOS Zurich</span>
-      <span class="cs-testimonial-tag">Discover Smarter</span>
-    </div>
-  </div>
-  <div class="cs-testimonial-item">
-    <div class="cs-testimonial-video">
-      <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-oos-zurich-3-9sec-poster.jpg">
-        <source data-src="assets/architonic/architonic-oos-zurich-3-9sec.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="cs-testimonial-info">
-      <span class="cs-testimonial-studio">OOS Zurich</span>
-      <span class="cs-testimonial-tag">Trust the Data</span>
-    </div>
-  </div>
-  <div class="cs-testimonial-item">
-    <div class="cs-testimonial-video">
-      <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/architonic/architonic-oos-zurich-4-10sec-poster.jpg">
-        <source data-src="assets/architonic/architonic-oos-zurich-4-10sec.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="cs-testimonial-info">
-      <span class="cs-testimonial-studio">OOS Zurich</span>
-      <span class="cs-testimonial-tag">Discover Smarter</span>
-    </div>
-  </div>
 </div>
 
 <!-- BOTTOM: description + credits -->
