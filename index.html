@@ -193,6 +193,7 @@
 
     .case-media video { width: 100%; height: auto; display: block; object-fit: unset; }
     .case-media video.video-crop { height: 100%; object-fit: cover; }
+    .case-media video.fill-box { height: 100%; object-fit: cover; }
 
     .case-media.ratio-land { aspect-ratio: 4 / 3; }
     .case-media.ratio-port { aspect-ratio: 3 / 4; }
@@ -660,7 +661,7 @@
       const ratio = c.ratio || 'ratio-land';
       if (c.type === 'video') {
         const overlay = c.overlay ? `<video class="lazy-video" autoplay muted loop playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;pointer-events:none"><source data-src="${c.overlay}" type="video/mp4"></video>` : '';
-        const vclass = c.crop ? ' video-crop' : '';
+        const vclass = c.crop ? ' video-crop' : (c.poster ? ' fill-box' : '');
         // Use the declared ratio when we have a poster (so the still fills the box
         // before the video loads); otherwise fall back to natural height.
         const mediaRatio = c.crop ? (c.ratio || 'ratio-land') : (c.poster ? (c.ratio || 'ratio-land') : 'ratio-auto');
@@ -712,7 +713,13 @@
           src.removeAttribute('data-src');
         });
         el.querySelectorAll('video.lazy-video').forEach(v => {
-          const reveal = () => { v.style.opacity = '1'; };
+          const reveal = () => {
+            v.style.opacity = '1';
+            // Clear the poster background painted on the parent once the video
+            // is up, so it can't show through letterbox gaps or behind the clip.
+            const wrap = v.closest('.case-media');
+            if (wrap) wrap.style.backgroundImage = 'none';
+          };
           // Reveal on whichever signal fires first; cover the case where the
           // video is already playing/buffered by the time we attach (readyState
           // >= 2 means current frame data is available). A single loadeddata
