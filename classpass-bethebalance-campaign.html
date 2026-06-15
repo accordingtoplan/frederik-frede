@@ -46,6 +46,18 @@
 .cs-grid-three-land{grid-template-columns:1fr 1fr 1fr}
 .cs-grid-three-land img{aspect-ratio:3/2}
 @media (max-width:640px){.cs-grid-three-land{grid-template-columns:1fr}}
+/* Captioned media figures */
+.cs-figrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
+.cs-figrid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
+.cs-fig{display:flex;flex-direction:column;gap:10px;margin:0}
+.cs-fig img,.cs-fig video{width:100%;display:block;object-fit:cover;aspect-ratio:4/3;border:0}
+.cs-fig figcaption{display:flex;justify-content:space-between;gap:12px;font-size:12px;line-height:1.4}
+.cs-fig .cap-name{font-weight:700;color:var(--grey-dark)}
+.cs-fig .cap-meta{color:var(--grey-light);text-align:right;white-space:nowrap}
+.cs-story-head{padding:0 48px 24px;display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+.cs-story-head h3{font-size:clamp(20px,2.4vw,30px);font-weight:700;letter-spacing:-0.02em;color:var(--grey-dark);margin:0}
+.cs-story-head a{font-size:13px;color:var(--grey-mid);text-decoration:none;white-space:nowrap}
+.cs-story-head a:hover{color:var(--grey-dark)}
 /* Mobile */
 @media (max-width: 640px) {
   .cs-header { padding: 80px 20px 36px; grid-template-columns: 1fr; gap: 24px; }
@@ -60,6 +72,10 @@
   .cs-pullquote { padding: 48px 20px; }
   .cs-pullquote blockquote { font-size: clamp(24px, 7vw, 40px); }
   .cs-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 20px; }
+  .cs-figrid { grid-template-columns: 1fr; gap: 16px; padding: 0 20px; }
+  .cs-figrid-3 { grid-template-columns: 1fr; gap: 16px; padding: 0 20px; }
+  .cs-story-head { padding: 0 20px 16px; }
+
   .cs-grid-3 { grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px; }
   .cs-bottom { padding: 40px 20px 64px; }
   .cs-description { max-width: 100%; }
@@ -240,26 +256,76 @@
   </video>
 </div>
 
+<div class="cs-grid">
+  <img src="/assets/classpass/classpass-editorial-louise-damas-paris-street.jpg" alt="A Paris street from the ClassPass #bethebalance editorial in Paris" loading="lazy" width="2000" height="1333">
+  <img src="/assets/classpass/classpass-editorial-marie-luise-klietz-munich-olympic-park.jpg" alt="Munich Olympic Park from the ClassPass #bethebalance editorial in Munich" loading="lazy" width="2000" height="1333">
+</div>
+
 <div class="cs-pullquote"><blockquote>Balance, as a way of life.</blockquote></div>
 
 <div class="cs-strategy">
   <span class="cs-section-label">02 — Editorial Portraits</span>
   <div class="cs-strategy-intro">
     <h2>Three cities, three people finding their balance.</h2>
-    <p>Alongside the campaign spots, Friends of Friends produced editorial video portraits in Berlin, Paris and Munich: actor and cafe owner Gizem Emre, jewellery designer Louise Damas, and triathlete and dermatologist Marie-Luise Klietz.</p>
+    <p>Alongside the campaign spots, Friends of Friends produced editorial portraits in Berlin, Paris and Munich, each a story of balance between work, body and daily life.</p>
   </div>
 </div>
 
-<div class="cs-grid-3">
-  <video autoplay muted loop playsinline preload="metadata" poster="/assets/classpass/classpass-gizem-emre-loop.jpg">
-    <source src="/assets/classpass/classpass-gizem-emre-loop.mp4" type="video/mp4">
-  </video>
-  <video autoplay muted loop playsinline preload="metadata" poster="/assets/classpass/classpass-louise-damas-loop.jpg">
-    <source src="/assets/classpass/classpass-louise-damas-loop.mp4" type="video/mp4">
-  </video>
-  <video autoplay muted loop playsinline preload="metadata" poster="/assets/classpass/classpass-marie-luise-klietz-loop.jpg">
-    <source src="/assets/classpass/classpass-marie-luise-klietz-loop.mp4" type="video/mp4">
-  </video>
+<div class="cs-story-head">
+  <h3>Gizem Emre — Berlin</h3>
+  <a href="https://www.freundevonfreunden.com/stories/setting-a-new-stage-in-berlin-with-actor-turned-entrepreneur-gizem-emre/" target="_blank" rel="noopener">Read the story on Friends of Friends ↗</a>
+</div>
+<div class="cs-figrid-3">
+  <figure class="cs-fig">
+    <video autoplay muted loop playsinline preload="metadata" poster="/assets/classpass/classpass-gizem-emre-loop.jpg"><source src="/assets/classpass/classpass-gizem-emre-loop.mp4" type="video/mp4"></video>
+    <figcaption><span class="cap-name">Gizem Emre</span><span class="cap-meta">Actor &amp; cafe owner · Berlin</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="/assets/classpass/classpass-editorial-gizem-emre-berlin-street.jpg" alt="Gizem Emre on a Berlin street for the ClassPass #bethebalance campaign" loading="lazy" width="998" height="1496">
+    <figcaption><span class="cap-name">Mitte</span><span class="cap-meta">Berlin</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="/assets/classpass/classpass-editorial-gizem-emre-berlin-ubahn.jpg" alt="Berlin U-Bahn near Gizem Emre's cafe for the ClassPass #bethebalance campaign" loading="lazy" width="2000" height="1333">
+    <figcaption><span class="cap-name">U-Bahn</span><span class="cap-meta">Berlin</span></figcaption>
+  </figure>
+</div>
+
+<div class="cs-story-head">
+  <h3>Louise Damas — Paris</h3>
+  <a href="https://www.freundevonfreunden.com/design/transforming-literary-gems-into-intricate-trinkets-with-jewelry-designer-louise-damas/" target="_blank" rel="noopener">Read the story on Friends of Friends ↗</a>
+</div>
+<div class="cs-figrid-3">
+  <figure class="cs-fig">
+    <video autoplay muted loop playsinline preload="metadata" poster="/assets/classpass/classpass-louise-damas-loop.jpg"><source src="/assets/classpass/classpass-louise-damas-loop.mp4" type="video/mp4"></video>
+    <figcaption><span class="cap-name">Louise Damas</span><span class="cap-meta">Jewellery designer · Paris</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="/assets/classpass/classpass-editorial-louise-damas-paris-portrait.jpg" alt="Jewellery designer Louise Damas in Paris for the ClassPass #bethebalance campaign" loading="lazy" width="2000" height="1333">
+    <figcaption><span class="cap-name">Louise Damas</span><span class="cap-meta">Paris</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="/assets/classpass/classpass-editorial-louise-damas-paris-jewellery.jpg" alt="Louise Damas handmade jewellery pieces for the ClassPass #bethebalance campaign" loading="lazy" width="2000" height="1333">
+    <figcaption><span class="cap-name">Handmade pieces</span><span class="cap-meta">Paris</span></figcaption>
+  </figure>
+</div>
+
+<div class="cs-story-head">
+  <h3>Marie-Luise Klietz — Munich</h3>
+  <a href="https://www.freundevonfreunden.com/stories/keeping-pace-with-munich-based-triathlete-doctor-and-author-marie-luise-klietz/" target="_blank" rel="noopener">Read the story on Friends of Friends ↗</a>
+</div>
+<div class="cs-figrid-3">
+  <figure class="cs-fig">
+    <video autoplay muted loop playsinline preload="metadata" poster="/assets/classpass/classpass-marie-luise-klietz-loop.jpg"><source src="/assets/classpass/classpass-marie-luise-klietz-loop.mp4" type="video/mp4"></video>
+    <figcaption><span class="cap-name">Marie-Luise Klietz</span><span class="cap-meta">Triathlete &amp; doctor · Munich</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="/assets/classpass/classpass-editorial-marie-luise-klietz-munich-portrait.jpg" alt="Triathlete and doctor Marie-Luise Klietz in Munich for the ClassPass #bethebalance campaign" loading="lazy" width="2000" height="1333">
+    <figcaption><span class="cap-name">Marie-Luise Klietz</span><span class="cap-meta">Munich</span></figcaption>
+  </figure>
+  <figure class="cs-fig">
+    <img src="/assets/classpass/classpass-editorial-marie-luise-klietz-munich-lake.jpg" alt="Marie-Luise Klietz training at the lake before sunrise for the ClassPass #bethebalance campaign" loading="lazy" width="2000" height="1333">
+    <figcaption><span class="cap-name">Morning training</span><span class="cap-meta">Munich</span></figcaption>
+  </figure>
 </div>
 
 <div class="cs-bottom">
