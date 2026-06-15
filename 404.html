@@ -209,6 +209,24 @@
       .nf-work { padding: 8px 24px 64px; }
       .nf-work-grid { grid-template-columns: 1fr; }
     }
+
+    .nf-more {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      padding: 12px 28px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--grey-dark);
+      text-decoration: none;
+      border: 1.5px solid var(--grey-dark);
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nf-more::after { content: ' →'; }
+    .nf-more:hover { background: var(--grey-dark); color: var(--bg); }
   </style>
 </head>
 <body>
@@ -309,6 +327,7 @@
         <div class="nf-card-row"><span class="nf-card-b">USM</span><span class="nf-card-t">Digital Transformation</span></div>
       </a>
     </div>
+    <a class="nf-more" href="/work.html">More work</a>
   </section>
 
   <div id="footer-mount"></div>
