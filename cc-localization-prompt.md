@@ -155,3 +155,42 @@ than img.youtube.com).
 
 Captions are wired via new .cs-fig / .cs-figrid figure styles (name + meta).
 6 unidentified YT IDs still in the WIP cs-grid-3 — awaiting Frederik's review/prune.
+
+
+## 2026-06-15 — Image-gap audit + editorial-still localization (video-only FvF cases)
+
+AUDIT: Built a stills-vs-video detector (counting <img> minus logos/posters, not raw
+media refs — the raw-ref count gave false "all fine" earlier). Found 4 recently-built
+FvF Film & Content cases were VIDEO-ONLY (zero photographic stills), plus 2 thin:
+  - classpass-bethebalance-campaign.html  (0 stills, 6 vids)  -> FIXED
+  - dr-hauschka-brand-campaigns.html      (0 stills, 6 vids)  -> FIXED
+  - manufactum-alltagsfreude-ruth-bartlett.html (0, 4)        -> FIXED
+  - and-tradition-jaime-hayon.html        (0 stills, 3 vids)  -> FIXED
+  - selfnation-campaign.html              (2 stills)          -> STILL THIN, revisit
+  - egon-zehnder-leadership-interviews.html (1 still)         -> STILL THIN, revisit
+
+KEY: FvF (www.freundevonfreunden.com) NOW RESOLVES from the bash sandbox (allowlist
+updated) — so og:image heroes were DOWNLOADED + SELF-HOSTED, not hotlinked. 8 stills
+pushed to /assets/{classpass,dr-hauschka,manufactum,and-tradition}/ (SEO-named).
+Method that works without the Chrome extension: web_search to find each protagonist's
+FvF story slug -> og:image gives the real hero -> curl into sandbox -> push. The CSV's
+stored app/uploads paths were the fastest way to recover the real story slugs (don't
+guess them).
+
+LIMITATION UNCHANGED: only ONE og:image hero per source page is reachable; in-body
+galleries are JS-lazy-loaded and never appear in static HTML. Full galleries (multiple
+stills per story) still need the Chrome extension's real browser OR Eagle. The 4 fixed
+cases each got 1 strong still per protagonist, not the whole shoot.
+
+CONTENT FIXES alongside images:
+  - ClassPass: section 01 copy corrected to name all FOUR cities/protagonists incl.
+    the previously-omitted Lizzy van der Ligt (Amsterdam). Her story lived on ClassPass's
+    own blog (The Warm Up, by Disha Khatwani), NOT FvF — no FvF video portrait, no clean
+    FvF still (only paparazzi/Alamy, not used). Amsterdam is text-only for now; needs an
+    Eagle asset if a portrait is wanted.
+  - Credits added per standing rule: Dr. Hauschka photography -> Sima Dehgani. (Frederik
+    stays excluded though credited as ECD on the FvF source.)
+
+TODO next sprint: selfnation + egon-zehnder still-thin; full-gallery harvest for all 4
+fixed cases (Chrome ext / Eagle); re-check whether OTHER older Film & Content cases
+(la-marzocco, closed editorial, etc.) have the same video-only gap.
