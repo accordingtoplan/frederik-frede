@@ -193,11 +193,14 @@
 
     .case-media video { width: 100%; height: auto; display: block; object-fit: unset; }
     .case-media video.video-crop { height: 100%; object-fit: cover; }
+    .case-media video.video-contain { height: 100%; object-fit: contain; }
     .case-media video.fill-box { height: 100%; object-fit: cover; }
 
     .case-media.ratio-land { aspect-ratio: 4 / 3; }
     .case-media.ratio-port { aspect-ratio: 3 / 4; }
     .case-media.ratio-wide { aspect-ratio: 16 / 9; }
+    .case-media.ratio-lvwide { aspect-ratio: 1920 / 1010; }
+    .case-media.ratio-2 { aspect-ratio: 2 / 1; }
     .case-media.ratio-auto { aspect-ratio: unset; }
 
     /* Case info below media */
@@ -592,7 +595,7 @@
     const cases = [
       { b:"Architonic",         tag:"Platform Strategy",      desc:"A global architecture platform, repositioned and rebuilt from strategy up.",
         full:true, type:"video", link:"/architonic-brand-strategy-platform-design.html",
-        src:"Architonic_HP_Video-header.mp4", poster:"/assets/architonic/architonic-poster.jpg", ratio:"ratio-land",
+        src:"Architonic_HP_Video-header.mp4", poster:"/assets/architonic/architonic-poster.jpg", ratio:"ratio-wide",
         year:"2023–2025", live:"architonic.com", liveHref:"https://www.architonic.com", collab:"—" },
       { b:"NZZ",                tag:"Brand & Digital",        desc:"R&D and digital transformation for Switzerland's leading media house.",
         type:"img", src:"/assets/home/home-index-nzzde-front-gerollt-21.png",
@@ -606,7 +609,7 @@
         full:true, type:"video", link:"/louis-vuitton-employer-branding-campaign.html",
         src:"/assets/lv/lv-showreel.mp4",
         poster:"/assets/lv/lv-poster.jpg",
-        ratio:"ratio-land",
+        ratio:"ratio-lvwide",
         year:"2023", live:"jobs.louisvuitton.com", liveHref:"https://jobs.louisvuitton.com/en/work-culture", collab:"—" },
       { b:"Concierge Coffee",    tag:"Brand & Web", desc:"Coffee as a cultural vehicle. E-commerce and marketing. LA Arts District, Berlin.",
         type:"placeholder-logo", src:"/assets/home/home-index-conciergecoffee-logo2.png", bg:"/assets/signal/signal-bg-web-05.jpg", logoClass:"cc-logo",
@@ -617,7 +620,7 @@
         ratio:"ratio-land",
         year:"2019", live:"ritzcarlton.com", liveHref:"https://www.ritzcarlton.com", collab:"—" },
       { b:"USM",                link:"/usm-modular-furniture-brand-digital.html", tag:"Digital Transformation", desc:"Digital transformation for one of modernism's most recognised furniture brands.",
-        full:true, type:"video", src:"/assets/usm/usm-journey.mp4", poster:"/assets/usm/usm-poster.jpg", ratio:"ratio-land",
+        full:true, type:"video", src:"/assets/usm/usm-journey.mp4", poster:"/assets/usm/usm-poster.jpg", ratio:"ratio-wide",
         year:"2017", live:"personalities-by-usm.com", liveHref:"https://www.personalities-by-usm.com/en/", collab:"Friends of Friends" },
       { b:"Siemens",            link:"/siemens-home-appliances.html", tag:"Brand & Content", desc:"A multi-year content partnership for Siemens Home Appliances.",
         type:"placeholder-logo", src:"/assets/siemens/siemens-logo.svg", bg:"/assets/siemens/siemens-home-stories-arno-brandlhuber-krampnitz-interior.jpg", logoClass:"siemens-logo", ratio:"ratio-land",
@@ -626,12 +629,12 @@
         type:"img", src:"/assets/engel-volkers/engel-volkers-web-design-teaser-portrait.jpg", ratio:"ratio-land",
         year:"2019", collab:"—" },
       { b:"Umane",              tag:"Brand & Identity", desc:"Identity for a new generation of athletic health clubs.",
-        full:true, type:"video", src:"umane-mockup.mp4", poster:"/assets/umane-poster.jpg", overlay:"logo_anim_umane.mp4", ratio:"ratio-land",
+        full:true, type:"video", src:"umane-mockup.mp4", poster:"/assets/umane-poster.jpg", overlay:"logo_anim_umane.mp4", ratio:"ratio-wide",
         link:"/umane-brand-identity.html",
         year:"2024", collab:"—" },
       { b:"MINI",               link:"/mini-the-sooner-now-brand-campaign.html", tag:"Brand & Platform", desc:"Creative direction, brand strategy, and media platform for a multi-city conference.",
         full:true, type:"video", src:"/assets/mini/mini-tsn-banner.mp4", poster:"/assets/mini/mini-tsn-poster.jpg",
-        ratio:"ratio-land",
+        ratio:"ratio-2",
         year:"2019", live:"mini.com", liveHref:"https://www.mini.com", collab:"—" },
       { b:"Signal LA",          tag:"Brand & Identity", desc:"Brand identity for an architectural retail enclave in the Los Angeles Arts District.",
         type:"placeholder-logo", src:"/assets/home/home-index-signal-2023-logo-white.svg",
@@ -642,12 +645,12 @@
         link:"/bianca-chen-brand-identity.html", type:"video",
         src:"/assets/bianca-chen/bianca-chen.mp4",
         poster:"/assets/bianca-chen/bianca-chen-poster.jpg",
-        ratio:"ratio-land",
+        ratio:"ratio-wide",
         year:"2024", live:"biancachen.com", liveHref:"https://www.biancachen.com/", collab:"Thomas Provost, Sveta Koliada" },
       { b:"LAS Art Foundation", link:"/las-art-foundation-brand-identity-motion.html", tag:"Branding & Motion", desc:"Visual identity and motion design for a Berlin-based art institution.",
         full:true, type:"video",
         src:"/assets/las-art-foundation/las-art-foundation-branding-motion-las-digital-posters-final-animation-transcode.mp4",
-        poster:"/assets/las-poster.jpg", ratio:"ratio-land",
+        poster:"/assets/las-poster.jpg", ratio:"ratio-wide",
         year:"2023", live:"las-art.foundation", liveHref:"https://www.las-art.foundation", collab:"—" },
     ];
 
@@ -663,10 +666,12 @@
         const overlay = c.overlay ? `<video class="lazy-video" autoplay muted loop playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;pointer-events:none"><source data-src="${c.overlay}" type="video/mp4"></video>` : '';
         // Only crop when explicitly asked (crop:true). A poster alone should NOT
         // crop the video — it just paints the box while the video loads.
-        const vclass = c.crop ? ' video-crop' : '';
-        // crop -> declared ratio box (video fills+crops to it).
-        // otherwise -> natural height, so the video keeps its own ratio (16:9 etc).
-        const mediaRatio = c.crop ? (c.ratio || 'ratio-land') : 'ratio-auto';
+        const vclass = c.crop ? ' video-crop' : ' video-contain';
+        // crop -> declared ratio box, video fills+crops to it.
+        // otherwise -> declared ratio box (default 16:9) with object-fit:contain,
+        // so the video keeps its ratio, never crops, and the box never collapses
+        // before the lazy video loads.
+        const mediaRatio = c.crop ? (c.ratio || 'ratio-land') : (c.ratio || 'ratio-wide');
         const mediaStyle = [];
         if (c.overlay) mediaStyle.push('position:relative');
         if (c.poster) mediaStyle.push(`background-image:url('${c.poster}')`, 'background-size:cover', 'background-position:center');
