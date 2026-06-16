@@ -8,74 +8,43 @@
   <title>SPOT — Asset Management System</title>
   <link rel="stylesheet" href="/style.css">
   <style>
-.cs-header{padding:80px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
-.cs-title{font-size:clamp(48px,8vw,96px);font-weight:700;line-height:0.91;letter-spacing:-0.035em;color:var(--fg)}
-.cs-meta{display:flex;flex-direction:column;gap:12px;padding-bottom:8px}
-.cs-tags{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--fg-light)}
-.cs-tagline{font-size:var(--t-large);font-weight:700;line-height:1.1;color:var(--fg)}
-.cs-desc{font-size:var(--t-ui);color:var(--fg-mid);line-height:1.5;max-width:480px}
-.cs-intro{padding:0 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.cs-intro p{font-size:var(--t-ui);font-weight:700;color:var(--fg-mid);line-height:1.6}
-.cs-media-full{padding:0 48px;margin-bottom:24px}
-.cs-media-full img,.cs-media-full video{width:100%;display:block}
-.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
-.cs-grid img,.cs-grid video{width:100%;display:block}
-.cs-strategy{padding:80px 48px}
-.cs-section-label{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--fg-light);margin-bottom:32px}
-.cs-strategy-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.cs-strategy-intro h2{font-size:clamp(28px,3vw,42px);font-weight:700;line-height:1.05;letter-spacing:-0.02em;color:var(--fg)}
-.cs-strategy-intro p{font-size:var(--t-ui);color:var(--fg-mid);line-height:1.6;font-weight:700}
-.cs-pullquote{padding:80px 48px;text-align:center}
-.cs-pullquote blockquote{font-size:clamp(24px,3vw,40px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--fg);max-width:900px;margin:0 auto}
-.cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
-.cs-description{max-width:50%}
-.cs-description p{font-size:15px;font-weight:700;color:var(--fg);line-height:1.6;margin-bottom:20px}
-.cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right;align-content:start}
-.cs-credit-group{margin-bottom:24px}
-.cs-credit-group dt{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-light);margin-bottom:4px}
-.cs-credit-group dd{font-size:var(--t-ui);font-weight:700;color:var(--fg);line-height:1.5}
-.cs-credit-group a{color:var(--fg);text-decoration:none}
-.cs-credit-group a:hover{opacity:0.6}
-.cs-nav{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border)}
-.cs-nav-item{padding:32px 48px;text-decoration:none;display:block}
-.cs-nav-item.next{text-align:right}
-.cs-nav-dir{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--fg-light);margin-bottom:8px}
-.cs-nav-name{font-size:clamp(32px,4vw,56px);font-weight:700;line-height:0.95;letter-spacing:-0.025em;color:var(--fg)}
-.cs-nav-item:hover .cs-nav-name{opacity:0.5}
-/* Mobile */
-@media (max-width: 640px) {
-  .cs-header { padding: 80px 20px 36px; grid-template-columns: 1fr; gap: 24px; }
-  .cs-title { font-size: clamp(36px, 10vw, 56px); }
-  .cs-tagline { font-size: clamp(18px, 5vw, 24px); }
-  .cs-intro { padding: 0 20px 48px; grid-template-columns: 1fr; gap: 24px; }
-  .cs-strategy-intro { grid-template-columns: 1fr; gap: 24px; }
-  .cs-media-full { padding: 0 20px; }
-  .cs-caption { flex-direction: column; gap: 6px; padding: 16px 20px 40px; }
-  .cs-caption-text { text-align: left; }
-  .cs-strategy { padding: 48px 20px; }
-  .cs-pullquote { padding: 48px 20px; }
-  .cs-pullquote blockquote { font-size: clamp(24px, 7vw, 40px); }
-  .cs-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 20px; }
-  .cs-grid-3 { grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px; }
-  .cs-grid-wide { grid-column: span 1; }
-  .cs-grid-wide img, .cs-grid-wide video { aspect-ratio: 16/9; }
-  .cs-slides { grid-template-columns: 1fr; gap: 2px; }
-  .cs-testimonials { grid-template-columns: 1fr 1fr; gap: 4px; }
-  .cs-bottom { padding: 40px 20px 64px; }
-  .cs-description { max-width: 100%; }
-  .cs-credits-cols { position: static; text-align: left; margin-top: 40px; }
-  .cs-desc { max-width: 100%; }
-  .cs-bottom{padding:48px 24px}
-  .cs-description{max-width:100%}
-  .cs-credits-cols{position:static;text-align:left;margin-top:40px}
-  .cs-header{padding:48px 24px 40px}
-  .cs-intro{padding:0 24px 48px}
-  .cs-strategy{padding:48px 24px}
-  .cs-pullquote{padding:48px 24px}
-  .cs-grid{grid-template-columns:1fr;padding:0 24px}
-  .cs-media-full{padding:0 24px}
-}
-  </style>
+  .cs-title{font-size:clamp(48px,8vw,96px);font-weight:700;line-height:0.91;letter-spacing:-0.035em;color:var(--fg);/*keep*/margin:0}
+  .cs-meta{display:flex;flex-direction:column;gap:12px;padding-bottom:8px}
+  .cs-tags{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--fg-light)}
+  .cs-tagline{font-size:var(--t-large);font-weight:700;line-height:1.1;color:var(--fg);/*keep*/letter-spacing:inherit}
+  .cs-desc{font-size:var(--t-ui);color:var(--fg-mid);line-height:1.5;max-width:480px}
+  .cs-intro p{font-size:var(--t-ui);font-weight:700;color:var(--fg-mid);line-height:1.6;/*keep*/margin:0}
+  .cs-media-full img,.cs-media-full video{width:100%;display:block;/*keep*/object-fit:fill}
+  .cs-grid img,.cs-grid video{width:100%;display:block;/*keep*/aspect-ratio:auto;object-fit:fill}
+  .cs-section-label{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--fg-light);margin-bottom:32px}
+  .cs-strategy-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;/*keep*/align-items:normal;margin-bottom:0}
+  .cs-strategy-intro h2{font-size:clamp(28px,3vw,42px);font-weight:700;line-height:1.05;letter-spacing:-0.02em;color:var(--fg);/*keep*/margin:0}
+  .cs-strategy-intro p{font-size:var(--t-ui);color:var(--fg-mid);line-height:1.6;font-weight:700;/*keep*/margin:0;padding-top:0}
+  .cs-pullquote{padding:80px 48px;text-align:center}
+  .cs-pullquote blockquote{font-size:clamp(24px,3vw,40px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--fg);max-width:900px;margin:0 auto}
+  .cs-description p{font-size:15px;font-weight:700;color:var(--fg);line-height:1.6;margin-bottom:20px}
+  .cs-credit-group{margin-bottom:24px}
+  .cs-credit-group dt{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-light);margin-bottom:4px}
+  .cs-credit-group dd{font-size:var(--t-ui);font-weight:700;color:var(--fg);line-height:1.5;/*keep*/margin:0}
+  .cs-credit-group a{color:var(--fg);text-decoration:none}
+  .cs-credit-group a:hover{opacity:0.6}
+  .cs-nav{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);/*keep*/margin-top:0}
+  .cs-nav-item{padding:32px 48px;text-decoration:none;display:block;/*keep*/color:inherit;gap:normal;transition:none}
+  .cs-nav-dir{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--fg-light);margin-bottom:8px;/*keep*/font-weight:inherit}
+  .cs-nav-name{font-size:clamp(32px,4vw,56px);font-weight:700;line-height:0.95;letter-spacing:-0.025em;color:var(--fg)}
+  .cs-nav-item:hover .cs-nav-name{opacity:0.5}
+
+  @media (max-width: 640px) {
+    .cs-title { font-size: clamp(36px, 10vw, 56px); }
+    .cs-tagline { font-size: clamp(18px, 5vw, 24px); }
+    .cs-strategy-intro { grid-template-columns: 1fr; gap: 24px; }
+    .cs-pullquote { padding: 48px 20px; }
+    .cs-pullquote blockquote { font-size: clamp(24px, 7vw, 40px); }
+    .cs-desc { max-width: 100%; }
+    .cs-pullquote{padding:48px 24px}
+    .cs-media-full{padding:0 24px}
+  }
+</style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Permanent+Marker&display=swap" rel="stylesheet">
 

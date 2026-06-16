@@ -11,51 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Permanent+Marker&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-.cs-header{padding:80px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
-.cs-title{font-size:clamp(56px,8vw,96px);font-weight:700;line-height:0.92;letter-spacing:-0.035em;color:var(--grey-dark);margin:0}
-.cs-meta{display:flex;flex-direction:column;gap:20px;padding-bottom:4px}
-.cs-tags{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--grey-light)}
-.cs-tagline{font-size:clamp(20px,2.8vw,32px);font-weight:700;color:var(--grey-dark);line-height:1.1;letter-spacing:-0.02em}
-.cs-desc{font-size:15px;color:var(--grey-mid);line-height:1.65;max-width:420px}
-.cs-slides{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px}
-.cs-slide{overflow:hidden;background:var(--bg-card)}
-.cs-slide img{width:100%;display:block;transition:transform 0.5s ease}
-.cs-slide:hover img{transform:scale(1.02)}
-.cs-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:80px}
-.cs-nav-item{display:flex;flex-direction:column;padding:40px 48px;text-decoration:none;color:inherit;transition:opacity 0.2s;gap:16px}
-.cs-nav-item:hover{opacity:0.5}
-.cs-nav-dir{font-size:clamp(18px,2vw,28px);font-weight:700;letter-spacing:-0.02em;color:var(--grey-light)}
-.cs-nav-name{font-size:clamp(28px,4vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:0.95;color:var(--grey-dark)}
-.cs-nav-item.next{text-align:right}
-/* Mobile */
-@media (max-width: 640px) {
-  .cs-header { padding: 80px 20px 36px; grid-template-columns: 1fr; gap: 24px; }
-  .cs-title { font-size: clamp(36px, 10vw, 56px); }
-  .cs-tagline { font-size: clamp(18px, 5vw, 24px); }
-  .cs-intro { padding: 0 20px 48px; grid-template-columns: 1fr; gap: 24px; }
-  .cs-strategy-intro { grid-template-columns: 1fr; gap: 24px; }
-  .cs-media-full { padding: 0 20px; }
-  .cs-caption { flex-direction: column; gap: 6px; padding: 16px 20px 40px; }
-  .cs-caption-text { text-align: left; }
-  .cs-strategy { padding: 48px 20px; }
-  .cs-pullquote { padding: 48px 20px; }
-  .cs-pullquote blockquote { font-size: clamp(24px, 7vw, 40px); }
-  .cs-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 20px; }
-  .cs-grid-3 { grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px; }
-  .cs-grid-wide { grid-column: span 1; }
-  .cs-grid-wide img, .cs-grid-wide video { aspect-ratio: 16/9; }
-  .cs-slides { grid-template-columns: 1fr; gap: 2px; }
-  .cs-testimonials { grid-template-columns: 1fr 1fr; gap: 4px; }
-  .cs-bottom { padding: 40px 20px 64px; }
-  .cs-description { max-width: 100%; }
-  .cs-credits-cols { position: static; text-align: left; margin-top: 40px; }
-  .cs-desc { max-width: 100%; }
-
-  .cs-slides{padding:0 24px!important;grid-template-columns:1fr}
-  .cs-nav{grid-template-columns:1fr}
-  .cs-nav-item{padding:32px 24px}
-  .cs-nav-item.next{text-align:left}
-}
+  @media (max-width: 640px) {
+    .cs-slides{padding:0 24px!important;grid-template-columns:1fr}
+  }
 </style>
 
 <script type="application/ld+json">
