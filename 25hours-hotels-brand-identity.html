@@ -26,6 +26,11 @@
 .cs-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
 .cs-grid-3 img{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
 .cs-grid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.cs-grid .cs-loop{margin:0}
+.cs-grid .cs-loop video{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
+.cs-loopcap{margin-top:8px;font-size:12px}
+.cs-loopcap a{color:var(--grey-mid);text-decoration:none}
+.cs-loopcap a:hover{color:var(--grey-dark)}
 .cs-pullquote{padding:80px 48px}
 .cs-pullquote blockquote{font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--grey-dark);margin:0;max-width:900px}
 .cs-strategy{padding:80px 48px}
@@ -183,36 +188,28 @@
 <body>
 <nav class="nav">
   <div class="nav-left">
-    <video controls poster="/assets/25hours/25hours-film-hkYCPq-9v-w-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-hkYCPq-9v-w.mp4" type="video/mp4">
-    </video>
-    <video controls poster="/assets/25hours/25hours-film-3Ibs9o_AsI4-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-3Ibs9o_AsI4.mp4" type="video/mp4">
-    </video>
-    <video controls poster="/assets/25hours/25hours-film-2Nvt8STZCuo-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-2Nvt8STZCuo.mp4" type="video/mp4">
-    </video>
-    <video controls poster="/assets/25hours/25hours-film-UUXQychHQ2U-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-UUXQychHQ2U.mp4" type="video/mp4">
-    </video>
-    <video controls poster="/assets/25hours/25hours-film-xCHm44HZ27M-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-xCHm44HZ27M.mp4" type="video/mp4">
-    </video>
-    <video controls poster="/assets/25hours/25hours-film-9HPmGCMYJnw-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-9HPmGCMYJnw.mp4" type="video/mp4">
-    </video>
-    <video controls poster="/assets/25hours/25hours-film-hOP125Homuw-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-hOP125Homuw.mp4" type="video/mp4">
-    </video>
-    <video controls poster="/assets/25hours/25hours-film-wAbi-Hpduak-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-wAbi-Hpduak.mp4" type="video/mp4">
-    </video>
-    <video controls poster="/assets/25hours/25hours-film-_XfX4QvZX8E-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-_XfX4QvZX8E.mp4" type="video/mp4">
-    </video>
-    <video controls poster="/assets/25hours/25hours-film-K5jk6VxEYu0-poster.jpg" preload="metadata">
-      <source src="/assets/25hours/25hours-film-K5jk6VxEYu0.mp4" type="video/mp4">
-    </video>
+    <a class="nav-logo" href="/">Frederik</a>
+    <a class="nav-studio" href="/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch" style="background:#fff" onclick="setTheme('white',this)" title="White"></div>
+      <div class="swatch active" style="background:#111" onclick="setTheme('black',this)" title="Black"></div>
+      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <button class="nav-close" aria-label="Close menu" onclick="document.getElementById('navLinks').classList.remove('open')">×</button>
+    <ul>
+      <li><a href="/" onclick="document.getElementById('navLinks').classList.remove('open')">Home</a></li>
+      <li><a href="/work.html" onclick="document.getElementById('navLinks').classList.remove('open')">Work</a></li>
+      <li><a href="/about.html" onclick="document.getElementById('navLinks').classList.remove('open')">Information</a></li>
+      <li><a href="/about.html#contact" onclick="document.getElementById('navLinks').classList.remove('open')">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span>
+  </button>
 </nav>
 
 
@@ -252,16 +249,46 @@
   </div>
 </div>
 <div class="cs-grid">
-  <iframe src="https://www.youtube.com/embed/hkYCPq-9v-w" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/3Ibs9o_AsI4" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/2Nvt8STZCuo" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/UUXQychHQ2U" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/xCHm44HZ27M" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/9HPmGCMYJnw" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/hOP125Homuw" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/wAbi-Hpduak" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/_XfX4QvZX8E" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/K5jk6VxEYu0" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-hkYCPq-9v-w.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=hkYCPq-9v-w" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-3Ibs9o_AsI4.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=3Ibs9o_AsI4" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-2Nvt8STZCuo.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=2Nvt8STZCuo" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-UUXQychHQ2U.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=UUXQychHQ2U" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-xCHm44HZ27M.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=xCHm44HZ27M" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-9HPmGCMYJnw.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=9HPmGCMYJnw" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-hOP125Homuw.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=hOP125Homuw" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-wAbi-Hpduak.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=wAbi-Hpduak" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-_XfX4QvZX8E.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=_XfX4QvZX8E" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
+  <figure class="cs-loop">
+    <video src="/assets/25hours/25hours-loop-K5jk6VxEYu0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption class="cs-loopcap"><a href="https://www.youtube.com/watch?v=K5jk6VxEYu0" target="_blank" rel="noopener">Full film ↗</a></figcaption>
+  </figure>
 </div>
 <div class="cs-pullquote">
   <blockquote>Every city has a story. We help 25hours tell it.</blockquote>
