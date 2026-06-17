@@ -148,3 +148,98 @@ Size savings (GIF → mp4):
 1. **`mezcla-video-mswebsite.mov`** still exists alongside the new `.mp4` — safe to delete the .mov from the repo to save ~16MB.
 2. **`architonic-brand-strategy-platform-design.html`** has ~20 bare `src="assets/..."` paths (no `/`, no srcset). Works from root but inconsistent; worth a future sweep.
 3. **GIF originals** still on disk (7 files). Safe to delete after verifying mp4 quality on-site.
+
+---
+
+## Session D — 2026-06-17
+
+**Verdict: PASS**
+
+### Task 0 — Pre-session audit (`_pre-D-audit.md`)
+
+Committed as `e58a8d1` before any CSS changes. Covers all 6 sections:
+- **0a** Media hotlinks: none remaining (all external URLs are `href=` credits links, not `src=`).
+- **0b** Large images without srcset: ~50+ images across ~30 pages. Backlog deferred to Session E image-optimization pass.
+- **0c** Missing width/height on grid imgs: 25 images across 3 pages (architonic 21, canyon 3, siemens 1). Fixed in Task 4.
+- **0d** Missing credits blocks: none — all 82 pages have `.cs-credits-cols`.
+- **0e** Poster ratio mismatches: none — all 62 verified `<video poster>` pairs match orientation.
+- **0f** Unstacked collaborators: 12 pages still using middot/comma/br separators. Deferred to Session E.
+
+### Task 1 — style.css natural-ratio system
+
+**Before** (forced-crop rules):
+```css
+.cs-grid img, .cs-grid video { width:100%; display:block; object-fit:cover; aspect-ratio:4/3; }
+.cs-grid-3 img, .cs-grid-3 video { width:100%; display:block; object-fit:cover; aspect-ratio:3/4; }
+.cs-grid-wide img, .cs-grid-wide video { width:100%; display:block; object-fit:cover; aspect-ratio:16/7; }
+.cs-fig img, .cs-fig video { width:100%; display:block; object-fit:cover; aspect-ratio:4/3; border:0; }
+/* @media: .cs-grid-wide img, .cs-grid-wide video { aspect-ratio:16/9; } */
+```
+
+**After** (natural-ratio system):
+```css
+.cs-grid img, .cs-grid video,
+.cs-grid-3 img, .cs-grid-3 video,
+.cs-grid-wide img, .cs-grid-wide video { width:100%; height:auto; display:block; object-fit:contain; }
+.cs-fig img, .cs-fig video { width:100%; height:auto; display:block; object-fit:contain; border:0; }
+/* .cs-grid has align-items:start — top-aligns cells so mixed-height grids don't stretch */
+/* iframes keep aspect-ratio:16/9 — not changed */
+/* mobile forced-ratio rule removed entirely */
+```
+
+### Task 2 — Per-page override removal
+
+6 pages with residual `object-fit`/`aspect-ratio` overrides on grid/media selectors:
+
+| Page | Removed rule(s) |
+|------|----------------|
+| `25hours-hotels-brand-identity.html` | `.cs-grid .cs-loop video { object-fit:cover; aspect-ratio:16/9 }` |
+| `classpass-bethebalance-campaign.html` | `.cs-grid-three-land img { aspect-ratio:3/2 }` |
+| `concierge-coffee-brand-web.html` | `.cs-grid.portrait img { aspect-ratio:2/3 }` + `.cs-grid-3 img { object-fit:cover; aspect-ratio:2/3 }` |
+| `siemens-home-appliances.html` | `.land/.port/.natural` aspect-ratio rules (3 rules) |
+| `spot-asset-management-system.html` | redundant `.cs-media-full img/video` rule + conflicting `.cs-grid img/video { aspect-ratio:auto; object-fit:cover }` |
+| `umane-brand-identity.html` | `.cs-grid-3 img { object-fit:cover; aspect-ratio:16/9 }` + `.cs-grid-3.portrait img { aspect-ratio:3/4 }` |
+
+`mini-the-sooner-now-brand-campaign.html`: NOT touched — its `.cs-video-wrap` rules are a responsive iframe wrapper, not a `.cs-grid` override.
+
+### Task 3 — Poster ratio mismatches
+
+Zero found. No action required.
+
+### Task 4 — width/height attrs added
+
+- `architonic-brand-strategy-platform-design.html`: 22 imgs (21 bare + 3 `<picture>` wrapper fallback imgs). Dimensions from `sips -g pixelWidth pixelHeight`.
+- `canyon-digital-experience-web-design.html`: 3 imgs (1024×683, 1024×513, 1024×513).
+- `siemens-home-appliances.html`: 1 img (siemens-friends-space-kreuzberg.jpg, 1200×1200).
+
+### Task 5 — Verification results
+
+All verified pages pass. Images render at intrinsic dimensions, no forced crops.
+
+| Page | Check | Result |
+|------|-------|--------|
+| LAS Art Foundation | Portrait Marianna Simnett image full height, grid top-aligned | ✓ |
+| Ritz-Carlton | Hero 1920×1080 correct, all imgs at natural heights | ✓ |
+| Siemens | 3-col grid: iframe + portrait + landscape each own height, no override | ✓ |
+| Lewis | All 5 grid imgs at natural 3:2 (387×258 → 328×219) | ✓ |
+| Engel-Völkers | Images at natural ratios (775×371 → 679×326) | ✓ |
+| Bianca Chen | Portrait imgs at 4:5 (387×484 → 328×409), not cropped to 4:3 | ✓ |
+| Architonic | All 22 imgs have hasWH:true; panoramic 2588×982 ratio preserved | ✓ |
+| Qwstion | Natural 3:2 ratios, no overrides | ✓ |
+| Classpass | No overrides, natural 3:2 ratios | ✓ |
+| 25hours | No overrides, lazy-load intact (data-src/no src) | ✓ |
+| Weiler | No overrides, natural 3:2 and 16:9 ratios | ✓ |
+| Umane | No overrides, natural 16:9 ratios | ✓ |
+| Mobile 375px | Bianca Chen grid stacks single-column, portrait imgs 335×419 | ✓ |
+
+**Lazy-load system preserved**: verified `data-src` present, `src` empty — correct on all loop video pages.
+**index.html untouched**: homepage video-ratio system (ratio-wide/lvwide/2/contain) not modified.
+
+### Deferred to Session E
+
+- **0b** Large image optimization: ~50+ images across ~30 pages without srcset. Largest: architonic-ultimate.jpg (4.2MB), ziegert-header.png (4.7MB), selfnation-banners.png (3.7MB).
+- **0f** Unstacked collaborators: 12 pages with middot/comma/br separators — see `_pre-D-audit.md §0f`.
+
+### Standing rule (update to memory)
+
+Grid/media system is now **NATURAL-RATIO**. Never add `aspect-ratio` or `object-fit:cover/fill` to `.cs-grid`, `.cs-grid-3`, `.cs-grid-wide`, `.cs-media-full` img/video selectors. iframes always keep `aspect-ratio:16/9`. `align-items:start` on grids is intentional — do not remove.
