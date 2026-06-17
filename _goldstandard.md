@@ -96,11 +96,13 @@ Standard HTML (from `architonic-brand-strategy-platform-design.html`):
   </div>
   <dl class="cs-credits-cols">
     <div class="cs-credit-group"><dt>Live site</dt><dd><a href="https://…" target="_blank" rel="noopener">domain ↗</a></dd></div>
-    <div class="cs-credit-group"><dt>Collaborators</dt><dd>Name · Name</dd></div>
+    <div class="cs-credit-group"><dt>Collaborators</dt><dd>Name A</dd><dd>Name B</dd></div>
     <div class="cs-credit-group"><dt>Year</dt><dd>YYYY</dd></div>
   </dl>
 </div>
 ```
+
+**B7 convention (Session B 2026-06-17):** one `<dd>` per collaborator name — no middots, no `<br>`. Same rule applies to any multi-value field (Typeface, Press, etc.).
 
 Rules (in `style.css`):
 
@@ -126,7 +128,5 @@ Standard fields: `Live site` (omit if no live URL), `Collaborators` (use `—` i
 | siemens-home-appliances.html | `.cs-grid img.land/port/natural` | per-image aspect ratio overrides |
 | siemens-home-appliances.html | `.cs-slideshow` / `.ss-*` | bespoke JS slideshow component |
 | classpass-bethebalance-campaign.html | `.cs-grid-three-land` | 3-col 3:2 landscape grid variant |
-| ritz-carlton-berlin-brand-event.html | `.cs-2col` / `.cs-3col` / `.cs-item` / `.cs-full` | pre-migration classes (→ Session B) |
-| rooms-hotels.html | same as above | pre-migration classes (→ Session B) |
-| frederik-pferdt-personal-brand-identity.html | `.cs-grid img.land/port/natural` | per-image aspect ratio overrides |
+| frederik-pferdt-personal-brand-identity.html | `.cs-credits-cols` grid variant | right-aligned stacked credits |
 | spot-asset-management-system.html | all `.cs-*` overrides | intentional design-system variant |

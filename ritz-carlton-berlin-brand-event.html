@@ -9,15 +9,6 @@
   <style>@font-face{font-family:"UnifrakturMaguntia";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/fonts/unifrakturmaguntia.woff2") format("woff2")}@font-face{font-family:"Permanent Marker";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/fonts/permanent-marker.woff2") format("woff2")}</style>
 <link rel="stylesheet" href="style.css">
 <style>
-  .cs-full{padding:0 48px;margin-bottom:24px}
-  .cs-full img,.cs-full video{width:100%;display:block}
-  .cs-2col{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 48px;margin-bottom:24px}
-  .cs-2col img{width:100%;display:block}
-  .cs-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;padding:0 48px;margin-bottom:24px}
-  .cs-3col img{width:100%;display:block}
-  .cs-item{overflow:hidden}
-  .cs-item img{width:100%;display:block;transition:transform 0.5s ease}
-  .cs-item:hover img{transform:scale(1.02)}
   .cs-spacer{height:48px}
   .cs-bottom{padding:80px 48px 0;position:relative;/*keep*/border-top:0;margin-top:0}
   .cs-credits-cols{display:flex;gap:48px;flex-wrap:wrap;/*keep*/align-content:normal;position:static;right:auto;text-align:inherit;top:auto}
@@ -25,8 +16,6 @@
   @media (max-width: 640px) {
     .cs-bottom { padding: 40px 20px 64px; }
     .cs-credits-cols { position: static; text-align: left; margin-top: 40px; }
-    .cs-full,.cs-2col,.cs-3col{padding:0 24px}
-    .cs-2col,.cs-3col{grid-template-columns:1fr}
   }
 </style>
 
@@ -125,12 +114,12 @@
   <div class="cs-intro"><p>The Ritz-Carlton Berlin is Marriott's signature address in Europe, the one the group points to. It had just come through a full interior renovation of every facility. The building was new again. The brand around it was not. The assets, the tone, the audience still read older than the rooms now did.</p><p>The work rebranded and redesigned every Berlin hospitality outlet across the property, restaurants and bars included, then put a Roaring Twenties Golden Gala on top of it to carry the relaunch. Built to set the property back in front of a younger, cultural Berlin, and to make the reopening an event people wanted to be at, not an announcement they received.</p></div>
 
   <!-- Hero -->
-  <div class="cs-full">
+  <div class="cs-media-full">
     <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-ritz-gala-0295-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-ritz-gala-0295-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-ritz-gala-0295-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-ritz-gala-0295.jpg" width="1024" height="683" alt="Ritz-Carlton Berlin Golden Gala" fetchpriority="high"></picture>
   </div>
 
   <!-- Film -->
-  <div class="cs-full">
+  <div class="cs-media-full">
     <video autoplay muted loop playsinline preload="auto" fetchpriority="high" poster="/assets/ritz-carlton/ritz-carlton-gala-event-20190320-ritz-carlton-gala-night-lv-mast-poster.jpg">
       <source src="/assets/ritz-carlton/ritz-carlton-gala-event-20190320-ritz-carlton-gala-night-lv-mast.mp4" type="video/mp4">
     </video>
@@ -139,50 +128,50 @@
   <div class="cs-spacer"></div>
 
   <!-- Social visuals -->
-  <div class="cs-2col">
-    <div class="cs-item"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-social-media-press.gif" alt="Golden Gala social media" loading="lazy"></div>
-    <div class="cs-item"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-social-media-instagram.gif" alt="Golden Gala Instagram" loading="lazy"></div>
+  <div class="cs-grid">
+    <img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-social-media-press.gif" alt="Golden Gala social media" loading="lazy">
+    <img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-social-media-instagram.gif" alt="Golden Gala Instagram" loading="lazy">
   </div>
 
   <!-- Invite + guide -->
-  <div class="cs-2col">
-    <div class="cs-item"><picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-invite-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-invite-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-invite-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-invite.jpg" width="1024" height="561" alt="Golden Gala invitation" loading="lazy"></picture></div>
-    <div class="cs-item"><picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-guide-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-guide-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-guide-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-guide.jpg" width="1024" height="561" alt="Golden Gala guide" loading="lazy"></picture></div>
+  <div class="cs-grid">
+    <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-invite-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-invite-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-invite-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-invite.jpg" width="1024" height="561" alt="Golden Gala invitation" loading="lazy"></picture>
+    <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-guide-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-guide-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-guide-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-guide.jpg" width="1024" height="561" alt="Golden Gala guide" loading="lazy"></picture>
   </div>
 
   <div class="cs-spacer"></div>
 
   <!-- Event visuals -->
-  <div class="cs-full">
+  <div class="cs-media-full">
     <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-6-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-6-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-6-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-6.png" width="1024" height="543" alt="Golden Gala visual" loading="lazy"></picture>
   </div>
 
-  <div class="cs-2col">
-    <div class="cs-item"><picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-5-1-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-5-1-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-5-1-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-5-1.png" width="1024" height="604" alt="Golden Gala visual" loading="lazy"></picture></div>
-    <div class="cs-item"><picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-3-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-3-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-3-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-3.png" width="1024" height="923" alt="Golden Gala visual" loading="lazy"></picture></div>
+  <div class="cs-grid">
+    <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-5-1-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-5-1-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-5-1-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-5-1.png" width="1024" height="604" alt="Golden Gala visual" loading="lazy"></picture>
+    <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-3-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-3-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-3-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-3.png" width="1024" height="923" alt="Golden Gala visual" loading="lazy"></picture>
   </div>
 
   <div class="cs-spacer"></div>
 
   <!-- Photography -->
-  <div class="cs-full">
+  <div class="cs-media-full">
     <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-02-the-ritz-carlton-berlin-grand-re-opening-lena-meyer-landrut-02-getty-images-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-02-the-ritz-carlton-berlin-grand-re-opening-lena-meyer-landrut-02-getty-images-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-02-the-ritz-carlton-berlin-grand-re-opening-lena-meyer-landrut-02-getty-images-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-02-the-ritz-carlton-berlin-grand-re-opening-lena-meyer-landrut-02-getty-images.jpg" width="1024" height="683" alt="Ritz-Carlton Berlin reopening — Getty Images" loading="lazy"></picture>
   </div>
 
-  <div class="cs-2col">
-    <div class="cs-item"><picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-1-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-1-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-1-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-1.png" width="1024" height="604" alt="Golden Gala" loading="lazy"></picture></div>
-    <div class="cs-item"><picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-2-1-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-2-1-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-2-1-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-2-1.jpg" width="1024" height="604" alt="Golden Gala" loading="lazy"></picture></div>
+  <div class="cs-grid">
+    <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-1-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-1-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-1-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-1.png" width="1024" height="604" alt="Golden Gala" loading="lazy"></picture>
+    <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-2-1-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-2-1-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-2-1-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-visuals-the-golden-gala-2-1.jpg" width="1024" height="604" alt="Golden Gala" loading="lazy"></picture>
   </div>
 
-  <div class="cs-2col">
-    <div class="cs-item"><picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-ritz-gala-0852-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-ritz-gala-0852-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-ritz-gala-0852-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-ritz-gala-0852.jpg" width="1024" height="683" alt="Ritz-Carlton Gala" loading="lazy"></picture></div>
-    <div class="cs-item"><picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-ritz-gala-1416-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-ritz-gala-1416-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-ritz-gala-1416-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-ritz-gala-1416.jpg" width="1024" height="683" alt="Ritz-Carlton Gala" loading="lazy"></picture></div>
+  <div class="cs-grid">
+    <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-ritz-gala-0852-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-ritz-gala-0852-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-ritz-gala-0852-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-ritz-gala-0852.jpg" width="1024" height="683" alt="Ritz-Carlton Gala" loading="lazy"></picture>
+    <picture><source type="image/webp" srcset="/assets/ritz-carlton/ritz-carlton-ritz-gala-1416-640w.webp 640w, /assets/ritz-carlton/ritz-carlton-ritz-gala-1416-1280w.webp 1280w, /assets/ritz-carlton/ritz-carlton-ritz-gala-1416-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/ritz-carlton/ritz-carlton-ritz-gala-1416.jpg" width="1024" height="683" alt="Ritz-Carlton Gala" loading="lazy"></picture>
   </div>
 
   <div class="cs-spacer"></div>
 
   <!-- HR Film -->
-  <div class="cs-full">
+  <div class="cs-media-full">
     <iframe src="https://player.vimeo.com/video/785680877?h=ae8ce59eb7&byline=0&portrait=0" title="Ritz-Carlton Berlin HR film" style="width:100%;aspect-ratio:16/9;border:0;display:block" loading="lazy" allowfullscreen></iframe>
   </div>
 

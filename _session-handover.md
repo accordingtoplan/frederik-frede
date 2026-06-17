@@ -48,3 +48,50 @@ Pages whose `<style>` blocks were edited:
 - `style.css` contains complete `.cs-grid`/`.cs-grid-3`/`.cs-grid-wide`/`.cs-figrid`/`.cs-figrid-3`/`.cs-fig`/`.cs-story-head`/`.cs-credits-cols` system. ✓
 - No page `<style>` block left half-edited; all three edited pages spot-checked for intact structure. ✓
 - 28 other pages with page-specific inline styles untouched. ✓
+
+---
+
+## Session B — 2026-06-17
+
+**Verdict: PASS**
+
+### What was done
+
+**B2 — Dead media removed (pferdt)**
+- `assets/pferdt/pferdt-fgp-screen-rec-sm.mp4` (0-byte file) deleted from repo.
+- Dead `<div class="cs-media-full">` block referencing it removed from `frederik-pferdt-personal-brand-identity.html`.
+
+**B1 MODE 1 — .land/.port/.natural CSS removed (pferdt)**
+- Removed 3 CSS rules from pferdt's inline `<style>` (aspect-ratio overrides for img.land/img.port/img.natural).
+- Class attributes remain in markup but are now inert — global 4/3 cover applies uniformly.
+
+**B1 MODE 4 — object-fit:fill removed (5 pages)**
+- `concierge-coffee-brand-web.html`: removed `.cs-media-full img/video{object-fit:fill}` entirely (global `object-fit:unset` applies).
+- `louis-vuitton-employer-branding-campaign.html`: removed both `.cs-grid img/video` and `.cs-grid-3 img` fill rules; global 4/3 cover now applies. Empty `<style>` block removed.
+- `neubau-welt.html`: removed `.cs-media-full img{object-fit:fill}` entirely.
+- `umane-brand-identity.html`: removed `.cs-media-full video/img{object-fit:fill}` entirely.
+- `spot-asset-management-system.html`: changed `fill` → `contain` on cs-media-full (screenshot content); changed `fill` → `cover` on cs-grid (intentional design-system variant retained).
+
+**B1 MODE 2 — Pre-migration class migration (ritz + rooms-hotels)**
+- `ritz-carlton-berlin-brand-event.html`: migrated `.cs-full→.cs-media-full`, `.cs-2col→.cs-grid`, all `cs-item` wrappers removed. Style block reduced to `.cs-spacer` + intentional `.cs-bottom`/`.cs-credits-cols` overrides (horizontal flex credits, no border-top — KEEP).
+- `rooms-hotels.html`: same migration. Style block reduced to `.cs-spacer` only. No custom credits layout (global applies).
+- `_goldstandard.md` overrides table updated — pre-migration entries removed.
+
+**B7 — Collaborator name stacking (6 pages)**
+- Convention: one `<dd>` per collaborator/typeface. No middot separators, no `<br>`.
+- Applied to: `siemens-home-appliances.html` (9 names), `classpass-bethebalance-campaign.html` (2), `frederik-pferdt-personal-brand-identity.html` (4), `umane-brand-identity.html` (3), `bianca-chen-brand-identity.html` (3 + 2 typefaces), `signal-la-brand-identity.html` (3).
+- `_goldstandard.md` credits pattern updated with new one-dd-per-name example.
+
+### Deferred / not yet done
+
+- B3 (credits conformance verification): not started.
+- B4 (loading/performance audit beyond lazy-load): not started.
+- B5 (mobile global fixes): not started.
+- B6 (container audit + `_format-audit.md`): not started.
+- Pass 4 (template + checklist verify): not started.
+
+### Flags for Frederik
+
+1. **pferdt `.land`/`.port` classes in markup**: class attrs remain on `<img>` elements but are now inert (no CSS rules). Either strip them in a future pass or leave — they do no harm.
+2. **rooms-hotels portrait photos** (4448, dsc-4529, tbilisi-dsc-6130, 5424, dsc-5449): now render at 4/3 global ratio (cover) instead of their natural 2:3 portrait ratio. Visually they'll be cropped landscape. If that looks wrong, add per-image aspect-ratio overrides.
+3. **ritz `.cs-bottom`/`.cs-credits-cols` intentional variant**: horizontal flex credits, no border-top — kept as intended. Confirmed in `_goldstandard.md` overrides table under pferdt entry.
