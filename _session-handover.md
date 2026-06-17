@@ -375,3 +375,78 @@ HTML refs updated from `.png` → `.webp`. Original PNGs deleted. `.gitignore` a
 - **DNS cutover**: site is on GitHub Pages, not yet live at frederikfrede.com
 
 **Site is now ready for DNS cutover** — pending Frederik's projects.json pass (OG/canonical tags).
+
+---
+
+## Session F — 2026-06-18
+
+**Verdict: PASS**
+
+### F — Asset rename for SEO
+
+Full 5-step methodology executed. 55 Squarespace hash-named asset files renamed to descriptive SEO convention.
+
+**STEP 1 — Rename map built**
+
+Complete `_rename-map.csv` (columns: old_path, new_path, status, ref_count):
+- **55 RENAME**: 5 bolon + 50 concierge-coffee (10 images × 5 variants each)
+- **16 KEEP**: root-level showreel/las-poster/umane-poster families — all ref'd in index.html (protected from edits)
+- **6 ORPHAN**: logo12_b.* + frede-logo.svg (0 HTML refs — flagged, not renamed)
+- **34 EXEMPT**: 25hours YouTube-ID loop/film files + engel-volkers + la-marzocco YouTube-ID files
+- **4 EXEMPT**: assets/fonts/*, assets/img/*, favicon.svg, frede-logo.png (footer.js exact ref)
+- **6 DONE**: lv→louis-vuitton from Session D (already complete)
+
+**STEP 2 — Reference counts verified**
+
+All 55 RENAME files: ref_count=1 (each hash image referenced only in its own case page HTML, including JSON-LD `image` field for hero images).
+
+**STEP 3a — bolon/ batch**
+
+5 files renamed: `bolon-9a0395d2ba15904c2ef04754d9b76811-e1566837231833.*` → `bolon-web-design-catalogue-hero.*`
+Surgical str_replace in `bolon-web-design.html`: JSON-LD image field + picture srcset + img src. Commit: 3692d4d.
+
+**STEP 3b — concierge-coffee/ batch**
+
+50 files renamed (10 images × 5 variants). Descriptive names: space-hero, interior-01/02, space-01 through space-07.
+Python str.replace in `concierge-coffee-brand-web.html`: 41 total occurrences updated (5 for hero including JSON-LD, 4 per other image). Commit: 0925be4.
+
+**STEP 4 — Verification (both batches)**
+
+| Batch | Old refs after rename | New refs |
+|-------|-----------------------|---------|
+| bolon (1 image) | 0 ✓ | 1 ✓ |
+| concierge-coffee (10 images) | all 0 ✓ | all 1 ✓ |
+
+**STEP 5 — Cleanup**
+
+`_rename-map.csv` updated to mark all 55 newly renamed entries as DONE (61 total DONE including Session D). This handover appended.
+
+### Remaining / not renamed (by design)
+
+- Root-level showreel/las-poster/umane-poster: stay until index.html can be touched (currently protected).
+- Orphans (logo12_b.*, frede-logo.svg): flagged in CSV, untouched — no HTML refs.
+- assets/img/* archive: deferred per task instructions.
+- YouTube-ID files (25hours-loop-*, engel-volkers-film-*, la-marzocco-film-*): exempt — ID ties poster to video.
+
+### Summary across all sessions (A → F)
+
+| Session | What | Commit(s) |
+|---------|------|---------|
+| A | CSS migration to style.css; 81 pages stripped | 3dd8c18, 003dd6a |
+| B | Credits stacked B7; page migrations B1/B2; pferdt dead media removed | 7f1fdc9 |
+| C | 34 videos re-encoded; 1 .mov converted; 3 poster images compressed | 99b870a, various |
+| Natural-ratio | style.css de-crop/de-stretch; 6 page overrides removed; 25 w/h attrs | e58a8d1, 7c259f8 |
+| D | Collaborators B7 complete; font-face consolidated; SEO/sitemap; lv→louis-vuitton | 3a70f96 |
+| E | SITE-SPEC; _goldstandard update; nav componentized; orgreen fixed; titles; images | 9d45ed6–619b408 |
+| F | Asset rename: 55 hash files → descriptive SEO names (bolon + concierge-coffee) | 4aeec60–current |
+
+### Open backlog after Session F
+
+- **OG/canonical injection**: all 84 pages — blocked on projects.json (Frederik's xlsx)
+- **Srcset for ~20 architonic images** and other large bare-src imgs
+- **Root-level asset rename**: showreel/las-poster/umane-poster — blocked on index.html protection
+- **`home/home-index-nzzde-front-gerollt-21.png`** (1.4MB) — referenced in index.html only; convert to WebP but requires careful index.html update
+- **Nav theme persistence**: `setTheme()` resets theme on navigation (no localStorage read on load)
+- **DNS cutover**: site is on GitHub Pages, not yet live at frederikfrede.com
+
+**Site is now ready for DNS cutover** — pending Frederik's projects.json pass (OG/canonical tags).
