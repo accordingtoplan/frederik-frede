@@ -1,0 +1,6 @@
+.DS_Store
+.claude/
+cc-docs/
+optimize_videos.py
+cf-consolidation.sh
+*.bak
