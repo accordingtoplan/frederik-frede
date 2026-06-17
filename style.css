@@ -71,6 +71,9 @@ body {
 
 /* ─── NAV ─────────────────────────────────────────────────── */
 
+
+/* Nav mount — transparent to layout so position:sticky on .nav works */
+#nav-mount { display: contents; }
 .nav {
   height: 48px;
   display: flex;
