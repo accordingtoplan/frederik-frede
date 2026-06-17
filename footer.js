@@ -41,6 +41,43 @@
     });
   }
 
+
+  /* ─── NAV SCROLL BEHAVIOUR ────────────────────────────
+     Hide nav on scroll-down, reveal on scroll-up or stop */
+  (function() {
+    var nav = document.querySelector('.nav');
+    if (!nav) return;
+    var lastY = window.scrollY;
+    var ticking = false;
+    var hideTimer;
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          var y = window.scrollY;
+          // Always show nav within 60px of top
+          if (y < 60) {
+            nav.classList.remove('nav--hidden');
+          } else if (y > lastY + 8) {
+            // Scrolling down — hide
+            nav.classList.add('nav--hidden');
+          } else if (y < lastY - 4) {
+            // Scrolling up — show
+            nav.classList.remove('nav--hidden');
+          }
+          lastY = y;
+          ticking = false;
+          // Also show after scroll stops (300ms)
+          clearTimeout(hideTimer);
+          hideTimer = setTimeout(function() {
+            nav.classList.remove('nav--hidden');
+          }, 300);
+        });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
   const FOOTER_HTML = `<div class="footer-bar">
       <div class="footer-top-row">
         <div class="footer-logo-row">
