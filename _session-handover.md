@@ -315,7 +315,47 @@ B7 convention now complete across all pages.
 - **orgreen-optics**: `<img src="...showreel.mp4">` — img element should be a video element (flagged in pre-D-audit).
 - **_goldstandard.md**: CSS snippets show pre-natural-ratio rules — update to reflect current system.
 
-### Summary across all sessions (A → D final)
+---
+
+## Session E — 2026-06-17
+
+**Verdict: PASS**
+
+### E0a — SITE-SPEC.md created
+
+Canonical site specification written to repo root. Covers: stack, architecture rules, nav, grid/media system, lazy-load, font system, credits system, copy/voice rules, asset conventions, new-case checklist, open backlog. Commit: 9d45ed6.
+
+### E0b — _goldstandard.md CSS updated
+
+Replaced stale pre-natural-ratio CSS snippets (object-fit:cover, aspect-ratio:4/3 etc.) with current natural-ratio rules (height:auto, object-fit:contain, align-items:start). Removed stale siemens `.land/.port` override entry. Added note at top marking update date. Commit: 9d45ed6.
+
+### E1 — Nav componentization
+
+`footer.js`: added synchronous NAV_HTML injection into `#nav-mount` with active-state detection (Home/Work/About via pathname). All 87 pages: `<nav class="nav">…</nav>` replaced with `<div id="nav-mount"></div>`. "Information" → "About" everywhere (nav links + 404 body text). Verified in preview: active states correct on `/`, `/work.html`, `/about.html`, case studies (no active). Swatches, hamburger, `setTheme()` all functional. Commit: 0d397d6.
+
+### E2 — orgreen broken video fixed
+
+`<img src="/assets/orgreen/orgreen-showreel-orgreen.mp4">` → proper lazy-load `<video muted loop playsinline preload="metadata" data-lazy poster="…">` with `<source data-src="…">`. Poster extracted at 2s via ffmpeg (22KB). Commit: 86d4ebd.
+
+### E3 — Title suffix normalization
+
+22 pages had comma/middot/dash suffixes (`, Frederik Frede`, `· Frederik Frede`, `– Frederik Frede`). All normalized to `— Frederik Frede`. `index.html` homepage title kept as "Frederik Frede" (correct for homepage). All other SEO fields (meta description, h1, JSON-LD, alt) were already complete across all 84 pages (done in D2). Commit: 33da12c.
+
+### E4 — Image optimization
+
+**JPEG compression** (in-place, 30 files): architonic cluster + umane/qwstion/ritz/wefox — 2400px max, q82 via sips. ~29MB saved. Files already at optimal quality were kept as-is (sips would have increased size).
+
+**PNG → WebP conversion** (15 files, 9 pages updated): all had alpha so JPEG conversion not possible. Used ffmpeg + cwebp. Savings:
+- `ziegert-header-1024x682.png` 4.7MB → 176KB (96% saved)
+- `selfnation-banners-1024x832.png` 3.7MB → 202KB (95% saved)
+- `louis-vuitton-employer-branding-lv-5-1800x1152.png` 3.4MB → 136KB (96% saved)
+- 12 more files across roots-management, lewis-group, umane, ritz-carlton, episode-hotels, mezcla
+
+HTML refs updated from `.png` → `.webp`. Original PNGs deleted. `.gitignore` added (was missing). Commits: 100d28e, 619b408.
+
+**Still open (srcset):** ~20 architonic images and remaining large images still lack responsive `srcset` variants. Requires generating 640w/1280w/2400w WebP variants per image + wrapping in `<picture>` — deferred to dedicated image session.
+
+### Summary across all sessions (A → E)
 
 | Session | What | Commit(s) |
 |---------|------|---------|
@@ -323,6 +363,15 @@ B7 convention now complete across all pages.
 | B | Credits stacked B7; page migrations B1/B2; pferdt dead media removed | 7f1fdc9 |
 | C | 34 videos re-encoded; 1 .mov converted; 3 poster images compressed | 99b870a, various |
 | Natural-ratio | style.css de-crop/de-stretch; 6 page overrides removed; 25 w/h attrs | e58a8d1, 7c259f8 |
-| D (this) | Collaborators B7 complete; font-face consolidated; SEO/sitemap; lv→louis-vuitton | 3a70f96 |
+| D | Collaborators B7 complete; font-face consolidated; SEO/sitemap; lv→louis-vuitton | 3a70f96 |
+| E | SITE-SPEC; _goldstandard update; nav componentized; orgreen fixed; titles; images | 9d45ed6–619b408 |
+
+### Open backlog after Session E
+
+- **OG/canonical injection**: all 84 pages — blocked on projects.json (Frederik's xlsx)
+- **Srcset for ~20 architonic images** and other large bare-src imgs
+- **`home/home-index-nzzde-front-gerollt-21.png`** (1.4MB) — referenced in index.html only; convert to WebP but requires careful update to protected page
+- **Nav theme persistence**: `setTheme()` resets theme on navigation (no localStorage read on load). Could be added to footer.js `initTheme()` call
+- **DNS cutover**: site is on GitHub Pages, not yet live at frederikfrede.com
 
 **Site is now ready for DNS cutover** — pending Frederik's projects.json pass (OG/canonical tags).
