@@ -74,6 +74,10 @@ body {
 
 /* Nav mount — transparent to layout so position:sticky on .nav works */
 #nav-mount { display: contents; }
+
+/* Nav scroll-hide behaviour */
+.nav { transition: transform 0.25s ease; }
+.nav--hidden { transform: translateY(-100%); }
 .nav {
   height: 48px;
   display: flex;
