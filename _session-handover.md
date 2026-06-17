@@ -95,3 +95,56 @@ Pages whose `<style>` blocks were edited:
 1. **pferdt `.land`/`.port` classes in markup**: class attrs remain on `<img>` elements but are now inert (no CSS rules). Either strip them in a future pass or leave — they do no harm.
 2. **rooms-hotels portrait photos** (4448, dsc-4529, tbilisi-dsc-6130, 5424, dsc-5449): now render at 4/3 global ratio (cover) instead of their natural 2:3 portrait ratio. Visually they'll be cropped landscape. If that looks wrong, add per-image aspect-ratio overrides.
 3. **ritz `.cs-bottom`/`.cs-credits-cols` intentional variant**: horizontal flex credits, no border-top — kept as intended. Confirmed in `_goldstandard.md` overrides table under pferdt entry.
+
+---
+
+## Session C — 2026-06-17
+
+**Verdict: PASS**
+
+### What was done
+
+**C1 — Hotlink patched (1 file)**
+- `siemens-home-appliances.html`: replaced `https://wp.andtradition.com/...Freunde-von-Freunden-Friends-Space-5672-1200x1200.jpg` with `/assets/siemens/siemens-friends-space-kreuzberg.jpg` (file downloaded: 388KB).
+
+**C2 — GIF → muted-loop mp4 (7 GIFs across 6 pages)**
+- All 7 GIFs converted with ffmpeg: H.264, CRF 24, preset medium, `pix_fmt yuv420p`, `movflags +faststart`.
+- Per-GIF poster JPEGs extracted (`-ss 0.5 -vframes 1`).
+- GIF frame rates: slow animations set to `-r 10` (lewis, ad-magazine); others at default 25fps or native.
+- `ad-magazine-1.gif` (4199px wide): scaled to max 1600px.
+- HTML updated: `<img src="...gif">` → `<video muted loop playsinline preload="metadata" data-lazy poster="...jpg"><source data-src="...mp4">`.
+- Pages: `mohab-brand-identity.html`, `25hours-hotels-brand-identity.html`, `ad-magazin-web-design-art-direction.html`, `engel-volkers-web-design.html`, `lewis-group-brand-identity-web-design.html`, `ritz-carlton-berlin-brand-event.html` (2 GIFs).
+- Lazy-load verified: all 7 have `data-lazy + poster` confirmed.
+
+Size savings (GIF → mp4):
+- mohab-logo-on-photography: 6.6M → 2.3M (35%)
+- ritz-carlton-press: 1.7M → 372K (22%)
+- ritz-carlton-instagram: 872K → 188K (22%)
+- 25hours-companion: 5.6M → 1.8M (32%)
+- ad-magazine-1: 1.8M → 284K (16%, also scaled 4199→1600px)
+- engel-volkers-euv-pages: 1.7M → 656K (39%)
+- lewis-group-website-screens: 1.6M → 664K (42%)
+
+**C4 — Video re-encode (34 files replaced, 1 converted, 2 kept)**
+- Script: `/tmp/encode-videos.sh`. Spec: H.264, CRF 24, preset medium, strip audio, max 1920px, replace if < 92% of original.
+- 34 mp4/mov files replaced in-place. 2 KEPT (≥92%: pferdt-macbook-mockup-animation, architonic-summary-subs).
+- `assets/mezcla/mezcla-video-mswebsite.mov` → CONVERTED to `.mp4` (16MB → 2MB). `mezcla-brand-digital.html` updated from `.mov` to `.mp4`.
+- Notable savings: la-marzocco-film 67→49MB; mini films 32→23MB / 43→30MB; classpass-marie-luise 30→11MB; pferdt series all under 3MB (was 21–32MB each).
+
+**C3 — Image optimization (3 poster images)**
+- `architonic-at-poster-0{1,2,3}.jpg`: compressed via sips (quality 75, max 1920px). 2.4/2.1/2.0MB → 691/650/608KB (29%). WebP srcset `<picture>` wrappers added to `architonic-brand-strategy-platform-design.html` (WebP variants already existed).
+
+### Deferred / not yet done
+
+- B3 (credits conformance verification): not started.
+- B4 (loading/performance audit): not started.
+- B5 (mobile global fixes): not started.
+- B6 (container audit + `_format-audit.md`): not started.
+- Pass 4 (template + checklist verify): not started.
+- C3 full: architonic-brand-strategy-platform-design.html has ~20 more bare `src="assets/..."` (no leading slash, no srcset) — not addressed this session.
+
+### Flags for Frederik
+
+1. **`mezcla-video-mswebsite.mov`** still exists alongside the new `.mp4` — safe to delete the .mov from the repo to save ~16MB.
+2. **`architonic-brand-strategy-platform-design.html`** has ~20 bare `src="assets/..."` paths (no `/`, no srcset). Works from root but inconsistent; worth a future sweep.
+3. **GIF originals** still on disk (7 files). Safe to delete after verifying mp4 quality on-site.
