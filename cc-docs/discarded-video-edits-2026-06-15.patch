@@ -1,0 +1,101 @@
+diff --git a/25hours-hotels-brand-identity.html b/25hours-hotels-brand-identity.html
+index 107ed50..dc91fa7 100644
+--- a/25hours-hotels-brand-identity.html
++++ b/25hours-hotels-brand-identity.html
+@@ -252,16 +252,36 @@
+   </div>
+ </div>
+ <div class="cs-grid">
+-  <iframe src="https://www.youtube.com/embed/hkYCPq-9v-w" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+-  <iframe src="https://www.youtube.com/embed/3Ibs9o_AsI4" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+-  <iframe src="https://www.youtube.com/embed/2Nvt8STZCuo" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+-  <iframe src="https://www.youtube.com/embed/UUXQychHQ2U" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+-  <iframe src="https://www.youtube.com/embed/xCHm44HZ27M" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+-  <iframe src="https://www.youtube.com/embed/9HPmGCMYJnw" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+-  <iframe src="https://www.youtube.com/embed/hOP125Homuw" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+-  <iframe src="https://www.youtube.com/embed/wAbi-Hpduak" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+-  <iframe src="https://www.youtube.com/embed/_XfX4QvZX8E" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
+-  <iframe src="https://www.youtube.com/embed/K5jk6VxEYu0" title="25hours Hotels film" loading="lazy" allowfullscreen></iframe>
++  <video controls poster="/assets/25hours/25hours-film-hkYCPq-9v-w-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-hkYCPq-9v-w.mp4" type="video/mp4">
++  </video>
++  <video controls poster="/assets/25hours/25hours-film-3Ibs9o_AsI4-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-3Ibs9o_AsI4.mp4" type="video/mp4">
++  </video>
++  <video controls poster="/assets/25hours/25hours-film-2Nvt8STZCuo-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-2Nvt8STZCuo.mp4" type="video/mp4">
++  </video>
++  <video controls poster="/assets/25hours/25hours-film-UUXQychHQ2U-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-UUXQychHQ2U.mp4" type="video/mp4">
++  </video>
++  <video controls poster="/assets/25hours/25hours-film-xCHm44HZ27M-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-xCHm44HZ27M.mp4" type="video/mp4">
++  </video>
++  <video controls poster="/assets/25hours/25hours-film-9HPmGCMYJnw-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-9HPmGCMYJnw.mp4" type="video/mp4">
++  </video>
++  <video controls poster="/assets/25hours/25hours-film-hOP125Homuw-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-hOP125Homuw.mp4" type="video/mp4">
++  </video>
++  <video controls poster="/assets/25hours/25hours-film-wAbi-Hpduak-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-wAbi-Hpduak.mp4" type="video/mp4">
++  </video>
++  <video controls poster="/assets/25hours/25hours-film-_XfX4QvZX8E-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-_XfX4QvZX8E.mp4" type="video/mp4">
++  </video>
++  <video controls poster="/assets/25hours/25hours-film-K5jk6VxEYu0-poster.jpg" preload="metadata">
++    <source src="/assets/25hours/25hours-film-K5jk6VxEYu0.mp4" type="video/mp4">
++  </video>
+ </div>
+ <div class="cs-pullquote">
+   <blockquote>Every city has a story. We help 25hours tell it.</blockquote>
+diff --git a/ruinart-jeppe-hein-carte-blanche.html b/ruinart-jeppe-hein-carte-blanche.html
+index 8219ed1..ad6dffb 100644
+--- a/ruinart-jeppe-hein-carte-blanche.html
++++ b/ruinart-jeppe-hein-carte-blanche.html
+@@ -162,7 +162,7 @@
+     <p class="cs-tagline">"Right Here, Right Now."</p>
+     <p class="cs-desc">Film direction and production for Ruinart's Carte Blanche 2022, following Danish artist Jeppe Hein from the Maison's vineyards and chalk cellars to the multi-sensory installation "Right Here, Right Now."</p>
+   </div>
+-</header><div class="cs-media-full"><div class="cs-video-embed"><iframe src="https://www.youtube.com/embed/XMUFIYSwZKs" title="Ruinart x Jeppe Hein" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><div class="cs-intro"><p>Each year Ruinart hands its Carte Blanche to an artist for a fresh interpretation of the Maison's history and savoir-faire. For 2022, Danish artist Jeppe Hein translated his visit to Ruinart's vineyards, bottling plant and chalk cellars in Reims into a short film series and a participatory installation.</p><p>Direction and production followed Hein through the vineyards and cellars, capturing the textures, colours and rituals that became the raw material for "Right Here, Right Now". A piece built around the four elements at the heart of champagne making.</p></div><div class="cs-strategy">
++</header><div class="cs-media-full"><div class="cs-video-embed"><video controls poster="/assets/ruinart/ruinart-film-XMUFIYSwZKs-poster.jpg" preload="metadata"><source src="/assets/ruinart/ruinart-film-XMUFIYSwZKs.mp4" type="video/mp4"></video></div></div><div class="cs-intro"><p>Each year Ruinart hands its Carte Blanche to an artist for a fresh interpretation of the Maison's history and savoir-faire. For 2022, Danish artist Jeppe Hein translated his visit to Ruinart's vineyards, bottling plant and chalk cellars in Reims into a short film series and a participatory installation.</p><p>Direction and production followed Hein through the vineyards and cellars, capturing the textures, colours and rituals that became the raw material for "Right Here, Right Now". A piece built around the four elements at the heart of champagne making.</p></div><div class="cs-strategy">
+   <span class="cs-section-label">01 — Right Here, Right Now</span>
+   <div class="cs-strategy-intro">
+     <h2>A film built around the senses.</h2>
+diff --git a/selfnation-campaign.html b/selfnation-campaign.html
+index 860aa35..99fe046 100644
+--- a/selfnation-campaign.html
++++ b/selfnation-campaign.html
+@@ -199,7 +199,7 @@
+ 
+ <div class="cs-intro"><p>Selfnation is a high-tech jeans and chinos brand founded by a mechanical engineer and an information technologist. Their quest to find well-fitting, high-quality denim led them to start a sustainable fashion company of their own &mdash; the studio had to let people know.</p><p>MoreSleep spearheaded an editorially-driven TV and online campaign for Selfnation, with a wide variety of touchpoints and engagement levels all driving traffic directly to the point of sale.</p></div>
+ 
+-<div class="cs-media-full"><iframe src="https://www.youtube.com/embed/8Y08wnO3o9k" title="Selfnation TV spot" loading="lazy" allowfullscreen></iframe></div>
++<div class="cs-media-full"><video controls poster="/assets/selfnation/selfnation-film-8Y08wnO3o9k-poster.jpg" preload="metadata"><source src="/assets/selfnation/selfnation-film-8Y08wnO3o9k.mp4" type="video/mp4"></video></div>
+ <div class="cs-grid"><video autoplay muted loop playsinline><source src="/assets/selfnation/selfnation-banner-1.mp4" type="video/mp4"></video><picture><source type="image/webp" srcset="/assets/selfnation/selfnation-banners-1024x832-640w.webp 640w, /assets/selfnation/selfnation-banners-1024x832-1280w.webp 1280w, /assets/selfnation/selfnation-banners-1024x832-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/selfnation/selfnation-banners-1024x832.png" width="2400" height="1950" alt="Selfnation banners" loading="lazy"></picture></div>
+ 
+ <div class="cs-pullquote">
+diff --git a/usm-modular-furniture-brand-digital.html b/usm-modular-furniture-brand-digital.html
+index bda8328..86e8a6b 100644
+--- a/usm-modular-furniture-brand-digital.html
++++ b/usm-modular-furniture-brand-digital.html
+@@ -245,7 +245,7 @@
+ </div>
+ <div class="cs-grid"><picture><source type="image/webp" srcset="/assets/usm/usm-green-office-640w.webp 640w, /assets/usm/usm-green-office-1280w.webp 1280w, /assets/usm/usm-green-office-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/usm/usm-green-office.jpg" width="1600" height="985" alt="USM Modular Furniture green office" loading="lazy"></picture><picture><source type="image/webp" srcset="/assets/usm/usm-red-wall-640w.webp 640w, /assets/usm/usm-red-wall-1280w.webp 1280w, /assets/usm/usm-red-wall-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/usm/usm-red-wall.jpg" width="1282" height="854" alt="USM Modular Furniture red wall" loading="lazy"></picture></div>
+ <div class="cs-grid"><picture><source type="image/webp" srcset="/assets/usm/usm-dark-detail-640w.webp 640w, /assets/usm/usm-dark-detail-1280w.webp 1280w, /assets/usm/usm-dark-detail-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/usm/usm-dark-detail.jpg" width="1200" height="1800" alt="USM Modular Furniture dark" loading="lazy"></picture><picture><source type="image/webp" srcset="/assets/usm/usm-personality-portrait-640w.webp 640w, /assets/usm/usm-personality-portrait-1280w.webp 1280w, /assets/usm/usm-personality-portrait-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/usm/usm-personality-portrait.jpg" width="1620" height="1080" alt="USM Modular Furniture personality portrait" loading="lazy"></picture></div>
+-<div class="cs-media-full"><div style="padding:75% 0 0 0;position:relative"><iframe src="https://player.vimeo.com/video/1048609984?autoplay=1&muted=1&loop=1&background=1&h=761661" style="position:absolute;top:0;left:0;width:100%;height:100%" frameborder="0" allow="autoplay;fullscreen" allowfullscreen></iframe></div></div>
++<div class="cs-media-full"><div style="padding:75% 0 0 0;position:relative"><video controls poster="/assets/usm/usm-film-1048609984-poster.jpg" preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;object-fit:cover"><source src="/assets/usm/usm-film-1048609984.mp4" type="video/mp4"></video></div></div>
+ <div class="cs-strategy">
+   <span class="cs-section-label">01b — The Book</span>
+   <div class="cs-strategy-intro">
+@@ -292,8 +292,8 @@
+ <p>In June 2018, USM transformed the historic “Wehrmühle Biesenthal” estate north of Berlin into The WorkHouse: a six-week live-work laboratory developed with Dutch architecture firm UNStudio. We produced the full event concept, guest management, speaker programme, and media and influencer communications for the opening weekend and residency.</p>
+   </div>
+ </div>
+-<div class="cs-media-full" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><iframe src="https://www.youtube.com/embed/pJ7G6FCOiEI" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe></div>
+-<div class="cs-media-full" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><iframe src="https://www.youtube.com/embed/MkufXL7ePgU" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe></div>
++<div class="cs-media-full" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><video controls poster="/assets/usm/usm-film-pJ7G6FCOiEI-poster.jpg" preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;object-fit:cover"><source src="/assets/usm/usm-film-pJ7G6FCOiEI.mp4" type="video/mp4"></video></div>
++<div class="cs-media-full" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><video controls poster="/assets/usm/usm-film-MkufXL7ePgU-poster.jpg" preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;object-fit:cover"><source src="/assets/usm/usm-film-MkufXL7ePgU.mp4" type="video/mp4"></video></div>
+ <div class="cs-strategy">
+   <span class="cs-section-label">04b — Open House</span>
+   <div class="cs-strategy-intro">
