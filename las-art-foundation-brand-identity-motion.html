@@ -67,31 +67,7 @@
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-left">
-    <a class="nav-logo" href="/">Frederik</a>
-    <a class="nav-studio" href="/">&nbsp;Frede</a>
-  </div>
-  <div class="nav-center">
-    <div class="swatches">
-      <div class="swatch" style="background:#fff" onclick="setTheme('white',this)" title="White"></div>
-      <div class="swatch active" style="background:#111" onclick="setTheme('black',this)" title="Black"></div>
-      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)" title="Red"></div>
-    </div>
-  </div>
-  <div class="nav-right" id="navLinks">
-    <button class="nav-close" aria-label="Close menu" onclick="document.getElementById('navLinks').classList.remove('open')">×</button>
-    <ul>
-      <li><a href="/" onclick="document.getElementById('navLinks').classList.remove('open')">Home</a></li>
-      <li><a href="/work.html" onclick="document.getElementById('navLinks').classList.remove('open')">Work</a></li>
-      <li><a href="/about.html" onclick="document.getElementById('navLinks').classList.remove('open')">Information</a></li>
-      <li><a href="/about.html#contact" onclick="document.getElementById('navLinks').classList.remove('open')">Contact</a></li>
-    </ul>
-  </div>
-  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
-    <span></span><span></span>
-  </button>
-</nav>
+<div id="nav-mount"></div>
 
 
 

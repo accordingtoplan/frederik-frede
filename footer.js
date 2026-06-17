@@ -1,4 +1,46 @@
 (function() {
+  /* ─── NAV INJECTION ──────────────────────────────────── */
+  /* Synchronous — runs immediately when script parses at bottom of body.
+     nav-mount div already exists in DOM at that point. */
+  const NAV_HTML = `<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="/">Frederik</a>
+    <a class="nav-studio" href="/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch" style="background:#fff" onclick="setTheme('white',this)"></div>
+      <div class="swatch" style="background:#111" onclick="setTheme('black',this)"></div>
+      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)"></div>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <ul>
+      <button class="nav-close" aria-label="Close menu" onclick="document.getElementById('navLinks').classList.remove('open')">×</button>
+      <li><a href="/" onclick="document.getElementById('navLinks').classList.remove('open')">Home</a></li>
+      <li><a href="/work.html" onclick="document.getElementById('navLinks').classList.remove('open')">Work</a></li>
+      <li><a href="/about.html" onclick="document.getElementById('navLinks').classList.remove('open')">About</a></li>
+      <li><a href="/about.html#contact" onclick="document.getElementById('navLinks').classList.remove('open')">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span></button>
+</nav>`;
+  const navMount = document.getElementById('nav-mount');
+  if (navMount) {
+    navMount.innerHTML = NAV_HTML;
+    const path = window.location.pathname;
+    navMount.querySelectorAll('#navLinks a').forEach(function(a) {
+      const href = a.getAttribute('href');
+      if (href === '/' && (path === '/' || path === '/index.html' || path.endsWith('/index.html'))) {
+        a.classList.add('active');
+      } else if (href === '/work.html' && path.indexOf('/work') !== -1) {
+        a.classList.add('active');
+      } else if (href === '/about.html' && path.indexOf('/about') !== -1) {
+        a.classList.add('active');
+      }
+    });
+  }
+
   const FOOTER_HTML = `<div class="footer-bar">
       <div class="footer-top-row">
         <div class="footer-logo-row">
