@@ -243,3 +243,86 @@ All verified pages pass. Images render at intrinsic dimensions, no forced crops.
 ### Standing rule (update to memory)
 
 Grid/media system is now **NATURAL-RATIO**. Never add `aspect-ratio` or `object-fit:cover/fill` to `.cs-grid`, `.cs-grid-3`, `.cs-grid-wide`, `.cs-media-full` img/video selectors. iframes always keep `aspect-ratio:16/9`. `align-items:start` on grids is intentional — do not remove.
+
+---
+
+## Session D (final) — 2026-06-17
+
+**Verdict: PASS**
+
+### D1 — File renaming
+
+`_rename-map.csv` committed. Full asset audit: 2468/2468 files already comply with `[client]-[description].[ext]` convention (all start with parent directory slug). The only genuine gap was `assets/lv/` — abbreviated `lv` for Louis Vuitton.
+
+**Executed:** 6 files renamed from `assets/lv/lv-*` → `assets/louis-vuitton/louis-vuitton-employer-branding-*`. Directory `lv/` removed.
+
+**Verification table (D1):**
+
+| Old path | Old hits after rename | New hits |
+|----------|----------------------|---------|
+| assets/lv/lv-poster.jpg | 0 ✓ | 2 ✓ |
+| assets/lv/lv-showreel.mp4 | 0 ✓ | 2 ✓ |
+| assets/lv/lv-poster-*.webp (4) | 0 ✓ | correct ✓ |
+
+Pages updated: `404.html`, `index.html`, `louis-vuitton-employer-branding-campaign.html`.
+
+`assets/img/` (309 files) excluded per task instructions (per-case review deferred). YouTube-ID videos excluded per instructions.
+
+### D2 — SEO
+
+**Fixed on 6 pages:**
+- `404.html`: `<div class="nf-num">` → `<h1 class="nf-num">404</h1>`
+- `about.html`: meta description added, `<p class="intro-statement">` → `<h1>`, JSON-LD (Person schema) added
+- `imprint.html`: meta description + `noindex` added, `<div>` → `<h1 class="intro-statement">`
+- `index.html`: JSON-LD (Person + WebSite schema) added
+- `spot-asset-management-system.html`: title → "SPOT — Asset Management System — Frederik Frede"
+- `work.html`: JSON-LD (CollectionPage schema) added
+
+**Created:** `sitemap.xml` (84 URLs — all pages except 404, imprint, republish). `robots.txt` (allow all, sitemap reference). `_og-canonical-gaps.md` (all 84 pages lack OG/canonical — deferred to projects.json build pass).
+
+**All images have alt attributes.** No duplicate titles. All pages have unique `<title>` and `lang="en"`.
+
+### D3 — @font-face consolidation
+
+Both @font-face declarations (UnifrakturMaguntia, Permanent Marker) moved to top of `style.css`. Stripped from all 87 page `<style>` blocks. Empty `<style>` tags removed. No @font-face remains in any `.html` file. No aria-label issues found — all existing labels correct.
+
+### D4 — Unstacked collaborators
+
+All 12 remaining pages converted to one `<dd>` per name:
+
+| Page | Before | After |
+|------|--------|-------|
+| and-tradition-jaime-hayon.html | `Friends of Friends · Paula Prats · Emily May` | 3 × `<dd>` |
+| berlin-green-brand-identity.html | `Elias Tinchon, Tim Howard, Torsten Bergler, Valeria BK` | 4 × `<dd>` |
+| concierge-coffee-brand-web.html | `Klein Agency<br>(space design)` | 1 × `<dd>` (qualifier inline) |
+| dr-hauschka-brand-campaigns.html | `Friends of Friends · Sima Dehgani` | 2 × `<dd>` |
+| egon-zehnder-leadership-interviews.html | `Marino Coates-Chitty · Jackson Eagan · Aidan Rolls` | 3 × `<dd>` |
+| friends-of-friends-brand-identity-web.html | 5 names with `<br>` | 5 × `<dd>` |
+| iconist-ipad-app.html | `Axel Springer · Welt am Sonntag` | 2 × `<dd>` |
+| las-art-foundation-brand-identity-motion.html | `Thomas Provost, Tim Howard, Sveta Koliada, Cecilia Martin` | 4 × `<dd>` |
+| manufactum-alltagsfreude-ruth-bartlett.html | `Friends of Friends · Dan Zoubek · Serita Braxton` | 3 × `<dd>` |
+| mezcla-brand-digital.html | `Lupe García · Juan Carlos García` | 2 × `<dd>` |
+| qwstion-company-portrait.html | `Marino Coates-Chitty · Samuel Templeton · Megan Courtis` | 3 × `<dd>` |
+| usm-modular-furniture-brand-digital.html | `Friends of Friends<br>ENGN` | 2 × `<dd>` |
+
+B7 convention now complete across all pages.
+
+### Deferred to Session E
+
+- **Large image optimization**: ~50+ images without srcset across ~30 pages (see `_pre-D-audit.md §0b`). Highest priority: architonic (4.2MB), ziegert (4.7MB), selfnation (3.7MB).
+- **OG/canonical injection**: all pages need og:title, og:description, og:image, og:url, canonical — deferred to projects.json build pass (see `_og-canonical-gaps.md`). **Frederik action required:** populate projects.json with cover images and metadata.
+- **Nav → component**: moving nav markup into footer.js/nav.js is a separate focused pass (post-run backlog).
+- **orgreen-optics**: `<img src="...showreel.mp4">` — img element should be a video element (flagged in pre-D-audit).
+- **_goldstandard.md**: CSS snippets show pre-natural-ratio rules — update to reflect current system.
+
+### Summary across all sessions (A → D final)
+
+| Session | What | Commit(s) |
+|---------|------|---------|
+| A | CSS migration to style.css; 81 pages stripped | 3dd8c18, 003dd6a |
+| B | Credits stacked B7; page migrations B1/B2; pferdt dead media removed | 7f1fdc9 |
+| C | 34 videos re-encoded; 1 .mov converted; 3 poster images compressed | 99b870a, various |
+| Natural-ratio | style.css de-crop/de-stretch; 6 page overrides removed; 25 w/h attrs | e58a8d1, 7c259f8 |
+| D (this) | Collaborators B7 complete; font-face consolidated; SEO/sitemap; lv→louis-vuitton | 3a70f96 |
+
+**Site is now ready for DNS cutover** — pending Frederik's projects.json pass (OG/canonical tags).
