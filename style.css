@@ -501,7 +501,7 @@ p a:hover,
 
 /* Full-width media */
 .cs-media-full { padding: 0 48px; margin-bottom: 24px; }
-.cs-media-full img, .cs-media-full video { width: 100%; display: block; object-fit: unset; }
+.cs-media-full img, .cs-media-full video { width: 100%; height: auto; display: block; object-fit: contain; }
 .cs-media-full iframe { width: 100%; display: block; border: 0; aspect-ratio: 16/9; }
 
 /* Caption */
@@ -527,19 +527,21 @@ p a:hover,
 .cs-pullquote blockquote { font-size: clamp(28px, 5vw, 64px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; color: var(--grey-dark); margin: 0; max-width: 900px; }
 
 /* Media grids */
-.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; }
-.cs-grid img, .cs-grid video { width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3; }
+.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; align-items: start; }
+.cs-grid img, .cs-grid video,
+.cs-grid-3 img, .cs-grid-3 video,
+.cs-grid-wide img, .cs-grid-wide video {
+  width: 100%; height: auto; display: block; object-fit: contain;
+}
 .cs-grid iframe { width: 100%; display: block; border: 0; aspect-ratio: 16/9; }
-.cs-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; }
-.cs-grid-3 img, .cs-grid-3 video { width: 100%; display: block; object-fit: cover; aspect-ratio: 3/4; }
+.cs-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; align-items: start; }
 .cs-grid-wide { grid-column: span 2; }
-.cs-grid-wide img, .cs-grid-wide video { width: 100%; display: block; object-fit: cover; aspect-ratio: 16/7; }
 
 /* Figure grids — same layout as cs-grid/cs-grid-3 but for <figure class="cs-fig"> children */
 .cs-figrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; }
 .cs-figrid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; }
 .cs-fig { display: flex; flex-direction: column; gap: 10px; margin: 0; }
-.cs-fig img, .cs-fig video { width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3; border: 0; }
+.cs-fig img, .cs-fig video { width: 100%; height: auto; display: block; object-fit: contain; border: 0; }
 .cs-fig iframe { width: 100%; display: block; border: 0; aspect-ratio: 16/9; }
 .cs-fig figcaption { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; line-height: 1.4; }
 .cs-fig .cap-name { font-weight: 700; color: var(--grey-dark); }
@@ -595,7 +597,6 @@ p a:hover,
   .cs-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 20px; }
   .cs-grid-3 { grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px; }
   .cs-grid-wide { grid-column: span 1; }
-  .cs-grid-wide img, .cs-grid-wide video { aspect-ratio: 16/9; }
   .cs-figrid { grid-template-columns: 1fr; gap: 16px; padding: 0 20px; }
   .cs-figrid-3 { grid-template-columns: 1fr; gap: 16px; padding: 0 20px; }
   .cs-story-head { padding: 0 20px 16px; }
