@@ -2,6 +2,7 @@
 
 Established 2026-06-17 from `style.css` (post-pass-1-migration) and
 `architonic-brand-strategy-platform-design.html` (reference page).
+CSS snippets updated 2026-06-17 (Session E) to reflect natural-ratio system (object-fit:contain, height:auto). Do NOT add back aspect-ratio or object-fit:cover to .cs-grid/.cs-grid-3/.cs-media-full img/video.
 
 ---
 
@@ -14,23 +15,23 @@ themselves must not be redefined inline.
 ### 2-col image grid
 
 ```css
-.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; }
-.cs-grid img, .cs-grid video { width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3; }
+.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; align-items: start; }
+.cs-grid img, .cs-grid video { width: 100%; height: auto; display: block; object-fit: contain; }
 .cs-grid iframe { width: 100%; display: block; border: 0; aspect-ratio: 16/9; }
 ```
 
 ### 3-col image grid
 
 ```css
-.cs-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; }
-.cs-grid-3 img, .cs-grid-3 video { width: 100%; display: block; object-fit: cover; aspect-ratio: 3/4; }
+.cs-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 24px; padding: 0 48px; align-items: start; }
+.cs-grid-3 img, .cs-grid-3 video { width: 100%; height: auto; display: block; object-fit: contain; }
 ```
 
 ### Span-2 wide item (used inside .cs-grid)
 
 ```css
 .cs-grid-wide { grid-column: span 2; }
-.cs-grid-wide img, .cs-grid-wide video { width: 100%; display: block; object-fit: cover; aspect-ratio: 16/7; }
+.cs-grid-wide img, .cs-grid-wide video { width: 100%; height: auto; display: block; object-fit: contain; }
 ```
 
 ### 2-col figure grid (with captions)
@@ -49,7 +50,7 @@ themselves must not be redefined inline.
 
 ```css
 .cs-fig { display: flex; flex-direction: column; gap: 10px; margin: 0; }
-.cs-fig img, .cs-fig video { width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3; border: 0; }
+.cs-fig img, .cs-fig video { width: 100%; height: auto; display: block; object-fit: contain; border: 0; }
 .cs-fig iframe { width: 100%; display: block; border: 0; aspect-ratio: 16/9; }
 .cs-fig figcaption { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; line-height: 1.4; }
 .cs-fig .cap-name { font-weight: 700; color: var(--grey-dark); }
@@ -125,8 +126,10 @@ Standard fields: `Live site` (omit if no live URL), `Collaborators` (use `—` i
 
 | Page | Class(es) | Reason |
 |------|-----------|--------|
-| siemens-home-appliances.html | `.cs-grid img.land/port/natural` | per-image aspect ratio overrides |
 | siemens-home-appliances.html | `.cs-slideshow` / `.ss-*` | bespoke JS slideshow component |
 | classpass-bethebalance-campaign.html | `.cs-grid-three-land` | 3-col 3:2 landscape grid variant |
 | frederik-pferdt-personal-brand-identity.html | `.cs-credits-cols` grid variant | right-aligned stacked credits |
 | spot-asset-management-system.html | all `.cs-*` overrides | intentional design-system variant |
+| ritz-carlton-berlin-brand-event.html | `.cs-bottom`/`.cs-credits-cols` | horizontal flex credits, no border-top |
+
+Note: `.cs-grid img.land/port/natural` per-image aspect-ratio rules on siemens were **removed in Session D** — now using natural-ratio system globally. `data-theme` class attrs on imgs are inert.
