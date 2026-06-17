@@ -8,7 +8,16 @@
   <title>Frederik Frede</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="preload" as="video" href="/assets/showreel.mp4" type="video/mp4">
+  <script>
+    (function(){
+      var l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap';
+      document.head.appendChild(l);
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -595,7 +604,7 @@
     const cases = [
       { b:"Architonic",         tag:"Platform Strategy",      desc:"A global architecture platform, repositioned and rebuilt from strategy up.",
         full:true, type:"video", link:"/architonic-brand-strategy-platform-design.html",
-        src:"Architonic_HP_Video-header.mp4", poster:"/assets/architonic/architonic-poster.jpg", ratio:"ratio-wide",
+        src:"/Architonic_HP_Video-header.mp4", poster:"/assets/architonic/architonic-poster.jpg", ratio:"ratio-wide",
         year:"2023–2025", live:"architonic.com", liveHref:"https://www.architonic.com", collab:"—" },
       { b:"NZZ",                tag:"Brand & Digital",        desc:"R&D and digital transformation for Switzerland's leading media house.",
         type:"img", src:"/assets/home/home-index-nzzde-front-gerollt-21.png",
@@ -778,7 +787,7 @@
     (function(){
       var zone = document.getElementById('magZone');
       var btn  = document.getElementById('magBtn');
-      if (!zone || !btn || !cur) return;
+      if (!zone || !btn) return;
 
       var strength = 0.4;
       var cx = 0, cy = 0;
