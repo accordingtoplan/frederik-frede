@@ -56,12 +56,13 @@ Target: convert all poster JPEGs + frede-logo.png → WebP, resize to 800px max 
 - Quality: WebP q82
 - Delete original
 
-### frede-logo.png (109 KiB, displayed 26×40px — absurd ratio)
-- DECISION NEEDED: SVG preferred (ask Frederik). If PNG stays:
-  - Output: `/frede-logo.webp`
-  - Resize: 90px tall (3× retina cap for 30px display height)
-  - Quality: WebP q90 (logo needs crispness)
-  - Update `footer.js` src reference
+### frede-logo.png (109 KiB, displayed 26×40px)
+- No vector source available — compress PNG → WebP in place
+- Output: `/frede-logo.webp`
+- Resize: 90px tall (3× retina cap for ~30px display height)
+- Quality: WebP q90 (logo needs crispness)
+- Update `footer.js` src reference: `frede-logo.png` → `frede-logo.webp`
+- Delete original `frede-logo.png`
 
 ---
 
