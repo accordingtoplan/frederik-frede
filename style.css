@@ -3,6 +3,11 @@
    style.css — single source of truth for all pages
    ═══════════════════════════════════════════════════════════ */
 
+/* ─── FONTS ────────────────────────────────────────────────── */
+
+@font-face{font-family:"UnifrakturMaguntia";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/fonts/unifrakturmaguntia.woff2") format("woff2")}
+@font-face{font-family:"Permanent Marker";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/fonts/permanent-marker.woff2") format("woff2")}
+
 /* ─── TOKENS ──────────────────────────────────────────────── */
 
 :root {

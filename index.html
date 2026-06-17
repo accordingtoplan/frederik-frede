@@ -9,23 +9,7 @@
   <link rel="preload" as="font" href="/assets/fonts/unifrakturmaguntia.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="/assets/fonts/permanent-marker.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="video" href="/assets/showreel.mp4" type="video/mp4">
-  <style>
-    @font-face {
-      font-family: 'UnifrakturMaguntia';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url('/assets/fonts/unifrakturmaguntia.woff2') format('woff2');
-    }
-    @font-face {
-      font-family: 'Permanent Marker';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url('/assets/fonts/permanent-marker.woff2') format('woff2');
-    }
-  </style>
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -540,6 +524,33 @@
     }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://frederikfrede.com/#frederik-frede",
+      "name": "Frederik Frede",
+      "url": "https://frederikfrede.com",
+      "jobTitle": "Creative Director",
+      "description": "Brand strategy, identity and digital for design-led culture.",
+      "sameAs": [
+        "https://www.instagram.com/frederikfrede",
+        "https://www.linkedin.com/in/frederikfrede"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://frederikfrede.com/#website",
+      "url": "https://frederikfrede.com",
+      "name": "Frederik Frede",
+      "description": "Brand strategy, identity and digital for design-led culture.",
+      "publisher": { "@id": "https://frederikfrede.com/#frederik-frede" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -623,8 +634,8 @@
         year:"2023–2024", live:"frederikgpferdt.com", liveHref:"https://www.frederikgpferdt.com/", collab:"Stefan Schuster, Thomas Provost, Emely Wensky, Sveta Koliada" },
       { b:"Louis Vuitton",      tag:"Employer Branding", desc:"Employer branding campaign and work culture documentary across Louis Vuitton's global ateliers.",
         full:true, type:"video", link:"/louis-vuitton-employer-branding-campaign.html",
-        src:"/assets/lv/lv-showreel.mp4",
-        poster:"/assets/lv/lv-poster.jpg",
+        src:"/assets/louis-vuitton/louis-vuitton-employer-branding-showreel.mp4",
+        poster:"/assets/louis-vuitton/louis-vuitton-employer-branding-poster.jpg",
         ratio:"ratio-lvwide",
         year:"2023", live:"jobs.louisvuitton.com", liveHref:"https://jobs.louisvuitton.com/en/work-culture", collab:"—" },
       { b:"Lewis Group",         tag:"Brand & Digital", desc:"A 60-year California real estate developer, rebranded for its next chapter.",

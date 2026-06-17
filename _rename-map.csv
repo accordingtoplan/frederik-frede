@@ -1,0 +1,15 @@
+old_path,new_path,notes
+assets/lv/lv-poster-1280w.webp,assets/louis-vuitton/louis-vuitton-employer-branding-poster-1280w.webp,abbreviation lv → louis-vuitton
+assets/lv/lv-poster-2400w.webp,assets/louis-vuitton/louis-vuitton-employer-branding-poster-2400w.webp,abbreviation lv → louis-vuitton
+assets/lv/lv-poster-640w.webp,assets/louis-vuitton/louis-vuitton-employer-branding-poster-640w.webp,abbreviation lv → louis-vuitton
+assets/lv/lv-poster.jpg,assets/louis-vuitton/louis-vuitton-employer-branding-poster.jpg,abbreviation lv → louis-vuitton
+assets/lv/lv-poster.webp,assets/louis-vuitton/louis-vuitton-employer-branding-poster.webp,abbreviation lv → louis-vuitton
+assets/lv/lv-showreel.mp4,assets/louis-vuitton/louis-vuitton-employer-branding-showreel.mp4,abbreviation lv → louis-vuitton
+
+AUDIT NOTES
+-----------
+2468 other asset files were audited and already comply with [client]-[description].[ext] convention
+(all files begin with their parent directory slug as client prefix).
+The assets/img/ directory (309 files) is excluded per task instructions (per-case content review).
+YouTube-ID videos (e.g. 25hours-loop-2Nvt8STZCuo.mp4) are excluded per task instructions.
+No other renames required.
