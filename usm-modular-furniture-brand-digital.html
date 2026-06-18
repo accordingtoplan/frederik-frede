@@ -151,8 +151,8 @@
 <p>In June 2018, USM transformed the historic “Wehrmühle Biesenthal” estate north of Berlin into The WorkHouse: a six-week live-work laboratory developed with Dutch architecture firm UNStudio. The full event concept, guest management, speaker programme, and media and influencer communications for the opening weekend and residency ran through the studio.</p>
   </div>
 </div>
-<div class="cs-media-full" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><iframe src="https://www.youtube.com/embed/pJ7G6FCOiEI" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe></div>
-<div class="cs-media-full" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><iframe src="https://www.youtube.com/embed/MkufXL7ePgU" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe></div>
+<div class="cs-media-full" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><div class="yt-facade" data-id="pJ7G6FCOiEI" style="position:absolute;inset:0;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi/pJ7G6FCOiEI/hqdefault.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
+<div class="cs-media-full" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><div class="yt-facade" data-id="MkufXL7ePgU" style="position:absolute;inset:0;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi/MkufXL7ePgU/hqdefault.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
 <div class="cs-strategy">
   <span class="cs-section-label">04b — Open House</span>
   <div class="cs-strategy-intro">
@@ -207,6 +207,22 @@
 <footer>
     <div id="footer-mount"></div>
   </footer>
+<script>
+(function(){
+  document.querySelectorAll('.yt-facade').forEach(function(el){
+    el.addEventListener('click',function(){
+      var id=el.dataset.id;
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
+      iframe.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+      iframe.allowFullscreen=true;
+      iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;';
+      el.innerHTML='';
+      el.appendChild(iframe);
+    });
+  });
+})();
+</script>
   <script src="/footer.js"></script>
 
 <script>
