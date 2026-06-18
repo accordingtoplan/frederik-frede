@@ -821,6 +821,17 @@
       raf = requestAnimationFrame(animate);
     })();
   </script>
+
+<script>
+// Swap video posters to mobile-optimised version on narrow screens
+(function(){
+  if (window.innerWidth <= 640) {
+    document.querySelectorAll('video[data-poster-mobile]').forEach(function(v){
+      v.poster = v.dataset.posterMobile;
+    });
+  }
+})();
+</script>
 </body>
 </html>
 
