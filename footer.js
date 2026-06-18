@@ -81,7 +81,7 @@
   const FOOTER_HTML = `<div class="footer-bar">
       <div class="footer-top-row">
         <div class="footer-logo-row">
-          <img src="/frede-logo.png" alt="FREDE" class="footer-logo">
+          <img src="/frede-logo.webp" width="52" height="80" alt="FREDE" class="footer-logo">
           <svg class="footer-marker" viewBox="0 0 210 65" xmlns="http://www.w3.org/2000/svg" aria-label="vibecoded. with a lot of prompts.">
             <defs>
               <filter id="ink-footer">
