@@ -15,33 +15,61 @@ main{flex:1;padding:0}
 .page-hero{padding:120px 48px 56px;display:flex;justify-content:space-between;align-items:flex-end}
 .page-headline{font-size:clamp(32px,4.5vw,56px);font-weight:var(--bold);letter-spacing:-0.02em;line-height:1.05;color:var(--grey-dark);max-width:560px}
 
-/* ─── ROW GRID ──────────────────────────────────────────────────── */
-.row-grid{padding:0 48px;margin-bottom:120px}
+/* ─── CARD STREAM ────────────────────────────────────────────────── */
+/*
+  Each card has a fixed height. Width = auto → natural image ratio.
+  Cards wrap when the row is full. Gap between rows is generous.
+  Result: same-height rows, natural ratios, fully responsive.
+*/
+.row-grid{
+  padding:0 48px;
+  margin-bottom:120px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px 4px;
+  align-items:flex-end;
+}
 
-/* Each row is a CSS grid — column gap tight, row gap generous */
-.row{display:grid;column-gap:12px;margin-bottom:48px;align-items:start}
+.card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  flex-shrink:0;
+  flex-grow:0;
+}
 
-/* Row layout variants */
-.row--2eq         {grid-template-columns:1fr 1fr}
-.row--3eq         {grid-template-columns:1fr 1fr 1fr}
-.row--wide-narrow {grid-template-columns:2fr 1fr}
-.row--narrow-wide {grid-template-columns:1fr 2fr}
-.row--1full       {grid-template-columns:1fr}
-
-/* Each card */
-.card{display:block;text-decoration:none;color:inherit;cursor:pointer}
-.card-media{overflow:hidden;background:var(--bg-card)}
+.card-media{
+  overflow:hidden;
+  background:var(--bg-card);
+  height:260px;
+}
 .card-media-inner{
+  height:100%;
   transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
 }
 .card:hover .card-media-inner{transform:scale(1.03)}
 
-/* Natural ratio — no crop, no fixed height */
+/* Height fixed, width auto → natural ratio, no crop */
 .card-media-inner img{
-  width:100%;height:auto;display:block;
+  height:100%;
+  width:auto;
+  display:block;
 }
 .card-media-inner video{
-  width:100%;height:auto;display:block;object-fit:unset;
+  height:100%;
+  width:auto;
+  display:block;
+}
+
+/* Placeholder needs an explicit width since it has no intrinsic ratio */
+.card--placeholder .card-media{width:320px}
+.placeholder-tile{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:var(--t-ui);font-weight:var(--bold);
+  letter-spacing:var(--ls-ui);color:var(--grey-mid);
+  background:var(--bg-card);
 }
 
 /* Labels */
@@ -50,28 +78,23 @@ main{flex:1;padding:0}
   justify-content:space-between;
   align-items:baseline;
   gap:8px;
-  padding:10px 0 0;
+  padding:8px 0 0;
+  /* label width tracks the media width */
+  width:100%;
 }
 .card-brand{
   font-size:var(--t-ui);
   font-weight:var(--bold);
   letter-spacing:var(--ls-ui);
   color:var(--grey-dark);
+  white-space:nowrap;
 }
 .card-tag{
   font-size:var(--t-ui);
   color:var(--grey-mid);
   text-align:right;
   line-height:var(--lh-ui);
-}
-
-/* Placeholder tile */
-.placeholder-tile{
-  width:100%;min-height:240px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:var(--t-ui);font-weight:var(--bold);
-  letter-spacing:var(--ls-ui);color:var(--grey-mid);
-  background:var(--bg-card);
+  white-space:nowrap;
 }
 
 /* ─── ARCHIVE ────────────────────────────────────────────────────── */
@@ -97,9 +120,9 @@ footer{margin-top:auto}
 @media(max-width:760px){
   .page-hero{padding:80px 20px 36px;flex-direction:column;align-items:flex-start;gap:12px}
   .page-headline{font-size:clamp(28px,8vw,44px)}
-  .row-grid{padding:0 16px;margin-bottom:64px}
-  .row{margin-bottom:32px}
-  .row--2eq,.row--wide-narrow,.row--narrow-wide,.row--3eq{grid-template-columns:1fr}
+  .row-grid{padding:0 16px;margin-bottom:64px;gap:24px 3px}
+  .card-media{height:160px}
+  .card--placeholder .card-media{width:200px}
   .archive-section{padding:0 20px;margin-bottom:64px}
   .archive-grid{grid-template-columns:auto 1fr;gap:0 16px;margin-top:40px !important}
   .archive-col-label{display:none}
@@ -120,10 +143,9 @@ footer{margin-top:auto}
     <h1 class="page-headline">Some of the work.<br>And the full archive.</h1>
   </div>
 
-  <!-- ── ROW GRID (injected by JS) ── -->
   <div class="row-grid" id="row-grid"></div>
 
-  <!-- ── ARCHIVE (unchanged from work.html) ── -->
+  <!-- ── ARCHIVE (unchanged) ── -->
   <div class="archive-section">
 
     <div class="archive-grid" style="margin-top:64px">
@@ -132,362 +154,79 @@ footer{margin-top:auto}
     </div>
     <div class="archive-col-year">
       <h3>Years</h3>
-      <span class="ar-year">2024</span>
-      <span class="ar-year">2021</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2018</span>
-      <span class="ar-year">2018</span>
-      <span class="ar-year">2024</span>
-      <span class="ar-year">2024</span>
-      <span class="ar-year">2024</span>
-      <span class="ar-year">2024</span>
-      <span class="ar-year">2024</span>
-      <span class="ar-year">2024</span>
-      <span class="ar-year">2024</span>
-      <span class="ar-year">2023</span>
-      <span class="ar-year">2023</span>
-      <span class="ar-year">2023</span>
-      <span class="ar-year">2022</span>
-      <span class="ar-year">2022</span>
-      <span class="ar-year">2022</span>
-      <span class="ar-year">2022</span>
-      <span class="ar-year">2022</span>
-      <span class="ar-year">2022</span>
-      <span class="ar-year">2022</span>
-      <span class="ar-year">2021</span>
-      <span class="ar-year">2021</span>
-      <span class="ar-year">2021</span>
-      <span class="ar-year">2021</span>
-      <span class="ar-year">2021</span>
-      <span class="ar-year">2021</span>
-      <span class="ar-year">2020</span>
-      <span class="ar-year">2020</span>
-      <span class="ar-year">2020</span>
-      <span class="ar-year">2020</span>
-      <span class="ar-year">2020</span>
-      <span class="ar-year">2020</span>
-      <span class="ar-year">2020</span>
-      <span class="ar-year">2020</span>
-      <span class="ar-year">2020</span>
+      <span class="ar-year">2024</span><span class="ar-year">2021</span><span class="ar-year">2019</span><span class="ar-year">2018</span><span class="ar-year">2018</span><span class="ar-year">2024</span><span class="ar-year">2024</span><span class="ar-year">2024</span><span class="ar-year">2024</span><span class="ar-year">2024</span><span class="ar-year">2024</span><span class="ar-year">2024</span><span class="ar-year">2023</span><span class="ar-year">2023</span><span class="ar-year">2023</span><span class="ar-year">2022</span><span class="ar-year">2022</span><span class="ar-year">2022</span><span class="ar-year">2022</span><span class="ar-year">2022</span><span class="ar-year">2022</span><span class="ar-year">2022</span><span class="ar-year">2021</span><span class="ar-year">2021</span><span class="ar-year">2021</span><span class="ar-year">2021</span><span class="ar-year">2021</span><span class="ar-year">2021</span><span class="ar-year">2020</span><span class="ar-year">2020</span><span class="ar-year">2020</span><span class="ar-year">2020</span><span class="ar-year">2020</span><span class="ar-year">2020</span><span class="ar-year">2020</span><span class="ar-year">2020</span><span class="ar-year">2020</span>
     </div>
     <div class="archive-col-client">
       <h3>Client / Project</h3>
-      <span class="ar-client"><a href="/la-marzocco-friends-of-friends.html">La Marzocco</a></span>
-      <span class="ar-client"><a href="/qwstion-company-portrait.html">QWSTION</a></span>
-      <span class="ar-client"><a href="/and-tradition-jaime-hayon.html">&amp;Tradition</a></span>
-      <span class="ar-client"><a href="/manufactum-alltagsfreude-ruth-bartlett.html">Manufactum</a></span>
-      <span class="ar-client"><a href="/egon-zehnder-leadership-interviews.html">Egon Zehnder</a></span>
-      <span class="ar-client"><a href="/concierge-coffee-brand-web.html">Concierge Coffee</a></span>
-      <span class="ar-client"><a href="/lewis-group-brand-identity-web-design.html">Lewis Group of Companies</a></span>
-      <span class="ar-client"><a href="/frederik-pferdt-personal-brand-identity.html">Frederik G. Pferdt</a></span>
-      <span class="ar-client"><a href="/umane-brand-identity.html">Umane</a></span>
-      <span class="ar-client"><a href="/signal-la-brand-identity.html">Signal LA</a></span>
-      <span class="ar-client"><a href="/roots-management-brand-digital.html">Roots Management</a></span>
-      <span class="ar-client"><a href="/art-tech-report-brand-digital.html">ART+TECH Report</a></span>
-      <span class="ar-client"><a href="/las-art-foundation-brand-identity-motion.html">LAS Art Foundation</a></span>
-      <span class="ar-client"><a href="/bianca-chen-brand-identity.html">Bianca Chen</a></span>
-      <span class="ar-client"><a href="/spot-asset-management-system.html">Spot</a></span>
-      <span class="ar-client"><a href="/louis-vuitton-employer-branding-campaign.html">Louis Vuitton</a></span>
-      <span class="ar-client"><a href="/friends-of-friends-brand-identity-web.html">Friends of Friends</a></span>
-      <span class="ar-client"><a href="/wildling-regenerative-sounds.html">Wildling – Regenerative Sounds</a></span>
-      <span class="ar-client"><a href="/wirtschaftsclub-dusseldorf-web-design.html">Wirtschaftsclub Düsseldorf</a></span>
-      <span class="ar-client"><a href="/berlin-green-brand-identity.html">Berlin Green</a></span>
-      <span class="ar-client"><a href="/roterfaden-brand-digital.html">Roterfaden</a></span>
-      <span class="ar-client"><a href="/facebook-privacy-interactive.html">Facebook</a></span>
-      <span class="ar-client"><a href="/ruinart-jeppe-hein-carte-blanche.html">Ruinart</a></span>
-      <span class="ar-client"><a href="/sonos-listening-better-brand-activation.html">Sonos</a></span>
-      <span class="ar-client"><a href="/mizzuni-ecommerce-brand.html">Mizzuni</a></span>
-      <span class="ar-client"><a href="/mohab-brand-identity.html">MOHAB</a></span>
-      <span class="ar-client"><a href="/markilux-b2b-platform.html">Markilux</a></span>
-      <span class="ar-client"><a href="/usm-modular-furniture-brand-digital.html">USM Modular Furniture</a></span>
-      <span class="ar-client"><a href="/meama-brand-identity.html">Meama</a></span>
-      <span class="ar-client"><a href="/dr-hauschka-brand-campaigns.html">Dr. Hauschka</a></span>
-      <span class="ar-client"><a href="/siemens-home-appliances.html">Siemens</a></span>
-      <span class="ar-client"><a href="/classpass-bethebalance-campaign.html">ClassPass</a></span>
-      <span class="ar-client"><a href="/ace-tate-heimatbound-campaign.html">Ace &amp; Tate</a></span>
-      <span class="ar-client"><a href="/closed-editorial-portrait-series.html">Closed</a></span>
-      <span class="ar-client"><a href="/bruto-restaurant-branding.html">Brutø</a></span>
-      <span class="ar-client"><a href="/internetstores-brand-digital.html">Internetstores</a></span>
-      <span class="ar-client"><a href="/ziegert-real-estate-event.html">Ziegert</a></span>
+      <span class="ar-client"><a href="/la-marzocco-friends-of-friends.html">La Marzocco</a></span><span class="ar-client"><a href="/qwstion-company-portrait.html">QWSTION</a></span><span class="ar-client"><a href="/and-tradition-jaime-hayon.html">&amp;Tradition</a></span><span class="ar-client"><a href="/manufactum-alltagsfreude-ruth-bartlett.html">Manufactum</a></span><span class="ar-client"><a href="/egon-zehnder-leadership-interviews.html">Egon Zehnder</a></span><span class="ar-client"><a href="/concierge-coffee-brand-web.html">Concierge Coffee</a></span><span class="ar-client"><a href="/lewis-group-brand-identity-web-design.html">Lewis Group of Companies</a></span><span class="ar-client"><a href="/frederik-pferdt-personal-brand-identity.html">Frederik G. Pferdt</a></span><span class="ar-client"><a href="/umane-brand-identity.html">Umane</a></span><span class="ar-client"><a href="/signal-la-brand-identity.html">Signal LA</a></span><span class="ar-client"><a href="/roots-management-brand-digital.html">Roots Management</a></span><span class="ar-client"><a href="/art-tech-report-brand-digital.html">ART+TECH Report</a></span><span class="ar-client"><a href="/las-art-foundation-brand-identity-motion.html">LAS Art Foundation</a></span><span class="ar-client"><a href="/bianca-chen-brand-identity.html">Bianca Chen</a></span><span class="ar-client"><a href="/spot-asset-management-system.html">Spot</a></span><span class="ar-client"><a href="/louis-vuitton-employer-branding-campaign.html">Louis Vuitton</a></span><span class="ar-client"><a href="/friends-of-friends-brand-identity-web.html">Friends of Friends</a></span><span class="ar-client"><a href="/wildling-regenerative-sounds.html">Wildling – Regenerative Sounds</a></span><span class="ar-client"><a href="/wirtschaftsclub-dusseldorf-web-design.html">Wirtschaftsclub Düsseldorf</a></span><span class="ar-client"><a href="/berlin-green-brand-identity.html">Berlin Green</a></span><span class="ar-client"><a href="/roterfaden-brand-digital.html">Roterfaden</a></span><span class="ar-client"><a href="/facebook-privacy-interactive.html">Facebook</a></span><span class="ar-client"><a href="/ruinart-jeppe-hein-carte-blanche.html">Ruinart</a></span><span class="ar-client"><a href="/sonos-listening-better-brand-activation.html">Sonos</a></span><span class="ar-client"><a href="/mizzuni-ecommerce-brand.html">Mizzuni</a></span><span class="ar-client"><a href="/mohab-brand-identity.html">MOHAB</a></span><span class="ar-client"><a href="/markilux-b2b-platform.html">Markilux</a></span><span class="ar-client"><a href="/usm-modular-furniture-brand-digital.html">USM Modular Furniture</a></span><span class="ar-client"><a href="/meama-brand-identity.html">Meama</a></span><span class="ar-client"><a href="/dr-hauschka-brand-campaigns.html">Dr. Hauschka</a></span><span class="ar-client"><a href="/siemens-home-appliances.html">Siemens</a></span><span class="ar-client"><a href="/classpass-bethebalance-campaign.html">ClassPass</a></span><span class="ar-client"><a href="/ace-tate-heimatbound-campaign.html">Ace &amp; Tate</a></span><span class="ar-client"><a href="/closed-editorial-portrait-series.html">Closed</a></span><span class="ar-client"><a href="/bruto-restaurant-branding.html">Brutø</a></span><span class="ar-client"><a href="/internetstores-brand-digital.html">Internetstores</a></span><span class="ar-client"><a href="/ziegert-real-estate-event.html">Ziegert</a></span>
     </div>
     <div class="archive-col-cat">
       <h3>Service</h3>
-      <span class="ar-cat">Film &amp; Content</span>
-      <span class="ar-cat">Film &amp; Content</span>
-      <span class="ar-cat">Film &amp; Content</span>
-      <span class="ar-cat">Film &amp; Content</span>
-      <span class="ar-cat">Film &amp; Content</span>
-      <span class="ar-cat">Hospitality / Brand &amp; Digital</span>
-      <span class="ar-cat">Brand / Digital</span>
-      <span class="ar-cat">Personal Brand</span>
-      <span class="ar-cat">Brand / Identity</span>
-      <span class="ar-cat">Brand / Identity</span>
-      <span class="ar-cat">Music / Brand</span>
-      <span class="ar-cat">Publishing</span>
-      <span class="ar-cat">Arts / Culture</span>
-      <span class="ar-cat">Brand / Identity</span>
-      <span class="ar-cat">Technology</span>
-      <span class="ar-cat">Fashion / Brand</span>
-      <span class="ar-cat">Publication / Brand</span>
-      <span class="ar-cat">Music / Brand</span>
-      <span class="ar-cat">Business / Brand</span>
-      <span class="ar-cat">Technology</span>
-      <span class="ar-cat">Design / Product</span>
-      <span class="ar-cat">Technology</span>
-      <span class="ar-cat">Hospitality</span>
-      <span class="ar-cat">Technology</span>
-      <span class="ar-cat">E-Commerce</span>
-      <span class="ar-cat">Digital</span>
-      <span class="ar-cat">Real Estate</span>
-      <span class="ar-cat">Design / Product</span>
-      <span class="ar-cat">Brand / Digital</span>
-      <span class="ar-cat">Food &amp; Drink</span>
-      <span class="ar-cat">Creative Direction, Production and Editorial</span>
-      <span class="ar-cat">Creative Direction, Production and Editorial</span>
-      <span class="ar-cat">Creative Direction, Production and Editorial</span>
-      <span class="ar-cat">Creative Direction, Production and Editorial</span>
-      <span class="ar-cat">Branding</span>
-      <span class="ar-cat">Branding / Web Design</span>
-      <span class="ar-cat">Branding / Art Direction / Event / Web Design</span>
+      <span class="ar-cat">Film &amp; Content</span><span class="ar-cat">Film &amp; Content</span><span class="ar-cat">Film &amp; Content</span><span class="ar-cat">Film &amp; Content</span><span class="ar-cat">Film &amp; Content</span><span class="ar-cat">Hospitality / Brand &amp; Digital</span><span class="ar-cat">Brand / Digital</span><span class="ar-cat">Personal Brand</span><span class="ar-cat">Brand / Identity</span><span class="ar-cat">Brand / Identity</span><span class="ar-cat">Music / Brand</span><span class="ar-cat">Publishing</span><span class="ar-cat">Arts / Culture</span><span class="ar-cat">Brand / Identity</span><span class="ar-cat">Technology</span><span class="ar-cat">Fashion / Brand</span><span class="ar-cat">Publication / Brand</span><span class="ar-cat">Music / Brand</span><span class="ar-cat">Business / Brand</span><span class="ar-cat">Technology</span><span class="ar-cat">Design / Product</span><span class="ar-cat">Technology</span><span class="ar-cat">Hospitality</span><span class="ar-cat">Technology</span><span class="ar-cat">E-Commerce</span><span class="ar-cat">Digital</span><span class="ar-cat">Real Estate</span><span class="ar-cat">Design / Product</span><span class="ar-cat">Brand / Digital</span><span class="ar-cat">Food &amp; Drink</span><span class="ar-cat">Creative Direction, Production and Editorial</span><span class="ar-cat">Creative Direction, Production and Editorial</span><span class="ar-cat">Creative Direction, Production and Editorial</span><span class="ar-cat">Creative Direction, Production and Editorial</span><span class="ar-cat">Branding</span><span class="ar-cat">Branding / Web Design</span><span class="ar-cat">Branding / Art Direction / Event / Web Design</span>
     </div>
     </div>
 
     <div class="archive-grid" style="margin-top:48px">
-    <div class="archive-col-label">
-    </div>
+    <div class="archive-col-label"></div>
     <div class="archive-col-year">
       <h3>2015 — 2020</h3>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2019</span>
-      <span class="ar-year">2018</span>
-      <span class="ar-year">2018</span>
-      <span class="ar-year">2018</span>
-      <span class="ar-year">2018</span>
-      <span class="ar-year">2018</span>
-      <span class="ar-year">2018</span>
-      <span class="ar-year">2017</span>
-      <span class="ar-year">2017</span>
-      <span class="ar-year">2017</span>
-      <span class="ar-year">2017</span>
-      <span class="ar-year">2017</span>
-      <span class="ar-year">2017</span>
-      <span class="ar-year">2017</span>
-      <span class="ar-year">2017</span>
-      <span class="ar-year">2016</span>
-      <span class="ar-year">2016</span>
-            <span class="ar-year">2016</span>
-      <span class="ar-year">2016</span>
-      <span class="ar-year">2016</span>
-      <span class="ar-year">2016</span>
-      <span class="ar-year">2015</span>
-      <span class="ar-year">2015</span>
+      <span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2019</span><span class="ar-year">2018</span><span class="ar-year">2018</span><span class="ar-year">2018</span><span class="ar-year">2018</span><span class="ar-year">2018</span><span class="ar-year">2018</span><span class="ar-year">2017</span><span class="ar-year">2017</span><span class="ar-year">2017</span><span class="ar-year">2017</span><span class="ar-year">2017</span><span class="ar-year">2017</span><span class="ar-year">2017</span><span class="ar-year">2017</span><span class="ar-year">2016</span><span class="ar-year">2016</span><span class="ar-year">2016</span><span class="ar-year">2016</span><span class="ar-year">2016</span><span class="ar-year">2016</span><span class="ar-year">2015</span><span class="ar-year">2015</span>
     </div>
     <div class="archive-col-client">
       <h3>Client / Project</h3>
-      <span class="ar-client">NZZ Mediengruppe <span class="ar-coming">Coming soon</span></span>
-      <span class="ar-client"><a href="/architonic-brand-strategy-platform-design.html">Architonic</a></span>
-      <span class="ar-client"><a href="/ritz-carlton-berlin-brand-event.html">The Ritz-Carlton, Berlin</a></span>
-      <span class="ar-client"><a href="/engel-volkers-web-design.html">Engel &amp; Völkers Berlin</a></span>
-      <span class="ar-client"><a href="/episode-hotels-brand-identity.html">Episode Hotels</a></span>
-      <span class="ar-client"><a href="/wefox-web-design.html">wefox</a></span>
-      <span class="ar-client"><a href="/canyon-digital-experience-web-design.html">Canyon</a></span>
-      <span class="ar-client"><a href="/orno-pizza-branding.html">ORNO</a></span>
-      <span class="ar-client"><a href="/swayed-ai-branding.html">Swayed</a></span>
-      <span class="ar-client"><a href="/weiler-brand-identity.html">Weiler</a></span>
-      <span class="ar-client"><a href="/puro-hotels-brand-identity.html">PURO Hotels</a></span>
-      <span class="ar-client"><a href="/hay-creative-direction.html">HAY</a></span>
-      <span class="ar-client"><a href="/rooms-hotels.html">Rooms Hotels</a></span>
-      <span class="ar-client"><a href="/iac-brand-digital.html">IAC</a></span>
-      <span class="ar-client"><a href="/adidas-journeys-interactive-campaign.html">adidas</a></span>
-      <span class="ar-client"><a href="/orgreen-optics-brand-digital.html">Ørgreen Optics</a></span>
-      <span class="ar-client"><a href="/hospitality-projects-brand-identity.html">Hospitality Projects</a></span>
-      <span class="ar-client"><a href="/vitra-brand-strategy.html">Vitra</a></span>
-      <span class="ar-client"><a href="/thonet-brand-narrative.html">Thonet</a></span>
-      <span class="ar-client"><a href="/ad-magazin-web-design-art-direction.html">AD Magazin</a></span>
-      <span class="ar-client"><a href="/25hours-hotels-brand-identity.html">25hours Hotels</a></span>
-      <span class="ar-client"><a href="/grill-royal-group-brand-digital.html">Grill Royal Group</a></span>
-      <span class="ar-client"><a href="/lala-berlin-brand-digital.html">Lala Berlin</a></span>
-      <span class="ar-client"><a href="/mezcla-brand-digital.html">Mezcla</a></span>
-      <span class="ar-client"><a href="/selfnation-campaign.html">Selfnation</a></span>
-      <span class="ar-client"><a href="/mini-the-sooner-now-brand-campaign.html">MINI</a></span>
-      <span class="ar-client">&amp;Tradition</span>
-            <span class="ar-client"><a href="/hotel-berlin-you-me-campaign.html">Hotel Berlin, Berlin</a></span>
-      <span class="ar-client"><a href="/mauermuseum-web-design.html">Mauermuseum</a></span>
-      <span class="ar-client"><a href="/bmw-brand-campaign-art-direction.html">BMW</a></span>
-      <span class="ar-client"><a href="/bolon-web-design.html">Bolon</a></span>
-      <span class="ar-client">MoreSleep</span>
-      <span class="ar-client"><a href="/aleo-solar-brand-digital.html">aleo solar</a></span>
+      <span class="ar-client">NZZ Mediengruppe <span class="ar-coming">Coming soon</span></span><span class="ar-client"><a href="/architonic-brand-strategy-platform-design.html">Architonic</a></span><span class="ar-client"><a href="/ritz-carlton-berlin-brand-event.html">The Ritz-Carlton, Berlin</a></span><span class="ar-client"><a href="/engel-volkers-web-design.html">Engel &amp; Völkers Berlin</a></span><span class="ar-client"><a href="/episode-hotels-brand-identity.html">Episode Hotels</a></span><span class="ar-client"><a href="/wefox-web-design.html">wefox</a></span><span class="ar-client"><a href="/canyon-digital-experience-web-design.html">Canyon</a></span><span class="ar-client"><a href="/orno-pizza-branding.html">ORNO</a></span><span class="ar-client"><a href="/swayed-ai-branding.html">Swayed</a></span><span class="ar-client"><a href="/weiler-brand-identity.html">Weiler</a></span><span class="ar-client"><a href="/puro-hotels-brand-identity.html">PURO Hotels</a></span><span class="ar-client"><a href="/hay-creative-direction.html">HAY</a></span><span class="ar-client"><a href="/rooms-hotels.html">Rooms Hotels</a></span><span class="ar-client"><a href="/iac-brand-digital.html">IAC</a></span><span class="ar-client"><a href="/adidas-journeys-interactive-campaign.html">adidas</a></span><span class="ar-client"><a href="/orgreen-optics-brand-digital.html">Ørgreen Optics</a></span><span class="ar-client"><a href="/hospitality-projects-brand-identity.html">Hospitality Projects</a></span><span class="ar-client"><a href="/vitra-brand-strategy.html">Vitra</a></span><span class="ar-client"><a href="/thonet-brand-narrative.html">Thonet</a></span><span class="ar-client"><a href="/ad-magazin-web-design-art-direction.html">AD Magazin</a></span><span class="ar-client"><a href="/25hours-hotels-brand-identity.html">25hours Hotels</a></span><span class="ar-client"><a href="/grill-royal-group-brand-digital.html">Grill Royal Group</a></span><span class="ar-client"><a href="/lala-berlin-brand-digital.html">Lala Berlin</a></span><span class="ar-client"><a href="/mezcla-brand-digital.html">Mezcla</a></span><span class="ar-client"><a href="/selfnation-campaign.html">Selfnation</a></span><span class="ar-client"><a href="/mini-the-sooner-now-brand-campaign.html">MINI</a></span><span class="ar-client">&amp;Tradition</span><span class="ar-client"><a href="/hotel-berlin-you-me-campaign.html">Hotel Berlin, Berlin</a></span><span class="ar-client"><a href="/mauermuseum-web-design.html">Mauermuseum</a></span><span class="ar-client"><a href="/bmw-brand-campaign-art-direction.html">BMW</a></span><span class="ar-client"><a href="/bolon-web-design.html">Bolon</a></span><span class="ar-client">MoreSleep</span><span class="ar-client"><a href="/aleo-solar-brand-digital.html">aleo solar</a></span>
     </div>
     <div class="archive-col-cat">
       <h3>Service</h3>
-      <span class="ar-cat">Media / Publishing</span>
-      <span class="ar-cat">Architecture / Digital</span>
-      <span class="ar-cat">Hospitality</span>
-      <span class="ar-cat">Real Estate</span>
-      <span class="ar-cat">Hospitality</span>
-      <span class="ar-cat">Technology</span>
-      <span class="ar-cat">Sport / Digital</span>
-      <span class="ar-cat">Branding / Web Design</span>
-      <span class="ar-cat">Branding / Web Design</span>
-      <span class="ar-cat">Editorial / Web Design / Branding</span>
-      <span class="ar-cat">Branding / Art Direction / Editorial</span>
-      <span class="ar-cat">Design / Furniture</span>
-      <span class="ar-cat">Hospitality</span>
-      <span class="ar-cat">Hospitality / Lifestyle</span>
-      <span class="ar-cat">Sport / Fashion</span>
-      <span class="ar-cat">Fashion / Design</span>
-      <span class="ar-cat">Hospitality</span>
-      <span class="ar-cat">Design / Furniture</span>
-      <span class="ar-cat">Design / Furniture</span>
-      <span class="ar-cat">Media / Publishing</span>
-      <span class="ar-cat">Hospitality</span>
-      <span class="ar-cat">Food &amp; Drink</span>
-      <span class="ar-cat">Web Design / Branding</span>
-      <span class="ar-cat">Strategy / Editorial</span>
-      <span class="ar-cat">Fashion</span>
-      <span class="ar-cat">Automotive</span>
-      <span class="ar-cat">Design / Furniture</span>
-            <span class="ar-cat">Hospitality</span>
-      <span class="ar-cat">Culture / Museum</span>
-      <span class="ar-cat">Automotive</span>
-      <span class="ar-cat">Design / Textile</span>
-      <span class="ar-cat">Studio</span>
-      <span class="ar-cat">Technology</span>
+      <span class="ar-cat">Media / Publishing</span><span class="ar-cat">Architecture / Digital</span><span class="ar-cat">Hospitality</span><span class="ar-cat">Real Estate</span><span class="ar-cat">Hospitality</span><span class="ar-cat">Technology</span><span class="ar-cat">Sport / Digital</span><span class="ar-cat">Branding / Web Design</span><span class="ar-cat">Branding / Web Design</span><span class="ar-cat">Editorial / Web Design / Branding</span><span class="ar-cat">Branding / Art Direction / Editorial</span><span class="ar-cat">Design / Furniture</span><span class="ar-cat">Hospitality</span><span class="ar-cat">Hospitality / Lifestyle</span><span class="ar-cat">Sport / Fashion</span><span class="ar-cat">Fashion / Design</span><span class="ar-cat">Hospitality</span><span class="ar-cat">Design / Furniture</span><span class="ar-cat">Design / Furniture</span><span class="ar-cat">Media / Publishing</span><span class="ar-cat">Hospitality</span><span class="ar-cat">Food &amp; Drink</span><span class="ar-cat">Web Design / Branding</span><span class="ar-cat">Strategy / Editorial</span><span class="ar-cat">Fashion</span><span class="ar-cat">Automotive</span><span class="ar-cat">Design / Furniture</span><span class="ar-cat">Hospitality</span><span class="ar-cat">Culture / Museum</span><span class="ar-cat">Automotive</span><span class="ar-cat">Design / Textile</span><span class="ar-cat">Studio</span><span class="ar-cat">Technology</span>
     </div>
     </div>
 
     <div class="archive-grid" style="margin-top:48px">
-    <div class="archive-col-label">
-    </div>
+    <div class="archive-col-label"></div>
     <div class="archive-col-year">
       <h3>2009 — 2015</h3>
-      <span class="ar-year">2015</span>
-      <span class="ar-year">2014</span>
-      <span class="ar-year">2013</span>
-      <span class="ar-year">2013</span>
-      <span class="ar-year">2012</span>
-      <span class="ar-year">2011</span>
-      <span class="ar-year">2010</span>
-      <span class="ar-year">2009</span>
+      <span class="ar-year">2015</span><span class="ar-year">2014</span><span class="ar-year">2013</span><span class="ar-year">2013</span><span class="ar-year">2012</span><span class="ar-year">2011</span><span class="ar-year">2010</span><span class="ar-year">2009</span>
     </div>
     <div class="archive-col-client">
       <h3>Client / Project</h3>
-      <span class="ar-client">Freunde von Freunden — Book Vol. 2</span>
-      <span class="ar-client"><a href="/fvf-friends-space-apartment.html">FvF Friends Space</a></span>
-      <span class="ar-client">Neubau Welt</span>
-      <span class="ar-client"><a href="/fvf-ipad-magazine.html">Friends of Friends iPad Magazine</a></span>
-      <span class="ar-client">Freunde von Freunden — Book Vol. 1</span>
-      <span class="ar-client">Geist Knt &amp; Geist Rnd</span>
-      <span class="ar-client"><a href="/iconist-ipad-app.html">Iconist</a></span>
-      <span class="ar-client">Freunde von Freunden</span>
+      <span class="ar-client">Freunde von Freunden — Book Vol. 2</span><span class="ar-client"><a href="/fvf-friends-space-apartment.html">FvF Friends Space</a></span><span class="ar-client">Neubau Welt</span><span class="ar-client"><a href="/fvf-ipad-magazine.html">Friends of Friends iPad Magazine</a></span><span class="ar-client">Freunde von Freunden — Book Vol. 1</span><span class="ar-client">Geist Knt &amp; Geist Rnd</span><span class="ar-client"><a href="/iconist-ipad-app.html">Iconist</a></span><span class="ar-client">Freunde von Freunden</span>
     </div>
     <div class="archive-col-cat">
       <h3>Service</h3>
-      <span class="ar-cat">Publishing</span>
-      <span class="ar-cat">Space / Culture</span>
-      <span class="ar-cat">Publishing</span>
-      <span class="ar-cat">App &amp; Digital Publishing</span>
-      <span class="ar-cat">Publishing</span>
-      <span class="ar-cat">Type Design</span>
-      <span class="ar-cat">App &amp; Digital Publishing</span>
-      <span class="ar-cat">Publishing / Brand</span>
+      <span class="ar-cat">Publishing</span><span class="ar-cat">Space / Culture</span><span class="ar-cat">Publishing</span><span class="ar-cat">App &amp; Digital Publishing</span><span class="ar-cat">Publishing</span><span class="ar-cat">Type Design</span><span class="ar-cat">App &amp; Digital Publishing</span><span class="ar-cat">Publishing / Brand</span>
     </div>
     </div>
 
     <div class="archive-grid" style="margin-top:48px">
-    <div class="archive-col-label">
-    </div>
+    <div class="archive-col-label"></div>
     <div class="archive-col-year">
       <h3>2003 — 2009</h3>
-      <span class="ar-year">2008</span>
-      <span class="ar-year">2007</span>
-      <span class="ar-year">2006</span>
-      <span class="ar-year">2005</span>
-      <span class="ar-year">2003</span>
+      <span class="ar-year">2008</span><span class="ar-year">2007</span><span class="ar-year">2006</span><span class="ar-year">2005</span><span class="ar-year">2003</span>
     </div>
     <div class="archive-col-client">
       <h3>Client / Project</h3>
-      <span class="ar-client">MINI</span>
-      <span class="ar-client">Mercedes-Benz</span>
-      <span class="ar-client">BMW</span>
-      <span class="ar-client">Nissan</span>
-      <span class="ar-client">TBWA</span>
+      <span class="ar-client">MINI</span><span class="ar-client">Mercedes-Benz</span><span class="ar-client">BMW</span><span class="ar-client">Nissan</span><span class="ar-client">TBWA</span>
     </div>
     <div class="archive-col-cat">
       <h3>Service</h3>
-      <span class="ar-cat">Automotive</span>
-      <span class="ar-cat">Automotive</span>
-      <span class="ar-cat">Automotive</span>
-      <span class="ar-cat">Automotive</span>
-      <span class="ar-cat">Agency</span>
+      <span class="ar-cat">Automotive</span><span class="ar-cat">Automotive</span><span class="ar-cat">Automotive</span><span class="ar-cat">Automotive</span><span class="ar-cat">Agency</span>
     </div>
     </div>
 
     <div class="archive-grid" style="margin-top:48px">
-    <div class="archive-col-label">
-    </div>
+    <div class="archive-col-label"></div>
     <div class="archive-col-year">
       <h3>1995 — 2003</h3>
-      <span class="ar-year">2001</span>
-      <span class="ar-year">2006</span>
-      <span class="ar-year">2006</span>
-      <span class="ar-year">2006</span>
-      <span class="ar-year">2005</span>
-      <span class="ar-year">2005</span>
-      <span class="ar-year">2005</span>
-      <span class="ar-year">2005</span>
-      <span class="ar-year">2004</span>
-      <span class="ar-year">2004</span>
-      <span class="ar-year">2004</span>
-      <span class="ar-year">2003</span>
-      <span class="ar-year">2003</span>
-      <span class="ar-year">2002</span>
-      <span class="ar-year">2002</span>
+      <span class="ar-year">2001</span><span class="ar-year">2006</span><span class="ar-year">2006</span><span class="ar-year">2006</span><span class="ar-year">2005</span><span class="ar-year">2005</span><span class="ar-year">2005</span><span class="ar-year">2005</span><span class="ar-year">2004</span><span class="ar-year">2004</span><span class="ar-year">2004</span><span class="ar-year">2003</span><span class="ar-year">2003</span><span class="ar-year">2002</span><span class="ar-year">2002</span>
     </div>
     <div class="archive-col-client">
       <h3>Client / Project</h3>
-      <span class="ar-client">Universal Music</span>
-      <span class="ar-client"><a href="/smithgroup-shanghai.html">SmithGroup Shanghai</a></span>
-      <span class="ar-client"><a href="/neubau-welt.html">Neubau Welt / Die Gestalten Verlag</a></span>
-      <span class="ar-client"><a href="/ingo-robin.html">Ingo Robin</a></span>
-      <span class="ar-client"><a href="/sisi-wasabi.html">Sisi Wasabi</a></span>
-      <span class="ar-client"><a href="/anja-wiroth.html">Anja Wiroth</a></span>
-      <span class="ar-client"><a href="/prg-ingenieure.html">PRG Ingenieure</a></span>
-      <span class="ar-client"><a href="/carhartt.html">Carhartt Europe</a></span>
-      <span class="ar-client"><a href="/grimetime-berlin.html">Grimetime Berlin</a></span>
-      <span class="ar-client"><a href="/seppuku-industries.html">Seppuku Industries</a></span>
-      <span class="ar-client"><a href="/watergate-club.html">Watergate Club</a></span>
-      <span class="ar-client"><a href="/hardedged-recordings.html">hard:edged Recordings</a></span>
-      <span class="ar-client"><a href="/republish.html">Republish</a></span>
-      <span class="ar-client">Ministry of Sound</span>
-      <span class="ar-client">Covers, Logos, Flyers</span>
+      <span class="ar-client">Universal Music</span><span class="ar-client"><a href="/smithgroup-shanghai.html">SmithGroup Shanghai</a></span><span class="ar-client"><a href="/neubau-welt.html">Neubau Welt / Die Gestalten Verlag</a></span><span class="ar-client"><a href="/ingo-robin.html">Ingo Robin</a></span><span class="ar-client"><a href="/sisi-wasabi.html">Sisi Wasabi</a></span><span class="ar-client"><a href="/anja-wiroth.html">Anja Wiroth</a></span><span class="ar-client"><a href="/prg-ingenieure.html">PRG Ingenieure</a></span><span class="ar-client"><a href="/carhartt.html">Carhartt Europe</a></span><span class="ar-client"><a href="/grimetime-berlin.html">Grimetime Berlin</a></span><span class="ar-client"><a href="/seppuku-industries.html">Seppuku Industries</a></span><span class="ar-client"><a href="/watergate-club.html">Watergate Club</a></span><span class="ar-client"><a href="/hardedged-recordings.html">hard:edged Recordings</a></span><span class="ar-client"><a href="/republish.html">Republish</a></span><span class="ar-client">Ministry of Sound</span><span class="ar-client">Covers, Logos, Flyers</span>
     </div>
     <div class="archive-col-cat">
       <h3>Service</h3>
-      <span class="ar-cat">Music / Print</span>
-      <span class="ar-cat">Creative Direction / Publishing</span>
-      <span class="ar-cat">Concept / Illustration / Photography</span>
-      <span class="ar-cat">Identity / Print / Prepress</span>
-      <span class="ar-cat">Art Direction / Lookbook</span>
-      <span class="ar-cat">Identity / Web</span>
-      <span class="ar-cat">Identity / Web / Print</span>
-      <span class="ar-cat">Identity / Web / Print</span>
-      <span class="ar-cat">Identity / Print / Web</span>
-      <span class="ar-cat">Identity / Screenprint</span>
-      <span class="ar-cat">Identity / Web / Print</span>
-      <span class="ar-cat">Identity / Print</span>
-      <span class="ar-cat">Identity / Web</span>
-      <span class="ar-cat">Art Direction / Cover Design</span>
-      <span class="ar-cat">Graphic Design</span>
+      <span class="ar-cat">Music / Print</span><span class="ar-cat">Creative Direction / Publishing</span><span class="ar-cat">Concept / Illustration / Photography</span><span class="ar-cat">Identity / Print / Prepress</span><span class="ar-cat">Art Direction / Lookbook</span><span class="ar-cat">Identity / Web</span><span class="ar-cat">Identity / Web / Print</span><span class="ar-cat">Identity / Web / Print</span><span class="ar-cat">Identity / Print / Web</span><span class="ar-cat">Identity / Screenprint</span><span class="ar-cat">Identity / Web / Print</span><span class="ar-cat">Identity / Print</span><span class="ar-cat">Identity / Web</span><span class="ar-cat">Art Direction / Cover Design</span><span class="ar-cat">Graphic Design</span>
     </div>
     </div>
   </div>
@@ -501,11 +240,12 @@ footer{margin-top:auto}
 
 <script>
 /*
-  ROW-BASED HORIZONTAL GRID — JW Anderson style
-  ─────────────────────────────────────────────
-  Each row is a CSS grid row with a fixed height.
-  Cards crop to fill their slot (object-fit:cover).
-  Row layouts are hand-sequenced for editorial rhythm.
+  CARD STREAM — same-height, natural-ratio, responsive wrapping
+  ─────────────────────────────────────────────────────────────
+  All cards share one fixed height (set in CSS: .card-media height).
+  Each image/video renders at height:100%, width:auto → natural ratio.
+  Cards flow left-to-right, wrap when row is full.
+  No fixed columns. Fully responsive.
 */
 
 const projects = [
@@ -560,69 +300,37 @@ const projects = [
   { b:"Visit California",    t:"Campaign & Content",        type:"placeholder" },
 ];
 
-/*
-  Row sequence — hand-edited for rhythm.
-  Each row: { layout, height, items: [indices] }
-  layout: "2eq" | "3eq" | "wide-narrow" | "narrow-wide" | "1full"
-  height: "tall" | "mid" | "short" | "port"
-*/
-const rows = [
-  { layout:"1full",       items:[0]    },  // Architonic — wide solo opener
-  { layout:"wide-narrow", items:[4,1]  },  // Lewis (video) + Pferdt (video portrait)
-  { layout:"3eq",         items:[8,7,11] },// Ritz + USM + Vitra
-  { layout:"narrow-wide", items:[2,3]  },  // wefox portrait + LAS (video)
-  { layout:"2eq",         items:[6,12] },  // Engel & Völkers + FoF iphone wide
-  { layout:"3eq",         items:[10,9,13] },// Canyon + Episode + Ørgreen portrait
-  { layout:"wide-narrow", items:[19,14] },  // HAY + MINI portrait
-  { layout:"3eq",         items:[16,20,17] },// Thonet + SPOT + IAC portrait
-  { layout:"2eq",         items:[18,21] },  // 25hours + Rooms portrait
-  { layout:"3eq",         items:[22,23,15] },// adidas + BMW + Neubau Welt
-  { layout:"2eq",         items:[24,5]  },  // Visit California placeholder + AD Magazin
-];
-
-function makeCard(p) {
-  const el = p.link ? document.createElement('a') : document.createElement('div');
-  el.className = 'card';
-  if (p.link) { el.href = p.link; el.style.cssText = 'text-decoration:none;color:inherit;'; }
-
-  let mediaInner = '';
-  if (p.type === 'img' && p.src) {
-    mediaInner = `<img src="${p.src}" alt="${p.b}" loading="lazy">`;
-  } else if (p.type === 'video' && p.src) {
-    mediaInner = `<video autoplay muted loop playsinline><source src="${p.src}" type="video/mp4"></video>`;
-  } else {
-    mediaInner = `<div class="placeholder-tile">${p.b}</div>`;
-  }
-
-  el.innerHTML = `
-    <div class="card-media">
-      <div class="card-media-inner">${mediaInner}</div>
-    </div>
-    <div class="card-info">
-      <span class="card-brand">${p.b}</span>
-      <span class="card-tag">${p.t}</span>
-    </div>`;
-  return el;
-}
-
-function buildRows() {
+function buildCards() {
   const container = document.getElementById('row-grid');
 
-  rows.forEach(row => {
-    const rowEl = document.createElement('div');
-    rowEl.className = `row row--${row.layout}`;
+  projects.forEach(p => {
+    const el = p.link ? document.createElement('a') : document.createElement('div');
+    el.className = 'card' + (p.type === 'placeholder' ? ' card--placeholder' : '');
+    if (p.link) { el.href = p.link; }
 
-    row.items.forEach(idx => {
-      const p = projects[idx];
-      if (!p) return;
-      rowEl.appendChild(makeCard(p));
-    });
+    let mediaInner = '';
+    if (p.type === 'img' && p.src) {
+      mediaInner = `<img src="${p.src}" alt="${p.b}" loading="lazy">`;
+    } else if (p.type === 'video' && p.src) {
+      mediaInner = `<video autoplay muted loop playsinline><source src="${p.src}" type="video/mp4"></video>`;
+    } else {
+      mediaInner = `<div class="placeholder-tile">${p.b}</div>`;
+    }
 
-    container.appendChild(rowEl);
+    el.innerHTML = `
+      <div class="card-media">
+        <div class="card-media-inner">${mediaInner}</div>
+      </div>
+      <div class="card-info">
+        <span class="card-brand">${p.b}</span>
+        <span class="card-tag">${p.t}</span>
+      </div>`;
+
+    container.appendChild(el);
   });
 }
 
-buildRows();
+buildCards();
 </script>
 
 <script>
