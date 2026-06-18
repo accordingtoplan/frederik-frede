@@ -692,7 +692,7 @@
           else tileAttrs = `style="background-image:url('${c.bg}');background-size:cover;background-position:center"`;
         }
         const imgClass = c.logoClass ? `class="${c.logoClass}"` : '';
-        media = `<div class="case-media ${ratio}"><div class="logo-tile ${c.bg && !c.bg.startsWith('#') ? c.bg+'-tile' : ''}" ${tileAttrs}><img src="${c.src}" alt="${c.b}" ${imgClass}></div></div>`;
+        media = `<div class="case-media ${ratio}"><div class="logo-tile ${c.bg && !c.bg.startsWith('#') ? c.bg+'-tile' : ''}" ${tileAttrs}><img src="${c.src}" alt="${c.b}" ${imgClass} style="max-width:160px;height:auto"></div></div>`;
       } else {
         media = `<div class="case-media ${ratio}"><div class="placeholder-tile"><span>${c.b}</span></div></div>`;
       }
