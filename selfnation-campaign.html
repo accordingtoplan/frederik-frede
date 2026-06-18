@@ -81,7 +81,7 @@
 
 <div class="cs-intro"><p>Selfnation is a high-tech jeans and chinos brand founded by a mechanical engineer and an information technologist. Their quest to find well-fitting, high-quality denim led them to start a sustainable fashion company of their own &mdash; the studio had to let people know.</p><p>MoreSleep spearheaded an editorially-driven TV and online campaign for Selfnation, with a wide variety of touchpoints and engagement levels all driving traffic directly to the point of sale.</p></div>
 
-<div class="cs-media-full"><iframe src="https://www.youtube.com/embed/8Y08wnO3o9k" title="Selfnation TV spot" loading="lazy" allowfullscreen></iframe></div>
+<div class="cs-media-full"><div class="yt-facade" data-id="8Y08wnO3o9k" style="position:relative;cursor:pointer;background:#000;aspect-ratio:16/9;"><img src="https://i.ytimg.com/vi/8Y08wnO3o9k/hqdefault.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
 <div class="cs-grid"><video autoplay muted loop playsinline preload="auto" fetchpriority="high" poster="/assets/selfnation/selfnation-banner-1-poster.jpg"><source src="/assets/selfnation/selfnation-banner-1.mp4" type="video/mp4"></video><picture><source type="image/webp" srcset="/assets/selfnation/selfnation-banners-1024x832-640w.webp 640w, /assets/selfnation/selfnation-banners-1024x832-1280w.webp 1280w, /assets/selfnation/selfnation-banners-1024x832-2400w.webp 2400w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/selfnation/selfnation-banners-1024x832.webp" width="2400" height="1950" alt="Selfnation banners" loading="lazy"></picture></div>
 
 <div class="cs-pullquote">
@@ -112,6 +112,22 @@
 <footer>
     <div id="footer-mount"></div>
   </footer>
+<script>
+(function(){
+  document.querySelectorAll('.yt-facade').forEach(function(el){
+    el.addEventListener('click',function(){
+      var id=el.dataset.id;
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
+      iframe.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+      iframe.allowFullscreen=true;
+      iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;';
+      el.innerHTML='';
+      el.appendChild(iframe);
+    });
+  });
+})();
+</script>
   <script src="/footer.js"></script>
 <script>
   const themes={white:{bg:'#fff',card:'#f5f3f1',fg:'#4a4540',mid:'#7a7470',light:'#a8a39f',border:'#c8c3be'},black:{bg:'#111',card:'#1a1a1a',fg:'#fff',mid:'rgba(255,255,255,0.55)',light:'rgba(255,255,255,0.30)',border:'rgba(255,255,255,0.12)'},signal:{bg:'#e63222',card:'#cc2b1d',fg:'#000',mid:'rgba(0,0,0,0.55)',light:'rgba(0,0,0,0.35)',border:'transparent'}};
