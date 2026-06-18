@@ -102,19 +102,19 @@ main{flex:1;padding:0}
   gap:2px;
   margin-left:10px;
   padding-left:10px;
-  border-left:1px solid var(--border);
+  border-left:1px solid rgba(128,128,128,0.25);
 }
 .layout-btn{
   display:flex;align-items:center;justify-content:center;
   width:26px;height:26px;
   border:none;background:none;cursor:pointer;
   padding:0;
-  color:var(--grey-dark);
-  opacity:0.3;
+  color:var(--grey-mid);
+  opacity:0.45;
   transition:opacity 0.15s;
 }
-.layout-btn:hover{opacity:0.65}
-.layout-btn.active{opacity:1}
+.layout-btn:hover{opacity:0.8}
+.layout-btn.active{opacity:1;color:var(--grey-dark)}
 .layout-btn svg{display:block}
 
 /* ─── GRID VIEW (2-col masonry-style) ───────────────────────────── */
@@ -284,8 +284,8 @@ footer{margin-top:auto}
 // Inject layout toggle buttons into the nav-center (next to swatches)
 (function injectLayoutToggle() {
   function inject() {
-    const center = document.querySelector('.nav-center');
-    if (!center) return;
+    const swatches = document.querySelector('.nav-center .swatches');
+    if (!swatches) return;
     const btns = document.createElement('div');
     btns.className = 'layout-btns';
     btns.innerHTML = \`
@@ -304,10 +304,10 @@ footer{margin-top:auto}
           <rect x="9" y="9" width="7" height="7" rx="0.5" fill="currentColor"/>
         </svg>
       </button>\`;
-    center.appendChild(btns);
+    swatches.insertAdjacentElement('afterend', btns);
   }
   // footer.js is synchronous so nav exists immediately — but just in case:
-  if (document.querySelector('.nav-center')) { inject(); }
+  if (document.querySelector('.nav-center .swatches')) { inject(); }
   else { document.addEventListener('DOMContentLoaded', inject); }
 })();
 </script>
