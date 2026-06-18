@@ -94,6 +94,75 @@ main{flex:1;padding:0}
   line-height:1.3;
 }
 
+
+/* ─── CONTROLS BAR ───────────────────────────────────────────────── */
+.controls{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:0 48px 40px;
+}
+.ctrl-group{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.ctrl-divider{
+  width:1px;height:16px;
+  background:var(--border);
+  margin:0 4px;
+}
+
+/* Layout toggle buttons */
+.layout-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:28px;height:28px;
+  border:none;background:none;cursor:pointer;
+  border-radius:4px;
+  padding:0;
+  opacity:0.35;
+  transition:opacity 0.15s;
+}
+.layout-btn:hover{opacity:0.7}
+.layout-btn.active{opacity:1}
+.layout-btn svg{display:block}
+
+/* Colour swatches */
+.swatch{
+  width:16px;height:16px;
+  border-radius:50%;
+  border:1.5px solid transparent;
+  cursor:pointer;
+  transition:border-color 0.15s;
+  flex-shrink:0;
+}
+.swatch.active{border-color:var(--grey-dark)}
+.swatch-white{background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.15)}
+.swatch-black{background:#111}
+.swatch-red{background:#e63222}
+
+/* ─── GRID VIEW (2-col masonry-style) ───────────────────────────── */
+.row-grid.view-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px 24px;
+  flex-wrap:unset;
+  align-items:start;
+}
+.row-grid.view-grid .card{
+  height:auto;
+  flex-shrink:unset;
+  flex-grow:unset;
+}
+.row-grid.view-grid .card-media{
+  height:auto;
+}
+.row-grid.view-grid .card-media-inner img,
+.row-grid.view-grid .card-media-inner video{
+  width:100%;height:auto;
+  object-fit:unset;
+}
+
 /* ─── ARCHIVE ────────────────────────────────────────────────────── */
 .archive-section{margin-bottom:96px;padding:0 48px}
 .archive-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 24px;align-items:start;margin-top:64px}
@@ -138,6 +207,34 @@ footer{margin-top:auto}
 
   <div class="page-hero">
     <h1 class="page-headline">Some of the work.<br>And the full archive.</h1>
+  </div>
+
+  <div class="controls">
+    <div class="ctrl-group">
+      <!-- Stream view: horizontal bars -->
+      <button class="layout-btn active" id="btn-stream" onclick="setLayout('stream',this)" title="Stream view">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="2" width="16" height="4" rx="1" fill="currentColor"/>
+          <rect x="1" y="8" width="16" height="4" rx="1" fill="currentColor"/>
+          <rect x="1" y="14" width="16" height="2" rx="1" fill="currentColor"/>
+        </svg>
+      </button>
+      <!-- Grid view: 2×2 blocks -->
+      <button class="layout-btn" id="btn-grid" onclick="setLayout('grid',this)" title="Grid view">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="7" height="7" rx="1" fill="currentColor"/>
+          <rect x="10" y="1" width="7" height="7" rx="1" fill="currentColor"/>
+          <rect x="1" y="10" width="7" height="7" rx="1" fill="currentColor"/>
+          <rect x="10" y="10" width="7" height="7" rx="1" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <div class="ctrl-divider"></div>
+    <div class="ctrl-group">
+      <div class="swatch swatch-black" onclick="setTheme('black',this)" title="Dark"></div>
+      <div class="swatch swatch-white" onclick="setTheme('white',this)" title="Light"></div>
+      <div class="swatch swatch-red" onclick="setTheme('signal',this)" title="Signal"></div>
+    </div>
   </div>
 
   <div class="row-grid" id="row-grid"></div>
@@ -348,6 +445,18 @@ buildCards();
     if (el) el.classList.add('active');
   }
   setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
+
+  function setLayout(name, el) {
+    const grid = document.getElementById('row-grid');
+    if (name === 'grid') {
+      grid.classList.add('view-grid');
+    } else {
+      grid.classList.remove('view-grid');
+    }
+    document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+
 </script>
 
 </body>
