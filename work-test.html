@@ -281,34 +281,32 @@ footer{margin-top:auto}
 <script src="/footer.js"></script>
 
 <script>
-// Inject layout toggle buttons into the nav-center (next to swatches)
-(function injectLayoutToggle() {
-  function inject() {
-    const swatches = document.querySelector('.nav-center .swatches');
-    if (!swatches) return;
-    const btns = document.createElement('div');
-    btns.className = 'layout-btns';
-    btns.innerHTML = \`
-      <button class="layout-btn active" id="btn-stream" onclick="setLayout('stream',this)" title="Stream">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <rect x="0" y="1" width="16" height="3.5" rx="0.5" fill="currentColor"/>
-          <rect x="0" y="6.5" width="16" height="3.5" rx="0.5" fill="currentColor"/>
-          <rect x="0" y="12" width="16" height="3" rx="0.5" fill="currentColor"/>
-        </svg>
-      </button>
-      <button class="layout-btn" id="btn-grid" onclick="setLayout('grid',this)" title="Grid">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <rect x="0" y="0" width="7" height="7" rx="0.5" fill="currentColor"/>
-          <rect x="9" y="0" width="7" height="7" rx="0.5" fill="currentColor"/>
-          <rect x="0" y="9" width="7" height="7" rx="0.5" fill="currentColor"/>
-          <rect x="9" y="9" width="7" height="7" rx="0.5" fill="currentColor"/>
-        </svg>
-      </button>\`;
-    swatches.insertAdjacentElement('afterend', btns);
-  }
-  // footer.js is synchronous so nav exists immediately — but just in case:
-  if (document.querySelector('.nav-center .swatches')) { inject(); }
-  else { document.addEventListener('DOMContentLoaded', inject); }
+// Add layout toggle to .swatches — widen nav-center to fit both
+(function() {
+  var sw = document.querySelector('.nav-center .swatches');
+  if (!sw) return;
+  // Widen nav-center so it doesn't clip the extra buttons
+  var nc = document.querySelector('.nav-center');
+  if (nc) { nc.style.display = 'flex'; nc.style.alignItems = 'center'; nc.style.gap = '10px'; }
+  var btns = document.createElement('div');
+  btns.className = 'layout-btns';
+  btns.innerHTML =
+    '<button class="layout-btn active" id="btn-stream" title="Stream" onclick="setLayout('stream',this)">' +
+      '<svg width="15" height="12" viewBox="0 0 15 12" fill="none">' +
+        '<rect width="15" height="2.5" rx="0.5" fill="currentColor"/>' +
+        '<rect y="4.75" width="15" height="2.5" rx="0.5" fill="currentColor"/>' +
+        '<rect y="9.5" width="15" height="2.5" rx="0.5" fill="currentColor"/>' +
+      '</svg>' +
+    '</button>' +
+    '<button class="layout-btn" id="btn-grid" title="Grid" onclick="setLayout('grid',this)">' +
+      '<svg width="13" height="13" viewBox="0 0 13 13" fill="none">' +
+        '<rect width="5.5" height="5.5" rx="0.5" fill="currentColor"/>' +
+        '<rect x="7.5" width="5.5" height="5.5" rx="0.5" fill="currentColor"/>' +
+        '<rect y="7.5" width="5.5" height="5.5" rx="0.5" fill="currentColor"/>' +
+        '<rect x="7.5" y="7.5" width="5.5" height="5.5" rx="0.5" fill="currentColor"/>' +
+      '</svg>' +
+    '</button>';
+  nc.appendChild(btns);
 })();
 </script>
 
