@@ -18,37 +18,30 @@ main{flex:1;padding:0}
 /* ─── ROW GRID ──────────────────────────────────────────────────── */
 .row-grid{padding:0 48px;margin-bottom:120px}
 
-/* Each row is a CSS grid */
-.row{display:grid;gap:8px;margin-bottom:8px}
+/* Each row is a CSS grid — column gap tight, row gap generous */
+.row{display:grid;column-gap:12px;margin-bottom:48px;align-items:start}
 
 /* Row layout variants */
-.row--2eq   {grid-template-columns:1fr 1fr}
-.row--3eq   {grid-template-columns:1fr 1fr 1fr}
+.row--2eq         {grid-template-columns:1fr 1fr}
+.row--3eq         {grid-template-columns:1fr 1fr 1fr}
 .row--wide-narrow {grid-template-columns:2fr 1fr}
 .row--narrow-wide {grid-template-columns:1fr 2fr}
-.row--1full {grid-template-columns:1fr}
+.row--1full       {grid-template-columns:1fr}
 
 /* Each card */
-.card{display:block;text-decoration:none;color:inherit;cursor:pointer;overflow:hidden}
-.card-media{position:relative;overflow:hidden;background:var(--bg-card)}
+.card{display:block;text-decoration:none;color:inherit;cursor:pointer}
+.card-media{overflow:hidden;background:var(--bg-card)}
 .card-media-inner{
-  width:100%;height:100%;
   transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
 }
 .card:hover .card-media-inner{transform:scale(1.03)}
 
-/* Row height — all cards in a row share same height */
-.row--tall   .card-media{height:60vw;max-height:680px}
-.row--mid    .card-media{height:38vw;max-height:460px}
-.row--short  .card-media{height:26vw;max-height:340px}
-.row--port   .card-media{height:52vw;max-height:600px}
-
-/* Images fill their slot — this is the JWA move: cover crops to row height */
+/* Natural ratio — no crop, no fixed height */
 .card-media-inner img{
-  width:100%;height:100%;object-fit:cover;display:block;
+  width:100%;height:auto;display:block;
 }
 .card-media-inner video{
-  width:100%;height:100%;object-fit:cover;display:block;
+  width:100%;height:auto;display:block;object-fit:unset;
 }
 
 /* Labels */
@@ -74,7 +67,7 @@ main{flex:1;padding:0}
 
 /* Placeholder tile */
 .placeholder-tile{
-  width:100%;height:100%;
+  width:100%;min-height:240px;
   display:flex;align-items:center;justify-content:center;
   font-size:var(--t-ui);font-weight:var(--bold);
   letter-spacing:var(--ls-ui);color:var(--grey-mid);
@@ -105,11 +98,8 @@ footer{margin-top:auto}
   .page-hero{padding:80px 20px 36px;flex-direction:column;align-items:flex-start;gap:12px}
   .page-headline{font-size:clamp(28px,8vw,44px)}
   .row-grid{padding:0 16px;margin-bottom:64px}
+  .row{margin-bottom:32px}
   .row--2eq,.row--wide-narrow,.row--narrow-wide,.row--3eq{grid-template-columns:1fr}
-  .row--tall   .card-media{height:75vw;max-height:none}
-  .row--mid    .card-media{height:75vw;max-height:none}
-  .row--short  .card-media{height:60vw;max-height:none}
-  .row--port   .card-media{height:75vw;max-height:none}
   .archive-section{padding:0 20px;margin-bottom:64px}
   .archive-grid{grid-template-columns:auto 1fr;gap:0 16px;margin-top:40px !important}
   .archive-col-label{display:none}
@@ -577,17 +567,17 @@ const projects = [
   height: "tall" | "mid" | "short" | "port"
 */
 const rows = [
-  { layout:"1full",       height:"mid",   items:[0]    },  // Architonic — wide solo opener
-  { layout:"wide-narrow", height:"mid",   items:[4,1]  },  // Lewis (video) + Pferdt (video portrait)
-  { layout:"3eq",         height:"short", items:[8,7,11] }, // Ritz + USM + Vitra
-  { layout:"narrow-wide", height:"mid",   items:[2,3]  },  // wefox portrait + LAS (video)
-  { layout:"2eq",         height:"mid",   items:[6,12] },  // Engel & Völkers + FoF iphone wide
-  { layout:"3eq",         height:"short", items:[10,9,13] },// Canyon + Episode + Ørgreen portrait
-  { layout:"wide-narrow", height:"mid",   items:[19,14] },  // HAY + MINI portrait
-  { layout:"3eq",         height:"short", items:[16,20,17] },// Thonet + SPOT + IAC portrait
-  { layout:"2eq",         height:"mid",   items:[18,21] },  // 25hours + Rooms portrait
-  { layout:"3eq",         height:"short", items:[22,23,15] },// adidas + BMW + Neubau Welt
-  { layout:"2eq",         height:"mid",   items:[24,5]  },  // Visit California placeholder + AD Magazin
+  { layout:"1full",       items:[0]    },  // Architonic — wide solo opener
+  { layout:"wide-narrow", items:[4,1]  },  // Lewis (video) + Pferdt (video portrait)
+  { layout:"3eq",         items:[8,7,11] },// Ritz + USM + Vitra
+  { layout:"narrow-wide", items:[2,3]  },  // wefox portrait + LAS (video)
+  { layout:"2eq",         items:[6,12] },  // Engel & Völkers + FoF iphone wide
+  { layout:"3eq",         items:[10,9,13] },// Canyon + Episode + Ørgreen portrait
+  { layout:"wide-narrow", items:[19,14] },  // HAY + MINI portrait
+  { layout:"3eq",         items:[16,20,17] },// Thonet + SPOT + IAC portrait
+  { layout:"2eq",         items:[18,21] },  // 25hours + Rooms portrait
+  { layout:"3eq",         items:[22,23,15] },// adidas + BMW + Neubau Welt
+  { layout:"2eq",         items:[24,5]  },  // Visit California placeholder + AD Magazin
 ];
 
 function makeCard(p) {
@@ -620,7 +610,7 @@ function buildRows() {
 
   rows.forEach(row => {
     const rowEl = document.createElement('div');
-    rowEl.className = `row row--${row.layout} row--${row.height}`;
+    rowEl.className = `row row--${row.layout}`;
 
     row.items.forEach(idx => {
       const p = projects[idx];
