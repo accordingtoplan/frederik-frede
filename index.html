@@ -562,7 +562,7 @@
       
     </div>
     <div class="hero-video-wrap">
-      <video class="hero-video" autoplay muted loop playsinline poster="/assets/showreel-poster.webp" fetchpriority="high" preload="auto">
+      <video class="hero-video" autoplay muted loop playsinline poster="/assets/showreel-poster.webp" data-poster-mobile="/assets/showreel-poster-400w.webp" fetchpriority="high" preload="auto">
         <source src="/assets/showreel.mp4" type="video/mp4">
       </video>
     </div>
@@ -678,9 +678,10 @@
         if (c.poster) mediaStyle.push(`background-image:url('${c.poster}')`, 'background-size:cover', 'background-position:center');
         const mediaStyleAttr = mediaStyle.length ? ` style="${mediaStyle.join(';')}"` : '';
         const posterStyle = c.poster ? ' style="opacity:0;transition:opacity .4s ease"' : '';
-        media = `<div class="case-media ${mediaRatio}"${mediaStyleAttr}><video class="lazy-video${vclass}" autoplay muted loop playsinline preload="none"${c.poster ? ` poster="${c.poster}"` : ''}${posterStyle}><source data-src="${c.src}" type="video/mp4"></video>${overlay}</div>`;
+        media = `<div class="case-media ${mediaRatio}"${mediaStyleAttr}><video class="lazy-video${vclass}" autoplay muted loop playsinline preload="none"${c.poster ? ` poster="${c.poster}" data-poster-mobile="${c.poster.replace(/\.webp$/, '-400w.webp').replace(/\.jpg$/, '-400w.webp')}"` : ''}${posterStyle}><source data-src="${c.src}" type="video/mp4"></video>${overlay}</div>`;
       } else if (c.type === 'img') {
-        media = `<div class="case-media ${ratio}"><img src="${c.src}" alt="${c.b}" loading="lazy"></div>`;
+        const imgBase = c.src.replace(/\.webp$/, '');
+        media = `<div class="case-media ${ratio}"><picture><source type="image/webp" srcset="${imgBase}-640w.webp 640w, ${imgBase}-1280w.webp 1280w, ${c.src} 1400w" sizes="(max-width:640px) 100vw, 50vw"><img src="${c.src}" alt="${c.b}" loading="lazy"></picture></div>`;
       } else if (c.type === 'vimeo') {
         media = `<div class="case-media ${ratio}"><div class="vimeo-bg"><iframe class="lazy-vimeo" data-src="https://player.vimeo.com/video/${c.src}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe></div></div>`;
       } else if (c.type === 'placeholder-logo') {
