@@ -163,11 +163,11 @@
 </div>
 <div class="cs-grid-3">
   <div class="cs-video-wrap"><iframe src="https://player.vimeo.com/video/406761343?autopause=false&loop=1&color=ffffff&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
-  <div class="cs-video-wrap"><iframe src="https://www.youtube.com/embed/I6GLNOqgFQI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
-  <div class="cs-video-wrap"><iframe src="https://www.youtube.com/embed/Qdijx5t1U2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  <div class="cs-video-wrap"><div class="yt-facade" data-id="I6GLNOqgFQI" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi/I6GLNOqgFQI/hqdefault.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
+  <div class="cs-video-wrap"><div class="yt-facade" data-id="Qdijx5t1U2s" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi/Qdijx5t1U2s/hqdefault.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
 </div>
 <div class="cs-grid-3">
-  <div class="cs-video-wrap"><iframe src="https://www.youtube.com/embed/kyUderX0q0M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  <div class="cs-video-wrap"><div class="yt-facade" data-id="kyUderX0q0M" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi/kyUderX0q0M/hqdefault.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
   <div class="cs-video-wrap"><video autoplay muted loop playsinline preload="none"><source data-src="/assets/mini/mini-brand-campaign-tsn-summary-2018.mp4" type="video/mp4"></video></div>
   <div class="cs-video-wrap"><video autoplay muted loop playsinline preload="none"><source data-src="/assets/mini/mini-brand-campaign-tsn-frankfurt.mp4" type="video/mp4"></video></div>
 </div>
@@ -187,6 +187,22 @@
 <footer>
     <div id="footer-mount"></div>
   </footer>
+<script>
+(function(){
+  document.querySelectorAll('.yt-facade').forEach(function(el){
+    el.addEventListener('click',function(){
+      var id=el.dataset.id;
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
+      iframe.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+      iframe.allowFullscreen=true;
+      iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;';
+      el.innerHTML='';
+      el.appendChild(iframe);
+    });
+  });
+})();
+</script>
   <script src="/footer.js"></script>
 <script>
   const themes={white:{bg:'#fff',card:'#f5f3f1',fg:'#4a4540',mid:'#7a7470',light:'#a8a39f',border:'#c8c3be'},black:{bg:'#111',card:'#1a1a1a',fg:'#fff',mid:'rgba(255,255,255,0.55)',light:'rgba(255,255,255,0.30)',border:'rgba(255,255,255,0.12)'},signal:{bg:'#e63222',card:'#cc2b1d',fg:'#000',mid:'rgba(0,0,0,0.55)',light:'rgba(0,0,0,0.35)',border:'transparent'}};
