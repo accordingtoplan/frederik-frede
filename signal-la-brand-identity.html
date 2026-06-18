@@ -11,7 +11,7 @@
   .cs-credits-cols{position:absolute;right:48px;top:80px;display:grid;grid-template-columns:1fr;gap:0;align-content:start;text-align:right}
   .cs-slideshow{position:relative;width:100%;overflow:hidden;margin-bottom:24px}
   .cs-slideshow-track{display:flex;transition:transform 0.7s cubic-bezier(0.4,0,0.2,1)}
-  .cs-slideshow-track picture,.cs-slideshow-track picture{width:100%;flex-shrink:0;display:block}.cs-slideshow-track img{width:100%;height:100%;display:block;object-fit:cover;aspect-ratio:16/9}
+  .cs-slideshow-track picture{width:100%;flex-shrink:0;display:block}.cs-slideshow-track img{width:100%;height:100%;display:block;object-fit:cover;aspect-ratio:16/9}
   .cs-slide-btn{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:16px;color:#fff;font-size:24px;line-height:1;opacity:0.7;transition:opacity 0.2s;z-index:2}
   .cs-slide-btn:hover{opacity:1}
   .cs-slide-prev{left:16px}
@@ -219,7 +219,7 @@
   const track = document.getElementById('slideshowTrack');
   const dotsEl = document.getElementById('slideDots');
   if(!track) return;
-  const imgs = track.querySelectorAll('picture, img:not(picture img)');
+  const imgs = track.querySelectorAll('picture');
   let cur = 0;
   // build dots
   imgs.forEach((_,i) => {
