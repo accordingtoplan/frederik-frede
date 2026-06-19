@@ -6,12 +6,22 @@
 <title>Frederik Frede — MIAD / Sandow</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:#000;overflow:hidden;height:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
+html,body{background:#000;overflow:hidden;width:100%;height:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
+
+/* blurred backdrop fills the gaps outside the scaled stage */
+#backdrop{
+  position:fixed;inset:0;z-index:0;
+  background-size:cover;background-position:center;
+  filter:blur(48px) brightness(.35) saturate(.5);
+  transform:scale(1.1);
+  transition:background-image .5s ease;
+}
 
 #stage{
   position:absolute;top:50%;left:50%;
   width:1920px;height:1080px;
   transform-origin:center center;
+  z-index:1;
 }
 
 .slide{position:absolute;inset:0;width:1920px;height:1080px;display:none;overflow:hidden;}
@@ -99,6 +109,7 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 </style>
 </head>
 <body>
+<div id="backdrop"></div>
 <div id="stage">
 
 <!-- ─── 1. INTRO ─── -->
@@ -430,14 +441,28 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <script>
 const slides = document.querySelectorAll('.slide');
 const total = slides.length;
+const backdrop = document.getElementById('backdrop');
 document.getElementById('tot').textContent = total;
 let idx = 0;
+
+function getBgImage(slide){
+  const img = slide.querySelector('img.bg');
+  if(img) return `url('${img.src}')`;
+  const col = slide.querySelector('.bg-color');
+  if(col) return 'none';
+  return 'none';
+}
 
 function render(){
   slides.forEach((s,i) => s.classList.toggle('active', i===idx));
   document.getElementById('cur').textContent = idx+1;
   document.getElementById('prev').disabled = idx===0;
   document.getElementById('next').disabled = idx===total-1;
+  // sync backdrop
+  const bg = getBgImage(slides[idx]);
+  backdrop.style.backgroundImage = bg;
+  backdrop.style.background = bg === 'none' ? '#111' : '';
+  if(bg !== 'none') backdrop.style.backgroundImage = bg;
 }
 function go(d){ idx = Math.min(total-1, Math.max(0, idx+d)); render(); }
 
