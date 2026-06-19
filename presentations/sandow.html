@@ -5,401 +5,500 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Frederik Frede — MIAD / Sandow</title>
 <style>
-  :root{
-    --grey-dark:#4a4540;
-    --grey-mid:#7a7470;
-    --grey-light:#a8a39f;
-    --bg:#0c0c0c;
-    --accent:#e8ddc9;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;background:#000;overflow:hidden;height:100%;}
-  body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#000;overflow:hidden;height:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
 
-  #stage{
-    position:absolute; top:50%; left:50%;
-    width:1920px; height:1080px;
-    transform-origin:center center;
-  }
+#stage{
+  position:absolute;top:50%;left:50%;
+  width:1920px;height:1080px;
+  transform-origin:center center;
+}
 
-  .slide{
-    position:absolute; inset:0;
-    width:1920px; height:1080px;
-    display:none;
-  }
-  .slide.active{display:block;}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;display:none;overflow:hidden;}
+.slide.active{display:block;}
 
-  .bg{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover;
-  }
-  .overlay{
-    position:absolute; inset:0;
-  }
-  .ov-1{background:rgba(0,0,0,.62);}
-  .ov-2{background:linear-gradient(to right, rgba(0,0,0,.85), rgba(0,0,0,.6) 45%, rgba(0,0,0,.15));}
-  .ov-3{background:linear-gradient(to left, rgba(0,0,0,.85), rgba(0,0,0,.6) 45%, rgba(0,0,0,.15));}
+/* backgrounds */
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.bg-color{position:absolute;inset:0;}
 
-  .content{
-    position:relative; width:100%; height:100%;
-    display:flex; flex-direction:column; justify-content:center;
-    padding:0 120px;
-    color:#fff;
-  }
-  .content.right{ align-items:flex-end; }
+/* overlays */
+.ov{position:absolute;inset:0;}
+.ov-dark{background:rgba(0,0,0,.62);}
+.ov-left{background:linear-gradient(to right,rgba(0,0,0,.88) 0%,rgba(0,0,0,.7) 40%,rgba(0,0,0,.1) 100%);}
+.ov-right{background:linear-gradient(to left,rgba(0,0,0,.88) 0%,rgba(0,0,0,.7) 40%,rgba(0,0,0,.1) 100%);}
+.ov-bottom{background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 40%,rgba(0,0,0,.0) 80%);}
 
-  .panel{ max-width:960px; }
-  .panel.wide{ max-width:1440px; }
-  .panel.narrow{ max-width:640px; }
+/* layout */
+.c{position:relative;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 120px;color:#fff;}
+.c.bot{justify-content:flex-end;padding-bottom:100px;}
+.c.right{align-items:flex-end;}
+.c.center-align{align-items:center;text-align:center;}
 
-  h1{
-    font-size:84px; font-weight:500; line-height:1.05;
-    letter-spacing:-0.015em; margin:0 0 40px;
-  }
-  h2{
-    font-size:58px; font-weight:500; line-height:1.15;
-    letter-spacing:-0.01em; margin:0 0 56px;
-  }
-  .lead{
-    font-size:26px; font-weight:400; line-height:1.5; margin:0 0 24px;
-  }
-  .lead:last-child{margin-bottom:0;}
-  .descriptor{
-    font-size:22px; font-weight:400; line-height:1.5; color:rgba(255,255,255,.82);
-  }
-  .meta{
-    font-size:18px; font-weight:400; line-height:1.5;
-    color:rgba(255,255,255,.6); margin-top:48px;
-  }
-  .list{ display:flex; flex-direction:column; gap:22px; }
-  .list .item{ font-size:26px; font-weight:400; line-height:1.5; }
-  .list .item:before{ content:"— "; color:rgba(255,255,255,.5); }
+.panel{max-width:800px;}
+.panel.wide{max-width:1400px;}
+.panel.narrow{max-width:580px;}
+.panel.mid{max-width:1000px;}
 
-  .label{
-    font-size:17px; font-weight:500; letter-spacing:.12em;
-    text-transform:uppercase; color:var(--accent); margin-bottom:14px;
-  }
-  .eyebrow{
-    font-size:17px; font-weight:500; letter-spacing:.18em;
-    text-transform:uppercase; color:var(--accent); margin-bottom:24px;
-  }
-  .stack{ display:flex; flex-direction:column; gap:44px; }
+/* type */
+.eyebrow{font-size:15px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px;}
+.eyebrow.accent{color:#e8ddc9;}
+h1{font-size:96px;font-weight:500;line-height:1.0;letter-spacing:-0.02em;margin-bottom:36px;}
+h1.xl{font-size:110px;}
+h2{font-size:62px;font-weight:500;line-height:1.1;letter-spacing:-0.015em;margin-bottom:48px;}
+h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-bottom:28px;}
+.lead{font-size:26px;font-weight:400;line-height:1.55;color:rgba(255,255,255,.9);margin-bottom:22px;}
+.lead.dim{color:rgba(255,255,255,.65);}
+.body{font-size:22px;font-weight:400;line-height:1.6;color:rgba(255,255,255,.75);}
+.meta{font-size:17px;font-weight:400;line-height:1.8;color:rgba(255,255,255,.45);margin-top:44px;}
+.tag{font-size:15px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#e8ddc9;margin-bottom:10px;}
+.rule{width:40px;height:1px;background:rgba(255,255,255,.35);margin-bottom:40px;}
+.divider{width:100%;height:1px;background:rgba(255,255,255,.12);margin:44px 0;}
 
-  .grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:80px; }
-  .col h3{
-    font-size:18px; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
-    margin:0 0 28px;
-  }
-  .num{
-    font-size:64px; font-weight:300; letter-spacing:-0.02em;
-    color:rgba(255,255,255,.18); margin-bottom:20px;
-  }
-  .col h4{ font-size:32px; font-weight:500; margin:0 0 18px; line-height:1.3; }
-  .col p{ font-size:24px; font-weight:400; line-height:1.55; margin:0; }
+/* list */
+.list{display:flex;flex-direction:column;gap:20px;}
+.list .item{font-size:25px;font-weight:400;line-height:1.55;padding-left:24px;border-left:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);}
 
-  /* range grid */
-  .range{
-    width:100%; display:grid; grid-template-columns:repeat(6,1fr); gap:24px;
-  }
-  .range-item{
-    position:relative; aspect-ratio:3/4; overflow:hidden; border-radius:2px;
-  }
-  .range-item img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(15%); }
-  .range-item .ri-overlay{
-    position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,0) 55%);
-    display:flex; flex-direction:column; justify-content:flex-end; padding:20px;
-  }
-  .range-item .ri-tag{
-    font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:6px;
-  }
-  .range-item .ri-name{ font-size:20px; font-weight:500; color:#fff; }
+/* 3 col */
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:72px;}
+.col .num{font-size:72px;font-weight:300;letter-spacing:-0.02em;color:rgba(255,255,255,.12);margin-bottom:16px;line-height:1;}
+.col h4{font-size:30px;font-weight:500;margin-bottom:16px;line-height:1.25;}
+.col p{font-size:22px;font-weight:400;line-height:1.6;color:rgba(255,255,255,.7);}
 
-  /* appendix marker */
-  .appendix-tag{
-    position:absolute; top:64px; right:120px;
-    font-size:15px; letter-spacing:.18em; text-transform:uppercase;
-    color:rgba(255,255,255,.45); z-index:5;
-  }
+/* 2 col */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;}
 
-  /* nav */
-  .nav-controls{
-    position:absolute; bottom:48px; right:120px;
-    display:flex; align-items:center; gap:24px;
-    color:rgba(255,255,255,.55); z-index:50;
-  }
-  .nav-controls button{
-    width:44px; height:44px; border:1px solid rgba(255,255,255,.25); border-radius:50%;
-    background:transparent; color:inherit; font-size:18px; cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    transition:opacity .2s, border-color .2s;
-  }
-  .nav-controls button:hover{ border-color:rgba(255,255,255,.6); color:#fff; }
-  .nav-controls button:disabled{ opacity:.2; cursor:default; }
-  .nav-counter{ font-size:14px; letter-spacing:.05em; min-width:64px; text-align:center; }
+/* range */
+.range{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;width:100%;}
+.ri{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:2px;}
+.ri img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
+.ri .rio{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,0) 55%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:18px;}
+.ri .rt{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#e8ddc9;margin-bottom:5px;}
+.ri .rn{font-size:18px;font-weight:500;color:#fff;}
+
+/* appendix badge */
+.appendix-badge{
+  position:absolute;top:56px;right:120px;z-index:10;
+  font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);
+}
+
+/* nav */
+.nav{
+  position:absolute;bottom:44px;right:120px;
+  display:flex;align-items:center;gap:20px;
+  color:rgba(255,255,255,.45);z-index:100;
+}
+.nav button{
+  width:40px;height:40px;border:1px solid rgba(255,255,255,.2);border-radius:50%;
+  background:transparent;color:inherit;font-size:17px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .2s;
+}
+.nav button:hover{border-color:rgba(255,255,255,.55);color:#fff;}
+.nav button:disabled{opacity:.18;cursor:default;}
+.nav-count{font-size:13px;letter-spacing:.06em;min-width:54px;text-align:center;}
 </style>
 </head>
 <body>
-
 <div id="stage">
 
-  <!-- 1 — Title -->
-  <section class="slide active">
-    <img class="bg" src="/assets/umane/umane-p1-color-gradients.jpg" alt="">
-    <div class="overlay ov-2"></div>
-    <div class="content"><div class="panel wide">
-      <div class="eyebrow">For Sandow</div>
-      <h1>MIAD<br>Merging Intelligence with Design</h1>
-      <p class="descriptor">Frederik Frede — Creative Direction &amp; Strategic Systems</p>
-    </div></div>
-  </section>
+<!-- ─── 1. INTRO ─── -->
+<section class="slide active">
+  <img class="bg" src="/presentations/assets/Medewi-surf-ff.jpg" alt="">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel">
+      <div class="eyebrow" style="margin-bottom:60px;font-size:22px;font-weight:300;letter-spacing:.04em;color:rgba(255,255,255,.7);">Frederik Frede</div>
+      <h1 class="xl" style="margin-bottom:28px;">Culture, strategy<br>and identity.</h1>
+      <p class="lead dim">Through skills, instinct and taste.</p>
+      <div class="meta">June 2026 &nbsp;·&nbsp; For Sandow</div>
+    </div>
+  </div>
+</section>
 
-  <!-- 2 — Context -->
-  <section class="slide">
-    <img class="bg" src="/assets/usm/usm-red-wall.jpg" alt="">
-    <div class="overlay ov-1"></div>
-    <div class="content"><div class="panel">
-      <h2>Where this comes from</h2>
-      <div class="list">
-        <div class="item">Over a decade building brand systems across culture, hospitality, product, real estate and media</div>
-        <div class="item">A practice spanning strategy, identity, digital platforms and editorial direction — not single-channel work</div>
-        <div class="item">Current focus: merging that practice with AI, as infrastructure for creative and strategic decision-making</div>
-        <div class="item">Familiar with Sandow's world already, through the Architonic platform redesign — covered briefly at the end</div>
-      </div>
-    </div></div>
-  </section>
+<!-- ─── 2. OPTIONAL INTRO (MIAD) ─── -->
+<section class="slide">
+  <img class="bg" src="/presentations/assets/Medewi-surf-ff.jpg" alt="">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel">
+      <div class="eyebrow accent">For Sandow</div>
+      <h1 style="margin-bottom:28px;">MIAD</h1>
+      <p class="lead">Merging Intelligence with Design</p>
+      <p class="lead dim">Creative Direction &amp; Strategic Systems</p>
+    </div>
+  </div>
+</section>
 
-  <!-- 3 — Range grid -->
-  <section class="slide">
-    <img class="bg" src="/assets/lewis-group/lewis-group-lewis-billboard-nature-mockup.jpg" alt="">
-    <div class="overlay ov-1"></div>
-    <div class="content"><div class="panel wide" style="max-width:1680px;">
-      <h2 style="margin-bottom:48px;">Range</h2>
+<!-- ─── 3. ABOUT ─── -->
+<section class="slide">
+  <img class="bg" src="/presentations/assets/Sigurd-Larsen-greek-design.jpg" alt="">
+  <div class="ov ov-dark"></div>
+  <div class="c">
+    <div class="panel mid">
+      <div class="rule"></div>
+      <h2>About</h2>
+      <p class="lead">Independent creative director and brand strategist. Over a decade building systems across culture, hospitality, product, real estate and media — always strategy first, always executed.</p>
+      <p class="lead dim">Co-founder of Freunde von Freunden and MoreSleep. Current work at frederikfrede.com</p>
+      <div class="meta">frederikfrede.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. RANGE ─── -->
+<section class="slide">
+  <div class="bg-color" style="background:#111;"></div>
+  <div class="c bot" style="padding:0 120px 80px;">
+    <div class="panel wide">
+      <div class="eyebrow" style="margin-bottom:28px;">Selected work</div>
       <div class="range">
-        <div class="range-item">
-          <img src="/assets/architonic/architonic-poster.jpg" alt="Architonic">
-          <div class="ri-overlay"><div class="ri-tag">Platform</div><div class="ri-name">Architonic</div></div>
-        </div>
-        <div class="range-item">
-          <img src="/assets/umane/umane-p1-brand-in-use-photo.jpg" alt="Umane">
-          <div class="ri-overlay"><div class="ri-tag">Wellness</div><div class="ri-name">Umane</div></div>
-        </div>
-        <div class="range-item">
-          <img src="/assets/usm/usm-green-office.jpg" alt="USM">
-          <div class="ri-overlay"><div class="ri-tag">Product</div><div class="ri-name">USM</div></div>
-        </div>
-        <div class="range-item">
-          <img src="/assets/pferdt/pferdt-fgp-mockupmaison-dd-e11.jpg" alt="Frederik G. Pferdt">
-          <div class="ri-overlay"><div class="ri-tag">Personal Brand</div><div class="ri-name">F. G. Pferdt</div></div>
-        </div>
-        <div class="range-item">
-          <img src="/assets/lewis-group/lewis-group-lewis-hat-mockup.jpg" alt="Lewis Group">
-          <div class="ri-overlay"><div class="ri-tag">Real Estate</div><div class="ri-name">Lewis Group</div></div>
-        </div>
-        <div class="range-item">
-          <img src="/presentations/nzz-front-gerollt.png" alt="NZZ">
-          <div class="ri-overlay"><div class="ri-tag">Media · In Progress</div><div class="ri-name">NZZ</div></div>
-        </div>
+        <div class="ri"><img src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt="">
+          <div class="rio"><div class="rt">Platform Strategy</div><div class="rn">Architonic</div></div></div>
+        <div class="ri"><img src="/assets/umane/umane-p1-logo-wordmark.jpg" alt="">
+          <div class="rio"><div class="rt">Brand Identity</div><div class="rn">Umane</div></div></div>
+        <div class="ri"><img src="/assets/usm/usm-personality-portrait.jpg" alt="">
+          <div class="rio"><div class="rt">Brand &amp; Digital</div><div class="rn">USM</div></div></div>
+        <div class="ri"><img src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt="">
+          <div class="rio"><div class="rt">Personal Brand</div><div class="rn">F. G. Pferdt</div></div></div>
+        <div class="ri"><img src="/assets/lewis-group/lewis-group-lewis-billboard-nature-mockup.jpg" alt="">
+          <div class="rio"><div class="rt">Real Estate</div><div class="rn">Lewis Group</div></div></div>
+        <div class="ri"><img src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt="">
+          <div class="rio"><div class="rt">Web Design</div><div class="rn">Engel &amp; Völkers</div></div></div>
       </div>
-    </div></div>
-  </section>
+    </div>
+  </div>
+</section>
 
-  <!-- 4 — Umane -->
-  <section class="slide">
-    <img class="bg" src="/assets/umane/umane-p1-brand-in-use-photo.jpg" alt="">
-    <div class="overlay ov-3"></div>
-    <div class="content right"><div class="panel narrow">
-      <h2>Umane</h2>
-      <p class="lead">A holistic wellness club in Berlin. Full project from strategy through to design system: positioning, naming rationale, six strategic pillars and tone of voice.</p>
-      <p class="lead">Visual identity, typography, colour and gradient system, motion principles, applied consistently across digital, social and print.</p>
-      <div class="meta">Role: Brand Strategy &amp; Identity</div>
-    </div></div>
-  </section>
+<!-- ─── 5. ARCHITONIC 1 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt="">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel narrow">
+      <div class="tag">Platform Strategy &amp; Creative Direction</div>
+      <h2>Architonic</h2>
+      <p class="lead">Europe's leading platform for architectural products and materials. Full brand strategy and platform redesign, from positioning through to the live interface in daily use today.</p>
+      <div class="meta">architonic.com</div>
+    </div>
+  </div>
+</section>
 
-  <!-- 5 — USM -->
-  <section class="slide">
-    <img class="bg" src="/assets/usm/usm-green-office.jpg" alt="">
-    <div class="overlay ov-2"></div>
-    <div class="content"><div class="panel narrow">
-      <h2>USM</h2>
-      <p class="lead">A Swiss manufacturer of modular furniture. The Haller system has been a benchmark of modernist design since the 1960s.</p>
-      <p class="lead">Built Personalities by USM, a multi-channel platform showing how people live with and style USM pieces, across web, social and pitch materials.</p>
-      <div class="meta">Role: Brand &amp; Digital Platform</div>
-    </div></div>
-  </section>
+<!-- ─── 6. ARCHITONIC 2 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt="">
+  <div class="ov ov-right"></div>
+  <div class="c right">
+    <div class="panel narrow">
+      <div class="tag">What was built</div>
+      <div class="list">
+        <div class="item">Smart search, visual search and 3D configurators</div>
+        <div class="item">New editorial visual language across web, brand pages and social</div>
+        <div class="item">A scalable system built to extend across markets and categories</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- 6 — Pferdt -->
-  <section class="slide">
-    <img class="bg" src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt="">
-    <div class="overlay ov-3"></div>
-    <div class="content right"><div class="panel narrow">
+<!-- ─── 7. NZZ 1 ─── -->
+<section class="slide">
+  <div class="bg-color" style="background:#1a1a1a;"></div>
+  <img class="bg" src="https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" alt="" style="object-fit:contain;object-position:right center;width:55%;left:auto;right:0;">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel narrow">
+      <div class="tag">Brand &amp; Digital — In Progress</div>
+      <h2>NZZ</h2>
+      <p class="lead">Switzerland's leading media house. Brand and digital transformation currently in development — the question every large publisher faces: one identity, many divisions, consistent at scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 8. NZZ 2 ─── -->
+<section class="slide">
+  <div class="bg-color" style="background:#111;"></div>
+  <div class="c">
+    <div class="panel mid">
+      <div class="tag">The challenge</div>
+      <h2 style="font-size:52px;">A media brand that spans print, digital and broadcast — with a 250-year identity to protect.</h2>
+      <p class="lead dim">Scope: brand positioning, digital design system, cross-channel coherence. Same structural challenge Sandow faces across its portfolio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 9. PFERDT 1 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/pferdt/pferdt-fgp-mockupmaison-dd-e11.jpg" alt="">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel narrow">
+      <div class="tag">Personal Brand &amp; Identity</div>
       <h2>Frederik G. Pferdt</h2>
-      <p class="lead">Google's first Chief Innovation Evangelist and founder of Google's Innovation Lab, trained tens of thousands of Googlers in creative thinking.</p>
-      <p class="lead">Personal brand and digital presence built for his transition to an independent practice as keynote speaker, author and innovation advisor.</p>
-      <div class="meta">Role: Personal Brand &amp; Identity</div>
-    </div></div>
-  </section>
+      <p class="lead">Google's first Chief Innovation Evangelist. Personal brand and digital presence built for his transition to an independent practice as keynote speaker, author and advisor.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- 7 — Lewis + NZZ -->
-  <section class="slide">
-    <img class="bg" src="/assets/lewis-group/lewis-group-lewis-billboard-poster-mockup-retail.jpg" alt="">
-    <div class="overlay ov-1"></div>
-    <div class="content"><div class="panel wide">
-      <h2>Scaling across a portfolio</h2>
-      <div class="stack">
-        <div>
-          <div class="label">Lewis Group of Companies</div>
-          <p class="lead">A family-owned real estate developer with over 60 years of history across California and Nevada. A rebrand aligning identity across mixed-use, residential and commercial divisions.</p>
-        </div>
-        <div>
-          <div class="label">NZZ — in progress</div>
-          <p class="lead">Switzerland's leading media house. Brand and digital transformation currently in development — the same question Sandow's portfolio raises: one identity, many divisions, consistent at scale.</p>
-        </div>
+<!-- ─── 10. PFERDT 2 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt="">
+  <div class="ov ov-right"></div>
+  <div class="c right">
+    <div class="panel narrow">
+      <div class="tag">What was built</div>
+      <div class="list">
+        <div class="item">Full positioning and narrative framework</div>
+        <div class="item">Identity system: logotype, typography, colour, motion</div>
+        <div class="item">Website, keynote templates, speaker kit and social presence</div>
       </div>
-    </div></div>
-  </section>
+    </div>
+  </div>
+</section>
 
-  <!-- 8 — The shift / MIAD framework -->
-  <section class="slide">
-    <img class="bg" src="/assets/umane/umane-p1-color-gradients.jpg" alt="">
-    <div class="overlay ov-1"></div>
-    <div class="content"><div class="panel wide">
-      <div class="eyebrow">MIAD</div>
-      <h2>Brand systems for people and agents</h2>
+<!-- ─── 11. USM 1 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/usm/usm-yellow-office-full.jpg" alt="">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel narrow">
+      <div class="tag">Brand &amp; Digital Platform</div>
+      <h2>USM</h2>
+      <p class="lead">A Swiss manufacturer of modular furniture. The Haller system has been a benchmark of modernist design since the 1960s. Built Personalities by USM — a multi-channel platform showing how people live with and style USM pieces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 12. USM 2 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/usm/usm-personality-portrait.jpg" alt="">
+  <div class="ov ov-right"></div>
+  <div class="c right">
+    <div class="panel narrow">
+      <div class="tag">What was built</div>
+      <div class="list">
+        <div class="item">Editorial platform concept and content strategy</div>
+        <div class="item">Photography direction and production</div>
+        <div class="item">Web, social and pitch material — adopted across markets</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 13. LEWIS 1 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/lewis-group/lewis-group-lewis-billboard-nature-mockup.jpg" alt="">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel narrow">
+      <div class="tag">Brand Identity &amp; Web Design</div>
+      <h2>Lewis Group</h2>
+      <p class="lead">A family-owned real estate developer with over 60 years of history across California and Nevada. A full rebrand aligning identity across mixed-use, residential and commercial divisions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 14. LEWIS 2 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/lewis-group/lewis-group-lewis-stationary-a4-mockup-copy.jpg" alt="">
+  <div class="ov ov-right"></div>
+  <div class="c right">
+    <div class="panel narrow">
+      <div class="tag">What was built</div>
+      <div class="list">
+        <div class="item">Brand strategy and new visual identity system</div>
+        <div class="item">Web presence and digital templates</div>
+        <div class="item">Applied across signage, print and environmental</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 15. ENGEL & VÖLKERS 1 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/engel-volkers/engel-volkers-euv-image-break.png" alt="">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel narrow">
+      <div class="tag">Web Design &amp; Art Direction</div>
+      <h2>Engel &amp; Völkers</h2>
+      <p class="lead">One of Europe's most recognised luxury real estate brokerages. Rethinking how premium properties are presented digitally — from static listings to an experience that matches the quality of what it shows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 16. ENGEL & VÖLKERS 2 ─── -->
+<section class="slide">
+  <img class="bg" src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt="" style="object-fit:contain;object-position:right center;background:#0f0f0f;">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel narrow">
+      <div class="tag">What was built</div>
+      <div class="list">
+        <div class="item">Digital presentation platform leading with visuals</div>
+        <div class="item">Built on SPOT, proprietary asset management system</div>
+        <div class="item">Direction adopted across the wider company</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 17. AI FRAMEWORK 1 ─── -->
+<section class="slide">
+  <img class="bg" src="/presentations/assets/thinking-lika-a-mountain-helene-schmitz-1.webp" alt="">
+  <div class="ov ov-dark"></div>
+  <div class="c">
+    <div class="panel mid">
+      <div class="eyebrow accent">MIAD — Merging Intelligence with Design</div>
+      <h2>Brand as infrastructure</h2>
+      <p class="lead">A brand system isn't a logo and a typeface. It's a set of decisions, documented well enough that anyone — or anything — can work from them.</p>
+      <p class="lead dim">Most brand systems only live in someone's head. The moment that person leaves, or the team scales, the system collapses. AI makes this more urgent, not less.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 18. AI FRAMEWORK 2 ─── -->
+<section class="slide">
+  <img class="bg" src="/presentations/assets/thinking-lika-a-mountain-helene-schmitz-6.webp" alt="">
+  <div class="ov ov-dark"></div>
+  <div class="c">
+    <div class="panel wide">
+      <div class="eyebrow accent" style="margin-bottom:48px;">The method</div>
       <div class="grid3">
         <div class="col">
           <div class="num">01</div>
-          <h4>Documented systems</h4>
-          <p>Brand rules, voice and components written down as a shared reference, not held in one person's head.</p>
+          <h4>Document the system</h4>
+          <p>Voice, visual rules, decision logic — written down as a living reference, not held in one person's head.</p>
         </div>
         <div class="col">
           <div class="num">02</div>
-          <h4>Inputs, not just outputs</h4>
-          <p>The same documentation a designer works from is what an AI tool reads, too — so output stays on-brand at any speed.</p>
+          <h4>Make it an input</h4>
+          <p>The same brief a designer reads is what an AI tool reads. Output stays on-brand at any speed, any volume.</p>
         </div>
         <div class="col">
           <div class="num">03</div>
-          <h4>Living, not static</h4>
-          <p>A system that's maintained continuously. frederikfrede.com is built and run this way, in public, right now.</p>
+          <h4>Keep it alive</h4>
+          <p>frederikfrede.com is built and run this way, in public, right now — strategy, identity and code maintained continuously.</p>
         </div>
       </div>
-    </div></div>
-  </section>
+    </div>
+  </div>
+</section>
 
-  <!-- 9 — Opportunity -->
-  <section class="slide">
-    <img class="bg" src="/assets/architonic/architonic-poster-mockup-milan-03.jpg" alt="">
-    <div class="overlay ov-1"></div>
-    <div class="content"><div class="panel">
-      <h2>Opportunity for Sandow</h2>
-      <div class="stack">
-        <div>
-          <div class="label">Portfolio-wide systems</div>
-          <p class="lead">Shared, AI-ready brand documentation across Sandow's titles, each keeping its own voice</p>
-        </div>
-        <div>
-          <div class="label">AI-enabled creative direction</div>
-          <p class="lead">Embedded support for content, design and editorial production at portfolio scale</p>
-        </div>
-        <div>
-          <div class="label">Continuity with Architonic</div>
-          <p class="lead">Ongoing creative direction as the platform matures, applied as a template for the wider portfolio</p>
-        </div>
+<!-- ─── 19. OPPORTUNITY ─── -->
+<section class="slide">
+  <div class="bg-color" style="background:#0e0e0e;"></div>
+  <img class="bg" src="/assets/architonic/architonic-at-co-mockup.jpg" alt="" style="object-fit:contain;object-position:right bottom;width:55%;left:auto;right:0;top:auto;opacity:.85;">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel narrow">
+      <div class="rule"></div>
+      <h2>Opportunity<br>for Sandow</h2>
+      <div class="list" style="gap:18px;">
+        <div class="item">Ongoing creative direction for Architonic as it matures and scales</div>
+        <div class="item">AI-ready brand systems across the wider Sandow portfolio</div>
+        <div class="item">Embedded creative and strategic direction at the pace the platform demands</div>
       </div>
-    </div></div>
-  </section>
+    </div>
+  </div>
+</section>
 
-  <!-- 10 — Next step -->
-  <section class="slide">
-    <img class="bg" src="/assets/usm/usm-dark-detail.jpg" alt="">
-    <div class="overlay ov-2"></div>
-    <div class="content"><div class="panel">
-      <h1>Next step</h1>
-      <p class="lead" style="font-size:27px;">Keen to talk through how MIAD could work across Sandow's portfolio.</p>
-      <div class="meta">
+<!-- ─── 20. OUTRO ─── -->
+<section class="slide">
+  <img class="bg" src="/presentations/assets/Medewi-surf-ff.jpg" alt="">
+  <div class="ov" style="background:rgba(0,0,0,.55);"></div>
+  <div class="c center-align">
+    <div class="panel mid" style="align-items:center;">
+      <div class="eyebrow" style="margin-bottom:40px;">Let's talk</div>
+      <h1 style="font-size:80px;margin-bottom:36px;">Keen to explore what<br>this looks like together.</h1>
+      <div class="divider" style="width:400px;"></div>
+      <div class="meta" style="text-align:center;margin-top:32px;font-size:19px;line-height:2.2;color:rgba(255,255,255,.6);">
         Frederik Frede<br>
-        Creative Direction &amp; AI-Enabled Brand Systems<br>
-        frederikfrede.com — frederikfrede@gmail.com
+        <a href="https://frederikfrede.com" style="color:rgba(255,255,255,.6);text-decoration:none;">frederikfrede.com</a>
+        &nbsp;·&nbsp; frederikfrede@gmail.com<br>
+        +XX XXX XXX XXXX
       </div>
-    </div></div>
-  </section>
+    </div>
+  </div>
+</section>
 
-  <!-- 11 — Appendix: Architonic role -->
-  <section class="slide">
-    <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt="">
-    <div class="overlay ov-2"></div>
-    <div class="appendix-tag">Appendix — Architonic</div>
-    <div class="content"><div class="panel narrow">
+<!-- ─── 21. APPENDIX: AT 1 ─── -->
+<section class="slide">
+  <div class="appendix-badge">Appendix — Architonic</div>
+  <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-mockup-12.jpg" alt="">
+  <div class="ov ov-left"></div>
+  <div class="c">
+    <div class="panel narrow">
+      <div class="tag">Creative Direction — End to End</div>
       <h2>Architonic</h2>
-      <p class="lead">Europe's leading platform for architectural products and materials, trusted by architects, interior designers and specifiers for over two decades.</p>
-      <p class="lead">Full brand strategy and platform design, from positioning through to the live interface in daily use today — search, product pages, brand pages and the visual language across the site.</p>
-      <div class="meta">Role: Creative Direction &amp; Platform Design, end to end<br>Live: architonic.com</div>
-    </div></div>
-  </section>
+      <p class="lead">Full brand strategy and platform design from positioning through to the live interface. Search, product pages, brand pages and visual language — all in daily use today.</p>
+      <div class="meta">Live: architonic.com</div>
+    </div>
+  </div>
+</section>
 
-  <!-- 12 — Appendix: Architonic delivered -->
-  <section class="slide">
-    <img class="bg" src="/assets/architonic/architonic-new-at-interface-smart-search.jpg" alt="">
-    <div class="overlay ov-1"></div>
-    <div class="appendix-tag">Appendix — Architonic</div>
-    <div class="content"><div class="panel">
-      <h2>What it delivers</h2>
-      <div class="stack">
-        <div>
-          <div class="label">New discovery model</div>
-          <p class="lead">Smart search, visual search and 3D configurators built into the core product experience</p>
+<!-- ─── 22. APPENDIX: AT 2 ─── -->
+<section class="slide">
+  <div class="appendix-badge">Appendix — Architonic</div>
+  <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-display-03.jpg" alt="">
+  <div class="ov ov-dark"></div>
+  <div class="c">
+    <div class="panel mid">
+      <div class="tag">Scope of involvement</div>
+      <div class="grid3">
+        <div class="col">
+          <div class="num">01</div>
+          <h4>Strategy</h4>
+          <p>Brand positioning, platform vision, audience mapping and competitive framing.</p>
         </div>
-        <div>
-          <div class="label">Editorial presence</div>
-          <p class="lead">A visual language that holds its own across web, brand pages and social</p>
+        <div class="col">
+          <div class="num">02</div>
+          <h4>Design System</h4>
+          <p>Visual language, typography, UI components, editorial templates, motion principles.</p>
         </div>
-        <div>
-          <div class="label">Built to scale</div>
-          <p class="lead">A system designed to extend across markets, categories and future product lines</p>
+        <div class="col">
+          <div class="num">03</div>
+          <h4>Platform</h4>
+          <p>Smart search, visual search, 3D configurators, brand pages and product discovery.</p>
         </div>
       </div>
-    </div></div>
-  </section>
+    </div>
+  </div>
+</section>
 
-</div>
+</div><!-- /stage -->
 
-<div class="nav-controls">
-  <button id="prev" aria-label="Previous slide">‹</button>
-  <div class="nav-counter"><span id="cur">1</span> / <span id="total">12</span></div>
-  <button id="next" aria-label="Next slide">›</button>
+<div class="nav">
+  <button id="prev" disabled>‹</button>
+  <div class="nav-count"><span id="cur">1</span> / <span id="tot">22</span></div>
+  <button id="next">›</button>
 </div>
 
 <script>
-  const slides = document.querySelectorAll('.slide');
-  const total = slides.length;
-  let idx = 0;
-  document.getElementById('total').textContent = total;
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+document.getElementById('tot').textContent = total;
+let idx = 0;
 
-  function render(){
-    slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
-    document.getElementById('cur').textContent = idx+1;
-    document.getElementById('prev').disabled = idx===0;
-    document.getElementById('next').disabled = idx===total-1;
-  }
-  function go(d){
-    idx = Math.min(total-1, Math.max(0, idx+d));
-    render();
-  }
-  document.getElementById('prev').addEventListener('click', ()=>go(-1));
-  document.getElementById('next').addEventListener('click', ()=>go(1));
-  window.addEventListener('keydown', e=>{
-    if(e.key==='ArrowRight' || e.key===' '){ e.preventDefault(); go(1); }
-    else if(e.key==='ArrowLeft'){ e.preventDefault(); go(-1); }
-  });
+function render(){
+  slides.forEach((s,i) => s.classList.toggle('active', i===idx));
+  document.getElementById('cur').textContent = idx+1;
+  document.getElementById('prev').disabled = idx===0;
+  document.getElementById('next').disabled = idx===total-1;
+}
+function go(d){ idx = Math.min(total-1, Math.max(0, idx+d)); render(); }
 
-  function fit(){
-    const stage = document.getElementById('stage');
-    const scale = Math.min(window.innerWidth/1920, window.innerHeight/1080);
-    stage.style.transform = `translate(-50%, -50%) scale(${scale})`;
-  }
-  window.addEventListener('resize', fit);
-  fit();
+document.getElementById('prev').addEventListener('click', ()=>go(-1));
+document.getElementById('next').addEventListener('click', ()=>go(1));
+window.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight'||e.key===' '){ e.preventDefault(); go(1); }
+  else if(e.key==='ArrowLeft'){ e.preventDefault(); go(-1); }
+});
+
+function fit(){
+  const s = document.getElementById('stage');
+  const scale = Math.min(window.innerWidth/1920, window.innerHeight/1080);
+  s.style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+window.addEventListener('resize', fit);
+fit();
 </script>
-
 </body>
 </html>
