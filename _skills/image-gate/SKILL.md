@@ -41,11 +41,16 @@ https://external.com/image.jpg, client-case.html, assets/client/client-descripti
 
 ## Naming examples
 ```
-architonic-brand-platform-hero-01.webp
-lv-workshops-creation-01.webp
-fvf-dr-hauschka-portrait-01.webp
-nzz-brand-identity-device-01.webp
+architonic-frede-brand-platform-hero-01.webp
+lv-frede-workshops-creation-01.webp
+fvf-frede-dr-hauschka-portrait-01.webp
+nzz-frede-brand-identity-device-01.webp
 ```
+
+## SEO naming rule
+Always include "frede" in every filename — no exceptions. This is sufficient for SEO attribution.
+Pattern: `[client]-frede-[description]-[number].[ext]`
+Do NOT use "frederik-frede" in full — "frede" alone is the convention.
 
 ## Hard constraints
 - Never push to staging branch — assets always go to main
