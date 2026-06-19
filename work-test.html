@@ -119,7 +119,7 @@ main{flex:1;padding:0}
 /* ─── COLUMNS VIEW (3-col masonry, like work.html) ──────────────── */
 .row-grid.view-columns{
   display:block;
-  columns:3;
+  columns:4;
   column-gap:16px;
 }
 .row-grid.view-columns .card{
@@ -207,16 +207,17 @@ footer{margin-top:auto}
     <div class="layout-btns">
       <button class="layout-btn active" id="btn-stream" title="Stream" onclick="setLayout('stream',this)">
         <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
-          <rect width="12" height="2" rx="0.5" fill="currentColor"/>
-          <rect y="4" width="12" height="2" rx="0.5" fill="currentColor"/>
-          <rect y="8" width="12" height="2" rx="0.5" fill="currentColor"/>
+          <rect width="12" height="1" rx="0.5" fill="currentColor"/>
+          <rect y="4.5" width="12" height="1" rx="0.5" fill="currentColor"/>
+          <rect y="9" width="12" height="1" rx="0.5" fill="currentColor"/>
         </svg>
       </button>
       <button class="layout-btn" id="btn-columns" title="Columns" onclick="setLayout('columns',this)">
-        <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
-          <rect width="2" height="10" rx="0.5" fill="currentColor"/>
-          <rect x="5" width="2" height="10" rx="0.5" fill="currentColor"/>
-          <rect x="10" width="2" height="10" rx="0.5" fill="currentColor"/>
+        <svg width="13" height="10" viewBox="0 0 13 10" fill="none">
+          <rect width="1" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="4" width="1" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="8" width="1" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="12" width="1" height="10" rx="0.5" fill="currentColor"/>
         </svg>
       </button>
       <button class="layout-btn" id="btn-grid" title="Grid" onclick="setLayout('grid',this)">
