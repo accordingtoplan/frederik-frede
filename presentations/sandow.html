@@ -6,15 +6,16 @@
 <title>Frederik Frede — MIAD / Sandow</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:#000;overflow:hidden;width:100%;height:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
+html,body{background:#0a0a0a;overflow:hidden;width:100%;height:100%;
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
 
-/* blurred backdrop fills the gaps outside the scaled stage */
+/* blurred backdrop — fills viewport gaps behind scaled stage */
 #backdrop{
   position:fixed;inset:0;z-index:0;
   background-size:cover;background-position:center;
-  filter:blur(48px) brightness(.35) saturate(.5);
-  transform:scale(1.1);
-  transition:background-image .5s ease;
+  filter:blur(56px) brightness(.3) saturate(.4);
+  transform:scale(1.12);
+  transition:background-image .6s ease;
 }
 
 #stage{
@@ -28,84 +29,135 @@ html,body{background:#000;overflow:hidden;width:100%;height:100%;font-family:'He
 .slide.active{display:block;}
 
 /* backgrounds */
-.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 .bg-color{position:absolute;inset:0;}
 
-/* overlays */
+/* overlays — lighter touch than before */
 .ov{position:absolute;inset:0;}
-.ov-dark{background:rgba(0,0,0,.62);}
-.ov-left{background:linear-gradient(to right,rgba(0,0,0,.88) 0%,rgba(0,0,0,.7) 40%,rgba(0,0,0,.1) 100%);}
-.ov-right{background:linear-gradient(to left,rgba(0,0,0,.88) 0%,rgba(0,0,0,.7) 40%,rgba(0,0,0,.1) 100%);}
-.ov-bottom{background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 40%,rgba(0,0,0,.0) 80%);}
+.ov-dark{background:rgba(0,0,0,.52);}
+.ov-left{background:linear-gradient(to right,rgba(0,0,0,.82) 0%,rgba(0,0,0,.55) 38%,rgba(0,0,0,.0) 70%);}
+.ov-bottom{background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.6) 35%,rgba(0,0,0,.0) 65%);}
+.ov-top{background:linear-gradient(to bottom,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 40%);}
 
-/* layout */
-.c{position:relative;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 120px;color:#fff;}
-.c.bot{justify-content:flex-end;padding-bottom:100px;}
-.c.right{align-items:flex-end;}
-.c.center-align{align-items:center;text-align:center;}
+/* ── top bar ── */
+.top-bar{
+  position:absolute;top:0;left:0;right:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:44px 80px 0;
+  font-size:13px;font-weight:400;letter-spacing:.08em;
+  color:rgba(255,255,255,.4);
+}
+.top-bar .tb-name{color:rgba(255,255,255,.55);font-weight:500;}
+.top-bar .tb-section{position:absolute;left:50%;transform:translateX(-50%);}
+.top-bar .tb-num{font-variant-numeric:tabular-nums;}
 
-.panel{max-width:800px;}
-.panel.wide{max-width:1400px;}
-.panel.narrow{max-width:580px;}
-.panel.mid{max-width:1000px;}
-
-/* type */
-.eyebrow{font-size:15px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px;}
-.eyebrow.accent{color:#e8ddc9;}
-h1{font-size:96px;font-weight:500;line-height:1.0;letter-spacing:-0.02em;margin-bottom:36px;}
-h1.xl{font-size:110px;}
-h2{font-size:62px;font-weight:500;line-height:1.1;letter-spacing:-0.015em;margin-bottom:48px;}
-h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-bottom:28px;}
-.lead{font-size:26px;font-weight:400;line-height:1.55;color:rgba(255,255,255,.9);margin-bottom:22px;}
-.lead.dim{color:rgba(255,255,255,.65);}
-.body{font-size:22px;font-weight:400;line-height:1.6;color:rgba(255,255,255,.75);}
-.meta{font-size:17px;font-weight:400;line-height:1.8;color:rgba(255,255,255,.45);margin-top:44px;}
-.tag{font-size:15px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#e8ddc9;margin-bottom:10px;}
-.rule{width:40px;height:1px;background:rgba(255,255,255,.35);margin-bottom:40px;}
-.divider{width:100%;height:1px;background:rgba(255,255,255,.12);margin:44px 0;}
-
-/* list */
-.list{display:flex;flex-direction:column;gap:20px;}
-.list .item{font-size:25px;font-weight:400;line-height:1.55;padding-left:24px;border-left:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);}
-
-/* 3 col */
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:72px;}
-.col .num{font-size:72px;font-weight:300;letter-spacing:-0.02em;color:rgba(255,255,255,.12);margin-bottom:16px;line-height:1;}
-.col h4{font-size:30px;font-weight:500;margin-bottom:16px;line-height:1.25;}
-.col p{font-size:22px;font-weight:400;line-height:1.6;color:rgba(255,255,255,.7);}
-
-/* 2 col */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;}
-
-/* range */
-.range{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;width:100%;}
-.ri{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:2px;}
-.ri img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
-.ri .rio{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,0) 55%);
-  display:flex;flex-direction:column;justify-content:flex-end;padding:18px;}
-.ri .rt{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#e8ddc9;margin-bottom:5px;}
-.ri .rn{font-size:18px;font-weight:500;color:#fff;}
-
-/* appendix badge */
-.appendix-badge{
-  position:absolute;top:56px;right:120px;z-index:10;
-  font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);
+/* ── bottom bar ── */
+.bot-bar{
+  position:absolute;bottom:0;left:0;right:0;z-index:10;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:0 80px 44px;
+  font-size:13px;font-weight:400;letter-spacing:.04em;
+  color:rgba(255,255,255,.35);
 }
 
-/* nav */
+/* ── content layouts ── */
+.c{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  padding:120px 80px;
+  color:#fff;
+}
+/* headline crashes to bottom */
+.c.headline-bot{
+  justify-content:flex-end;
+}
+/* content sits in the middle-left */
+.c.mid-left{
+  justify-content:center;
+  max-width:820px;
+}
+/* full content area, centered vertically */
+.c.full{
+  justify-content:center;
+}
+
+/* ── type scale ── */
+.label{
+  font-size:14px;font-weight:400;letter-spacing:.1em;
+  color:rgba(255,255,255,.45);margin-bottom:18px;
+}
+.label.warm{color:#d4c4a8;}
+
+h1{
+  font-size:130px;font-weight:500;line-height:.95;
+  letter-spacing:-0.03em;margin-bottom:0;
+  max-width:1600px;
+}
+h1.mid{font-size:96px;line-height:1.0;}
+h2{
+  font-size:72px;font-weight:500;line-height:1.05;
+  letter-spacing:-0.02em;margin-bottom:48px;
+}
+h2.sm{font-size:52px;letter-spacing:-0.015em;}
+
+.lead{
+  font-size:24px;font-weight:400;line-height:1.6;
+  color:rgba(255,255,255,.85);margin-bottom:20px;
+  max-width:680px;
+}
+.lead:last-child{margin-bottom:0;}
+.lead.dim{color:rgba(255,255,255,.55);}
+
+.body-sm{
+  font-size:18px;font-weight:400;line-height:1.65;
+  color:rgba(255,255,255,.6);
+}
+
+/* ── list ── */
+.list{display:flex;flex-direction:column;gap:0;max-width:640px;}
+.list .item{
+  font-size:22px;font-weight:400;line-height:1.55;
+  padding:20px 0;
+  border-top:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.8);
+}
+.list .item:last-child{border-bottom:1px solid rgba(255,255,255,.12);}
+
+/* ── 3 col grid ── */
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:64px;max-width:1400px;}
+.col .num{
+  font-size:13px;font-weight:400;letter-spacing:.1em;
+  color:rgba(255,255,255,.25);margin-bottom:28px;
+}
+.col h4{font-size:26px;font-weight:500;line-height:1.2;margin-bottom:14px;}
+.col p{font-size:19px;font-weight:400;line-height:1.65;color:rgba(255,255,255,.6);}
+
+/* ── range grid ── */
+.range{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;width:100%;}
+.ri{position:relative;aspect-ratio:3/4;overflow:hidden;}
+.ri img{width:100%;height:100%;object-fit:cover;display:block;}
+.ri .rio{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,0) 50%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
+}
+.ri .rt{font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-bottom:4px;}
+.ri .rn{font-size:16px;font-weight:500;color:#fff;}
+
+/* ── nav ── */
 .nav{
-  position:absolute;bottom:44px;right:120px;
-  display:flex;align-items:center;gap:20px;
-  color:rgba(255,255,255,.45);z-index:100;
+  position:fixed;bottom:44px;right:80px;z-index:200;
+  display:flex;align-items:center;gap:16px;
+  color:rgba(255,255,255,.4);
 }
 .nav button{
-  width:40px;height:40px;border:1px solid rgba(255,255,255,.2);border-radius:50%;
-  background:transparent;color:inherit;font-size:17px;cursor:pointer;
+  width:36px;height:36px;border:1px solid rgba(255,255,255,.18);border-radius:50%;
+  background:transparent;color:inherit;font-size:16px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;transition:all .2s;
 }
-.nav button:hover{border-color:rgba(255,255,255,.55);color:#fff;}
-.nav button:disabled{opacity:.18;cursor:default;}
-.nav-count{font-size:13px;letter-spacing:.06em;min-width:54px;text-align:center;}
+.nav button:hover{border-color:rgba(255,255,255,.5);color:#fff;}
+.nav button:disabled{opacity:.15;cursor:default;}
+.nav-count{font-size:12px;letter-spacing:.06em;min-width:44px;text-align:center;}
 </style>
 </head>
 <body>
@@ -115,66 +167,75 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <!-- ─── 1. INTRO ─── -->
 <section class="slide active">
   <img class="bg" src="/presentations/assets/surf.jpg" alt="">
-  <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel">
-      <div class="eyebrow" style="margin-bottom:60px;font-size:22px;font-weight:300;letter-spacing:.04em;color:rgba(255,255,255,.7);">Frederik Frede</div>
-      <h1 class="xl" style="margin-bottom:28px;">Culture, strategy<br>and identity.</h1>
-      <p class="lead dim">Through skills, instinct and taste.</p>
-      <div class="meta">June 2026 &nbsp;·&nbsp; For Sandow</div>
-    </div>
+  <div class="ov ov-bottom"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">For Sandow</span>
+    <span class="tb-num">1</span>
+  </div>
+  <div class="c headline-bot">
+    <div class="label">Culture, strategy and identity</div>
+    <h1>Through skills,<br>instinct and taste.</h1>
+  </div>
+  <div class="bot-bar">
+    <span>June 2026</span>
+    <span></span>
   </div>
 </section>
 
-<!-- ─── 2. OPTIONAL INTRO (MIAD) ─── -->
+<!-- ─── 2. MIAD TITLE ─── -->
 <section class="slide">
   <img class="bg" src="/presentations/assets/surf.jpg" alt="">
-  <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel">
-      <div class="eyebrow accent">For Sandow</div>
-      <h1 style="margin-bottom:28px;">MIAD</h1>
-      <p class="lead">Merging Intelligence with Design</p>
-      <p class="lead dim">Creative Direction &amp; Strategic Systems</p>
-    </div>
+  <div class="ov ov-bottom"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">For Sandow</span>
+    <span class="tb-num">2</span>
+  </div>
+  <div class="c headline-bot">
+    <div class="label warm">Creative Direction &amp; Strategic Systems</div>
+    <h1>MIAD — Merging<br>Intelligence with Design.</h1>
   </div>
 </section>
 
 <!-- ─── 3. ABOUT ─── -->
 <section class="slide">
   <img class="bg" src="/presentations/assets/about.jpg" alt="">
-  <div class="ov ov-dark"></div>
-  <div class="c">
-    <div class="panel mid">
-      <div class="rule"></div>
-      <h2>About</h2>
-      <p class="lead">Independent creative director and brand strategist. Over a decade building systems across culture, hospitality, product, real estate and media — always strategy first, always executed.</p>
-      <p class="lead dim">Co-founder of Freunde von Freunden and MoreSleep. Current work at frederikfrede.com</p>
-      <div class="meta">frederikfrede.com</div>
-    </div>
+  <div class="ov ov-left"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">About</span>
+    <span class="tb-num">3</span>
+  </div>
+  <div class="c mid-left" style="justify-content:flex-end;padding-bottom:140px;">
+    <h2 style="margin-bottom:32px;">About</h2>
+    <p class="lead">Independent creative director and brand strategist. Over a decade building systems across culture, hospitality, product, real estate and media.</p>
+    <p class="lead dim">Co-founder of Freunde von Freunden and MoreSleep. Current work at frederikfrede.com</p>
   </div>
 </section>
 
 <!-- ─── 4. RANGE ─── -->
 <section class="slide">
-  <div class="bg-color" style="background:#111;"></div>
-  <div class="c bot" style="padding:0 120px 80px;">
-    <div class="panel wide">
-      <div class="eyebrow" style="margin-bottom:28px;">Selected work</div>
-      <div class="range">
-        <div class="ri"><img src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt="">
-          <div class="rio"><div class="rt">Platform Strategy</div><div class="rn">Architonic</div></div></div>
-        <div class="ri"><img src="/assets/umane/umane-p1-logo-wordmark.jpg" alt="">
-          <div class="rio"><div class="rt">Brand Identity</div><div class="rn">Umane</div></div></div>
-        <div class="ri"><img src="/assets/usm/usm-personality-portrait.jpg" alt="">
-          <div class="rio"><div class="rt">Brand &amp; Digital</div><div class="rn">USM</div></div></div>
-        <div class="ri"><img src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt="">
-          <div class="rio"><div class="rt">Personal Brand</div><div class="rn">F. G. Pferdt</div></div></div>
-        <div class="ri"><img src="/assets/lewis-group/lewis-group-lewis-billboard-nature-mockup.jpg" alt="">
-          <div class="rio"><div class="rt">Real Estate</div><div class="rn">Lewis Group</div></div></div>
-        <div class="ri"><img src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt="">
-          <div class="rio"><div class="rt">Web Design</div><div class="rn">Engel &amp; Völkers</div></div></div>
-      </div>
+  <div class="bg-color" style="background:#0d0d0d;"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Selected work</span>
+    <span class="tb-num">4</span>
+  </div>
+  <div class="c full" style="padding-top:140px;">
+    <div class="range">
+      <div class="ri"><img src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt="">
+        <div class="rio"><div class="rt">Platform Strategy</div><div class="rn">Architonic</div></div></div>
+      <div class="ri"><img src="/assets/umane/umane-p1-logo-wordmark.jpg" alt="">
+        <div class="rio"><div class="rt">Brand Identity</div><div class="rn">Umane</div></div></div>
+      <div class="ri"><img src="/assets/usm/usm-personality-portrait.jpg" alt="">
+        <div class="rio"><div class="rt">Brand &amp; Digital</div><div class="rn">USM</div></div></div>
+      <div class="ri"><img src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt="">
+        <div class="rio"><div class="rt">Personal Brand</div><div class="rn">F. G. Pferdt</div></div></div>
+      <div class="ri"><img src="/assets/lewis-group/lewis-group-lewis-billboard-nature-mockup.jpg" alt="">
+        <div class="rio"><div class="rt">Real Estate</div><div class="rn">Lewis Group</div></div></div>
+      <div class="ri"><img src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt="">
+        <div class="rio"><div class="rt">Web Design</div><div class="rn">Engel &amp; Völkers</div></div></div>
     </div>
   </div>
 </section>
@@ -182,14 +243,16 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <!-- ─── 5. ARCHITONIC 1 ─── -->
 <section class="slide">
   <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt="">
-  <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">Platform Strategy &amp; Creative Direction</div>
-      <h2>Architonic</h2>
-      <p class="lead">Europe's leading platform for architectural products and materials. Full brand strategy and platform redesign, from positioning through to the live interface in daily use today.</p>
-      <div class="meta">architonic.com</div>
-    </div>
+  <div class="ov ov-bottom"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Architonic</span>
+    <span class="tb-num">5</span>
+  </div>
+  <div class="c headline-bot">
+    <div class="label">Platform Strategy &amp; Creative Direction</div>
+    <h1 class="mid">Architonic</h1>
+    <p class="lead" style="margin-top:24px;max-width:720px;">Europe's leading platform for architectural products. Full brand strategy and platform redesign — from positioning through to the live interface in daily use today.</p>
   </div>
 </section>
 
@@ -197,54 +260,67 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <section class="slide">
   <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt="">
   <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">What was built</div>
-      <div class="list">
-        <div class="item">Smart search, visual search and 3D configurators</div>
-        <div class="item">New editorial visual language across web, brand pages and social</div>
-        <div class="item">A scalable system built to extend across markets and categories</div>
-      </div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Architonic</span>
+    <span class="tb-num">6</span>
+  </div>
+  <div class="c mid-left" style="justify-content:flex-end;padding-bottom:140px;">
+    <div class="label">What was built</div>
+    <div class="list">
+      <div class="item">Smart search, visual search and 3D configurators</div>
+      <div class="item">New editorial visual language across web, brand pages and social</div>
+      <div class="item">A scalable system built to extend across markets and categories</div>
     </div>
   </div>
 </section>
 
 <!-- ─── 7. NZZ 1 ─── -->
 <section class="slide">
-  <div class="bg-color" style="background:#1a1a1a;"></div>
-  <img class="bg" src="https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" alt="" style="object-fit:contain;object-position:right center;width:55%;left:auto;right:0;">
+  <div class="bg-color" style="background:#111;"></div>
+  <img class="bg" src="https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png"
+    alt="" style="object-fit:contain;object-position:right center;width:52%;left:auto;right:0;">
   <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">Brand &amp; Digital — In Progress</div>
-      <h2>NZZ</h2>
-      <p class="lead">Switzerland's leading media house. Brand and digital transformation currently in development — the question every large publisher faces: one identity, many divisions, consistent at scale.</p>
-    </div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">NZZ</span>
+    <span class="tb-num">7</span>
+  </div>
+  <div class="c mid-left" style="justify-content:flex-end;padding-bottom:140px;">
+    <div class="label">Brand &amp; Digital — In Progress</div>
+    <h2>NZZ</h2>
+    <p class="lead">Switzerland's leading media house. Brand and digital transformation currently in development.</p>
   </div>
 </section>
 
 <!-- ─── 8. NZZ 2 ─── -->
 <section class="slide">
-  <div class="bg-color" style="background:#111;"></div>
-  <div class="c">
-    <div class="panel mid">
-      <div class="tag">The challenge</div>
-      <h2 style="font-size:52px;">A media brand that spans print, digital and broadcast — with a 250-year identity to protect.</h2>
-      <p class="lead dim">Scope: brand positioning, digital design system, cross-channel coherence. Same structural challenge Sandow faces across its portfolio.</p>
-    </div>
+  <div class="bg-color" style="background:#0d0d0d;"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">NZZ</span>
+    <span class="tb-num">8</span>
+  </div>
+  <div class="c mid-left" style="justify-content:flex-end;padding-bottom:140px;">
+    <div class="label">The challenge</div>
+    <h2 class="sm">A media brand spanning print, digital and broadcast — with a 250-year identity to protect.</h2>
+    <p class="lead dim">Brand positioning, digital design system, cross-channel coherence. The same structural challenge Sandow faces across its portfolio.</p>
   </div>
 </section>
 
 <!-- ─── 9. PFERDT 1 ─── -->
 <section class="slide">
   <img class="bg" src="/assets/pferdt/pferdt-fgp-mockupmaison-dd-e11.jpg" alt="">
-  <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">Personal Brand &amp; Identity</div>
-      <h2>Frederik G. Pferdt</h2>
-      <p class="lead">Google's first Chief Innovation Evangelist. Personal brand and digital presence built for his transition to an independent practice as keynote speaker, author and advisor.</p>
-    </div>
+  <div class="ov ov-bottom"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Frederik G. Pferdt</span>
+    <span class="tb-num">9</span>
+  </div>
+  <div class="c headline-bot">
+    <div class="label">Personal Brand &amp; Identity</div>
+    <h1 class="mid">Frederik G. Pferdt</h1>
+    <p class="lead" style="margin-top:24px;max-width:720px;">Google's first Chief Innovation Evangelist. Personal brand built for his transition to independent practice — speaker, author, advisor.</p>
   </div>
 </section>
 
@@ -252,14 +328,17 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <section class="slide">
   <img class="bg" src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt="">
   <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">What was built</div>
-      <div class="list">
-        <div class="item">Full positioning and narrative framework</div>
-        <div class="item">Identity system: logotype, typography, colour, motion</div>
-        <div class="item">Website, keynote templates, speaker kit and social presence</div>
-      </div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Frederik G. Pferdt</span>
+    <span class="tb-num">10</span>
+  </div>
+  <div class="c mid-left" style="justify-content:flex-end;padding-bottom:140px;">
+    <div class="label">What was built</div>
+    <div class="list">
+      <div class="item">Full positioning and narrative framework</div>
+      <div class="item">Identity system: logotype, typography, colour, motion</div>
+      <div class="item">Website, keynote templates, speaker kit and social presence</div>
     </div>
   </div>
 </section>
@@ -267,13 +346,16 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <!-- ─── 11. USM 1 ─── -->
 <section class="slide">
   <img class="bg" src="/assets/usm/usm-yellow-office-full.jpg" alt="">
-  <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">Brand &amp; Digital Platform</div>
-      <h2>USM</h2>
-      <p class="lead">A Swiss manufacturer of modular furniture. The Haller system has been a benchmark of modernist design since the 1960s. Built Personalities by USM — a multi-channel platform showing how people live with and style USM pieces.</p>
-    </div>
+  <div class="ov ov-bottom"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">USM</span>
+    <span class="tb-num">11</span>
+  </div>
+  <div class="c headline-bot">
+    <div class="label">Brand &amp; Digital Platform</div>
+    <h1 class="mid">USM</h1>
+    <p class="lead" style="margin-top:24px;max-width:720px;">A Swiss manufacturer of modular furniture. Built Personalities by USM — a multi-channel editorial platform showing how people live with the Haller system.</p>
   </div>
 </section>
 
@@ -281,14 +363,17 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <section class="slide">
   <img class="bg" src="/assets/usm/usm-personality-portrait.jpg" alt="">
   <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">What was built</div>
-      <div class="list">
-        <div class="item">Editorial platform concept and content strategy</div>
-        <div class="item">Photography direction and production</div>
-        <div class="item">Web, social and pitch material — adopted across markets</div>
-      </div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">USM</span>
+    <span class="tb-num">12</span>
+  </div>
+  <div class="c mid-left" style="justify-content:flex-end;padding-bottom:140px;">
+    <div class="label">What was built</div>
+    <div class="list">
+      <div class="item">Editorial platform concept and content strategy</div>
+      <div class="item">Photography direction and production</div>
+      <div class="item">Web, social and pitch material — adopted across markets</div>
     </div>
   </div>
 </section>
@@ -296,13 +381,16 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <!-- ─── 13. LEWIS 1 ─── -->
 <section class="slide">
   <img class="bg" src="/assets/lewis-group/lewis-group-lewis-billboard-nature-mockup.jpg" alt="">
-  <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">Brand Identity &amp; Web Design</div>
-      <h2>Lewis Group</h2>
-      <p class="lead">A family-owned real estate developer with over 60 years of history across California and Nevada. A full rebrand aligning identity across mixed-use, residential and commercial divisions.</p>
-    </div>
+  <div class="ov ov-bottom"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Lewis Group</span>
+    <span class="tb-num">13</span>
+  </div>
+  <div class="c headline-bot">
+    <div class="label">Brand Identity &amp; Web Design</div>
+    <h1 class="mid">Lewis Group</h1>
+    <p class="lead" style="margin-top:24px;max-width:720px;">A family-owned real estate developer with over 60 years of history. A rebrand aligning identity across mixed-use, residential and commercial divisions.</p>
   </div>
 </section>
 
@@ -310,14 +398,17 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <section class="slide">
   <img class="bg" src="/assets/lewis-group/lewis-group-lewis-stationary-a4-mockup-copy.jpg" alt="">
   <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">What was built</div>
-      <div class="list">
-        <div class="item">Brand strategy and new visual identity system</div>
-        <div class="item">Web presence and digital templates</div>
-        <div class="item">Applied across signage, print and environmental</div>
-      </div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Lewis Group</span>
+    <span class="tb-num">14</span>
+  </div>
+  <div class="c mid-left" style="justify-content:flex-end;padding-bottom:140px;">
+    <div class="label">What was built</div>
+    <div class="list">
+      <div class="item">Brand strategy and new visual identity system</div>
+      <div class="item">Web presence and digital templates</div>
+      <div class="item">Applied across signage, print and environmental</div>
     </div>
   </div>
 </section>
@@ -325,28 +416,35 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <!-- ─── 15. ENGEL & VÖLKERS 1 ─── -->
 <section class="slide">
   <img class="bg" src="/assets/engel-volkers/engel-volkers-euv-image-break.png" alt="">
-  <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">Web Design &amp; Art Direction</div>
-      <h2>Engel &amp; Völkers</h2>
-      <p class="lead">One of Europe's most recognised luxury real estate brokerages. Rethinking how premium properties are presented digitally — from static listings to an experience that matches the quality of what it shows.</p>
-    </div>
+  <div class="ov ov-bottom"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Engel &amp; Völkers</span>
+    <span class="tb-num">15</span>
+  </div>
+  <div class="c headline-bot">
+    <div class="label">Web Design &amp; Art Direction</div>
+    <h1 class="mid">Engel &amp; Völkers</h1>
+    <p class="lead" style="margin-top:24px;max-width:720px;">One of Europe's most recognised luxury real estate brokerages. Rethinking how premium properties are presented digitally.</p>
   </div>
 </section>
 
 <!-- ─── 16. ENGEL & VÖLKERS 2 ─── -->
 <section class="slide">
-  <img class="bg" src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt="" style="object-fit:contain;object-position:right center;background:#0f0f0f;">
+  <img class="bg" src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt=""
+    style="object-fit:contain;object-position:right center;background:#0c0c0c;">
   <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="tag">What was built</div>
-      <div class="list">
-        <div class="item">Digital presentation platform leading with visuals</div>
-        <div class="item">Built on SPOT, proprietary asset management system</div>
-        <div class="item">Direction adopted across the wider company</div>
-      </div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Engel &amp; Völkers</span>
+    <span class="tb-num">16</span>
+  </div>
+  <div class="c mid-left" style="justify-content:flex-end;padding-bottom:140px;">
+    <div class="label">What was built</div>
+    <div class="list">
+      <div class="item">Digital presentation platform leading with visuals</div>
+      <div class="item">Built on SPOT, proprietary asset management system</div>
+      <div class="item">Direction adopted across the wider company</div>
     </div>
   </div>
 </section>
@@ -354,14 +452,16 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <!-- ─── 17. AI FRAMEWORK 1 ─── -->
 <section class="slide">
   <img class="bg" src="/presentations/assets/mountain.jpg" alt="">
-  <div class="ov ov-dark"></div>
-  <div class="c">
-    <div class="panel mid">
-      <div class="eyebrow accent">MIAD — Merging Intelligence with Design</div>
-      <h2>Brand as infrastructure</h2>
-      <p class="lead">A brand system isn't a logo and a typeface. It's a set of decisions, documented well enough that anyone — or anything — can work from them.</p>
-      <p class="lead dim">Most brand systems only live in someone's head. The moment that person leaves, or the team scales, the system collapses. AI makes this more urgent, not less.</p>
-    </div>
+  <div class="ov ov-bottom"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">MIAD</span>
+    <span class="tb-num">17</span>
+  </div>
+  <div class="c headline-bot">
+    <div class="label warm">Merging Intelligence with Design</div>
+    <h1 class="mid">Brand as infrastructure.</h1>
+    <p class="lead" style="margin-top:24px;max-width:860px;">A brand system isn't a logo and a typeface. It's a set of decisions, documented well enough that anyone — or anything — can work from them.</p>
   </div>
 </section>
 
@@ -369,25 +469,28 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <section class="slide">
   <img class="bg" src="/presentations/assets/mountain.jpg" alt="">
   <div class="ov ov-dark"></div>
-  <div class="c">
-    <div class="panel wide">
-      <div class="eyebrow accent" style="margin-bottom:48px;">The method</div>
-      <div class="grid3">
-        <div class="col">
-          <div class="num">01</div>
-          <h4>Document the system</h4>
-          <p>Voice, visual rules, decision logic — written down as a living reference, not held in one person's head.</p>
-        </div>
-        <div class="col">
-          <div class="num">02</div>
-          <h4>Make it an input</h4>
-          <p>The same brief a designer reads is what an AI tool reads. Output stays on-brand at any speed, any volume.</p>
-        </div>
-        <div class="col">
-          <div class="num">03</div>
-          <h4>Keep it alive</h4>
-          <p>frederikfrede.com is built and run this way, in public, right now — strategy, identity and code maintained continuously.</p>
-        </div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">MIAD</span>
+    <span class="tb-num">18</span>
+  </div>
+  <div class="c full" style="justify-content:flex-end;padding-bottom:140px;">
+    <div class="label" style="margin-bottom:48px;">The method</div>
+    <div class="grid3">
+      <div class="col">
+        <div class="num">01</div>
+        <h4>Document the system</h4>
+        <p>Voice, visual rules, decision logic — written down as a living reference, not held in one person's head.</p>
+      </div>
+      <div class="col">
+        <div class="num">02</div>
+        <h4>Make it an input</h4>
+        <p>The same brief a designer reads is what an AI tool reads. Output stays on-brand at any speed, any volume.</p>
+      </div>
+      <div class="col">
+        <div class="num">03</div>
+        <h4>Keep it alive</h4>
+        <p>frederikfrede.com is built and run this way, in public, right now — strategy, identity and code maintained continuously.</p>
       </div>
     </div>
   </div>
@@ -395,18 +498,21 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 
 <!-- ─── 19. OPPORTUNITY ─── -->
 <section class="slide">
-  <div class="bg-color" style="background:#0e0e0e;"></div>
-  <img class="bg" src="/assets/architonic/architonic-at-co-mockup.jpg" alt="" style="object-fit:contain;object-position:right bottom;width:55%;left:auto;right:0;top:auto;opacity:.85;">
+  <div class="bg-color" style="background:#0c0c0c;"></div>
+  <img class="bg" src="/assets/architonic/architonic-at-co-mockup.jpg" alt=""
+    style="object-fit:contain;object-position:right bottom;width:50%;left:auto;right:0;top:auto;opacity:.7;">
   <div class="ov ov-left"></div>
-  <div class="c">
-    <div class="panel narrow">
-      <div class="rule"></div>
-      <h2>Opportunity<br>for Sandow</h2>
-      <div class="list" style="gap:18px;">
-        <div class="item">Ongoing creative direction for Architonic as it matures and scales</div>
-        <div class="item">AI-ready brand systems across the wider Sandow portfolio</div>
-        <div class="item">Embedded creative and strategic direction at the pace the platform demands</div>
-      </div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section">Opportunity</span>
+    <span class="tb-num">19</span>
+  </div>
+  <div class="c mid-left" style="justify-content:flex-end;padding-bottom:140px;">
+    <div class="label">Opportunity for Sandow</div>
+    <div class="list">
+      <div class="item">Ongoing creative direction for Architonic as it matures and scales</div>
+      <div class="item">AI-ready brand systems across the wider Sandow portfolio</div>
+      <div class="item">Embedded creative and strategic direction at the pace the platform demands</div>
     </div>
   </div>
 </section>
@@ -414,19 +520,15 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 <!-- ─── 20. OUTRO ─── -->
 <section class="slide">
   <img class="bg" src="/presentations/assets/surf.jpg" alt="">
-  <div class="ov" style="background:rgba(0,0,0,.55);"></div>
-  <div class="c center-align">
-    <div class="panel mid" style="align-items:center;">
-      <div class="eyebrow" style="margin-bottom:40px;">Let's talk</div>
-      <h1 style="font-size:80px;margin-bottom:36px;">Keen to explore what<br>this looks like together.</h1>
-      <div class="divider" style="width:400px;"></div>
-      <div class="meta" style="text-align:center;margin-top:32px;font-size:19px;line-height:2.2;color:rgba(255,255,255,.6);">
-        Frederik Frede<br>
-        <a href="https://frederikfrede.com" style="color:rgba(255,255,255,.6);text-decoration:none;">frederikfrede.com</a>
-        &nbsp;·&nbsp; frederikfrede@gmail.com<br>
-        +XX XXX XXX XXXX
-      </div>
-    </div>
+  <div class="ov ov-bottom"></div>
+  <div class="top-bar">
+    <span class="tb-name">Frederik Frede</span>
+    <span class="tb-section"></span>
+    <span class="tb-num">20</span>
+  </div>
+  <div class="c headline-bot">
+    <h1 class="mid" style="margin-bottom:40px;">Keen to explore what<br>this looks like together.</h1>
+    <p class="body-sm">frederikfrede.com &nbsp;·&nbsp; frederikfrede@gmail.com &nbsp;·&nbsp; +XX XXX XXX XXXX</p>
   </div>
 </section>
 
@@ -434,7 +536,7 @@ h3{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;margin-
 
 <div class="nav">
   <button id="prev" disabled>‹</button>
-  <div class="nav-count"><span id="cur">1</span> / <span id="tot">22</span></div>
+  <div class="nav-count"><span id="cur">1</span> / <span id="tot">20</span></div>
   <button id="next">›</button>
 </div>
 
@@ -447,10 +549,8 @@ let idx = 0;
 
 function getBgImage(slide){
   const img = slide.querySelector('img.bg');
-  if(img) return `url('${img.src}')`;
-  const col = slide.querySelector('.bg-color');
-  if(col) return 'none';
-  return 'none';
+  if(img && !img.style.width) return `url('${img.src}')`;
+  return null;
 }
 
 function render(){
@@ -458,11 +558,9 @@ function render(){
   document.getElementById('cur').textContent = idx+1;
   document.getElementById('prev').disabled = idx===0;
   document.getElementById('next').disabled = idx===total-1;
-  // sync backdrop
   const bg = getBgImage(slides[idx]);
-  backdrop.style.backgroundImage = bg;
-  backdrop.style.background = bg === 'none' ? '#111' : '';
-  if(bg !== 'none') backdrop.style.backgroundImage = bg;
+  if(bg){ backdrop.style.backgroundImage = bg; backdrop.style.background=''; }
+  else { backdrop.style.backgroundImage='none'; backdrop.style.background='#0a0a0a'; }
 }
 function go(d){ idx = Math.min(total-1, Math.max(0, idx+d)); render(); }
 
@@ -480,6 +578,7 @@ function fit(){
 }
 window.addEventListener('resize', fit);
 fit();
+render(); // init backdrop on first load
 </script>
 </body>
 </html>
