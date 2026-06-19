@@ -8,40 +8,75 @@
 <meta name="description" content="Selected projects and full archive by Frederik Frede. Brand strategy, identity and digital for design-led culture.">
   <link rel="stylesheet" href="style.css">
 <style>
-/* NAV */
-
-
-
-
-
-
-
-
-
-
-
-
 /* MAIN */
 main{flex:1;padding:0}
 
-/* SECTION HEADER */
-.section-header{display:flex;justify-content:space-between;align-items:baseline;padding:48px 0 24px}
-.section-title{font-size:var(--t-ui);font-weight:var(--bold);letter-spacing:var(--ls-ui);color:var(--grey-dark)}
-.section-count{font-size:var(--t-ui);color:var(--grey-light)}
+/* PAGE HERO */
+.page-hero{padding:120px 48px 40px;display:flex;justify-content:space-between;align-items:flex-end}
+.page-headline{font-size:clamp(32px,4.5vw,56px);font-weight:var(--bold);letter-spacing:-0.02em;line-height:1.05;color:var(--grey-dark);max-width:560px}
 
-/* 4-COL GRID */
-.grid{columns:4;column-gap:16px;margin-bottom:96px;padding:0 48px}
-.case{break-inside:avoid;margin-bottom:24px;cursor:pointer}
-.case-media{margin-bottom:8px;background:#f5f3f1;border-radius:4px;overflow:hidden}
-.case-media-inner{transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
-.case:hover .case-media-inner{transform:scale(1.03)}
-.case-media-inner img{width:100%;height:auto;display:block}
-.case-media-inner video{width:100%;height:auto;display:block;object-fit:unset}
-.case-info{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding-top:6px}
-.case-brand{font-size:var(--t-ui);font-weight:var(--bold);letter-spacing:var(--ls-ui);text-transform:none;color:var(--grey-dark);flex-shrink:0}
-.case-tag{font-size:var(--t-ui);color:var(--grey-mid);text-align:right;line-height:var(--lh-ui)}
+/* ─── LAYOUT TOGGLE ─────────────────────────────────────────────── */
+.layout-btns{display:flex;align-items:center;gap:4px;align-self:flex-end;padding-bottom:4px}
+.layout-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border:none;background:none;cursor:pointer;padding:0;
+  color:var(--grey-mid);opacity:0.35;transition:opacity 0.15s;
+}
+.layout-btn:hover{opacity:0.7}
+.layout-btn.active{opacity:1;color:var(--grey-dark)}
+.layout-btn svg{display:block}
 
-/* carousel */
+/* ─── STREAM VIEW (JWA flex-wrap) ───────────────────────────────── */
+.work-grid{
+  padding:0 48px;
+  margin-bottom:96px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px 8px;
+  align-items:flex-start;
+}
+.card{display:block;text-decoration:none;color:inherit;cursor:pointer;flex-shrink:0;flex-grow:0}
+.card-media{overflow:hidden;background:var(--bg-card);height:260px}
+.card-media-inner{height:100%;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
+.card:hover .card-media-inner{transform:scale(1.03)}
+.card-media-inner img{height:100%;width:auto;display:block}
+.card-media-inner video{height:100%;width:auto;display:block}
+.card--placeholder .card-media{width:320px}
+.placeholder-tile{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:var(--t-ui);font-weight:var(--bold);letter-spacing:var(--ls-ui);color:var(--grey-mid);
+  background:var(--bg-card);
+}
+/* Stacked captions */
+.card-info{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:8px 0 0;width:100%}
+.card-brand{font-size:13px;font-weight:var(--bold);letter-spacing:var(--ls-ui);color:var(--grey-dark);line-height:1.3}
+.card-tag{font-size:11px;color:var(--grey-mid);line-height:1.3}
+
+/* ─── COLUMNS VIEW (4-col masonry) ──────────────────────────────── */
+.work-grid.view-columns{
+  display:block;columns:4;column-gap:16px;
+}
+.work-grid.view-columns .card{
+  display:block;height:auto;break-inside:avoid;margin-bottom:16px;
+  flex-shrink:unset;
+}
+.work-grid.view-columns .card-media{height:auto}
+.work-grid.view-columns .card-media-inner img,
+.work-grid.view-columns .card-media-inner video{width:100%;height:auto;object-fit:unset}
+/* carousel in columns view */
+.work-grid.view-columns .carousel-slide img{height:220px;object-fit:cover}
+
+/* ─── GRID VIEW (2×2 equal) ─────────────────────────────────────── */
+.work-grid.view-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px 24px;
+  flex-wrap:unset;align-items:start;
+}
+.work-grid.view-grid .card{height:auto;flex-shrink:unset;flex-grow:unset}
+.work-grid.view-grid .card-media{height:auto}
+.work-grid.view-grid .card-media-inner img,
+.work-grid.view-grid .card-media-inner video{width:100%;height:auto;object-fit:unset}
+
+/* ─── CAROUSEL ───────────────────────────────────────────────────── */
 .carousel{overflow:hidden;position:relative}
 .carousel-slides{display:flex;transition:transform 0.6s ease}
 .carousel-slide{min-width:100%;flex-shrink:0}
@@ -50,7 +85,7 @@ main{flex:1;padding:0}
 .carousel-btn.prev{left:6px}
 .carousel-btn.next{right:6px}
 
-/* ARCHIVE */
+/* ─── ARCHIVE ────────────────────────────────────────────────────── */
 .archive-section{margin-bottom:96px;padding:0 48px}
 .archive-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 24px;align-items:start;margin-top:64px}
 .archive-grid+.archive-grid{margin-top:48px}
@@ -67,30 +102,25 @@ main{flex:1;padding:0}
 .ar-cat{display:block;font-size:var(--t-label);color:var(--grey-light);font-weight:var(--bold);padding:5px 0;line-height:var(--lh-ui)}
 .ar-pitch{font-size:var(--t-label);color:var(--grey-light);font-style:italic;margin-left:6px}
 
-
-
 /* FOOTER */
 footer{margin-top:auto}
 
-
-
-
-
-
-/* MOBILE */
-@media(max-width:1024px){.grid{columns:3}}
-@media(max-width:760px){.grid{columns:2}}
+/* ─── MOBILE ─────────────────────────────────────────────────────── */
+@media(max-width:1024px){
+  .work-grid.view-columns{columns:3}
+}
+@media(max-width:760px){
+  .work-grid.view-columns{columns:2}
+}
 @media(max-width:640px){
   main{padding:0}
-
-  /* Work image grid — single col on very small, 2 col otherwise */
-  .grid{padding:0 20px;columns:1;column-gap:0}
-
-  /* Page hero */
-  .page-hero{padding:80px 20px 36px;flex-direction:column;align-items:flex-start;gap:12px}
+  .page-hero{padding:80px 20px 36px;flex-direction:column;align-items:flex-start;gap:16px}
   .page-headline{font-size:clamp(36px,10vw,56px)}
-
-  /* Archive */
+  .work-grid{padding:0 20px;margin-bottom:64px;gap:24px 6px}
+  .card-media{height:160px}
+  .card--placeholder .card-media{width:200px}
+  .work-grid.view-columns{padding:0 20px;columns:1;column-gap:0}
+  .work-grid.view-grid{grid-template-columns:1fr;gap:24px}
   .archive-section{padding:0 20px;margin-bottom:64px}
   .archive-grid{grid-template-columns:auto 1fr;gap:0 16px;margin-top:40px !important}
   .archive-col-label{display:none}
@@ -121,9 +151,34 @@ footer{margin-top:auto}
 
   <div class="page-hero">
     <h1 class="page-headline">Some of the work.<br>And the full archive.</h1>
+    <div class="layout-btns">
+      <button class="layout-btn active" id="btn-stream" title="Stream" onclick="setLayout('stream',this)">
+        <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+          <rect width="12" height="1" rx="0.5" fill="currentColor"/>
+          <rect y="4.5" width="12" height="1" rx="0.5" fill="currentColor"/>
+          <rect y="9" width="12" height="1" rx="0.5" fill="currentColor"/>
+        </svg>
+      </button>
+      <button class="layout-btn" id="btn-columns" title="Columns" onclick="setLayout('columns',this)">
+        <svg width="13" height="10" viewBox="0 0 13 10" fill="none">
+          <rect width="1" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="4" width="1" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="8" width="1" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="12" width="1" height="10" rx="0.5" fill="currentColor"/>
+        </svg>
+      </button>
+      <button class="layout-btn" id="btn-grid" title="Grid" onclick="setLayout('grid',this)">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+          <rect width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+          <rect x="6.5" width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+          <rect y="6.5" width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+          <rect x="6.5" y="6.5" width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
   </div>
 
-  <div class="grid" id="grid"></div>
+  <div class="work-grid" id="work-grid"></div>
 
   <div class="archive-section">
 
@@ -242,7 +297,7 @@ footer{margin-top:auto}
       <span class="ar-cat">Real Estate</span>
       <span class="ar-cat">Design / Product</span>
       <span class="ar-cat">Brand / Digital</span>
-      <span class="ar-cat">Food & Drink</span>
+      <span class="ar-cat">Food &amp; Drink</span>
       <span class="ar-cat">Creative Direction, Production and Editorial</span>
       <span class="ar-cat">Creative Direction, Production and Editorial</span>
       <span class="ar-cat">Creative Direction, Production and Editorial</span>
@@ -254,8 +309,7 @@ footer{margin-top:auto}
     </div>
 
     <div class="archive-grid" style="margin-top:48px">
-    <div class="archive-col-label">
-    </div>
+    <div class="archive-col-label"></div>
     <div class="archive-col-year">
       <h3>2015 — 2020</h3>
       <span class="ar-year">2019</span>
@@ -285,7 +339,7 @@ footer{margin-top:auto}
       <span class="ar-year">2017</span>
       <span class="ar-year">2016</span>
       <span class="ar-year">2016</span>
-            <span class="ar-year">2016</span>
+      <span class="ar-year">2016</span>
       <span class="ar-year">2016</span>
       <span class="ar-year">2016</span>
       <span class="ar-year">2016</span>
@@ -321,7 +375,7 @@ footer{margin-top:auto}
       <span class="ar-client"><a href="/selfnation-campaign.html">Selfnation</a></span>
       <span class="ar-client"><a href="/mini-the-sooner-now-brand-campaign.html">MINI</a></span>
       <span class="ar-client">&amp;Tradition</span>
-            <span class="ar-client"><a href="/hotel-berlin-you-me-campaign.html">Hotel Berlin, Berlin</a></span>
+      <span class="ar-client"><a href="/hotel-berlin-you-me-campaign.html">Hotel Berlin, Berlin</a></span>
       <span class="ar-client"><a href="/mauermuseum-web-design.html">Mauermuseum</a></span>
       <span class="ar-client"><a href="/bmw-brand-campaign-art-direction.html">BMW</a></span>
       <span class="ar-client"><a href="/bolon-web-design.html">Bolon</a></span>
@@ -351,13 +405,13 @@ footer{margin-top:auto}
       <span class="ar-cat">Design / Furniture</span>
       <span class="ar-cat">Media / Publishing</span>
       <span class="ar-cat">Hospitality</span>
-      <span class="ar-cat">Food & Drink</span>
+      <span class="ar-cat">Food &amp; Drink</span>
       <span class="ar-cat">Web Design / Branding</span>
       <span class="ar-cat">Strategy / Editorial</span>
       <span class="ar-cat">Fashion</span>
       <span class="ar-cat">Automotive</span>
       <span class="ar-cat">Design / Furniture</span>
-            <span class="ar-cat">Hospitality</span>
+      <span class="ar-cat">Hospitality</span>
       <span class="ar-cat">Culture / Museum</span>
       <span class="ar-cat">Automotive</span>
       <span class="ar-cat">Design / Textile</span>
@@ -367,8 +421,7 @@ footer{margin-top:auto}
     </div>
 
     <div class="archive-grid" style="margin-top:48px">
-    <div class="archive-col-label">
-    </div>
+    <div class="archive-col-label"></div>
     <div class="archive-col-year">
       <h3>2009 — 2015</h3>
       <span class="ar-year">2015</span>
@@ -405,8 +458,7 @@ footer{margin-top:auto}
     </div>
 
     <div class="archive-grid" style="margin-top:48px">
-    <div class="archive-col-label">
-    </div>
+    <div class="archive-col-label"></div>
     <div class="archive-col-year">
       <h3>2003 — 2009</h3>
       <span class="ar-year">2008</span>
@@ -434,8 +486,7 @@ footer{margin-top:auto}
     </div>
 
     <div class="archive-grid" style="margin-top:48px">
-    <div class="archive-col-label">
-    </div>
+    <div class="archive-col-label"></div>
     <div class="archive-col-year">
       <h3>1995 — 2003</h3>
       <span class="ar-year">2001</span>
@@ -491,68 +542,66 @@ footer{margin-top:auto}
       <span class="ar-cat">Graphic Design</span>
     </div>
     </div>
+
   </div>
 
 </main>
 
 <footer>
-    <div id="footer-mount"></div>
-  </footer>
-  <script src="/footer.js"></script>
+  <div id="footer-mount"></div>
+</footer>
+<script src="/footer.js"></script>
 
 <script>
-
-// 4-col grid: projects NOT on homepage
-// Homepage: Architonic, NZZ, LAS Art Foundation, Lewis, Umane, Louis Vuitton, Pferdt, USM, Signal LA, Ritz-Carlton, Bianca Chen
 const projects = [
   { b:"Architonic",          t:"Brand Strategy & Platform", type:"img",   link:"/architonic-brand-strategy-platform-design.html",
     src:"/assets/architonic/architonic-at-logo-on-coral-mockup-04.jpg" },
   { b:"Frederik G. Pferdt",  t:"Brand & Identity",          type:"video", link:"/frederik-pferdt-personal-brand-identity.html",
     src:"/assets/friends-of-friends/friends-of-friends-ig-fgp-02.mp4" },
-  { b:"wefox", link:"/wefox-web-design.html",               t:"Digital Design",            type:"img",
-    src: "/assets/wefox/wefox-web-design-teaser-portrait.jpg" },
-  { b:"LAS Art Foundation",  t:"Branding & Motion",        type:"video", link:"/las-art-foundation-brand-identity-motion.html",
+  { b:"wefox",               t:"Digital Design",            type:"img",   link:"/wefox-web-design.html",
+    src:"/assets/wefox/wefox-web-design-teaser-portrait.jpg" },
+  { b:"LAS Art Foundation",  t:"Branding & Motion",         type:"video", link:"/las-art-foundation-brand-identity-motion.html",
     src:"/assets/las-art-foundation/las-art-foundation-branding-motion-las-digital-posters-final-animation-transcode.mp4" },
   { b:"Lewis Group",         t:"Brand & Digital",           type:"video", link:"/lewis-group-brand-identity-web-design.html",
     src:"/assets/lewis-group/lewis-group-lewis-animated-logo-videos-background-opti.mp4" },
-  { b:"AD Magazin", link:"/ad-magazin-web-design-art-direction.html",          t:"Editorial & Digital",       type:"img",
-    src: "/assets/ad-magazin/ad-magazin-editorial-teaser-portrait.jpg" },
-  { b:"Engel & Völkers", link:"/engel-volkers-web-design.html",     t:"Real Estate / Digital",     type:"img",
-    src: "/assets/engel-volkers/engel-volkers-web-design-teaser-portrait.jpg" },
+  { b:"AD Magazin",          t:"Editorial & Digital",       type:"img",   link:"/ad-magazin-web-design-art-direction.html",
+    src:"/assets/ad-magazin/ad-magazin-editorial-teaser-portrait.jpg" },
+  { b:"Engel & Völkers",     t:"Real Estate / Digital",     type:"img",   link:"/engel-volkers-web-design.html",
+    src:"/assets/engel-volkers/engel-volkers-web-design-teaser-portrait.jpg" },
   { b:"USM Modular Furniture",t:"Editorial & Content",      type:"img",   link:"/usm-modular-furniture-brand-digital.html",
     src:"/assets/usm/usm-modular-furniture-freunde-von-freunden-basile-theet-080.jpg" },
   { b:"The Ritz-Carlton",    t:"Event & Identity",          type:"img",   link:"/ritz-carlton-berlin-brand-event.html",
     src:"/assets/ritz-carlton/ritz-carlton-gala-freunde-von-freunden-0295.jpg" },
-  { b:"Episode Hotels", link:"/episode-hotels-brand-identity.html",      t:"Brand Strategy",            type:"img",
-    src: "/assets/episode-hotels/episode-hotels-brand-teaser-portrait.jpg" },
-  { b:"Canyon", link:"/canyon-digital-experience-web-design.html",              t:"Digital Experience",        type:"img",
-    src: "/assets/canyon/canyon-digital-teaser-portrait.jpg" },
-  { b:"Vitra", link:"/vitra-brand-strategy.html",               t:"Brand Strategy",            type:"carousel" },
-  { b:"Friends of Friends", link:"/friends-of-friends-brand-identity-web.html",  t:"Publication & Brand",       type:"img",
-    src: "/assets/friends-of-friends/friends-of-friends-iphone-collection-3-wide.jpg" },
-  { b:"Ørgreen Optics", link:"/orgreen-optics-brand-digital.html",      t:"Brand & Digital",           type:"img",
-    src: "/assets/orgreen/orgreen-brand-digital-teaser-portrait.jpg" },
-  { b:"MINI", link:"/mini-the-sooner-now-brand-campaign.html",                t:"Brand & Campaign",          type:"img",
-    src: "/assets/mini/mini-brand-campaign-teaser-portrait.jpg" },
-  { b:"Neubau Welt",       t:"Concept / Illustration",  type:"img",  link:"/neubau-welt.html",
+  { b:"Episode Hotels",      t:"Brand Strategy",            type:"img",   link:"/episode-hotels-brand-identity.html",
+    src:"/assets/episode-hotels/episode-hotels-brand-teaser-portrait.jpg" },
+  { b:"Canyon",              t:"Digital Experience",        type:"img",   link:"/canyon-digital-experience-web-design.html",
+    src:"/assets/canyon/canyon-digital-teaser-portrait.jpg" },
+  { b:"Vitra",               t:"Brand Strategy",            type:"carousel", link:"/vitra-brand-strategy.html" },
+  { b:"Friends of Friends",  t:"Publication & Brand",       type:"img",   link:"/friends-of-friends-brand-identity-web.html",
+    src:"/assets/friends-of-friends/friends-of-friends-iphone-collection-3-wide.jpg" },
+  { b:"Ørgreen Optics",      t:"Brand & Digital",           type:"img",   link:"/orgreen-optics-brand-digital.html",
+    src:"/assets/orgreen/orgreen-brand-digital-teaser-portrait.jpg" },
+  { b:"MINI",                t:"Brand & Campaign",          type:"img",   link:"/mini-the-sooner-now-brand-campaign.html",
+    src:"/assets/mini/mini-brand-campaign-teaser-portrait.jpg" },
+  { b:"Neubau Welt",         t:"Concept / Illustration",    type:"img",   link:"/neubau-welt.html",
     src:"/assets/img/archive/nbw/NBW_Book_Cover_Front.jpg" },
-  { b:"Thonet", link:"/thonet-brand-narrative.html",              t:"Brand Narrative",           type:"img",
+  { b:"Thonet",              t:"Brand Narrative",           type:"img",   link:"/thonet-brand-narrative.html",
     src:"/assets/thonet/thonet-brand-narrative-thonet-solo-house-533px-02.jpg" },
-  { b:"IAC", link:"/iac-brand-digital.html",                 t:"Lifestyle Brand",           type:"img",
-    src: "/assets/iac/iac-brand-digital-teaser-portrait.jpg" },
-  { b:"25hours Hotels", link:"/25hours-hotels-brand-identity.html",      t:"Editorial & Digital",       type:"img",
-    src: "/assets/25hours/25hours-hotels-editorial-teaser-portrait.jpg" },
-  { b:"HAY", link:"/hay-creative-direction.html",                 t:"Creative Direction",        type:"img",
+  { b:"IAC",                 t:"Lifestyle Brand",           type:"img",   link:"/iac-brand-digital.html",
+    src:"/assets/iac/iac-brand-digital-teaser-portrait.jpg" },
+  { b:"25hours Hotels",      t:"Editorial & Digital",       type:"img",   link:"/25hours-hotels-brand-identity.html",
+    src:"/assets/25hours/25hours-hotels-editorial-teaser-portrait.jpg" },
+  { b:"HAY",                 t:"Creative Direction",        type:"img",   link:"/hay-creative-direction.html",
     src:"/assets/hay/hay-creative-direction-no-setup-milan-2018.jpg" },
-  { b:"SPOT", link:"/spot-asset-management-system.html",               t:"Product & Platform",        type:"img",
-    src: "/assets/spot/spot-asset-management-header-5.jpg" },
-  { b:"Rooms Hotels",  t:"Brand & Digital",  type:"img",  link:"/rooms-hotels.html",
+  { b:"SPOT",                t:"Product & Platform",        type:"img",   link:"/spot-asset-management-system.html",
+    src:"/assets/spot/spot-asset-management-header-5.jpg" },
+  { b:"Rooms Hotels",        t:"Brand & Digital",           type:"img",   link:"/rooms-hotels.html",
     src:"/assets/rooms-hotels/rooms-hotels-teaser-portrait-819x1024.jpg" },
-  { b:"adidas", link:"/adidas-journeys-interactive-campaign.html",              t:"Interactive Campaign",      type:"img",
-    src: "/assets/adidas/adidas-journeys-teaser-portrait.jpg" },
-  { b:"Visit California",                                                    t:"Campaign & Content",        type:"placeholder" },
-  { b:"BMW", link:"/bmw-brand-campaign-art-direction.html",                 t:"Campaign",                  type:"img",
-    src: "/assets/bmw/bmw-brand-campaign-teaser-portrait.jpg" }
+  { b:"adidas",              t:"Interactive Campaign",      type:"img",   link:"/adidas-journeys-interactive-campaign.html",
+    src:"/assets/adidas/adidas-journeys-teaser-portrait.jpg" },
+  { b:"Visit California",    t:"Campaign & Content",        type:"placeholder" },
+  { b:"BMW",                 t:"Campaign",                  type:"img",   link:"/bmw-brand-campaign-art-direction.html",
+    src:"/assets/bmw/bmw-brand-campaign-teaser-portrait.jpg" },
 ];
 
 const VITRA = [
@@ -562,22 +611,19 @@ const VITRA = [
   "/assets/vitra/vitra-brand-strategy-16993902.jpg",
 ];
 
-function shuffleMixed(arr) {
+function shuffle(arr) {
   // Separate portrait vs landscape, shuffle each, then interleave
-  const isPortrait = p => p.src && (p.src.includes('819x1024') || p.src.includes('Portrait') || p.src.includes('IG-FGP'));
+  const isPortrait = p => p.src && (p.src.includes('819x1024') || p.src.includes('portrait') || p.src.includes('Portrait') || p.src.includes('IG-FGP'));
   let L = arr.filter(p => !isPortrait(p));
   let P = arr.filter(p => isPortrait(p));
-  // Fisher-Yates each pool
   [L, P].forEach(pool => {
     for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pool[i], pool[j]] = [pool[j], pool[i]];
     }
   });
-  // Interleave alternating rows: [L,P] or [P,L] randomly per row
   const result = [];
-  let li = 0, pi = 0;
-  let rowStart = Math.random() < 0.5; // true = L first
+  let li = 0, pi = 0, rowStart = Math.random() < 0.5;
   while (li < L.length || pi < P.length) {
     if (rowStart) {
       if (li < L.length) result.push(L[li++]);
@@ -591,44 +637,42 @@ function shuffleMixed(arr) {
   return result;
 }
 
-function buildGrid() {
-  const grid = document.getElementById('grid');
-  const shuffled = shuffleMixed(projects);
-  shuffled.forEach((p, i) => {
-    let inner = '';
-    if (p.type === 'img') {
-      inner = `<img src="${p.src}" alt="${p.b}" loading="lazy">`;
-    } else if (p.type === 'video') {
-      inner = `<video autoplay muted loop playsinline><source src="${p.src}" type="video/mp4"></video>`;
-    } else if (p.type === 'carousel') {
-      const slides = VITRA.map(s => `<div class="carousel-slide"><img src="${s}" alt="Vitra" loading="lazy"></div>`).join('');
-      inner = `<div class="carousel" id="c${i}">
-        <div class="carousel-slides">${slides}</div>
-        <button class="carousel-btn prev" onclick="slide('c${i}',-1)">&#8249;</button>
-        <button class="carousel-btn next" onclick="slide('c${i}',1)">&#8250;</button>
-      </div>`;
-    }
-    const content = `
-      <div class="case-media"><div class="case-media-inner">${inner}</div></div>
-      <div class="case-info">
-        <span class="case-brand">${p.b}</span>
-        <span class="case-tag">${p.t}</span>
-      </div>`;
-    if (p.link) {
-      const a = document.createElement('a');
-      a.href = p.link;
-      a.className = 'case';
-      a.style.cssText = 'display:block;text-decoration:none;color:inherit;cursor:pointer;';
-      a.innerHTML = content;
-      grid.appendChild(a);
-    } else {
-      const div = document.createElement('div');
-      div.className = 'case';
-      div.innerHTML = content;
-      grid.appendChild(div);
-    }
-  });
+function makeCard(p, i) {
+  let inner = '';
+  if (p.type === 'img') {
+    inner = `<img src="${p.src}" alt="${p.b}" loading="lazy">`;
+  } else if (p.type === 'video') {
+    inner = `<video autoplay muted loop playsinline><source src="${p.src}" type="video/mp4"></video>`;
+  } else if (p.type === 'carousel') {
+    const slides = VITRA.map(s => `<div class="carousel-slide"><img src="${s}" alt="Vitra" loading="lazy"></div>`).join('');
+    inner = `<div class="carousel" id="c${i}">
+      <div class="carousel-slides">${slides}</div>
+      <button class="carousel-btn prev" onclick="slide('c${i}',-1)">&#8249;</button>
+      <button class="carousel-btn next" onclick="slide('c${i}',1)">&#8250;</button>
+    </div>`;
+  } else {
+    inner = `<div class="placeholder-tile">${p.b}</div>`;
+  }
 
+  const content = `
+    <div class="card-media"><div class="card-media-inner">${inner}</div></div>
+    <div class="card-info">
+      <span class="card-brand">${p.b}</span>
+      <span class="card-tag">${p.t}</span>
+    </div>`;
+
+  const el = document.createElement(p.link ? 'a' : 'div');
+  el.className = 'card' + (p.type === 'placeholder' ? ' card--placeholder' : '');
+  if (p.link) el.href = p.link;
+  el.innerHTML = content;
+  return el;
+}
+
+function buildGrid() {
+  const grid = document.getElementById('work-grid');
+  grid.innerHTML = '';
+  const shuffled = shuffle(projects);
+  shuffled.forEach((p, i) => grid.appendChild(makeCard(p, i)));
 }
 
 function slide(id, dir) {
@@ -641,30 +685,37 @@ function slide(id, dir) {
   slides.style.transform = `translateX(-${cur * 100}%)`;
 }
 
+function setLayout(name, el) {
+  const grid = document.getElementById('work-grid');
+  grid.classList.remove('view-grid', 'view-columns');
+  if (name === 'grid')    grid.classList.add('view-grid');
+  if (name === 'columns') grid.classList.add('view-columns');
+  document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+}
+
 buildGrid();
 </script>
+
 <script>
-    const themes = {
-      white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',                border:'#c8c3be' },
-      black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
-      signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
-    };
-    function setTheme(name, el) {
-      const t = themes[name]; const r = document.documentElement.style;
-      r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
-      r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
-      r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
-      r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
-      r.setProperty('--grey-light', t.light);
-      document.documentElement.setAttribute('data-theme', name);
-      document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
-      if (el) el.classList.add('active');
-    }
-    setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
-  </script>
+const themes = {
+  white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',                border:'#c8c3be' },
+  black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
+  signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
+};
+function setTheme(name, el) {
+  const t = themes[name]; const r = document.documentElement.style;
+  r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
+  r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
+  r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
+  r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
+  r.setProperty('--grey-light', t.light);
+  document.documentElement.setAttribute('data-theme', name);
+  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  if (el) el.classList.add('active');
+}
+setTheme('white', document.querySelector('.swatch[onclick*="white"]'));
+</script>
 
 </body>
 </html>
-
-
-
