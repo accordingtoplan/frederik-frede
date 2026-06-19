@@ -116,7 +116,29 @@ main{flex:1;padding:0}
 .layout-btn.active{opacity:1;color:var(--grey-dark)}
 .layout-btn svg{display:block}
 
-/* ─── GRID VIEW (2-col masonry-style) ───────────────────────────── */
+/* ─── COLUMNS VIEW (3-col masonry, like work.html) ──────────────── */
+.row-grid.view-columns{
+  display:block;
+  columns:3;
+  column-gap:16px;
+}
+.row-grid.view-columns .card{
+  display:block;
+  height:auto;
+  break-inside:avoid;
+  margin-bottom:16px;
+  flex-shrink:unset;
+}
+.row-grid.view-columns .card-media{
+  height:auto;
+}
+.row-grid.view-columns .card-media-inner img,
+.row-grid.view-columns .card-media-inner video{
+  width:100%;height:auto;
+  object-fit:unset;
+}
+
+/* ─── GRID VIEW (2×2 equal grid) ────────────────────────────────── */
 .row-grid.view-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -184,18 +206,25 @@ footer{margin-top:auto}
     <h1 class="page-headline">Some of the work.<br>And the full archive.</h1>
     <div class="layout-btns">
       <button class="layout-btn active" id="btn-stream" title="Stream" onclick="setLayout('stream',this)">
-        <svg width="16" height="13" viewBox="0 0 16 13" fill="none">
-          <rect width="16" height="2.5" rx="0.5" fill="currentColor"/>
-          <rect y="5.25" width="16" height="2.5" rx="0.5" fill="currentColor"/>
-          <rect y="10.5" width="16" height="2.5" rx="0.5" fill="currentColor"/>
+        <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+          <rect width="12" height="2" rx="0.5" fill="currentColor"/>
+          <rect y="4" width="12" height="2" rx="0.5" fill="currentColor"/>
+          <rect y="8" width="12" height="2" rx="0.5" fill="currentColor"/>
+        </svg>
+      </button>
+      <button class="layout-btn" id="btn-columns" title="Columns" onclick="setLayout('columns',this)">
+        <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+          <rect width="2" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="5" width="2" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="10" width="2" height="10" rx="0.5" fill="currentColor"/>
         </svg>
       </button>
       <button class="layout-btn" id="btn-grid" title="Grid" onclick="setLayout('grid',this)">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <rect width="6" height="6" rx="0.5" fill="currentColor"/>
-          <rect x="8" width="6" height="6" rx="0.5" fill="currentColor"/>
-          <rect y="8" width="6" height="6" rx="0.5" fill="currentColor"/>
-          <rect x="8" y="8" width="6" height="6" rx="0.5" fill="currentColor"/>
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+          <rect width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+          <rect x="6.5" width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+          <rect y="6.5" width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+          <rect x="6.5" y="6.5" width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
         </svg>
       </button>
     </div>
@@ -415,11 +444,9 @@ buildCards();
 
   function setLayout(name, el) {
     const grid = document.getElementById('row-grid');
-    if (name === 'grid') {
-      grid.classList.add('view-grid');
-    } else {
-      grid.classList.remove('view-grid');
-    }
+    grid.classList.remove('view-grid', 'view-columns');
+    if (name === 'grid')    grid.classList.add('view-grid');
+    if (name === 'columns') grid.classList.add('view-columns');
     document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
     if (el) el.classList.add('active');
   }
