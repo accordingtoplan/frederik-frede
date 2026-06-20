@@ -197,119 +197,70 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 
 <!-- ─── 2. PROJECTS ─── -->
 <section class="slide">
-  <div class="bg-color" style="background:#111;"></div>
-  <div class="top-bar">
-    <span>Selected Work for Sandow</span>
+  <div class="bg-color" style="background:#fff;"></div>
+  <div class="top-bar" style="color:rgba(0,0,0,.4);">
+    <span style="color:rgba(0,0,0,.6);font-weight:500;">Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
     <span>© June 2026</span>
   </div>
   <style>
-    .proj-card{display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;cursor:pointer;transition:transform .2s;}
-    .proj-card:hover{transform:scale(1.02);}
-    .proj-card .proj-img{flex:1;overflow:hidden;min-height:0;position:relative;}
-    .proj-card .proj-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%);transition:filter .3s ease;}
-    .proj-card:hover .proj-img img{filter:grayscale(0%);}
-    .proj-caption{padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);}
-    .proj-caption span:first-child{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;}
-    .proj-caption span:last-child{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);}
+    .proj-card{display:flex;flex-direction:column;overflow:hidden;cursor:pointer;background:transparent;}
+    .proj-media{height:340px;overflow:hidden;background:#f0efed;}
+    .proj-media img{height:100%;width:auto;display:block;filter:grayscale(100%);transition:filter .4s ease;max-width:none;}
+    .proj-card:hover .proj-media img{filter:grayscale(0%);}
+    .proj-card:hover .proj-media{opacity:1;}
+    .proj-info{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:8px 0 0;}
+    .proj-brand{font-size:20px;font-weight:700;letter-spacing:.04em;color:#4a4540;line-height:1.3;}
+    .proj-tag{font-size:16px;color:#7a7470;line-height:1.3;}
   </style>
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:90px 80px 56px;">
 
-    <div style="padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:28px;">
-      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:88px;font-weight:600;line-height:1.0;letter-spacing:-0.025em;color:#fff;">Projects</div>
+    <div style="padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,.1);margin-bottom:28px;">
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:88px;font-weight:600;line-height:1.0;letter-spacing:-0.025em;color:#1a1a1a;">Projects</div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;flex:1;min-height:0;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;flex:1;align-items:start;">
 
-      <div class="proj-card" onclick="go(2)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
-          <img src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt=""
-            style="width:100%;height:100%;object-fit:cover;display:block;">
-        </div>
-        <div class="proj-caption">
-          <span>Architonic</span>
-          <span>2023</span>
-        </div>
+      <div class="proj-card" onclick="go(2)">
+        <div class="proj-media"><img src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt=""></div>
+        <div class="proj-info"><div class="proj-brand">Architonic</div><div class="proj-tag">Platform Strategy &amp; Creative Direction</div></div>
       </div>
 
-      <div class="proj-card" onclick="go(10)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
-          <img src="/assets/usm/usm-personality-portrait.jpg" alt=""
-            style="width:100%;height:100%;object-fit:cover;display:block;">
-        </div>
-        <div class="proj-caption">
-          <span>USM</span>
-          <span>2022</span>
-        </div>
+      <div class="proj-card" onclick="go(10)">
+        <div class="proj-media"><img src="/assets/usm/usm-personality-portrait.jpg" alt=""></div>
+        <div class="proj-info"><div class="proj-brand">USM</div><div class="proj-tag">Brand &amp; Digital Platform</div></div>
       </div>
 
-      <div class="proj-card" onclick="go(8)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
-          <img src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt=""
-            style="width:100%;height:100%;object-fit:cover;display:block;">
-        </div>
-        <div class="proj-caption">
-          <span>F. G. Pferdt</span>
-          <span>2023</span>
-        </div>
+      <div class="proj-card" onclick="go(8)">
+        <div class="proj-media"><img src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt=""></div>
+        <div class="proj-info"><div class="proj-brand">F. G. Pferdt</div><div class="proj-tag">Personal Brand &amp; Identity</div></div>
       </div>
 
-      <div class="proj-card" onclick="go(12)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
-          <img src="https://www.moresleep.net/wp-content/uploads/2024/05/Lewis-Mockup-GrabDrop_00072_Sign-copy-2048x1366.jpg" alt=""
-            style="width:100%;height:100%;object-fit:cover;display:block;">
-        </div>
-        <div class="proj-caption">
-          <span>Lewis Group</span>
-          <span>2024</span>
-        </div>
+      <div class="proj-card" onclick="go(12)">
+        <div class="proj-media"><img src="https://www.moresleep.net/wp-content/uploads/2024/05/Lewis-Mockup-GrabDrop_00072_Sign-copy-2048x1366.jpg" alt=""></div>
+        <div class="proj-info"><div class="proj-brand">Lewis Group</div><div class="proj-tag">Brand Identity &amp; Web Design</div></div>
       </div>
 
-      <div class="proj-card" onclick="go(14)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
-          <img src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt=""
-            style="width:100%;height:100%;object-fit:cover;display:block;">
-        </div>
-        <div class="proj-caption">
-          <span>Engel &amp; Völkers</span>
-          <span>2021</span>
-        </div>
+      <div class="proj-card" onclick="go(14)">
+        <div class="proj-media"><img src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt=""></div>
+        <div class="proj-info"><div class="proj-brand">Engel &amp; Völkers</div><div class="proj-tag">Web Design &amp; Art Direction</div></div>
       </div>
 
-      <div class="proj-card" onclick="" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
-          <img src="/assets/umane/umane-p1-logo-wordmark.jpg" alt=""
-            style="width:100%;height:100%;object-fit:cover;display:block;">
-        </div>
-        <div class="proj-caption">
-          <span>Umane</span>
-          <span>2023</span>
-        </div>
+      <div class="proj-card">
+        <div class="proj-media"><img src="/assets/umane/umane-p1-logo-wordmark.jpg" alt=""></div>
+        <div class="proj-info"><div class="proj-brand">Umane</div><div class="proj-tag">Brand Identity</div></div>
       </div>
 
-      <div class="proj-card" onclick="go(5)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
-          <img src="https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" alt=""
-            style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-        </div>
-        <div class="proj-caption">
-          <span>NZZ</span>
-          <span>2025 —</span>
-        </div>
+      <div class="proj-card" onclick="go(5)">
+        <div class="proj-media"><img src="https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" alt="" style="object-position:center top;"></div>
+        <div class="proj-info"><div class="proj-brand">NZZ</div><div class="proj-tag">Brand &amp; Digital</div></div>
       </div>
 
-      <div class="proj-card" onclick="go(2)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
-          <img src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt=""
-            style="width:100%;height:100%;object-fit:cover;display:block;">
-        </div>
-        <div class="proj-caption">
-          <span>Architonic</span>
-          <span>2024</span>
-        </div>
+      <div class="proj-card" onclick="go(2)">
+        <div class="proj-media"><img src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt=""></div>
+        <div class="proj-info"><div class="proj-brand">Architonic</div><div class="proj-tag">Platform Design</div></div>
       </div>
-
     </div>
   </div>
 </section>
