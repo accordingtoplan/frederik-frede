@@ -167,17 +167,32 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 
 <!-- ─── 1. INTRO ─── -->
 <section class="slide active">
-  <img class="bg" src="/presentations/assets/surf.jpg" alt="">
-  <div class="ov ov-bottom"></div>
-  <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
+  <div class="bg-color" style="background:#fff;"></div>
+
+  <!-- top-bar on white -->
+  <div class="top-bar" style="color:rgba(0,0,0,.3);">
+    <span class="tb-name" style="color:rgba(0,0,0,.5);">frederikfrede.com</span>
     <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span style="color:rgba(0,0,0,.3);">June 2026</span>
   </div>
-  <div class="c headline-bot">
-    <div class="label">Frederik Frede</div>
-    <h1>Culture, strategy<br>and identity.</h1>
-    <p class="lead sm" style="margin-top:20px;">Merging Intelligence with Design through skills, instinct and taste — based on Creative Direction &amp; Strategic Systems.</p>
+
+  <!-- white top half: stacked headlines -->
+  <div style="position:absolute;top:0;left:0;right:0;height:50%;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:0 80px 32px;">
+    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.0;letter-spacing:-0.03em;">
+      <div style="font-size:112px;font-weight:700;color:#1a1a1a;">Frederik Frede</div>
+      <div style="font-size:112px;font-weight:600;color:rgba(0,0,0,.15);">Culture, strategy and identity.</div>
+    </div>
+  </div>
+
+  <!-- thin rule at the split -->
+  <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:rgba(0,0,0,.1);z-index:2;"></div>
+
+  <!-- bottom half: full-bleed image -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:50%;overflow:hidden;">
+    <img src="/presentations/assets/surf.jpg" alt=""
+      style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;">
   </div>
 </section>
 
