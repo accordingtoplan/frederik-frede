@@ -164,7 +164,7 @@ h2.sm{font-size:52px;}
 
 <!-- ─── 1. ABOUT / COVER ─── -->
 <section class="slide active">
-  <img class="bg" src="/presentations/assets/cover-phone.jpg" alt="" style="object-fit:cover;object-position:center center;">
+  <img class="bg" src="/presentations/assets/cover-phone.jpg" alt="">
   <div class="ov" style="background:rgba(0,0,0,.2);z-index:2;"></div>
 
   <!-- meta: two lines, left and right -->
@@ -293,7 +293,7 @@ h2.sm{font-size:52px;}
     <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
-    <p class="lead" style="margin-bottom:32px;max-width:820px;">Engaged as Executive Creative Director across Architonic, Dezeen Daily and Designboom, with a mandate to deepen design literacy and strategic rigour across the organisation. Responsible for the full rebrand and platform relaunch, and for introducing structured AI frameworks across the creative and editorial teams. Trained staff on working with AI tools in a coherent, on-brand way: not as a shortcut, but as a new layer of the creative process. The relaunch was covered by Archdaily, Dezeen and Designboom.</p>
+    <p class="lead" style="margin-bottom:32px;max-width:820px;">Engaged as Executive Creative Director at Daaily, the parent company of Designboom, Archdaily and Architonic. Primary focus on Architonic: brand strategy, platform redesign and relaunch. Developed creative and strategic concepts across all three titles. Introduced AI into the creative workflow, building proof-of-concept frameworks with a small technical team. The work helped modernise an outdated platform and sharpen its strategic position, making it significantly more compelling as an asset for acquisition.</p>
     <div class="label">Architonic: Role</div>
     <h1 class="mid">Executive Creative Direction,<br>across three platforms.</h1>
   </div>
@@ -695,7 +695,7 @@ document.getElementById('tot').textContent = total;
 
 function getBgImage(slide){
   const img = slide.querySelector('img.bg');
-  if(img && !img.style.width) return `url('${img.src}')`;
+  if(img) return `url('${img.src}')`;
   return null;
 }
 
