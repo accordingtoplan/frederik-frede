@@ -203,8 +203,8 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   </div>
   <style>
     .proj-card{display:flex;flex-direction:column;overflow:hidden;cursor:pointer;background:transparent;}
-    .proj-media{height:300px;overflow:hidden;background:#1c1c1c;display:flex;align-items:center;justify-content:center;}
-    .proj-media img{height:100%;width:auto;display:block;filter:grayscale(100%);transition:filter .4s ease;flex-shrink:0;}
+    .proj-media{aspect-ratio:16/9;overflow:hidden;background:#1c1c1c;display:flex;align-items:center;justify-content:center;}
+    .proj-media img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%);transition:filter .4s ease;}
     .proj-card:hover .proj-media img{filter:grayscale(0%);}
     .proj-info{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:8px 0 0;}
     .proj-brand{font-size:20px;font-weight:700;letter-spacing:.04em;color:#fff;line-height:1.3;}
@@ -251,11 +251,6 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
       <div class="proj-card" onclick="go(5)">
         <div class="proj-media"><img src="https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" alt="" style="object-position:center top;"></div>
         <div class="proj-info"><div class="proj-brand">NZZ</div><div class="proj-tag">Brand &amp; Digital</div></div>
-      </div>
-
-      <div class="proj-card" onclick="go(2)">
-        <div class="proj-media"><img src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt=""></div>
-        <div class="proj-info"><div class="proj-brand">Architonic</div><div class="proj-tag">Platform Design</div></div>
       </div>
     </div>
   </div>
