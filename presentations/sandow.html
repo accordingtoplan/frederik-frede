@@ -165,41 +165,8 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <div id="backdrop"></div>
 <div id="stage">
 
-<!-- ─── 1. INTRO ─── -->
+<!-- ─── 1. ABOUT / COVER ─── -->
 <section class="slide active">
-  <div class="bg-color" style="background:#fff;"></div>
-
-  <!-- white top half: big stacked headline -->
-  <div style="position:absolute;top:0;left:0;right:0;height:52%;
-    display:flex;flex-direction:column;justify-content:flex-start;
-    padding:56px 80px 0;">
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:-0.035em;">
-      <div style="font-size:168px;font-weight:700;color:#1a1a1a;line-height:.92;">Frederik Frede</div>
-      <div style="font-size:168px;font-weight:700;color:rgba(0,0,0,.12);line-height:.92;">Selected Work</div>
-    </div>
-  </div>
-
-  <!-- meta row at the split — no top border, bold -->
-  <div style="position:absolute;top:52%;left:0;right:0;
-    display:flex;align-items:center;
-    padding:14px 80px;border-bottom:1px solid rgba(0,0,0,.1);
-    background:#fff;z-index:2;">
-    <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:600;color:rgba(0,0,0,.55);letter-spacing:.04em;">frederikfrede.com</span>
-    <span style="margin:0 24px;color:rgba(0,0,0,.2);font-size:14px;">·</span>
-    <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:600;color:rgba(0,0,0,.55);letter-spacing:.04em;">Los Angeles</span>
-    <span style="margin:0 24px;color:rgba(0,0,0,.2);font-size:14px;">·</span>
-    <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:600;color:rgba(0,0,0,.55);letter-spacing:.04em;">Merging Intelligence with Design, Strategy and Identity.</span>
-  </div>
-
-  <!-- bottom half: full-bleed image -->
-  <div style="position:absolute;bottom:0;left:0;right:0;top:calc(52% + 43px);overflow:hidden;">
-    <img src="/presentations/assets/surf-bw.jpg" alt=""
-      style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;">
-  </div>
-</section>
-
-<!-- ─── 2. ABOUT ─── -->
-<section class="slide">
   <img class="bg" src="/presentations/assets/iphone-bg2.jpg" alt="">
   <div class="ov" style="background:rgba(0,0,0,.45);"></div>
 
@@ -228,107 +195,118 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   </div>
 </section>
 
-<!-- ─── 4. RANGE ─── -->
+<!-- ─── 2. PROJECTS ─── -->
 <section class="slide">
   <div class="bg-color" style="background:#111;"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
+  <style>
+    .proj-card{display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;cursor:pointer;transition:transform .2s;}
+    .proj-card:hover{transform:scale(1.02);}
+    .proj-card .proj-img{flex:1;overflow:hidden;min-height:0;position:relative;}
+    .proj-card .proj-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%);transition:filter .3s ease;}
+    .proj-card:hover .proj-img img{filter:grayscale(0%);}
+    .proj-caption{padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);}
+    .proj-caption span:first-child{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;}
+    .proj-caption span:last-child{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);}
+  </style>
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:90px 80px 56px;">
 
     <div style="padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:28px;">
-      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:88px;font-weight:600;line-height:1.0;letter-spacing:-0.025em;color:#fff;">Selected work</div>
+      <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:88px;font-weight:600;line-height:1.0;letter-spacing:-0.025em;color:#fff;">Projects</div>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;flex:1;min-height:0;">
 
-      <div style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div style="flex:1;overflow:hidden;min-height:0;">
+      <div class="proj-card" onclick="go(2)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
+        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
           <img src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt=""
             style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
-        <div style="padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);">
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;">Architonic</span>
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);">2023</span>
+        <div class="proj-caption">
+          <span>Architonic</span>
+          <span>2023</span>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div style="flex:1;overflow:hidden;min-height:0;">
+      <div class="proj-card" onclick="go(10)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
+        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
           <img src="/assets/usm/usm-personality-portrait.jpg" alt=""
             style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
-        <div style="padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);">
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;">USM</span>
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);">2022</span>
+        <div class="proj-caption">
+          <span>USM</span>
+          <span>2022</span>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div style="flex:1;overflow:hidden;min-height:0;">
+      <div class="proj-card" onclick="go(8)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
+        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
           <img src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt=""
             style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
-        <div style="padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);">
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;">F. G. Pferdt</span>
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);">2023</span>
+        <div class="proj-caption">
+          <span>F. G. Pferdt</span>
+          <span>2023</span>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div style="flex:1;overflow:hidden;min-height:0;">
+      <div class="proj-card" onclick="go(12)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
+        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
           <img src="https://www.moresleep.net/wp-content/uploads/2024/05/Lewis-Mockup-GrabDrop_00072_Sign-copy-2048x1366.jpg" alt=""
             style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
-        <div style="padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);">
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;">Lewis Group</span>
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);">2024</span>
+        <div class="proj-caption">
+          <span>Lewis Group</span>
+          <span>2024</span>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div style="flex:1;overflow:hidden;min-height:0;">
+      <div class="proj-card" onclick="go(14)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
+        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
           <img src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt=""
             style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
-        <div style="padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);">
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;">Engel &amp; Völkers</span>
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);">2021</span>
+        <div class="proj-caption">
+          <span>Engel &amp; Völkers</span>
+          <span>2021</span>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div style="flex:1;overflow:hidden;min-height:0;">
+      <div class="proj-card" onclick="" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
+        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
           <img src="/assets/umane/umane-p1-logo-wordmark.jpg" alt=""
             style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
-        <div style="padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);">
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;">Umane</span>
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);">2023</span>
+        <div class="proj-caption">
+          <span>Umane</span>
+          <span>2023</span>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div style="flex:1;overflow:hidden;min-height:0;">
+      <div class="proj-card" onclick="go(5)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
+        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
           <img src="https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" alt=""
             style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
         </div>
-        <div style="padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);">
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;">NZZ</span>
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);">2025 —</span>
+        <div class="proj-caption">
+          <span>NZZ</span>
+          <span>2025 —</span>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
-        <div style="flex:1;overflow:hidden;min-height:0;">
+      <div class="proj-card" onclick="go(2)" style="display:flex;flex-direction:column;background:#1c1c1c;overflow:hidden;">
+        <div class="proj-img" style="flex:1;overflow:hidden;min-height:0;">
           <img src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt=""
             style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
-        <div style="padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);">
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;font-weight:500;color:#fff;">Architonic</span>
-          <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.4);">2024</span>
+        <div class="proj-caption">
+          <span>Architonic</span>
+          <span>2024</span>
         </div>
       </div>
 
@@ -341,9 +319,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt="">
   <div class="ov ov-bottom"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">Architonic</div>
@@ -358,9 +337,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <video class="bg" src="/assets/architonic/architonic-brand-strategy-homepage-video.mp4"
     autoplay muted loop playsinline style="object-fit:contain;"></video>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
 </section>
 
@@ -369,9 +349,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt="">
   <div class="ov ov-left"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -390,9 +371,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
     alt="" style="object-fit:contain;object-position:right center;width:52%;left:auto;right:0;">
   <div class="ov ov-left"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">Brand &amp; Digital — In Progress</div>
@@ -405,9 +387,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <div class="bg-color" style="background:#161616;"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:100px 120px 80px;gap:48px;">
 
@@ -441,9 +424,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/presentations/assets/nzz-phone-hero.jpg" alt="">
   <div class="ov ov-dark"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
 </section>
 
@@ -454,9 +438,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
     autoplay muted loop playsinline style="object-fit:cover;"></video>
   <div class="ov ov-bottom"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">Personal Brand &amp; Identity</div>
@@ -470,9 +455,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt="">
   <div class="ov ov-left"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -489,9 +475,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/assets/usm/usm-yellow-office-full.jpg" alt="">
   <div class="ov ov-bottom"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">Brand &amp; Digital Platform</div>
@@ -505,9 +492,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/assets/usm/usm-personality-portrait.jpg" alt="">
   <div class="ov ov-left"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -524,9 +512,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="https://www.moresleep.net/wp-content/uploads/2024/05/Lewis-Mockup-GrabDrop_00072_Sign-copy-2048x1366.jpg" alt="">
   <div class="ov ov-bottom"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">Brand Identity &amp; Web Design</div>
@@ -540,9 +529,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/assets/lewis-group/lewis-group-lewis-stationary-a4-mockup-copy.jpg" alt="">
   <div class="ov ov-left"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -559,9 +549,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/assets/engel-volkers/engel-volkers-euv-image-break.png" alt="">
   <div class="ov ov-bottom"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">Web Design &amp; Art Direction</div>
@@ -576,9 +567,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
     style="object-fit:contain;object-position:right center;background:#0c0c0c;">
   <div class="ov ov-left"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -595,9 +587,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/presentations/assets/mountain.jpg" alt="">
   <div class="ov ov-bottom"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label warm">Merging Intelligence with Design</div>
@@ -611,9 +604,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/presentations/assets/mountain.jpg" alt="">
   <div class="ov ov-dark"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c full" style="justify-content:flex-end;padding-bottom:140px;">
     <div class="label" style="margin-bottom:48px;">The method</div>
@@ -644,9 +638,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
     style="object-fit:contain;object-position:right bottom;width:50%;left:auto;right:0;top:auto;opacity:.7;">
   <div class="ov ov-left"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
   <div class="c headline-bot">
     <div class="label">Opportunity for Sandow</div>
@@ -662,9 +657,10 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <div class="bg-color" style="background:#0a0a0a;"></div>
   <div class="top-bar">
-    <span class="tb-name">frederikfrede.com</span>
-    <span class="tb-section"></span>
-    <span>June 2026</span>
+    <span>Selected Work for Sandow</span>
+    <span>frederikfrede.com</span>
+    <span>Berlin, Los Angeles</span>
+    <span>© June 2026</span>
   </div>
 
   <div style="position:absolute;inset:0;padding:90px 0 80px;overflow:hidden;">
