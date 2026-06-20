@@ -39,17 +39,14 @@ html,body{background:#0a0a0a;overflow:hidden;width:100%;height:100%;
 .ov-bottom{background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.6) 35%,rgba(0,0,0,.0) 65%);}
 .ov-top{background:linear-gradient(to bottom,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 40%);}
 
-/* ── top bar ── */
-.top-bar{
+/* ── meta bar ── */
+.meta-bar{
   position:absolute;top:0;left:0;right:0;z-index:10;
   display:flex;align-items:center;justify-content:space-between;
   padding:44px 80px 0;
-  font-size:15px;font-weight:400;letter-spacing:.08em;
-  color:rgba(255,255,255,.4);
+  font-size:15px;font-weight:400;letter-spacing:.04em;
+  color:rgba(255,255,255,.45);
 }
-.top-bar .tb-name{color:rgba(255,255,255,.55);font-weight:500;}
-.top-bar .tb-section{position:absolute;left:50%;transform:translateX(-50%);}
-.top-bar .tb-num{font-variant-numeric:tabular-nums;}
 
 /* ── bottom bar ── */
 .bot-bar{
@@ -167,7 +164,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 
 <!-- ─── 1. ABOUT / COVER ─── -->
 <section class="slide active">
-  <img class="bg" src="/presentations/assets/iphone-bg2.jpg" alt="">
+  <img class="bg" src="/presentations/assets/cover-bg.webp" alt="">
   <div class="ov" style="background:rgba(0,0,0,.45);"></div>
 
   <!-- meta: one line, space-between, regular weight -->
@@ -198,16 +195,16 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <!-- ─── 2. PROJECTS ─── -->
 <section class="slide">
   <div class="bg-color" style="background:#111;"></div>
-  <div class="top-bar" style="color:rgba(255,255,255,.4);">
-    <span style="color:rgba(255,255,255,.6);font-weight:500;">Selected Work for Sandow</span>
+  <div class="meta-bar">
+    <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
     <span>© June 2026</span>
   </div>
   <style>
     .proj-card{display:flex;flex-direction:column;overflow:hidden;cursor:pointer;background:transparent;}
-    .proj-media{height:340px;overflow:hidden;background:#1c1c1c;}
-    .proj-media img{height:100%;width:auto;display:block;filter:grayscale(100%);transition:filter .4s ease;max-width:none;}
+    .proj-media{height:300px;overflow:hidden;background:#1c1c1c;display:flex;align-items:center;justify-content:center;}
+    .proj-media img{height:100%;width:auto;display:block;filter:grayscale(100%);transition:filter .4s ease;flex-shrink:0;}
     .proj-card:hover .proj-media img{filter:grayscale(0%);}
     .proj-info{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:8px 0 0;}
     .proj-brand{font-size:20px;font-weight:700;letter-spacing:.04em;color:#fff;line-height:1.3;}
@@ -268,7 +265,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt="">
   <div class="ov ov-bottom"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -286,7 +283,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <div class="bg-color" style="background:#000;"></div>
   <video class="bg" src="/assets/architonic/architonic-brand-strategy-homepage-video.mp4"
     autoplay muted loop playsinline style="object-fit:contain;"></video>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -298,7 +295,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt="">
   <div class="ov ov-left"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -320,7 +317,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png"
     alt="" style="object-fit:contain;object-position:right center;width:52%;left:auto;right:0;">
   <div class="ov ov-left"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -336,7 +333,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <!-- ─── 8. NZZ 2 ─── -->
 <section class="slide">
   <div class="bg-color" style="background:#161616;"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -373,7 +370,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/presentations/assets/nzz-phone-hero.jpg" alt="">
   <div class="ov ov-dark"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -387,7 +384,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <video class="bg" src="https://www.moresleep.net/wp-content/uploads/2023/10/Venue-Screen-01-Standard-Mockup-Video-opti.mp4"
     autoplay muted loop playsinline style="object-fit:cover;"></video>
   <div class="ov ov-bottom"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -404,7 +401,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt="">
   <div class="ov ov-left"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -424,7 +421,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/assets/usm/usm-yellow-office-full.jpg" alt="">
   <div class="ov ov-bottom"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -441,7 +438,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/assets/usm/usm-personality-portrait.jpg" alt="">
   <div class="ov ov-left"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -461,7 +458,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="https://www.moresleep.net/wp-content/uploads/2024/05/Lewis-Mockup-GrabDrop_00072_Sign-copy-2048x1366.jpg" alt="">
   <div class="ov ov-bottom"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -478,7 +475,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/assets/lewis-group/lewis-group-lewis-stationary-a4-mockup-copy.jpg" alt="">
   <div class="ov ov-left"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -498,7 +495,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/assets/engel-volkers/engel-volkers-euv-image-break.png" alt="">
   <div class="ov ov-bottom"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -516,7 +513,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/assets/engel-volkers/engel-volkers-euv-macbook-mockup-10.png" alt=""
     style="object-fit:contain;object-position:right center;background:#0c0c0c;">
   <div class="ov ov-left"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -536,7 +533,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/presentations/assets/mountain.jpg" alt="">
   <div class="ov ov-bottom"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -553,7 +550,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <section class="slide">
   <img class="bg" src="/presentations/assets/mountain.jpg" alt="">
   <div class="ov ov-dark"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -587,7 +584,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
   <img class="bg" src="/assets/architonic/architonic-at-co-mockup.jpg" alt=""
     style="object-fit:contain;object-position:right bottom;width:50%;left:auto;right:0;top:auto;opacity:.7;">
   <div class="ov ov-left"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -606,7 +603,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 <!-- ─── 20. OUTRO ─── -->
 <section class="slide">
   <div class="bg-color" style="background:#0a0a0a;"></div>
-  <div class="top-bar">
+  <div class="meta-bar">
     <span>Selected Work for Sandow</span>
     <span>frederikfrede.com</span>
     <span>Berlin, Los Angeles</span>
@@ -725,6 +722,7 @@ h2.sm{font-size:52px;letter-spacing:-0.015em;}
 
 <div class="nav">
   <button id="prev" disabled>‹</button>
+  <div class="nav-count"><span id="cur">1</span> / <span id="tot"></span></div>
   <button id="next">›</button>
 </div>
 
@@ -734,11 +732,8 @@ const total = slides.length;
 const backdrop = document.getElementById('backdrop');
 let idx = 0;
 
-// pre-stamp all slide numbers into top-bar right spans
-slides.forEach((s,i) => {
-  const spans = s.querySelectorAll('.top-bar span');
-  if(spans.length >= 3) spans[2].textContent = `${i+1} / ${total}`;
-});
+// set total in nav counter
+document.getElementById('tot').textContent = total;
 
 function getBgImage(slide){
   const img = slide.querySelector('img.bg');
@@ -750,6 +745,7 @@ function render(){
   slides.forEach((s,i) => s.classList.toggle('active', i===idx));
   document.getElementById('prev').disabled = idx===0;
   document.getElementById('next').disabled = idx===total-1;
+  document.getElementById('cur').textContent = idx+1;
   const bg = getBgImage(slides[idx]);
   if(bg){ backdrop.style.backgroundImage = bg; backdrop.style.background=''; }
   else { backdrop.style.backgroundImage='none'; backdrop.style.background='#0a0a0a'; }
