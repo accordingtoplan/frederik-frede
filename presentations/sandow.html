@@ -42,10 +42,10 @@ html,body{background:#0a0a0a;overflow:hidden;width:100%;height:100%;
 /* ── meta bar ── */
 .meta-bar{
   position:absolute;top:0;left:0;right:0;z-index:10;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:flex-start;justify-content:space-between;
   padding:44px 80px 0;
   font-size:15px;font-weight:400;letter-spacing:.04em;
-  color:rgba(255,255,255,.45);
+  color:rgba(255,255,255,.45);line-height:1.7;
 }
 
 /* ── bottom bar ── */
@@ -164,8 +164,8 @@ h2.sm{font-size:52px;}
 
 <!-- ─── 1. ABOUT / COVER ─── -->
 <section class="slide active">
-  <img class="bg" src="/presentations/assets/cover-bg.webp" alt="">
-  <div class="ov" style="background:rgba(0,0,0,.45);"></div>
+  <img class="bg" src="/presentations/assets/surf-bw.jpg" alt="" style="object-fit:cover;object-position:center center;">
+  <div class="ov" style="background:rgba(0,0,0,.35);"></div>
 
   <!-- phone image, right side -->
   <div style="position:absolute;right:80px;top:50%;transform:translateY(-50%);z-index:5;height:80%;display:flex;align-items:center;">
@@ -173,22 +173,22 @@ h2.sm{font-size:52px;}
       style="height:100%;width:auto;object-fit:contain;display:block;">
   </div>
 
-  <!-- meta: two left, two right -->
+  <!-- meta: two lines, left and right -->
   <div style="position:absolute;top:56px;left:80px;right:80px;z-index:10;
-    display:flex;justify-content:space-between;align-items:baseline;
+    display:flex;justify-content:space-between;align-items:flex-start;
     font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;
-    color:rgba(255,255,255,.65);letter-spacing:.04em;">
-    <div style="display:flex;gap:48px;">
-      <span>frederikfrede.com</span>
-      <span>Selected Work for Sandow</span>
+    color:rgba(255,255,255,.65);letter-spacing:.04em;line-height:1.7;">
+    <div>
+      <div>frederikfrede.com</div>
+      <div>Selected Work for Sandow</div>
     </div>
-    <div style="display:flex;gap:48px;">
-      <span>Berlin — Los Angeles</span>
-      <span>© June 2026</span>
+    <div style="text-align:right;">
+      <div>Berlin — Los Angeles</div>
+      <div>© June 2026</div>
     </div>
   </div>
 
-  <!-- bottom: new copy + headline -->
+  <!-- bottom: copy + headline -->
   <div style="position:absolute;bottom:60px;left:80px;right:680px;z-index:10;">
     <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;font-weight:600;
       line-height:1.6;color:rgba(255,255,255,.85);max-width:760px;margin-bottom:32px;">
@@ -206,8 +206,8 @@ h2.sm{font-size:52px;}
 <section class="slide">
   <div class="bg-color" style="background:#111;"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <style>
     .proj-card{display:flex;flex-direction:column;overflow:hidden;cursor:pointer;background:transparent;}
@@ -269,8 +269,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-mockup-01.jpg" alt="">
   <div class="ov ov-bottom"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <p class="lead" style="margin-bottom:32px;max-width:820px;">A complete rebrand, platform redesign, internal digital transformation and global campaign for Europe's leading architectural products platform, evolving Architonic from just a digital database to a living workspace with artificial intelligence.</p>
@@ -285,8 +285,8 @@ h2.sm{font-size:52px;}
   <video class="bg" src="/assets/architonic/architonic-brand-strategy-homepage-video.mp4"
     autoplay muted loop playsinline style="object-fit:contain;"></video>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
 </section>
 
@@ -295,8 +295,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt="">
   <div class="ov ov-left"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -315,8 +315,8 @@ h2.sm{font-size:52px;}
     alt="" style="object-fit:contain;object-position:right center;width:52%;left:auto;right:0;">
   <div class="ov ov-left"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">Brand &amp; Digital — In Progress</div>
@@ -329,8 +329,8 @@ h2.sm{font-size:52px;}
 <section class="slide">
   <div class="bg-color" style="background:#161616;"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:100px 120px 80px;gap:48px;">
 
@@ -364,8 +364,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/presentations/assets/nzz-phone-hero.jpg" alt="">
   <div class="ov ov-dark"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
 </section>
 
@@ -376,8 +376,8 @@ h2.sm{font-size:52px;}
     autoplay muted loop playsinline style="object-fit:cover;"></video>
   <div class="ov ov-bottom"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">Personal Brand &amp; Identity</div>
@@ -391,8 +391,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/assets/pferdt/pferdt-fgp-keynote-01.jpg" alt="">
   <div class="ov ov-left"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -409,8 +409,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/assets/usm/usm-yellow-office-full.jpg" alt="">
   <div class="ov ov-bottom"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">Brand &amp; Digital Platform</div>
@@ -424,8 +424,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/assets/usm/usm-personality-portrait.jpg" alt="">
   <div class="ov ov-left"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -442,8 +442,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="https://www.moresleep.net/wp-content/uploads/2024/05/Lewis-Mockup-GrabDrop_00072_Sign-copy-2048x1366.jpg" alt="">
   <div class="ov ov-bottom"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">Brand Identity &amp; Web Design</div>
@@ -457,8 +457,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/assets/lewis-group/lewis-group-lewis-stationary-a4-mockup-copy.jpg" alt="">
   <div class="ov ov-left"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -475,8 +475,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/assets/engel-volkers/engel-volkers-euv-image-break.png" alt="">
   <div class="ov ov-bottom"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">Web Design &amp; Art Direction</div>
@@ -491,8 +491,8 @@ h2.sm{font-size:52px;}
     style="object-fit:contain;object-position:right center;background:#0c0c0c;">
   <div class="ov ov-left"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">What was built</div>
@@ -509,8 +509,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/presentations/assets/mountain.jpg" alt="">
   <div class="ov ov-bottom"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label warm">Merging Intelligence with Design</div>
@@ -524,8 +524,8 @@ h2.sm{font-size:52px;}
   <img class="bg" src="/presentations/assets/mountain.jpg" alt="">
   <div class="ov ov-dark"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c full" style="justify-content:flex-end;padding-bottom:140px;">
     <div class="label" style="margin-bottom:48px;">The method</div>
@@ -556,8 +556,8 @@ h2.sm{font-size:52px;}
     style="object-fit:contain;object-position:right bottom;width:50%;left:auto;right:0;top:auto;opacity:.7;">
   <div class="ov ov-left"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
   <div class="c headline-bot">
     <div class="label">Opportunity for Sandow</div>
@@ -573,8 +573,8 @@ h2.sm{font-size:52px;}
 <section class="slide">
   <div class="bg-color" style="background:#0a0a0a;"></div>
   <div class="meta-bar">
-    <div style="display:flex;gap:48px;"><span>frederikfrede.com</span><span>Selected Work for Sandow</span></div>
-    <div style="display:flex;gap:48px;"><span>Berlin — Los Angeles</span><span>© June 2026</span></div>
+    <div style="line-height:1.7;"><div>frederikfrede.com</div><div>Selected Work for Sandow</div></div>
+    <div style="line-height:1.7;text-align:right;"><div>Berlin — Los Angeles</div><div>© June 2026</div></div>
   </div>
 
   <div style="position:absolute;inset:0;padding:90px 0 80px;overflow:hidden;">
