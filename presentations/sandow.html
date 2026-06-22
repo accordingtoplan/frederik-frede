@@ -8,6 +8,10 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{background:#0a0a0a;overflow:hidden;width:100%;height:100%;
   font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
+@media(max-width:640px){
+  html,body{overflow:auto;}
+  .slide.active{overflow-y:auto;}
+}
 
 /* blurred backdrop fills viewport gaps behind scaled stage */
 #backdrop{
@@ -676,7 +680,15 @@ function render(){
   else { backdrop.style.backgroundImage='none'; backdrop.style.background='#0a0a0a'; }
 }
 
-function go(d){ idx = Math.min(total-1, Math.max(0, idx+d)); render(); }document.getElementById('prev').addEventListener('click', ()=>go(-1));
+function go(d){ idx = Math.min(total-1, Math.max(0, idx+d)); render(); }
+
+// touch swipe
+let tx = 0;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if(Math.abs(dx) > 40){ go(dx < 0 ? 1 : -1); }
+}, {passive:true});document.getElementById('prev').addEventListener('click', ()=>go(-1));
 document.getElementById('next').addEventListener('click', ()=>go(1));
 window.addEventListener('keydown', e=>{
   if(e.key==='ArrowRight'||e.key===' '){ e.preventDefault(); go(1); }
