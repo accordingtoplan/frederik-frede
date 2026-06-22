@@ -166,59 +166,31 @@ h2.sm{font-size:clamp(26px, 3.5vw, 52px);}
 
 /* ── MOBILE: full-height scrolling sections with fixed bg parallax ── */
 @media (max-width:768px){
-
-  /* keep full-screen layout on mobile */
+  /* layout: same fixed full-screen as desktop */
   html,body{overflow:hidden;}
   #backdrop{display:none;}
   #stage{position:fixed;inset:0;width:100%;height:100%;}
 
-  /* each slide becomes a full-height section */
-  .slide{
-    position:relative;display:block !important;
-    width:100%;height:100svh;min-height:100svh;
-    overflow:hidden;
-    /* fixed bg per slide via background-attachment */
-  }
-
-  /* background images: use background-attachment fixed for parallax */
-  .slide > img.bg{
-    position:fixed;inset:0;width:100%;height:100%;
-    object-fit:cover;z-index:0;
-    /* each slide's bg only shows when that slide is in viewport
-       via clip-path on the slide itself */
-    clip-path:inherit;
-  }
-
-  /* simpler approach: keep bg absolute, clip to slide bounds */
-  .slide{overflow:hidden;}
+  /* active slide scrolls internally */
+  .slide{overflow-y:auto;-webkit-overflow-scrolling:touch;}
   .slide > img.bg,
-  .slide > video.bg{
-    position:absolute;inset:0;
-    width:100%;height:100%;
-    object-fit:cover;z-index:0;
-  }
+  .slide > video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 
-  /* overlay stays */
-  .slide > .ov{position:absolute;inset:0;z-index:1;}
-  .slide > .bg-color{position:absolute;inset:0;z-index:0;}
-
-  /* content */
-  .c{position:absolute;inset:0;z-index:2;}
-  .meta-bar{z-index:3;padding:6vw 6vw 0;font-size:11px;}
-
-  /* type scale for mobile */
+  /* type */
   h1{font-size:clamp(28px,8vw,56px);letter-spacing:-0.025em;}
   h1.mid{font-size:clamp(24px,7vw,48px);}
   .lead{font-size:clamp(13px,3.5vw,18px);font-weight:500;}
   .label{font-size:clamp(11px,3vw,15px);}
+  .meta-bar{padding:6vw 6vw 0;font-size:11px;}
+  .c.headline-bot{justify-content:flex-end;padding-bottom:16vw;}
 
-  /* content positioning on mobile */
-  .c.headline-bot{justify-content:flex-end;padding-bottom:8vw;}
+  /* grids */
+  .slide [style*="repeat(3"]{grid-template-columns:1fr !important;}
+  .slide [style*="repeat(4"]{grid-template-columns:1fr 1fr !important;}
+  .slide:has(.proj-card){overflow-y:auto;}
 
-  /* hide desktop nav arrows on mobile */
+  /* hide desktop nav, show mobile nav */
   .nav{display:none;}
-
-  /* mobile bottom-center nav */
   .mobile-nav{
     position:fixed;bottom:32px;left:50%;transform:translateX(-50%);
     display:flex;align-items:center;gap:24px;z-index:1000;
@@ -235,22 +207,6 @@ h2.sm{font-size:clamp(26px, 3.5vw, 52px);}
     font-size:12px;letter-spacing:.06em;color:rgba(255,255,255,.55);
     min-width:40px;text-align:center;
   }
-
-  /* projects grid: 2 col on mobile */
-  .proj-brand{font-size:14px;}
-  .proj-tag{font-size:12px;}
-
-  /* NZZ grid: single column */
-  .slide [style*="repeat(3"]{grid-template-columns:1fr !important;}
-  .slide [style*="repeat(4"]{grid-template-columns:1fr 1fr !important;}
-
-  /* cover headline */
-  .slide [style*="font-size:clamp(40px"]{
-    font-size:clamp(36px,10vw,72px) !important;
-  }
-
-  /* projects overview: scrollable */
-  .slide:has(.proj-card){height:auto;min-height:100svh;}
 }
 </style>
 </head>
