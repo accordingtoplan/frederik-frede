@@ -9,8 +9,7 @@
 html,body{background:#0a0a0a;overflow:hidden;width:100%;height:100%;
   font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
 @media(max-width:640px){
-  html,body{overflow:auto;}
-  .slide.active{overflow-y:auto;}
+  .slide.active{overflow-y:auto;-webkit-overflow-scrolling:touch;}
 }
 
 /* blurred backdrop fills viewport gaps behind scaled stage */
@@ -167,8 +166,13 @@ h2.sm{font-size:clamp(26px, 3.5vw, 52px);}
 .nav-count{font-size:12px;letter-spacing:.06em;min-width:44px;text-align:center;}
 
 @media (max-width:640px){
-  .c{padding:16vw 6vw 6vw;}
-  .c.headline-bot{padding-bottom:6vw;}
+  .c{padding:16vw 6vw 10vw;}
+  .c.headline-bot{
+    justify-content:flex-start;
+    padding-top:20vw;
+    min-height:100%;
+    height:auto;
+  }
   .meta-bar{padding:5vw 6vw 0;font-size:10px;}
   .nav{bottom:20px;right:20px;}
   h1{font-size:clamp(32px,9vw,72px);}
