@@ -8,9 +8,6 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{background:#0a0a0a;overflow:hidden;width:100%;height:100%;
   font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
-@media(max-width:640px){
-  .slide.active{overflow-y:auto;-webkit-overflow-scrolling:touch;}
-}
 
 /* blurred backdrop fills viewport gaps behind scaled stage */
 #backdrop{
@@ -165,21 +162,7 @@ h2.sm{font-size:clamp(26px, 3.5vw, 52px);}
 .nav button:disabled{opacity:.15;cursor:default;}
 .nav-count{font-size:12px;letter-spacing:.06em;min-width:44px;text-align:center;}
 
-@media (max-width:640px){
-  .c{padding:16vw 6vw 10vw;}
-  .c.headline-bot{
-    justify-content:flex-start;
-    padding-top:20vw;
-    min-height:100%;
-    height:auto;
-  }
-  .meta-bar{padding:5vw 6vw 0;font-size:10px;}
-  .nav{bottom:20px;right:20px;}
-  h1{font-size:clamp(32px,9vw,72px);}
-  h1.mid{font-size:clamp(26px,7vw,56px);}
-  .lead{font-size:clamp(12px,3.5vw,16px);}
-  .label{font-size:clamp(10px,2.5vw,14px);}
-}
+
 </style>
 </head>
 <body>
