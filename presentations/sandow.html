@@ -221,6 +221,24 @@ h2.sm{font-size:clamp(26px, 3.5vw, 52px);}
   /* hide desktop nav arrows on mobile */
   .nav{display:none;}
 
+  /* mobile bottom-center nav */
+  .mobile-nav{
+    position:fixed;bottom:32px;left:50%;transform:translateX(-50%);
+    display:flex;align-items:center;gap:24px;z-index:1000;
+  }
+  .mobile-nav button{
+    width:48px;height:48px;border:1px solid rgba(255,255,255,.35);border-radius:50%;
+    background:rgba(0,0,0,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    color:#fff;font-size:20px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .mobile-nav button:disabled{opacity:.2;}
+  .mobile-nav .mn-count{
+    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size:12px;letter-spacing:.06em;color:rgba(255,255,255,.55);
+    min-width:40px;text-align:center;
+  }
+
   /* projects grid: 2 col on mobile */
   .proj-brand{font-size:14px;}
   .proj-tag{font-size:12px;}
@@ -716,6 +734,13 @@ h2.sm{font-size:clamp(26px, 3.5vw, 52px);}
   <button id="next">›</button>
 </div>
 
+<!-- mobile nav -->
+<div class="mobile-nav" id="mobileNav" style="display:none;">
+  <button id="mprev" disabled>‹</button>
+  <div class="mn-count"><span id="mcur">1</span> / <span id="mtot"></span></div>
+  <button id="mnext">›</button>
+</div>
+
 <script>
 const slides = document.querySelectorAll('.slide');
 const total = slides.length;
@@ -731,14 +756,34 @@ function getBgImage(slide){
   return null;
 }
 
+const isMobile = () => window.innerWidth <= 768;
+
+// init counters
+document.getElementById('tot').textContent = total;
+document.getElementById('mtot').textContent = total;
+
+function updateMobileNav(){
+  document.getElementById('mcur').textContent = idx+1;
+  document.getElementById('mprev').disabled = idx===0;
+  document.getElementById('mnext').disabled = idx===total-1;
+}
+
 function render(){
-  slides.forEach((s,i) => s.classList.toggle('active', i===idx));
-  document.getElementById('prev').disabled = idx===0;
-  document.getElementById('next').disabled = idx===total-1;
-  document.getElementById('cur').textContent = idx+1;
-  const bg = getBgImage(slides[idx]);
-  if(bg){ backdrop.style.backgroundImage = bg; backdrop.style.background=''; }
-  else { backdrop.style.backgroundImage='none'; backdrop.style.background='#0a0a0a'; }
+  if(isMobile()){
+    // mobile: scroll to section
+    slides[idx].scrollIntoView({behavior:'smooth'});
+    document.getElementById('mobileNav').style.display = 'flex';
+    updateMobileNav();
+  } else {
+    slides.forEach((s,i) => s.classList.toggle('active', i===idx));
+    document.getElementById('prev').disabled = idx===0;
+    document.getElementById('next').disabled = idx===total-1;
+    document.getElementById('cur').textContent = idx+1;
+    document.getElementById('mobileNav').style.display = 'none';
+    const bg = getBgImage(slides[idx]);
+    if(bg){ backdrop.style.backgroundImage = bg; backdrop.style.background=''; }
+    else { backdrop.style.backgroundImage='none'; backdrop.style.background='#0a0a0a'; }
+  }
 }
 
 function go(d){ idx = Math.min(total-1, Math.max(0, idx+d)); render(); }
@@ -749,12 +794,30 @@ document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {pa
 document.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - tx;
   if(Math.abs(dx) > 40){ go(dx < 0 ? 1 : -1); }
-}, {passive:true});document.getElementById('prev').addEventListener('click', ()=>go(-1));
+}, {passive:true});
+
+document.getElementById('prev').addEventListener('click', ()=>go(-1));
 document.getElementById('next').addEventListener('click', ()=>go(1));
+document.getElementById('mprev').addEventListener('click', ()=>go(-1));
+document.getElementById('mnext').addEventListener('click', ()=>go(1));
+
 window.addEventListener('keydown', e=>{
   if(e.key==='ArrowRight'||e.key===' '){ e.preventDefault(); go(1); }
   else if(e.key==='ArrowLeft'){ e.preventDefault(); go(-1); }
 });
+
+// mobile: track slide in view via IntersectionObserver
+if('IntersectionObserver' in window){
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting && isMobile()){
+        idx = Array.from(slides).indexOf(e.target);
+        updateMobileNav();
+      }
+    });
+  },{threshold:0.5});
+  slides.forEach(s=>obs.observe(s));
+}
 
 render();
 </script>
