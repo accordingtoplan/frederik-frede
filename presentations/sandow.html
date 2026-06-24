@@ -156,18 +156,21 @@ h2.sm{font-size:clamp(26px, 3.5vw, 52px);}
 .nav button{
   background:transparent;border:none;padding:0;cursor:pointer;
   font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size:clamp(28px,3.5vw,52px);font-weight:300;line-height:1.2;
-  color:rgba(255,255,255,.35);transition:color .2s;
+  font-size:clamp(28px,3.5vw,52px);font-weight:300;line-height:1.1;
+  color:rgba(255,255,255,.7);transition:color .2s;
   display:block;text-align:right;
 }
-.nav button:hover{color:rgba(255,255,255,.9);}
-.nav button:disabled{opacity:.12;cursor:default;}
+.nav button:hover{color:#fff;}
+.nav button:disabled{opacity:.15;cursor:default;}
 .nav-count{
   font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size:clamp(9px,0.9vw,12px);letter-spacing:.08em;
-  color:rgba(255,255,255,.3);text-align:right;
-  padding:4px 0;
+  color:rgba(255,255,255,.4);text-align:right;
+  padding:6px 0;
 }
+body.nav-dark .nav button{color:rgba(0,0,0,.5);}
+body.nav-dark .nav button:hover{color:#000;}
+body.nav-dark .nav-count{color:rgba(0,0,0,.35);}
 
 
 
@@ -690,9 +693,9 @@ h2.sm{font-size:clamp(26px, 3.5vw, 52px);}
 </div><!-- /stage -->
 
 <div class="nav">
-  <button id="prev" disabled>‹</button>
+  <button id="prev" disabled>↑</button>
   <div class="nav-count"><span id="cur">1</span> / <span id="tot"></span></div>
-  <button id="next">›</button>
+  <button id="next">↓</button>
 </div>
 
 <!-- mobile nav -->
@@ -746,6 +749,8 @@ function render(){
   const bg = getBgImage(slides[idx]);
   if(bg){ backdrop.style.backgroundImage = bg; backdrop.style.background=''; }
   else { backdrop.style.backgroundImage='none'; backdrop.style.background='#0a0a0a'; }
+  // nav colour: dark on white-bg slides (projects = idx 1)
+  document.body.classList.toggle('nav-dark', idx === 1);
 }
 
 function go(d){ idx = Math.min(total-1, Math.max(0, idx+d)); render(); }
