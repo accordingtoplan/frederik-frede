@@ -10,6 +10,7 @@
   <link rel="preload" as="font" href="/assets/fonts/permanent-marker.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="video" href="/assets/showreel.mp4" type="video/mp4">
   <link rel="preload" as="image" imagesrcset="/assets/nzz/nzz-brand-digital-nzzde-front-640w.webp 640w, /assets/nzz/nzz-brand-digital-nzzde-front-1280w.webp 1280w, /assets/nzz/nzz-brand-digital-nzzde-front.webp 2400w" imagesizes="(max-width:640px) 100vw, 50vw" media="(max-width:640px)">
+  <link rel="preload" as="image" href="/assets/showreel-poster-400w.webp" fetchpriority="high">
   <link rel="preload" href="/style.css" as="style">
   <link rel="stylesheet" href="/style.css">
   <style>
@@ -610,7 +611,7 @@
       { b:"Louis Vuitton",      tag:"Employer Branding", desc:"Employer branding campaign and work culture documentary across Louis Vuitton's global ateliers.",
         full:true, type:"video", link:"/louis-vuitton-employer-branding-campaign.html",
         src:"/assets/louis-vuitton/louis-vuitton-employer-branding-showreel.mp4",
-        poster:"/assets/louis-vuitton/louis-vuitton-employer-branding-poster.jpg",
+        poster:"/assets/louis-vuitton/louis-vuitton-employer-branding-poster.webp",
         ratio:"ratio-lvwide",
         year:"2023", live:"jobs.louisvuitton.com", liveHref:"https://jobs.louisvuitton.com/en/work-culture", collab:"—" },
       { b:"Lewis Group",         tag:"Brand & Digital", desc:"A 60-year California real estate developer, rebranded for its next chapter.",
@@ -618,14 +619,14 @@
         link:"/lewis-group-brand-identity-web-design.html",
         year:"2024", collab:"Quasi Object" },
       { b:"Ritz-Carlton",       link:"/ritz-carlton-berlin-brand-event.html", tag:"Hospitality & Brand", desc:"Rebranding and relaunching the Ritz-Carlton Berlin.",
-        type:"placeholder-logo", src:"/assets/ritz-carlton/ritz-carlton-logo.svg", bg:"rc-steel", logoClass:"rc-logo",
+        type:"placeholder-logo", src:"/assets/ritz-carlton/ritz-carlton-logo.svg", lw:160, lh:114, bg:"rc-steel", logoClass:"rc-logo",
         ratio:"ratio-land",
         year:"2019", live:"ritzcarlton.com", liveHref:"https://www.ritzcarlton.com", collab:"—" },
       { b:"USM",                link:"/usm-modular-furniture-brand-digital.html", tag:"Digital Transformation", desc:"Digital transformation for one of modernism's most recognised furniture brands.",
         full:true, type:"video", src:"/assets/usm/usm-journey.mp4", poster:"/assets/usm/usm-brand-digital-poster.webp", ratio:"ratio-wide",
         year:"2017", live:"personalities-by-usm.com", liveHref:"https://www.personalities-by-usm.com/en/", collab:"Friends of Friends" },
       { b:"Siemens",            link:"/siemens-home-appliances.html", tag:"Brand & Content", desc:"A multi-year content partnership for Siemens Home Appliances.",
-        type:"placeholder-logo", src:"/assets/siemens/siemens-logo.svg", bg:"/assets/siemens/siemens-home-stories-arno-brandlhuber-krampnitz-interior.webp", logoClass:"siemens-logo", ratio:"ratio-land",
+        type:"placeholder-logo", src:"/assets/siemens/siemens-logo.svg", lw:160, lh:160, bg:"/assets/siemens/siemens-home-stories-arno-brandlhuber-krampnitz-interior.webp", logoClass:"siemens-logo", ratio:"ratio-land",
         year:"2015–2019", collab:"Friends of Friends" },
       { b:"Engel & Völkers",    link:"/engel-volkers-web-design.html", tag:"Real Estate & Digital", desc:"Digital experience for the global real estate brand.",
         type:"img", src:"/assets/engel-volkers/engel-volkers-web-design-teaser-portrait.webp", ratio:"ratio-land",
@@ -639,7 +640,7 @@
         ratio:"ratio-2",
         year:"2019", live:"mini.com", liveHref:"https://www.mini.com", collab:"—" },
       { b:"Signal LA",          tag:"Brand & Identity", desc:"Brand identity for an architectural retail enclave in the Los Angeles Arts District.",
-        type:"placeholder-logo", src:"/assets/home/home-index-signal-2023-logo-white.svg",
+        type:"placeholder-logo", src:"/assets/home/home-index-signal-2023-logo-white.svg", lw:160, lh:90,
         bg:"/assets/signal/signal-bg-web-01.webp", logoClass:"signal-logo",
         ratio:"ratio-land", link:"/signal-la-brand-identity.html",
         year:"2023", collab:"—" },
@@ -692,7 +693,7 @@
           else tileAttrs = `style="background-image:url('${c.bg}');background-size:cover;background-position:center"`;
         }
         const imgClass = c.logoClass ? `class="${c.logoClass}"` : '';
-        media = `<div class="case-media ${ratio}"><div class="logo-tile ${c.bg && !c.bg.startsWith('#') ? c.bg+'-tile' : ''}" ${tileAttrs}><img src="${c.src}" alt="${c.b}" ${imgClass} style="max-width:160px;height:auto"></div></div>`;
+        media = `<div class="case-media ${ratio}"><div class="logo-tile ${c.bg && !c.bg.startsWith('#') ? c.bg+'-tile' : ''}" ${tileAttrs}><img src="${c.src}" alt="${c.b}" ${imgClass}${c.lw ? ` width="${c.lw}" height="${c.lh}"` : ''} style="max-width:160px;height:auto"></div></div>`;
       } else {
         media = `<div class="case-media ${ratio}"><div class="placeholder-tile"><span>${c.b}</span></div></div>`;
       }
@@ -759,8 +760,8 @@
     /* ─── COLOUR SWITCHER ─────────────────────────────────── */
     const themes = {
       white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',                border:'#c8c3be' },
-      black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.30)', border:'rgba(255,255,255,0.12)' },
-      signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.35)',       border:'transparent' },
+      black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.45)', border:'rgba(255,255,255,0.12)' },
+      signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.48)',       border:'transparent' },
     };
     function setTheme(name, el) {
       const t = themes[name]; const r = document.documentElement.style;
