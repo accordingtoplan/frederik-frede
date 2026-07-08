@@ -18,7 +18,8 @@
   .di-slide h2 { font-size: clamp(32px, 5vw, 72px); line-height: 1.05; letter-spacing: -0.025em; font-weight: 700; color: var(--grey-dark); margin: 0 0 32px; max-width: 16em; }
   .di-slide p { font-size: clamp(16px, 1.6vw, 21px); line-height: 1.6; color: var(--grey-mid); max-width: 34em; margin: 0 0 1.2em; }
   .di-tagline { font-size: clamp(18px, 2vw, 26px); color: var(--grey-mid); font-weight: 700; }
-  .di-skill { border-top: 1px solid var(--border); padding: 40px 48px; display: grid; grid-template-columns: 72px 1fr; gap: 24px; align-items: baseline; }
+  .di-skill { position: relative; padding: 40px 48px; display: grid; grid-template-columns: 72px 1fr; gap: 24px; align-items: baseline; }
+  .di-skill::before { content: ""; position: absolute; top: 0; left: 48px; right: 48px; height: 1px; background: var(--border); }
   .di-skill-num { font-size: 13px; color: var(--grey-light); letter-spacing: 0.08em; }
   .di-skill h3 { font-size: clamp(22px, 2.6vw, 34px); font-weight: 700; letter-spacing: -0.02em; color: var(--grey-dark); margin: 0 0 10px; }
   .di-skill p { font-size: clamp(15px, 1.4vw, 18px); line-height: 1.6; color: var(--grey-mid); max-width: 36em; margin: 0; }
@@ -30,6 +31,37 @@
   @media (max-width: 640px) {
     .di-slide, .di-quote, .di-cta { padding: 64px 20px; min-height: 0; }
     .di-skill { padding: 32px 20px; grid-template-columns: 48px 1fr; gap: 16px; }
+    .di-skill::before { left: 20px; right: 20px; }
+    .di-thread { display: none; }
+  }
+
+  /* ── Motion layer (deck build). All gated on reduced-motion. ── */
+  .di-thread { position: fixed; left: 23px; top: 0; width: 1px; height: 100%; background: var(--border); opacity: 0.6; pointer-events: none; z-index: 1; }
+  .di-thread-fill { position: absolute; inset: 0; background: var(--grey-dark); transform: scaleY(0); transform-origin: top; }
+  @supports (animation-timeline: scroll()) {
+    .di-thread-fill { animation: di-draw linear both; animation-timeline: scroll(root); }
+    @keyframes di-draw { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    /* 2 — staggered statement build */
+    .di-slide > *, .di-quote blockquote, .di-cta > * { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .di-slide.in-view > *, .di-quote.in-view blockquote, .di-cta.in-view > * { opacity: 1; transform: none; }
+    .di-slide.in-view > :nth-child(2) { transition-delay: 0.12s; }
+    .di-slide.in-view > :nth-child(3) { transition-delay: 0.24s; }
+    .di-cta.in-view > :nth-child(2) { transition-delay: 0.15s; }
+    /* 4 — skills assembling: border draws, number ticks in first */
+    .di-skill::before { transform: scaleX(0); transform-origin: left; transition: transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+    .di-skill.in-view::before { transform: scaleX(1); }
+    .di-skill .di-skill-num { opacity: 0; transition: opacity 0.4s ease; }
+    .di-skill.in-view .di-skill-num { opacity: 1; }
+    .di-skill > div { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; }
+    .di-skill.in-view > div { opacity: 1; transform: none; }
+    /* 1 — full-bleed settle-in (scroll-driven, no JS) */
+    @supports (animation-timeline: view()) {
+      .cs-media-full { overflow: hidden; }
+      .cs-media-full img { animation: di-settle ease-out both; animation-timeline: view(); animation-range: entry 0% cover 45%; }
+      @keyframes di-settle { from { transform: scale(1.06); } to { transform: scale(1); } }
+    }
   }
 </style>
 
@@ -55,6 +87,9 @@
 
 <!-- NAV -->
 <div id="nav-mount"></div>
+
+<!-- 3 — the thread: scroll-drawn line connecting the chapters -->
+<div class="di-thread" aria-hidden="true"><div class="di-thread-fill"></div></div>
 
 <!-- SLIDE 1: HERO -->
 <section class="di-slide">
@@ -193,6 +228,43 @@
     <div id="footer-mount"></div>
   </footer>
   <script src="/footer.js"></script>
+
+<script>
+/* Deck motion: observe slides + skills, add .in-view once. Safety net mirrors footer.js. */
+(function(){
+  var targets = document.querySelectorAll('.di-slide, .di-skill, .di-quote, .di-cta');
+  if (!targets.length) return;
+  function revealAll(){ targets.forEach(function(el){ el.classList.add('in-view'); }); }
+  if (!('IntersectionObserver' in window)) { revealAll(); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  targets.forEach(function(el){ io.observe(el); });
+  setTimeout(function(){
+    targets.forEach(function(el){
+      if (el.classList.contains('in-view')) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight + 200 && r.bottom > -200) el.classList.add('in-view');
+    });
+  }, 1200);
+  /* Thread fallback for browsers without scroll-driven animations */
+  if (!CSS.supports('animation-timeline: scroll()')) {
+    var fill = document.querySelector('.di-thread-fill');
+    if (fill) {
+      var ticking = false;
+      function draw(){
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        fill.style.transform = 'scaleY(' + (max > 0 ? Math.min(window.scrollY / max, 1) : 1) + ')';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(draw); } }, { passive: true });
+      draw();
+    }
+  }
+})();
+</script>
 
 <script>
   const themes = {
