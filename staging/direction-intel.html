@@ -28,8 +28,16 @@
   .di-cta { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: 96px 48px; }
   .di-cta a { display: inline-block; font-size: clamp(20px, 2.4vw, 32px); font-weight: 700; color: var(--grey-dark); text-decoration: none; border-bottom: 3px solid var(--grey-dark); padding-bottom: 4px; }
   .di-cta a:hover { opacity: 0.6; }
+  /* Red claim slide + framed phone scene */
+  .di-red { background: #e63222; min-height: 78vh; }
+  .di-red h2 { color: #000; max-width: none; }
+  .di-phone-slide { align-items: center; text-align: center; }
+  .di-phone-slide h2 { max-width: 13em; }
+  .di-phone { width: min(320px, 72vw); background: #000; border-radius: 48px; padding: 13px; margin: 56px auto 0; box-shadow: 0 40px 90px rgba(0,0,0,0.35); }
+  .di-phone img { width: 100%; height: auto; display: block; border-radius: 36px; }
   @media (max-width: 640px) {
     .di-slide, .di-quote, .di-cta { padding: 64px 20px; min-height: 0; }
+    .di-red { min-height: 50vh; }
     .di-skill { padding: 32px 20px; grid-template-columns: 48px 1fr; gap: 16px; }
     .di-skill::before { left: 20px; right: 20px; }
     .di-thread { display: none; }
@@ -119,7 +127,7 @@
 <section class="di-slide">
   <span class="di-slide-label">01 — The genre</span>
   <h2>Every week another kit promises to automate creative work.</h2>
-  <p>Forty skills, set up in five minutes, an AI team with headshots. The machinery is real and the machinery is cheap. What none of it carries is the part clients actually pay for: the ability to hold a judgment when the deadline is tomorrow and the room disagrees.</p>
+  <p>Forty skills. Five-minute setup. An AI team with headshots. None of it can hold a judgment when the deadline is tomorrow and the room disagrees.</p>
 </section>
 
 <div class="cs-media-full">
@@ -130,11 +138,16 @@
   <span class="cs-caption-text">Everything it knows fits in a pocket. What it carries took thirty years.</span>
 </div>
 
+<!-- RED CLAIM SLIDE -->
+<section class="di-slide di-red">
+  <h2>No dashboards.<br>No personas.<br>No setup theater.</h2>
+</section>
+
 <!-- SLIDE 3: THE OTHER WAY ROUND -->
 <section class="di-slide">
   <span class="di-slide-label">02 — The other way round</span>
   <h2>Direction Intel exists because a working practice needed it.</h2>
-  <p>Every skill in it has run on live projects, under real deadlines, for real clients. The method case study on this site documents that work as it happens. What remains when the work is done is the intel: the tools and the judgment behind them, extracted and made usable by someone else.</p>
+  <p>Every skill has run on live projects, for real clients. The intel is what remains when the work is done.</p>
 </section>
 
 <div class="cs-media-full">
@@ -149,7 +162,7 @@
 <section class="di-slide" style="min-height:40vh;">
   <span class="di-slide-label">03 — What's inside</span>
   <h2>Around ten deep skills. Not forty shallow ones.</h2>
-  <p>Each one encodes a way of working that took years to earn. Plain language throughout. No dashboards, no personas, no setup theater.</p>
+  <p>Each one encodes a way of working that took years to earn.</p>
 </section>
 
 <div class="di-skill">
@@ -195,6 +208,14 @@
   </div>
 </div>
 
+<!-- PHONE MOCKUP SLIDE -->
+<section class="di-slide di-phone-slide">
+  <h2>The whole system. House voice. Plain language.</h2>
+  <div class="di-phone">
+    <img src="/assets/direction-intel/di-phone-dark.png" width="1170" height="2532" alt="Direction Intel on a phone screen: judgment, held under deadline" loading="lazy">
+  </div>
+</section>
+
 <div class="cs-media-full" style="margin-top:96px;">
   <img src="/presentations/assets/surf-bw.jpg" width="1080" height="1176" alt="Surfer cutting a wave in front of a dark palm forest, black and white" loading="lazy" style="max-width:720px;margin:0 auto;">
 </div>
@@ -214,7 +235,7 @@
 <section class="di-slide" style="min-height:50vh;">
   <span class="di-slide-label">04 — How it arrives</span>
   <h2>Watch it work first.</h2>
-  <p>Direction Intel ships once the system has publicly carried real projects. Until then the process notes and the method case study show it in use, decision by decision. Anyone can verify the claims before spending anything. That order is deliberate.</p>
+  <p>It ships once the system has publicly carried real projects. Verify the claims before spending anything. That order is deliberate.</p>
 </section>
 
 <div class="cs-media-full">
