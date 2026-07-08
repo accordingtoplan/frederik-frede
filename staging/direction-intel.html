@@ -37,6 +37,8 @@
   .di-phone-slide h2 { max-width: 13em; }
   .di-phone { width: min(320px, 72vw); background: #000; border-radius: 48px; padding: 13px; margin: 56px auto 0; box-shadow: 0 40px 90px rgba(0,0,0,0.35); }
   .di-phone img { width: 100%; height: auto; display: block; border-radius: 36px; }
+  .di-phone-video { width: min(880px, 92vw); margin: 40px auto 0; }
+  .di-phone-video video { width: 100%; display: block; aspect-ratio: 16/9; }
   @media (max-width: 640px) {
     .di-slide, .di-quote, .di-cta { padding: 64px 20px; min-height: 0; }
     .di-red { min-height: 50vh; }
@@ -268,8 +270,10 @@
 <!-- PHONE MOCKUP SLIDE -->
 <section class="di-slide di-phone-slide">
   <h2>Set up once. Every project after runs on it.</h2>
-  <div class="di-phone">
-    <img src="/assets/direction-intel/di-phone-dark.png" width="1170" height="2532" alt="Direction Intel on a phone screen: judgment, held under deadline" loading="lazy">
+  <div class="di-phone-video">
+    <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/direction-intel/di-smartphone-01-poster.jpg">
+      <source data-src="/assets/direction-intel/di-smartphone-01.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
 
@@ -279,6 +283,16 @@
 <div class="cs-caption">
   <span class="cs-caption-label">The skill</span>
   <span class="cs-caption-text">Nobody asks the wave to slow down. Judgment is timing, held in the body.</span>
+</div>
+
+<div class="cs-media-full">
+  <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/direction-intel/di-screen-sc-v4-03-poster.jpg">
+    <source data-src="/assets/direction-intel/di-screen-sc-v4-03.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">In transit</span>
+  <span class="cs-caption-text">The work travels with you. Screen graphics to follow.</span>
 </div>
 
 <!-- SLIDE 5: PULL QUOTE (pinned; sentences brighten with scroll) -->
@@ -294,6 +308,16 @@
   <h2>Watch it work first.</h2>
   <p>It ships once the system has publicly carried real projects. Verify the claims before spending anything. That order is deliberate.</p>
 </section>
+
+<div class="cs-media-full">
+  <video autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/direction-intel/di-laptop-lt-v5-01-poster.jpg">
+    <source data-src="/assets/direction-intel/di-laptop-lt-v5-01.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">The work</span>
+  <span class="cs-caption-text">Held up to the light. Screen graphics to follow.</span>
+</div>
 
 <div class="cs-media-full">
   <img src="/assets/direction-intel/di-fire.jpg" width="1920" height="1076" alt="Highway billboard showing Direction Intel in signal red against a wall of wildfire" loading="lazy">
