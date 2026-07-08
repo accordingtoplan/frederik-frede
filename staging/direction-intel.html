@@ -56,11 +56,26 @@
     .di-skill.in-view .di-skill-num { opacity: 1; }
     .di-skill > div { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; }
     .di-skill.in-view > div { opacity: 1; transform: none; }
-    /* 1 — full-bleed settle-in (scroll-driven, no JS) */
+    /* 1 — media enters inset + rounded, expands to full bleed (scroll-scrubbed) */
     @supports (animation-timeline: view()) {
-      .cs-media-full { overflow: hidden; }
-      .cs-media-full img { animation: di-settle ease-out both; animation-timeline: view(); animation-range: entry 0% cover 45%; }
-      @keyframes di-settle { from { transform: scale(1.06); } to { transform: scale(1); } }
+      .cs-media-full { overflow: hidden; animation: di-bleed linear both; animation-timeline: view(); animation-range: entry 20% cover 50%; }
+      .cs-media-full img { animation: di-settle linear both; animation-timeline: view(); animation-range: entry 20% cover 50%; }
+      @keyframes di-bleed { from { padding-left: 8%; padding-right: 8%; } to { padding-left: 0; padding-right: 0; } }
+      @keyframes di-settle { from { transform: scale(1.04); border-radius: 20px; } to { transform: scale(1); border-radius: 0; } }
+
+      /* Apple-style pinned scenes. Heights only exist when scrubbing works,
+         so unsupported browsers keep the plain flow. */
+      .di-hero-wrap { height: 175vh; view-timeline: --di-hero; }
+      .di-hero { position: sticky; top: 0; min-height: 100vh; animation: di-hero-out linear both; animation-timeline: --di-hero; animation-range: exit 0% exit 85%; }
+      @keyframes di-hero-out { to { transform: scale(0.93) translateY(-4vh); opacity: 0; } }
+
+      .di-quote-wrap { height: 220vh; view-timeline: --di-quote; }
+      .di-quote-wrap .di-quote { position: sticky; top: 0; height: 100vh; min-height: 0; }
+      .di-quote-wrap .di-quote blockquote { opacity: 1; transform: none; transition: none; }
+      .di-q { animation: di-word linear both; animation-timeline: --di-quote; }
+      .di-q1 { animation-range: contain 5% contain 40%; }
+      .di-q2 { animation-range: contain 40% contain 80%; }
+      @keyframes di-word { from { opacity: 0.18; } to { opacity: 1; } }
     }
   }
 </style>
@@ -91,12 +106,14 @@
 <!-- 3 — the thread: scroll-drawn line connecting the chapters -->
 <div class="di-thread" aria-hidden="true"><div class="di-thread-fill"></div></div>
 
-<!-- SLIDE 1: HERO -->
-<section class="di-slide">
-  <span class="di-slide-label">AI &amp; Tooling · For creative directors and strategists</span>
-  <h1>Direction<br>Intel</h1>
-  <p class="di-tagline">Judgment, held under deadline.</p>
-</section>
+<!-- SLIDE 1: HERO (pinned; scales away as the page overtakes it) -->
+<div class="di-hero-wrap">
+  <section class="di-slide di-hero">
+    <span class="di-slide-label">AI &amp; Tooling · For creative directors and strategists</span>
+    <h1>Direction<br>Intel</h1>
+    <p class="di-tagline">Judgment, held under deadline.</p>
+  </section>
+</div>
 
 <!-- SLIDE 2: THE GENRE -->
 <section class="di-slide">
@@ -186,9 +203,11 @@
   <span class="cs-caption-text">Nobody asks the wave to slow down. Judgment is timing, held in the body.</span>
 </div>
 
-<!-- SLIDE 5: PULL QUOTE -->
-<div class="di-quote">
-  <blockquote>The machinery is cheap. The judgment took thirty years.</blockquote>
+<!-- SLIDE 5: PULL QUOTE (pinned; sentences brighten with scroll) -->
+<div class="di-quote-wrap">
+  <div class="di-quote">
+    <blockquote><span class="di-q di-q1">The machinery is cheap.</span> <span class="di-q di-q2">The judgment took thirty years.</span></blockquote>
+  </div>
 </div>
 
 <!-- SLIDE 6: HOW IT ARRIVES -->
