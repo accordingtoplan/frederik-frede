@@ -10,20 +10,26 @@
 <meta name="robots" content="noindex">
   <link rel="stylesheet" href="/style.css">
 <style>
-  /* Page-specific: kit skill list. Everything else lives in style.css. */
-  .kit-list { padding: 0 48px; margin-bottom: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
-  .kit-item { border-top: 1px solid var(--border); padding-top: 16px; }
-  .kit-item h3 { font-size: 16px; font-weight: 700; color: var(--grey-dark); margin: 0 0 6px; letter-spacing: -0.01em; }
-  .kit-item p { font-size: 14px; line-height: 1.6; color: var(--grey-mid); margin: 0; }
-  .kit-cta { padding: 0 48px; margin-bottom: 100px; }
-  .kit-cta a { display: inline-block; font-size: 15px; font-weight: 700; color: var(--grey-dark); text-decoration: none; border-bottom: 2px solid var(--grey-dark); padding-bottom: 2px; }
-  .kit-cta a:hover { opacity: 0.6; }
-  .kit-cta p { max-width: 50%; font-size: 14px; line-height: 1.7; color: var(--grey-mid); margin: 0 0 24px; }
+  /* Page-specific: deck scroller layout. Single column, one idea per screen.
+     Media uses global .cs-media-full (scroll reveal from footer.js). */
+  .di-slide { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; padding: 96px 48px; }
+  .di-slide-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-light); margin-bottom: 28px; }
+  .di-slide h1 { font-size: clamp(56px, 11vw, 160px); line-height: 0.95; letter-spacing: -0.03em; font-weight: 700; color: var(--grey-dark); margin: 0 0 32px; }
+  .di-slide h2 { font-size: clamp(32px, 5vw, 72px); line-height: 1.05; letter-spacing: -0.025em; font-weight: 700; color: var(--grey-dark); margin: 0 0 32px; max-width: 16em; }
+  .di-slide p { font-size: clamp(16px, 1.6vw, 21px); line-height: 1.6; color: var(--grey-mid); max-width: 34em; margin: 0 0 1.2em; }
+  .di-tagline { font-size: clamp(18px, 2vw, 26px); color: var(--grey-mid); font-weight: 700; }
+  .di-skill { border-top: 1px solid var(--border); padding: 40px 48px; display: grid; grid-template-columns: 72px 1fr; gap: 24px; align-items: baseline; }
+  .di-skill-num { font-size: 13px; color: var(--grey-light); letter-spacing: 0.08em; }
+  .di-skill h3 { font-size: clamp(22px, 2.6vw, 34px); font-weight: 700; letter-spacing: -0.02em; color: var(--grey-dark); margin: 0 0 10px; }
+  .di-skill p { font-size: clamp(15px, 1.4vw, 18px); line-height: 1.6; color: var(--grey-mid); max-width: 36em; margin: 0; }
+  .di-quote { min-height: 60vh; display: flex; align-items: center; padding: 96px 48px; }
+  .di-quote blockquote { font-size: clamp(32px, 5.5vw, 80px); line-height: 1.05; letter-spacing: -0.025em; font-weight: 700; color: var(--grey-dark); margin: 0; max-width: 14em; }
+  .di-cta { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: 96px 48px; }
+  .di-cta a { display: inline-block; font-size: clamp(20px, 2.4vw, 32px); font-weight: 700; color: var(--grey-dark); text-decoration: none; border-bottom: 3px solid var(--grey-dark); padding-bottom: 4px; }
+  .di-cta a:hover { opacity: 0.6; }
   @media (max-width: 640px) {
-    .kit-list { grid-template-columns: 1fr; padding: 0 20px; }
-    .kit-cta { padding: 0 20px; }
-    .kit-cta p { max-width: 100%; }
-    .cs-header, .cs-intro, .cs-strategy-intro { grid-template-columns: 1fr; }
+    .di-slide, .di-quote, .di-cta { padding: 64px 20px; min-height: 0; }
+    .di-skill { padding: 32px 20px; grid-template-columns: 48px 1fr; gap: 16px; }
   }
 </style>
 
@@ -50,77 +56,125 @@
 <!-- NAV -->
 <div id="nav-mount"></div>
 
-<!-- HEADER -->
-<header class="cs-header">
-  <h1 class="cs-title">Direction<br>Intel</h1>
-  <div class="cs-meta">
-    <span class="cs-tags">AI &amp; Tooling &nbsp;·&nbsp; For creative directors and strategists</span>
-    <p class="cs-tagline">Judgment, held under deadline.</p>
-<p class="cs-desc">A working system for creative directors and strategists. Around ten deep skills, built from thirty years of practice and proven on real client work before anything ships.</p>
-  </div>
-</header>
+<!-- SLIDE 1: HERO -->
+<section class="di-slide">
+  <span class="di-slide-label">AI &amp; Tooling · For creative directors and strategists</span>
+  <h1>Direction<br>Intel</h1>
+  <p class="di-tagline">Judgment, held under deadline.</p>
+</section>
 
-<!-- INTRO TEXT -->
-<div class="cs-intro">
-<p>Every week another kit promises to automate creative work. Forty skills, set up in five minutes, an AI team with headshots. The machinery is real and the machinery is cheap. What none of it carries is the part clients actually pay for: the ability to hold a judgment when the deadline is tomorrow and the room disagrees.</p>
-<p>Direction Intel is built the other way round. The system exists because a working practice needed it. Every skill in it has run on live projects, under real deadlines, for real clients. The method case study on this site documents that work as it happens. What remains when the work is done is the intel: the tools and the judgment behind them, extracted and made usable by someone else.</p>
+<!-- SLIDE 2: THE GENRE -->
+<section class="di-slide">
+  <span class="di-slide-label">01 — The genre</span>
+  <h2>Every week another kit promises to automate creative work.</h2>
+  <p>Forty skills, set up in five minutes, an AI team with headshots. The machinery is real and the machinery is cheap. What none of it carries is the part clients actually pay for: the ability to hold a judgment when the deadline is tomorrow and the room disagrees.</p>
+</section>
+
+<div class="cs-media-full">
+  <img src="/assets/louis-vuitton/louis-vuitton-employer-branding-poster.webp" width="1920" height="1010" alt="Louis Vuitton employer branding, real client work carried by the system" fetchpriority="high">
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Louis Vuitton</span>
+  <span class="cs-caption-text">Employer branding. The kind of room where the judgment has to hold.</span>
 </div>
 
-<!-- WHAT IT IS -->
-<div class="cs-strategy">
-  <span class="cs-section-label">01 — What it is</span>
-  <div class="cs-strategy-intro">
-    <h2>Around ten deep skills. Not forty shallow ones.</h2>
-<p>Each skill encodes a way of working that took years to earn. A voice codex that catches generic writing before it leaves the building. A counter-position that argues against the recommendation before the client does. A debrief that turns a finished project into something the next one can use. Plain language throughout. No dashboards, no personas, no setup theater.</p>
-  </div>
+<!-- SLIDE 3: THE OTHER WAY ROUND -->
+<section class="di-slide">
+  <span class="di-slide-label">02 — The other way round</span>
+  <h2>Direction Intel exists because a working practice needed it.</h2>
+  <p>Every skill in it has run on live projects, under real deadlines, for real clients. The method case study on this site documents that work as it happens. What remains when the work is done is the intel: the tools and the judgment behind them, extracted and made usable by someone else.</p>
+</section>
+
+<div class="cs-media-full">
+  <img src="/assets/architonic/architonic-brand-strategy-platform-design-poster.webp" width="1280" height="720" alt="Architonic rebrand, platform redesign and campaign" loading="lazy">
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Architonic</span>
+  <span class="cs-caption-text">Rebrand, platform, campaign. Strategy to Milan metro takeover, one system underneath.</span>
 </div>
 
-<!-- SKILL LIST -->
-<div class="kit-list">
-  <div class="kit-item">
+<!-- SLIDE 4: WHAT'S INSIDE -->
+<section class="di-slide" style="min-height:40vh;">
+  <span class="di-slide-label">03 — What's inside</span>
+  <h2>Around ten deep skills. Not forty shallow ones.</h2>
+  <p>Each one encodes a way of working that took years to earn. Plain language throughout. No dashboards, no personas, no setup theater.</p>
+</section>
+
+<div class="di-skill">
+  <span class="di-skill-num">01</span>
+  <div>
     <h3>Voice codex builder</h3>
     <p>Builds a written codex of how a brand actually sounds, then validates every draft against it. Generic phrasing gets flagged before anyone reads it.</p>
   </div>
-  <div class="kit-item">
+</div>
+<div class="di-skill">
+  <span class="di-skill-num">02</span>
+  <div>
     <h3>Positioning sprint</h3>
     <p>A structured pass from raw client material to a defensible position. Built for the week when the strategy is due and the inputs are a mess.</p>
   </div>
-  <div class="kit-item">
+</div>
+<div class="di-skill">
+  <span class="di-skill-num">03</span>
+  <div>
     <h3>Counter-position</h3>
     <p>Takes the recommendation on the table and builds the strongest case against it. The argument the client will make, made first, in private.</p>
   </div>
-  <div class="kit-item">
+</div>
+<div class="di-skill">
+  <span class="di-skill-num">04</span>
+  <div>
     <h3>Reference library routing</h3>
     <p>Connects a maintained reference archive to live work. New material lands where the thinking already is, and resurfaces when a project needs it.</p>
   </div>
-  <div class="kit-item">
+</div>
+<div class="di-skill">
+  <span class="di-skill-num">05</span>
+  <div>
     <h3>Project debrief</h3>
     <p>Closes out client work so the judgment survives the project. What held, what bent, what the next brief should know.</p>
   </div>
-  <div class="kit-item">
+</div>
+<div class="di-skill" style="border-bottom:1px solid var(--border);">
+  <span class="di-skill-num">+</span>
+  <div>
     <h3>And the rest</h3>
     <p>The remaining skills are still earning their place on live work. They join the system when they have.</p>
   </div>
 </div>
 
-<!-- HOW IT ARRIVES -->
-<div class="cs-strategy">
-  <span class="cs-section-label">02 — How it arrives</span>
-  <div class="cs-strategy-intro">
-    <h2>Watch it work first.</h2>
-<p>Direction Intel ships once the system has publicly carried real projects. Until then the process notes and the method case study show it in use, decision by decision. Anyone can verify the claims before spending anything. That order is deliberate.</p>
-  </div>
+<div class="cs-media-full" style="margin-top:96px;">
+  <img src="/assets/nzz/nzz-brand-digital-nzzde-front.webp" width="1400" height="933" alt="NZZ brand and digital work" loading="lazy">
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">NZZ</span>
+  <span class="cs-caption-text">Brand and digital for a 245-year-old newspaper. Positioning under real constraints.</span>
 </div>
 
-<!-- PULL QUOTE -->
-<div class="cs-pullquote">
+<!-- SLIDE 5: PULL QUOTE -->
+<div class="di-quote">
   <blockquote>The machinery is cheap. The judgment took thirty years.</blockquote>
 </div>
 
-<!-- CTA -->
-<div class="kit-cta">
-  <p>No launch date yet. Price to be announced. Write to hear when it ships, and what it looks like carrying real work in the meantime.</p>
-  <a href="/about.html#contact">Get notified →</a>
+<!-- SLIDE 6: HOW IT ARRIVES -->
+<section class="di-slide" style="min-height:50vh;">
+  <span class="di-slide-label">04 — How it arrives</span>
+  <h2>Watch it work first.</h2>
+  <p>Direction Intel ships once the system has publicly carried real projects. Until then the process notes and the method case study show it in use, decision by decision. Anyone can verify the claims before spending anything. That order is deliberate.</p>
+</section>
+
+<div class="cs-media-full">
+  <img src="/assets/siemens/siemens-home-stories-arno-brandlhuber-krampnitz-interior.webp" width="1400" height="933" alt="Siemens Home Stories editorial work" loading="lazy">
+</div>
+<div class="cs-caption">
+  <span class="cs-caption-label">Siemens</span>
+  <span class="cs-caption-text">Home Stories. Editorial systems that outlived the campaign.</span>
+</div>
+
+<!-- SLIDE 7: CTA -->
+<div class="di-cta">
+  <p style="font-size:clamp(16px,1.6vw,21px);line-height:1.6;color:var(--grey-mid);max-width:34em;margin:0 0 40px;">No launch date yet. Price to be announced. Write to hear when it ships, and what it looks like carrying real work in the meantime.</p>
+  <div><a href="/about.html#contact">Get notified →</a></div>
 </div>
 
 <!-- BOTTOM: description + credits -->
