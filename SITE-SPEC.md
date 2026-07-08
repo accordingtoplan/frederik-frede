@@ -1,7 +1,7 @@
 # SITE-SPEC.md — frederikfrede.com
 **Canonical reference for every session. Read this first, every time.**
 
-Last updated: 2026-06-17 (Session E)
+Last updated: 2026-07-08 (branch rename: production branch is now `live`)
 
 ---
 
@@ -13,13 +13,17 @@ Python `http.server` for local preview. Push via `git -c http.version=HTTP/1.1 -
 
 ---
 
-## Branch model + staging previews (2026-07-05)
+## Branch model + previews (branch renamed 2026-07-08; model from 2026-07-05)
 
-- GitHub Pages serves the `staging` branch. All HTML edits go to staging, never main. Never switch the Pages source branch.
-- `main` = asset storage. New assets push to `main/assets/[client]/`, referenced from staging HTML with absolute `https://frederikfrede.com/assets/` URLs.
-- The `/staging/` FOLDER inside the staging branch is Frederik's preview workspace for reworking case studies before publishing. `frederikfrede.com/staging/[case].html` = preview, root URL = published page.
-- The preview folder holds unpublished review work (June 2026 media-audit sprint plus deep restructures). Do NOT merge, publish, or delete anything in `/staging/` without explicit sign-off from Frederik.
-- Publishing later is a per-page merge: take content changes from the preview, keep root-side infra changes (contrast values, YouTube facades, srcset wrapping, lazy-load). Never a blind copy in either direction. Content truth lives in preview, infrastructure truth lives in root.
+**One line per destination:**
+
+- **`live` branch = THE SITE.** GitHub Pages serves it. Every commit here is public on frederikfrede.com within minutes. All HTML edits, all infra, all new pages go here. Never switch the Pages source branch.
+- **`/staging/` FOLDER (inside `live`) = Frederik's review workspace.** Cloned case studies reworked before publishing. `frederikfrede.com/staging/[case].html` = preview, root URL = published page. Do NOT merge, publish, or delete anything in `/staging/` without explicit sign-off from Frederik.
+- **`main` branch = asset storage only.** New assets push to `main/assets/[client]/`, referenced from live HTML with absolute `https://frederikfrede.com/assets/` URLs. Never HTML.
+
+History note: the production branch was named `staging` until 2026-07-08, which caused constant confusion with the `/staging/` preview folder. Renamed to `live` via GitHub UI (Pages source moved automatically). Any older notes saying "push to staging" mean the branch now called `live`.
+
+- Publishing a reviewed case is a per-page merge: take content changes from the preview folder, keep root-side infra changes (contrast values, YouTube facades, srcset wrapping, lazy-load). Never a blind copy in either direction. Content truth lives in preview, infrastructure truth lives in root.
 - Known consequence: `debug-check.py` run repo-wide fails on the preview folder's hotlinks and dead cross-links. Scope the run to the files you changed (`python3 debug-check.py file.html`) or verify against a clean HEAD.
 
 ---
