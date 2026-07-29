@@ -144,17 +144,16 @@
     </div>
     <div class="legal-block">
       <div class="legal-label">Contact</div>
-      <div class="legal-body"><a href="mailto:frederikfrede@gmail.com">frederikfrede@gmail.com</a></div>
+      <div class="legal-body"><a href="#" class="js-mail" data-u="frederik" data-d="frede.net">frederik [at] frede.net</a></div>
     </div>
     <div class="legal-block">
       <div class="legal-label">Tax</div>
       <div class="legal-body">
-        Tax number: 24/293/00723<br>
         Freelance activity in brand strategy, visual identity, and digital design (Freiberufler).
       </div>
     </div>
     <div class="legal-block">
-      <div class="legal-label">Responsible for content pursuant to § 55 para. 2 RStV</div>
+      <div class="legal-label">Responsible for content pursuant to § 18 para. 2 MStV</div>
       <div class="legal-body">Frederik Frede, address as above.</div>
     </div>
   </div>
@@ -242,7 +241,7 @@
     </div>
     <div class="legal-block">
       <div class="legal-label">Data protection enquiries</div>
-      <div class="legal-body"><a href="mailto:frederikfrede@gmail.com">frederikfrede@gmail.com</a></div>
+      <div class="legal-body"><a href="#" class="js-mail" data-u="frederik" data-d="frede.net">frederik [at] frede.net</a></div>
     </div>
   </div>
 
@@ -288,5 +287,11 @@
   }
 </script>
 
+<script>
+document.querySelectorAll('.js-mail').forEach(function(a){
+  var m=a.dataset.u+'@'+a.dataset.d;
+  a.textContent=m; a.href='mailto:'+m;
+});
+</script>
 </body>
 </html>
