@@ -217,7 +217,7 @@
   "url": "https://frederikfrede.com",
   "jobTitle": "Creative Director and Brand Strategist",
   "description": "Frederik Frede is an independent creative director and brand strategist working across culture, strategy and identity, based in Berlin and Los Angeles. Thirty years across brand strategy, visual identity, editorial and digital; co-founder of Freunde von Freunden and MoreSleep. Building brands, platforms and experiences for people who care how things look and last, each held to the same question: does it earn its place, or just add to the noise.",
-  "email": "mailto:frederikfrede@gmail.com",
+  "email": "mailto:frederik@frede.net",
   "homeLocation": [
     { "@type": "Place", "name": "Berlin, Germany" },
     { "@type": "Place", "name": "Los Angeles, United States" }
@@ -335,7 +335,7 @@
     <div class="contact-grid">
       <div>
         <div class="contact-label">Get in touch</div>
-        <div class="contact-value"><a href="mailto:frederikfrede@gmail.com">frederikfrede@gmail.com</a></div>
+        <div class="contact-value"><a href="#" class="js-mail" data-u="frederik" data-d="frede.net">frederik [at] frede.net</a></div>
       </div>
       <div>
         <div class="contact-label">Based in</div>
@@ -529,6 +529,12 @@
     setTheme('black', document.querySelector('.swatch[onclick*="black"]'));
   </script>
 
+<script>
+document.querySelectorAll('.js-mail').forEach(function(a){
+  var m=a.dataset.u+'@'+a.dataset.d;
+  a.textContent=m; a.href='mailto:'+m;
+});
+</script>
 </body>
 </html>
 
