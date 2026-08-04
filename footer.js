@@ -99,7 +99,7 @@
         </div>
       </div>
       <div class="footer-bottom-row">
-        <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/imprint.html" class="footer-copy-link">Imprint</a></span>
+        <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/imprint.html" class="footer-copy-link">Imprint</a> · <button class="footer-copy-link footer-cookie-btn" onclick="resetConsent()">Cookie settings</button></span>
         <div class="footer-links">
           <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
           <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
@@ -211,6 +211,24 @@
     gtag('js', new Date());
     gtag('config', GA_ID);
   }
+  function resetConsent() {
+    localStorage.removeItem('cookie-consent');
+    const banner = document.getElementById('cookieConsent');
+    if (banner) {
+      banner.classList.add('visible');
+      document.getElementById('cookieAccept').onclick = () => {
+        localStorage.setItem('cookie-consent', 'accepted');
+        banner.classList.remove('visible');
+        loadGA();
+      };
+      document.getElementById('cookieDecline').onclick = () => {
+        localStorage.setItem('cookie-consent', 'declined');
+        banner.classList.remove('visible');
+      };
+    }
+  }
+  window.resetConsent = resetConsent;
+
   const consent = localStorage.getItem('cookie-consent');
   if (consent === 'accepted') {
     loadGA();
