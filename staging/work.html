@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Work — Frederik Frede</title>
+<meta name="description" content="Selected projects and full archive by Frederik Frede. Brand strategy, identity and digital for design-led culture.">
+  <link rel="stylesheet" href="style.css">
+<style>
+/* MAIN */
+main{flex:1;padding:0}
+
+/* PAGE HERO */
+.page-hero{padding:120px 48px 40px;display:flex;justify-content:space-between;align-items:flex-end}
+.page-headline{font-size:clamp(32px,4.5vw,56px);font-weight:var(--bold);letter-spacing:-0.02em;line-height:1.05;color:var(--grey-dark);max-width:560px}
+
+/* ─── LAYOUT TOGGLE ─────────────────────────────────────────────── */
+.layout-btns{display:flex;align-items:center;gap:4px;align-self:flex-end;padding-bottom:4px}
+.layout-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border:none;background:none;cursor:pointer;padding:0;
+  color:var(--grey-mid);opacity:0.35;transition:opacity 0.15s;
+}
+.layout-btn:hover{opacity:0.7}
+.layout-btn.active{opacity:1;color:var(--grey-dark)}
+.layout-btn svg{display:block}
+
+/* ─── STREAM VIEW (JWA flex-wrap) ───────────────────────────────── */
+.work-grid{
+  padding:0 48px;
+  margin-bottom:96px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px 8px;
+  align-items:flex-start;
+}
+.card{display:block;text-decoration:none;color:inherit;cursor:pointer;flex-shrink:0;flex-grow:0}
+.card-media{overflow:hidden;background:var(--bg-card);height:260px}
+.card-media-inner{height:100%;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
+.card:hover .card-media-inner{transform:scale(1.03)}
+.card-media-inner img{height:100%;width:auto;display:block}
+.card-media-inner video{height:100%;width:auto;display:block}
+.card--placeholder .card-media{width:320px}
+.placeholder-tile{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:var(--t-ui);font-weight:var(--bold);letter-spacing:var(--ls-ui);color:var(--grey-mid);
+  background:var(--bg-card);
+}
+/* Stacked captions */
+.card-info{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:8px 0 0;width:100%}
+.card-brand{font-size:13px;font-weight:var(--bold);letter-spacing:var(--ls-ui);color:var(--grey-dark);line-height:1.3}
+.card-tag{font-size:11px;color:var(--grey-mid);line-height:1.3}
+
+/* ─── COLUMNS VIEW (4-col masonry) ──────────────────────────────── */
+.work-grid.view-columns{
+  display:block;columns:4;column-gap:16px;
+}
+.work-grid.view-columns .card{
+  display:block;height:auto;break-inside:avoid;margin-bottom:16px;
+  flex-shrink:unset;
+}
+.work-grid.view-columns .card-media{height:auto}
+.work-grid.view-columns .card-media-inner img,
+.work-grid.view-columns .card-media-inner video{width:100%;height:auto;object-fit:unset}
+/* carousel in columns view */
+.work-grid.view-columns .carousel-slide img{height:220px;object-fit:cover}
+
+/* ─── GRID VIEW (2×2 equal) ─────────────────────────────────────── */
+.work-grid.view-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px 24px;
+  flex-wrap:unset;align-items:start;
+}
+.work-grid.view-grid .card{height:auto;flex-shrink:unset;flex-grow:unset}
+.work-grid.view-grid .card-media{height:auto}
+.work-grid.view-grid .card-media-inner img,
+.work-grid.view-grid .card-media-inner video{width:100%;height:auto;object-fit:unset}
+
+/* ─── CAROUSEL ───────────────────────────────────────────────────── */
+.carousel{overflow:hidden;position:relative}
+.carousel-slides{display:flex;transition:transform 0.6s ease}
+.carousel-slide{min-width:100%;flex-shrink:0}
+.carousel-slide img{width:100%;height:220px;object-fit:cover;display:block}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;width:24px;height:24px;cursor:pointer;font-size:var(--t-ui);display:flex;align-items:center;justify-content:center;color:var(--grey-dark);z-index:2}
+.carousel-btn.prev{left:6px}
+.carousel-btn.next{right:6px}
+
+/* ─── ARCHIVE ────────────────────────────────────────────────────── */
+.archive-section{margin-bottom:96px;padding:0 48px}
+.archive-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 24px;align-items:start;margin-top:64px}
+.archive-grid+.archive-grid{margin-top:48px}
+.archive-col-label h3,
+.archive-col-year h3,
+.archive-col-client h3,
+.archive-col-cat h3{font-size:var(--t-ui);font-weight:var(--bold);letter-spacing:var(--ls-ui);color:var(--grey-dark);margin-bottom:20px}
+.archive-col-label h3{color:var(--grey-mid);font-weight:700;line-height:1.6}
+.ar-year{display:block;font-size:var(--t-ui);color:var(--grey-light);font-weight:var(--bold);font-variant-numeric:tabular-nums;padding:2px 0;line-height:var(--lh-ui)}
+.ar-coming{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-light);margin-left:8px;font-weight:400}
+.ar-client{display:block;font-size:var(--t-ui);color:var(--grey-dark);font-weight:var(--bold);padding:2px 0;line-height:var(--lh-ui)}
+.ar-client a{color:var(--grey-dark);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.ar-client a:hover{color:#e63222;text-decoration:none}
+.ar-cat{display:block;font-size:var(--t-label);color:var(--grey-light);font-weight:var(--bold);padding:5px 0;line-height:var(--lh-ui)}
+.ar-pitch{font-size:var(--t-label);color:var(--grey-light);font-style:italic;margin-left:6px}
+
+/* FOOTER */
+footer{margin-top:auto}
+
+/* ─── MOBILE ─────────────────────────────────────────────────────── */
+@media(max-width:1024px){
+  .work-grid.view-columns{columns:3}
+}
+@media(max-width:760px){
+  .work-grid.view-columns{columns:2}
+}
+@media(max-width:640px){
+  main{padding:0}
+  .page-hero{padding:80px 20px 36px;flex-direction:column;align-items:flex-start;gap:16px}
+  .page-headline{font-size:clamp(36px,10vw,56px)}
+  .work-grid{padding:0 20px;margin-bottom:64px;gap:24px 6px}
+  .card-media{height:160px}
+  .card--placeholder .card-media{width:200px}
+  .work-grid.view-columns{padding:0 20px;columns:1;column-gap:0}
+  .work-grid.view-grid{grid-template-columns:1fr;gap:24px}
+  .archive-section{padding:0 20px;margin-bottom:64px}
+  .archive-grid{grid-template-columns:auto 1fr;gap:0 16px;margin-top:40px !important}
+  .archive-col-label{display:none}
+  .archive-col-cat{display:none}
+  .archive-col-year h3,.archive-col-client h3{display:none}
+  .ar-year{font-size:10px;padding:4px 0}
+  .ar-client{font-size:var(--t-ui);padding:4px 0}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://frederikfrede.com/work.html",
+  "url": "https://frederikfrede.com/work.html",
+  "name": "Work — Frederik Frede",
+  "description": "Selected projects and full archive by Frederik Frede. Brand strategy, identity and digital for design-led culture.",
+  "creator": { "@id": "https://frederikfrede.com/#frederik-frede" },
+  "isPartOf": { "@id": "https://frederikfrede.com/#website" }
+}
+</script>
+</head>
+<body>
+
+<div id="nav-mount"></div>
+
+<main>
+
+  <div class="page-hero">
+    <h1 class="page-headline">Some of the work.<br>And the full archive.</h1>
+    <div class="layout-btns">
+      <button class="layout-btn active" id="btn-stream" title="Stream" onclick="setLayout('stream',this)">
+        <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+          <rect width="12" height="1" rx="0.5" fill="currentColor"/>
+          <rect y="4.5" width="12" height="1" rx="0.5" fill="currentColor"/>
+          <rect y="9" width="12" height="1" rx="0.5" fill="currentColor"/>
+        </svg>
+      </button>
+      <button class="layout-btn" id="btn-columns" title="Columns" onclick="setLayout('columns',this)">
+        <svg width="13" height="10" viewBox="0 0 13 10" fill="none">
+          <rect width="1" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="4" width="1" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="8" width="1" height="10" rx="0.5" fill="currentColor"/>
+          <rect x="12" width="1" height="10" rx="0.5" fill="currentColor"/>
+        </svg>
+      </button>
+      <button class="layout-btn" id="btn-grid" title="Grid" onclick="setLayout('grid',this)">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+          <rect width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+          <rect x="6.5" width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+          <rect y="6.5" width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+          <rect x="6.5" y="6.5" width="4.5" height="4.5" rx="0.5" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="work-grid" id="work-grid"></div>
+
+  <div class="archive-section">
+
+    <div class="archive-grid" style="margin-top:64px">
+    <div class="archive-col-label"><h3>Archive —<br>1995 to<br>present</h3></div>
+    <div class="archive-col-year">
+      <h3>Years</h3>
+      <span class="ar-year">2025-2026</span>
+      <span class="ar-year">2025-2026</span>
+      <span class="ar-year">2025-2026</span>
+      <span class="ar-year">2021-2026</span>
+      <span class="ar-year">2021-2026</span>
+      <span class="ar-year">2020-2026</span>
+      <span class="ar-year">2025-2026</span>
+      <span class="ar-year">2024-2025</span>
+      <span class="ar-year">2021-2025</span>
+      <span class="ar-year">2019-2025</span>
+      <span class="ar-year">2023-2024</span>
+      <span class="ar-year">2023-2024</span>
+      <span class="ar-year">2021-2024</span>
+      <span class="ar-year">2019-2024</span>
+      <span class="ar-year">2014-2024</span>
+      <span class="ar-year">2022-2024</span>
+      <span class="ar-year">2024</span>
+      <span class="ar-year">2023</span>
+      <span class="ar-year">2022</span>
+      <span class="ar-year">2022</span>
+      <span class="ar-year">2022</span>
+      <span class="ar-year">2022</span>
+      <span class="ar-year">2020-2022</span>
+      <span class="ar-year">2022</span>
+      <span class="ar-year">2022</span>
+      <span class="ar-year">2020-2021</span>
+      <span class="ar-year">2021</span>
+      <span class="ar-year">2018-2021</span>
+      <span class="ar-year">2015-2021</span>
+      <span class="ar-year">2018-2021</span>
+      <span class="ar-year">2021</span>
+      <span class="ar-year">2021</span>
+      <span class="ar-year">2019-2021</span>
+      <span class="ar-year">2021</span>
+    </div>
+    <div class="archive-col-client">
+      <h3>Client / Project</h3>
+      <span class="ar-client"><a href="/concierge-coffee-brand-web.html">Concierge Coffee</a></span>
+      <span class="ar-client">NZZ Mediengruppe</span>
+      <span class="ar-client"><a href="/umane-brand-identity.html">Umane</a></span>
+      <span class="ar-client"><a href="/lewis-group-brand-identity-web-design.html">Lewis Group of Companies</a></span>
+      <span class="ar-client"><a href="/markilux-b2b-platform.html">Markilux</a></span>
+      <span class="ar-client"><a href="/iac-brand-digital.html">IAC</a></span>
+      <span class="ar-client">SamSation</span>
+      <span class="ar-client"><a href="/architonic-brand-strategy-platform-design.html">Architonic</a></span>
+      <span class="ar-client"><a href="/signal-la-brand-identity.html">Signal LA</a></span>
+      <span class="ar-client"><a href="/engel-volkers-web-design.html">Engel &amp; Völkers Berlin</a></span>
+      <span class="ar-client"><a href="/frederik-pferdt-personal-brand-identity.html">Frederik G. Pferdt</a></span>
+      <span class="ar-client"><a href="/bianca-chen-brand-identity.html">Bianca Chen</a></span>
+      <span class="ar-client"><a href="/las-art-foundation-brand-identity-motion.html">LAS Art Foundation</a></span>
+      <span class="ar-client"><a href="/spot-asset-management-system.html">Spot</a></span>
+      <span class="ar-client"><a href="/25hours-hotels-brand-identity.html">25hours Hotels</a></span>
+      <span class="ar-client"><a href="/art-tech-report-brand-digital.html">ART+TECH Report</a></span>
+      <span class="ar-client">Chamber (O&#x27;Higgins 1625)</span>
+      <span class="ar-client"><a href="/roots-management-brand-digital.html">Roots Management</a></span>
+      <span class="ar-client"><a href="/louis-vuitton-employer-branding-campaign.html">Louis Vuitton</a></span>
+      <span class="ar-client"><a href="/friends-of-friends-brand-identity-web.html">Friends of Friends</a></span>
+      <span class="ar-client"><a href="/wildling-regenerative-sounds.html">Wildling – Regenerative Sounds</a></span>
+      <span class="ar-client"><a href="/wirtschaftsclub-dusseldorf-web-design.html">Wirtschaftsclub Düsseldorf</a></span>
+      <span class="ar-client"><a href="/berlin-green-brand-identity.html">Berlin Green</a></span>
+      <span class="ar-client"><a href="/hospitality-projects-brand-identity.html">Hospitality Projects</a></span>
+      <span class="ar-client">Schattenfinder</span>
+      <span class="ar-client"><a href="/roterfaden-brand-digital.html">Roterfaden</a></span>
+      <span class="ar-client"><a href="/mizzuni-ecommerce-brand.html">Mizzuni</a></span>
+      <span class="ar-client"><a href="/dr-hauschka-brand-campaigns.html">Dr. Hauschka</a></span>
+      <span class="ar-client"><a href="/siemens-home-appliances.html">Siemens</a></span>
+      <span class="ar-client"><a href="/ritz-carlton-berlin-brand-event.html">The Ritz-Carlton, Berlin</a></span>
+      <span class="ar-client"><a href="/ruinart-jeppe-hein-carte-blanche.html">Ruinart</a></span>
+      <span class="ar-client"><a href="/la-marzocco-friends-of-friends.html">La Marzocco</a></span>
+      <span class="ar-client"><a href="/mohab-brand-identity.html">MOHAB</a></span>
+      <span class="ar-client">Playdis</span>
+    </div>
+    <div class="archive-col-cat">
+      <h3>Service &middot; Sector</h3>
+      <span class="ar-cat">Strategy / Identity / E-Commerce &middot; Hospitality</span>
+      <span class="ar-cat">AI / Consulting / Digital &middot; Media &amp; Publishing</span>
+      <span class="ar-cat">Strategy / Identity / Digital / AI &middot; Wellness</span>
+      <span class="ar-cat">Strategy / Identity / Digital &middot; Real Estate</span>
+      <span class="ar-cat">Digital &middot; Design</span>
+      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
+      <span class="ar-cat">Strategy / Identity / Digital / AI &middot; Wellness</span>
+      <span class="ar-cat">Strategy / Identity / Digital / Campaign / AI &middot; Architecture</span>
+      <span class="ar-cat">Identity / Digital / Campaign &middot; Retail</span>
+      <span class="ar-cat">Identity / Digital / Film &middot; Real Estate</span>
+      <span class="ar-cat">Strategy / Identity / Digital &middot; Innovation &amp; Leadership</span>
+      <span class="ar-cat">Strategy / Identity / Digital / Motion &middot; Arts &amp; Culture</span>
+      <span class="ar-cat">Strategy / Identity / Digital / Motion &middot; Arts &amp; Culture</span>
+      <span class="ar-cat">Digital &middot; Technology</span>
+      <span class="ar-cat">Editorial / Digital / Film &middot; Hospitality</span>
+      <span class="ar-cat">Identity / Digital / Editorial &middot; Arts &amp; Culture</span>
+      <span class="ar-cat">Strategy / Identity / Digital &middot; Real Estate</span>
+      <span class="ar-cat">Identity / Digital &middot; Sports</span>
+      <span class="ar-cat">Campaign / Editorial / Film &middot; Fashion</span>
+      <span class="ar-cat">Strategy / Identity / Digital / Editorial &middot; Media &amp; Publishing</span>
+      <span class="ar-cat">Digital / Campaign &middot; Fashion</span>
+      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
+      <span class="ar-cat">Strategy / Identity / Digital &middot; Technology</span>
+      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
+      <span class="ar-cat">Digital &middot; Design</span>
+      <span class="ar-cat">Identity / E-Commerce &middot; Design</span>
+      <span class="ar-cat">Identity / E-Commerce &middot; Design</span>
+      <span class="ar-cat">Strategy / Campaign / Editorial / Event &middot; Wellness</span>
+      <span class="ar-cat">Editorial / Film &middot; Technology</span>
+      <span class="ar-cat">Event / Campaign &middot; Hospitality</span>
+      <span class="ar-cat">Film &middot; Food &amp; Drink</span>
+      <span class="ar-cat">Editorial / Film &middot; Design</span>
+      <span class="ar-cat">Strategy / Identity / Digital &middot; Architecture</span>
+      <span class="ar-cat">Identity / Digital &middot; Music</span>
+    </div>
+    </div>
+
+    <div class="archive-grid" style="margin-top:48px">
+    <div class="archive-col-label"></div>
+    <div class="archive-col-year">
+      <h3>2015 — 2020</h3>
+      <span class="ar-year">2020</span>
+      <span class="ar-year">2015-2020</span>
+      <span class="ar-year">2020</span>
+      <span class="ar-year">2020</span>
+      <span class="ar-year">2014-2020</span>
+      <span class="ar-year">2016-2020</span>
+      <span class="ar-year">2020</span>
+      <span class="ar-year">2020</span>
+      <span class="ar-year">2020</span>
+      <span class="ar-year">2019</span>
+      <span class="ar-year">2019</span>
+      <span class="ar-year">2019</span>
+      <span class="ar-year">2019</span>
+      <span class="ar-year">2019</span>
+      <span class="ar-year">2019</span>
+      <span class="ar-year">2017-2019</span>
+      <span class="ar-year">2019</span>
+      <span class="ar-year">2016-2019</span>
+      <span class="ar-year">2019</span>
+      <span class="ar-year">2019</span>
+      <span class="ar-year">2018</span>
+      <span class="ar-year">2018</span>
+      <span class="ar-year">2018</span>
+      <span class="ar-year">2018</span>
+      <span class="ar-year">2018</span>
+      <span class="ar-year">2016-2018</span>
+      <span class="ar-year">2017-2018</span>
+      <span class="ar-year">2016-2018</span>
+      <span class="ar-year">2018</span>
+      <span class="ar-year">2018</span>
+      <span class="ar-year">2017</span>
+      <span class="ar-year">2017</span>
+      <span class="ar-year">2017</span>
+      <span class="ar-year">2017</span>
+      <span class="ar-year">2016</span>
+      <span class="ar-year">2014-2016</span>
+      <span class="ar-year">2016</span>
+      <span class="ar-year">2016</span>
+      <span class="ar-year">2016</span>
+      <span class="ar-year">2016</span>
+      <span class="ar-year">2015</span>
+      <span class="ar-year">2015</span>
+      <span class="ar-year">2015</span>
+      <span class="ar-year">2015</span>
+      <span class="ar-year">2015</span>
+    </div>
+    <div class="archive-col-client">
+      <h3>Client / Project</h3>
+      <span class="ar-client"><a href="/facebook-privacy-interactive.html">Facebook</a></span>
+      <span class="ar-client"><a href="/closed-editorial-portrait-series.html">Closed</a></span>
+      <span class="ar-client"><a href="/internetstores-brand-digital.html">Internetstores</a></span>
+      <span class="ar-client"><a href="/ziegert-real-estate-event.html">Ziegert</a></span>
+      <span class="ar-client"><a href="/mini-the-sooner-now-brand-campaign.html">MINI</a></span>
+      <span class="ar-client"><a href="/hotel-berlin-you-me-campaign.html">Hotel Berlin, Berlin</a></span>
+      <span class="ar-client">Cresco Real Estate</span>
+      <span class="ar-client">Ziegert — Billy Wilder Promenade</span>
+      <span class="ar-client">VELA (PRIMUS Immobilien)</span>
+      <span class="ar-client"><a href="/meama-brand-identity.html">Meama</a></span>
+      <span class="ar-client"><a href="/classpass-bethebalance-campaign.html">ClassPass</a></span>
+      <span class="ar-client"><a href="/ace-tate-heimatbound-campaign.html">Ace &amp; Tate</a></span>
+      <span class="ar-client"><a href="/episode-hotels-brand-identity.html">Episode Hotels</a></span>
+      <span class="ar-client"><a href="/wefox-web-design.html">wefox</a></span>
+      <span class="ar-client"><a href="/canyon-digital-experience-web-design.html">Canyon</a></span>
+      <span class="ar-client"><a href="/puro-hotels-brand-identity.html">PURO Hotels</a></span>
+      <span class="ar-client"><a href="/thonet-brand-narrative.html">Thonet</a></span>
+      <span class="ar-client"><a href="/sonos-listening-better-brand-activation.html">Sonos</a></span>
+      <span class="ar-client">Ctrl QS</span>
+      <span class="ar-client">The Ritz-Carlton, Berlin — Outlets</span>
+      <span class="ar-client"><a href="/bruto-restaurant-branding.html">Brutø</a></span>
+      <span class="ar-client"><a href="/orno-pizza-branding.html">ORNO</a></span>
+      <span class="ar-client"><a href="/swayed-ai-branding.html">Swayed</a></span>
+      <span class="ar-client"><a href="/weiler-brand-identity.html">Weiler</a></span>
+      <span class="ar-client"><a href="/hay-creative-direction.html">HAY</a></span>
+      <span class="ar-client"><a href="/rooms-hotels.html">Rooms Hotels</a></span>
+      <span class="ar-client"><a href="/orgreen-optics-brand-digital.html">Ørgreen Optics</a></span>
+      <span class="ar-client"><a href="/grill-royal-group-brand-digital.html">Grill Royal Group</a></span>
+      <span class="ar-client"><a href="/mauermuseum-web-design.html">Mauermuseum</a></span>
+      <span class="ar-client"><a href="/and-tradition-jaime-hayon.html">&amp;Tradition</a></span>
+      <span class="ar-client"><a href="/vitra-brand-strategy.html">Vitra</a></span>
+      <span class="ar-client"><a href="/mezcla-brand-digital.html">Mezcla</a></span>
+      <span class="ar-client"><a href="/qwstion-company-portrait.html">QWSTION</a></span>
+      <span class="ar-client">MINI Lookbook</span>
+      <span class="ar-client"><a href="/selfnation-campaign.html">Selfnation</a></span>
+      <span class="ar-client"><a href="/usm-modular-furniture-brand-digital.html">USM Modular Furniture</a></span>
+      <span class="ar-client">&amp;Tradition</span>
+      <span class="ar-client"><a href="/bmw-brand-campaign-art-direction.html">BMW</a></span>
+      <span class="ar-client"><a href="/bolon-web-design.html">Bolon</a></span>
+      <span class="ar-client"><a href="/manufactum-alltagsfreude-ruth-bartlett.html">Manufactum</a></span>
+      <span class="ar-client"><a href="/ad-magazin-web-design-art-direction.html">AD Magazin</a></span>
+      <span class="ar-client">MoreSleep</span>
+      <span class="ar-client"><a href="/aleo-solar-brand-digital.html">aleo solar</a></span>
+      <span class="ar-client">Freunde von Freunden — Book Vol. 2</span>
+      <span class="ar-client"><a href="/egon-zehnder-leadership-interviews.html">Egon Zehnder</a></span>
+    </div>
+    <div class="archive-col-cat">
+      <h3>Service &middot; Sector</h3>
+      <span class="ar-cat">Digital &middot; Technology</span>
+      <span class="ar-cat">Campaign / Editorial / Content / Event &middot; Fashion</span>
+      <span class="ar-cat">Identity / Digital &middot; Sports</span>
+      <span class="ar-cat">Campaign / Event / Digital &middot; Real Estate</span>
+      <span class="ar-cat">Strategy / Campaign / Editorial / Event &middot; Automotive</span>
+      <span class="ar-cat">Campaign / Digital &middot; Hospitality</span>
+      <span class="ar-cat">Strategy / Identity / Digital &middot; Real Estate</span>
+      <span class="ar-cat">Strategy / Campaign / Digital &middot; Real Estate</span>
+      <span class="ar-cat">Strategy / Identity &middot; Hospitality</span>
+      <span class="ar-cat">Strategy / Identity &middot; Food &amp; Drink</span>
+      <span class="ar-cat">Campaign / Film &middot; Wellness</span>
+      <span class="ar-cat">Campaign / Editorial / Event &middot; Fashion</span>
+      <span class="ar-cat">Strategy / Identity / Digital &middot; Hospitality</span>
+      <span class="ar-cat">Digital / Campaign &middot; Technology</span>
+      <span class="ar-cat">Digital &middot; Sports</span>
+      <span class="ar-cat">Identity &middot; Hospitality</span>
+      <span class="ar-cat">Strategy / Editorial &middot; Design</span>
+      <span class="ar-cat">Campaign / Editorial / Event &middot; Technology</span>
+      <span class="ar-cat">Identity / Digital &middot; Technology</span>
+      <span class="ar-cat">Identity &middot; Hospitality</span>
+      <span class="ar-cat">Identity &middot; Hospitality</span>
+      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
+      <span class="ar-cat">Identity / Digital &middot; Technology</span>
+      <span class="ar-cat">Identity / Digital / Content &middot; Food &amp; Drink</span>
+      <span class="ar-cat">Campaign / Content &middot; Design</span>
+      <span class="ar-cat">Strategy / Digital &middot; Hospitality</span>
+      <span class="ar-cat">E-com / Digital &middot; Fashion</span>
+      <span class="ar-cat">Digital / Social-Media &middot; Hospitality</span>
+      <span class="ar-cat">Digital &middot; Arts &amp; Culture</span>
+      <span class="ar-cat">Editorial / Film &middot; Design</span>
+      <span class="ar-cat">Strategy &middot; Design</span>
+      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
+      <span class="ar-cat">Editorial / Film &middot; Fashion</span>
+      <span class="ar-cat">Editorial / Identity &middot; Automotive</span>
+      <span class="ar-cat">Campaign / Film &middot; Fashion</span>
+      <span class="ar-cat">Editorial / Campaign &middot; Design</span>
+      <span class="ar-cat">Editorial / Event &middot; Design</span>
+      <span class="ar-cat">Campaign &middot; Automotive</span>
+      <span class="ar-cat">Digital &middot; Design</span>
+      <span class="ar-cat">Editorial / Film &middot; Retail</span>
+      <span class="ar-cat">Digital &middot; Media &amp; Publishing</span>
+      <span class="ar-cat">Identity &middot; Design</span>
+      <span class="ar-cat">Identity / Digital &middot; Technology</span>
+      <span class="ar-cat">Editorial &middot; Media &amp; Publishing</span>
+      <span class="ar-cat">Editorial / Film &middot; Innovation &amp; Leadership</span>
+    </div>
+    </div>
+
+    <div class="archive-grid" style="margin-top:48px">
+    <div class="archive-col-label"></div>
+    <div class="archive-col-year">
+      <h3>2009 — 2014</h3>
+      <span class="ar-year">2014</span>
+      <span class="ar-year">2013</span>
+      <span class="ar-year">2012</span>
+      <span class="ar-year">2012</span>
+      <span class="ar-year">2012</span>
+      <span class="ar-year">2011-2012</span>
+      <span class="ar-year">2011</span>
+      <span class="ar-year">2010</span>
+      <span class="ar-year">2009</span>
+    </div>
+    <div class="archive-col-client">
+      <h3>Client / Project</h3>
+      <span class="ar-client"><a href="/fvf-friends-space-apartment.html">FvF Friends Space</a></span>
+      <span class="ar-client"><a href="/fvf-ipad-magazine.html">Friends of Friends iPad Magazine</a></span>
+      <span class="ar-client"><a href="/adidas-journeys-interactive-campaign.html">adidas</a></span>
+      <span class="ar-client"><a href="/lala-berlin-brand-digital.html">Lala Berlin</a></span>
+      <span class="ar-client">Freunde von Freunden — Book Vol. 1</span>
+      <span class="ar-client">TBWA</span>
+      <span class="ar-client">Geist Knt &amp; Geist Rnd</span>
+      <span class="ar-client"><a href="/iconist-ipad-app.html">Iconist</a></span>
+      <span class="ar-client">Freunde von Freunden</span>
+    </div>
+    <div class="archive-col-cat">
+      <h3>Service &middot; Sector</h3>
+      <span class="ar-cat">Strategy / Event &middot; Design</span>
+      <span class="ar-cat">Digital / Editorial &middot; Media &amp; Publishing</span>
+      <span class="ar-cat">Campaign / Digital / Content &middot; Sports</span>
+      <span class="ar-cat">E-Commerce / Digital &middot; Fashion</span>
+      <span class="ar-cat">Editorial &middot; Media &amp; Publishing</span>
+      <span class="ar-cat">Digital / Transformation &middot; Advertising</span>
+      <span class="ar-cat">Type Design &middot; Design</span>
+      <span class="ar-cat">Digital / Editorial &middot; Media &amp; Publishing</span>
+      <span class="ar-cat">Identity / Digital / Editorial &middot; Media &amp; Publishing</span>
+    </div>
+    </div>
+
+    <div class="archive-grid" style="margin-top:48px">
+    <div class="archive-col-label"></div>
+    <div class="archive-col-year">
+      <h3>1995 — 2008</h3>
+      <span class="ar-year">2008</span>
+      <span class="ar-year">2007</span>
+      <span class="ar-year">2006</span>
+      <span class="ar-year">2006</span>
+      <span class="ar-year">2006</span>
+      <span class="ar-year">2006</span>
+      <span class="ar-year">2005-2006</span>
+      <span class="ar-year">2004-2005</span>
+      <span class="ar-year">2005</span>
+      <span class="ar-year">2005</span>
+      <span class="ar-year">2004</span>
+      <span class="ar-year">2004</span>
+      <span class="ar-year">2003</span>
+      <span class="ar-year">2003</span>
+      <span class="ar-year">2002</span>
+      <span class="ar-year">2002</span>
+      <span class="ar-year">2001</span>
+    </div>
+    <div class="archive-col-client">
+      <h3>Client / Project</h3>
+      <span class="ar-client">MINI</span>
+      <span class="ar-client">Mercedes-Benz</span>
+      <span class="ar-client">BMW</span>
+      <span class="ar-client"><a href="/smithgroup-shanghai.html">SmithGroup Shanghai</a></span>
+      <span class="ar-client"><a href="/neubau-welt.html">Neubau Welt / Die Gestalten Verlag</a></span>
+      <span class="ar-client"><a href="/ingo-robin.html">Ingo Robin</a></span>
+      <span class="ar-client"><a href="/grimetime-berlin.html">Grimetime Berlin</a></span>
+      <span class="ar-client">Neubau Welt</span>
+      <span class="ar-client">Nissan</span>
+      <span class="ar-client"><a href="/carhartt.html">Carhartt Europe</a></span>
+      <span class="ar-client"><a href="/seppuku-industries.html">Seppuku Industries</a></span>
+      <span class="ar-client"><a href="/watergate-club.html">Watergate Club</a></span>
+      <span class="ar-client"><a href="/hardedged-recordings.html">hard:edged Recordings</a></span>
+      <span class="ar-client"><a href="/republish.html">Republish</a></span>
+      <span class="ar-client">Ministry of Sound</span>
+      <span class="ar-client">Covers, Logos, Flyers</span>
+      <span class="ar-client">Universal Music</span>
+    </div>
+    <div class="archive-col-cat">
+      <h3>Service &middot; Sector</h3>
+      <span class="ar-cat">Identity &middot; Automotive</span>
+      <span class="ar-cat">Identity &middot; Automotive</span>
+      <span class="ar-cat">Identity &middot; Automotive</span>
+      <span class="ar-cat">Creative Direction / Editorial &middot; Architecture</span>
+      <span class="ar-cat">Editorial &middot; Media &amp; Publishing</span>
+      <span class="ar-cat">Identity / Editorial &middot; Arts &amp; Culture</span>
+      <span class="ar-cat">Identity / Digital &middot; Music</span>
+      <span class="ar-cat">Design &middot; Media &amp; Publishing</span>
+      <span class="ar-cat">Identity &middot; Automotive</span>
+      <span class="ar-cat">Campaign &middot; Fashion</span>
+      <span class="ar-cat">Identity &middot; Design</span>
+      <span class="ar-cat">Identity / Digital &middot; Music</span>
+      <span class="ar-cat">Identity &middot; Music</span>
+      <span class="ar-cat">Identity / Digital &middot; Design</span>
+      <span class="ar-cat">Identity / Editorial &middot; Music</span>
+      <span class="ar-cat">Identity &middot; Music</span>
+      <span class="ar-cat">Editorial &middot; Music</span>
+    </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <div id="footer-mount"></div>
+</footer>
+<script src="/footer.js"></script>
+
+<script>
+const projects = [
+  { b:"Architonic",          t:"Brand Strategy & Platform", type:"img",   link:"/architonic-brand-strategy-platform-design.html",
+    src:"/assets/architonic/architonic-at-logo-on-coral-mockup-04.jpg", w:2400, h:1601 },
+  { b:"Frederik G. Pferdt",  t:"Brand & Identity",          type:"video", link:"/frederik-pferdt-personal-brand-identity.html",
+    src:"/assets/friends-of-friends/friends-of-friends-ig-fgp-02.mp4", w:1080, h:1350 },
+  { b:"wefox",               t:"Digital Design",            type:"img",   link:"/wefox-web-design.html",
+    src:"/assets/wefox/wefox-web-design-teaser-portrait.jpg", w:1919, h:2400 },
+  { b:"LAS Art Foundation",  t:"Branding & Motion",         type:"video", link:"/las-art-foundation-brand-identity-motion.html",
+    src:"/assets/las-art-foundation/las-art-foundation-branding-motion-las-digital-posters-final-animation-transcode.mp4", w:1280, h:720 },
+  { b:"Lewis Group",         t:"Brand & Digital",           type:"video", link:"/lewis-group-brand-identity-web-design.html",
+    src:"/assets/lewis-group/lewis-group-lewis-animated-logo-videos-background-opti.mp4", w:1920, h:1080 },
+  { b:"AD Magazin",          t:"Editorial & Digital",       type:"img",   link:"/ad-magazin-web-design-art-direction.html",
+    src:"/assets/ad-magazin/ad-magazin-editorial-teaser-portrait.jpg", w:1919, h:2400 },
+  { b:"Engel & Völkers",     t:"Real Estate / Digital",     type:"img",   link:"/engel-volkers-web-design.html",
+    src:"/assets/engel-volkers/engel-volkers-web-design-teaser-portrait.webp", w:1119, h:1400 },
+  { b:"USM Modular Furniture",t:"Editorial & Content",      type:"img",   link:"/usm-modular-furniture-brand-digital.html",
+    src:"/assets/usm/usm-modular-furniture-freunde-von-freunden-basile-theet-080.jpg", w:2400, h:1600 },
+  { b:"The Ritz-Carlton",    t:"Event & Identity",          type:"img",   link:"/ritz-carlton-berlin-brand-event.html",
+    src:"/assets/ritz-carlton/ritz-carlton-gala-freunde-von-freunden-0295.jpg", w:2400, h:1600 },
+  { b:"Episode Hotels",      t:"Brand Strategy",            type:"img",   link:"/episode-hotels-brand-identity.html",
+    src:"/assets/episode-hotels/episode-hotels-brand-teaser-portrait.jpg", w:1919, h:2400 },
+  { b:"Canyon",              t:"Digital Experience",        type:"img",   link:"/canyon-digital-experience-web-design.html",
+    src:"/assets/canyon/canyon-digital-teaser-portrait.jpg", w:1919, h:2400 },
+  { b:"Vitra",               t:"Brand Strategy",            type:"img",      link:"/vitra-brand-strategy.html",
+    src:"/assets/vitra/vitra-brand-strategy-15702284.jpg", w:1600, h:2400 },
+  { b:"Friends of Friends",  t:"Publication & Brand",       type:"img",   link:"/friends-of-friends-brand-identity-web.html",
+    src:"/assets/friends-of-friends/friends-of-friends-iphone-collection-3-wide.jpg", w:2400, h:1502 },
+  { b:"Ørgreen Optics",      t:"Brand & Digital",           type:"img",   link:"/orgreen-optics-brand-digital.html",
+    src:"/assets/orgreen/orgreen-brand-digital-teaser-portrait.jpg", w:1919, h:2400 },
+  { b:"MINI",                t:"Brand & Campaign",          type:"img",   link:"/mini-the-sooner-now-brand-campaign.html",
+    src:"/assets/mini/mini-brand-campaign-teaser-portrait.jpg", w:1919, h:2400 },
+  { b:"Neubau Welt",         t:"Concept / Illustration",    type:"img",   link:"/neubau-welt.html",
+    src:"/assets/img/archive/nbw/NBW_Book_Cover_Front.jpg", w:1000, h:1276 },
+  { b:"Thonet",              t:"Brand Narrative",           type:"img",   link:"/thonet-brand-narrative.html",
+    src:"/assets/thonet/thonet-brand-narrative-thonet-solo-house-533px-02.jpg", w:1794, h:2400 },
+  { b:"IAC",                 t:"Lifestyle Brand",           type:"img",   link:"/iac-brand-digital.html",
+    src:"/assets/iac/iac-brand-digital-teaser-portrait.jpg", w:1919, h:2400 },
+  { b:"25hours Hotels",      t:"Editorial & Digital",       type:"img",   link:"/25hours-hotels-brand-identity.html",
+    src:"/assets/25hours/25hours-hotels-editorial-teaser-portrait.jpg", w:1919, h:2400 },
+  { b:"HAY",                 t:"Creative Direction",        type:"img",   link:"/hay-creative-direction.html",
+    src:"/assets/hay/hay-creative-direction-no-setup-milan-2018.jpg", w:2400, h:1599 },
+  { b:"SPOT",                t:"Product & Platform",        type:"img",   link:"/spot-asset-management-system.html",
+    src:"/assets/spot/spot-asset-management-header-5.jpg", w:2400, h:1350 },
+  { b:"Rooms Hotels",        t:"Brand & Digital",           type:"img",   link:"/rooms-hotels.html",
+    src:"/assets/rooms-hotels/rooms-hotels-teaser-portrait-819x1024.jpg", w:819, h:1024 },
+  { b:"adidas",              t:"Interactive Campaign",      type:"img",   link:"/adidas-journeys-interactive-campaign.html",
+    src:"/assets/adidas/adidas-journeys-teaser-portrait.jpg", w:1919, h:2400 },
+  { b:"Visit California",    t:"Campaign & Content",        type:"placeholder" },
+  { b:"BMW",                 t:"Campaign",                  type:"img",   link:"/bmw-brand-campaign-art-direction.html",
+    src:"/assets/bmw/bmw-brand-campaign-teaser-portrait.jpg", w:1919, h:2400 },
+];
+
+const VITRA = [
+  "/assets/vitra/vitra-brand-strategy-09055959.jpg",
+  "/assets/vitra/vitra-brand-strategy-15702284.jpg",
+  "/assets/vitra/vitra-brand-strategy-36836346.jpg",
+  "/assets/vitra/vitra-brand-strategy-16993902.jpg",
+];
+
+function shuffle(arr) {
+  // Separate portrait vs landscape, shuffle each, then interleave
+  const isPortrait = p => p.src && (p.src.includes('819x1024') || p.src.includes('portrait') || p.src.includes('Portrait') || p.src.includes('IG-FGP'));
+  let L = arr.filter(p => !isPortrait(p));
+  let P = arr.filter(p => isPortrait(p));
+  [L, P].forEach(pool => {
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+  });
+  const result = [];
+  let li = 0, pi = 0, rowStart = Math.random() < 0.5;
+  while (li < L.length || pi < P.length) {
+    if (rowStart) {
+      if (li < L.length) result.push(L[li++]);
+      if (pi < P.length) result.push(P[pi++]);
+    } else {
+      if (pi < P.length) result.push(P[pi++]);
+      if (li < L.length) result.push(L[li++]);
+    }
+    rowStart = !rowStart;
+  }
+  return result;
+}
+
+function makeCard(p, i) {
+  let inner = '';
+  if (p.type === 'img') {
+    inner = `<img src="${p.src}" alt="${p.b}" width="${p.w}" height="${p.h}" loading="lazy">`;
+  } else if (p.type === 'video') {
+    inner = `<video autoplay muted loop playsinline width="${p.w}" height="${p.h}"><source src="${p.src}" type="video/mp4"></video>`;
+  } else if (p.type === 'carousel') {
+    const slides = VITRA.map(s => `<div class="carousel-slide"><img src="${s}" alt="Vitra" loading="lazy"></div>`).join('');
+    inner = `<div class="carousel" id="c${i}">
+      <div class="carousel-slides">${slides}</div>
+      <button class="carousel-btn prev" onclick="slide('c${i}',-1)">&#8249;</button>
+      <button class="carousel-btn next" onclick="slide('c${i}',1)">&#8250;</button>
+    </div>`;
+  } else {
+    inner = `<div class="placeholder-tile">${p.b}</div>`;
+  }
+
+  const content = `
+    <div class="card-media"><div class="card-media-inner">${inner}</div></div>
+    <div class="card-info">
+      <span class="card-brand">${p.b}</span>
+      <span class="card-tag">${p.t}</span>
+    </div>`;
+
+  const el = document.createElement(p.link ? 'a' : 'div');
+  el.className = 'card' + (p.type === 'placeholder' ? ' card--placeholder' : '');
+  if (p.link) el.href = p.link;
+  el.innerHTML = content;
+  return el;
+}
+
+function buildGrid() {
+  const grid = document.getElementById('work-grid');
+  grid.innerHTML = '';
+  const shuffled = shuffle(projects);
+  shuffled.forEach((p, i) => grid.appendChild(makeCard(p, i)));
+}
+
+function slide(id, dir) {
+  const car = document.getElementById(id);
+  const slides = car.querySelector('.carousel-slides');
+  const total = VITRA.length;
+  let cur = parseInt(car.dataset.cur || 0);
+  cur = (cur + dir + total) % total;
+  car.dataset.cur = cur;
+  slides.style.transform = `translateX(-${cur * 100}%)`;
+}
+
+function setLayout(name, el) {
+  const grid = document.getElementById('work-grid');
+  grid.classList.remove('view-grid', 'view-columns');
+  if (name === 'grid')    grid.classList.add('view-grid');
+  if (name === 'columns') grid.classList.add('view-columns');
+  document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+}
+
+buildGrid();
+</script>
+
+<script>
+const themes = {
+  white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',                border:'#c8c3be' },
+  black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.45)', border:'rgba(255,255,255,0.12)' },
+  signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.48)',       border:'transparent' },
+};
+function setTheme(name, el) {
+  const t = themes[name]; const r = document.documentElement.style;
+  r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
+  r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
+  r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
+  r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
+  r.setProperty('--grey-light', t.light);
+  document.documentElement.setAttribute('data-theme', name);
+  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  if (el) el.classList.add('active');
+}
+setTheme('white', document.querySelector('.swatch[onclick*="white"]'));
+</script>
+
+</body>
+</html>

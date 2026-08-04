@@ -1,0 +1,1378 @@
+[
+ {
+  "order": 1,
+  "client": "Concierge Coffee",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "E-Commerce"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2025-2026",
+  "url": "/concierge-coffee-brand-web.html"
+ },
+ {
+  "order": 2,
+  "client": "NZZ Mediengruppe",
+  "disciplines": [
+   "AI",
+   "Consulting",
+   "Digital"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2025-2026",
+  "url": null
+ },
+ {
+  "order": 3,
+  "client": "Umane",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital",
+   "AI"
+  ],
+  "sectors": [
+   "Wellness"
+  ],
+  "year": "2025-2026",
+  "url": "/umane-brand-identity.html"
+ },
+ {
+  "order": 4,
+  "client": "Lewis Group of Companies",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Real Estate"
+  ],
+  "year": "2021-2026",
+  "url": "/lewis-group-brand-identity-web-design.html"
+ },
+ {
+  "order": 5,
+  "client": "Markilux",
+  "disciplines": [
+   "Digital"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2021-2026",
+  "url": "/markilux-b2b-platform.html"
+ },
+ {
+  "order": 6,
+  "client": "IAC",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2020-2026",
+  "url": "/iac-brand-digital.html"
+ },
+ {
+  "order": 7,
+  "client": "SamSation",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital",
+   "AI"
+  ],
+  "sectors": [
+   "Wellness"
+  ],
+  "year": "2025-2026",
+  "url": null
+ },
+ {
+  "order": 8,
+  "client": "Architonic",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital",
+   "Campaign",
+   "AI"
+  ],
+  "sectors": [
+   "Architecture"
+  ],
+  "year": "2024-2025",
+  "url": "/architonic-brand-strategy-platform-design.html"
+ },
+ {
+  "order": 9,
+  "client": "Signal LA",
+  "disciplines": [
+   "Identity",
+   "Digital",
+   "Campaign"
+  ],
+  "sectors": [
+   "Retail"
+  ],
+  "year": "2021-2025",
+  "url": "/signal-la-brand-identity.html"
+ },
+ {
+  "order": 10,
+  "client": "Engel & Völkers Berlin",
+  "disciplines": [
+   "Identity",
+   "Digital",
+   "Film"
+  ],
+  "sectors": [
+   "Real Estate"
+  ],
+  "year": "2019-2025",
+  "url": "/engel-volkers-web-design.html"
+ },
+ {
+  "order": 11,
+  "client": "Frederik G. Pferdt",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Innovation & Leadership"
+  ],
+  "year": "2023-2024",
+  "url": "/frederik-pferdt-personal-brand-identity.html"
+ },
+ {
+  "order": 12,
+  "client": "Bianca Chen",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital",
+   "Motion"
+  ],
+  "sectors": [
+   "Arts & Culture"
+  ],
+  "year": "2023-2024",
+  "url": "/bianca-chen-brand-identity.html"
+ },
+ {
+  "order": 13,
+  "client": "LAS Art Foundation",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital",
+   "Motion"
+  ],
+  "sectors": [
+   "Arts & Culture"
+  ],
+  "year": "2021-2024",
+  "url": "/las-art-foundation-brand-identity-motion.html"
+ },
+ {
+  "order": 14,
+  "client": "Spot",
+  "disciplines": [
+   "Digital"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2019-2024",
+  "url": "/spot-asset-management-system.html"
+ },
+ {
+  "order": 15,
+  "client": "25hours Hotels",
+  "disciplines": [
+   "Editorial",
+   "Digital",
+   "Film"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2014-2024",
+  "url": "/25hours-hotels-brand-identity.html"
+ },
+ {
+  "order": 16,
+  "client": "ART+TECH Report",
+  "disciplines": [
+   "Identity",
+   "Digital",
+   "Editorial"
+  ],
+  "sectors": [
+   "Arts & Culture"
+  ],
+  "year": "2022-2024",
+  "url": "/art-tech-report-brand-digital.html"
+ },
+ {
+  "order": 17,
+  "client": "Chamber (O'Higgins 1625)",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Real Estate"
+  ],
+  "year": "2024",
+  "url": null
+ },
+ {
+  "order": 18,
+  "client": "Roots Management",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Sports"
+  ],
+  "year": "2023",
+  "url": "/roots-management-brand-digital.html"
+ },
+ {
+  "order": 19,
+  "client": "Louis Vuitton",
+  "disciplines": [
+   "Campaign",
+   "Editorial",
+   "Film"
+  ],
+  "sectors": [
+   "Fashion"
+  ],
+  "year": "2022",
+  "url": "/louis-vuitton-employer-branding-campaign.html"
+ },
+ {
+  "order": 20,
+  "client": "Friends of Friends",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital",
+   "Editorial"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2022",
+  "url": "/friends-of-friends-brand-identity-web.html"
+ },
+ {
+  "order": 21,
+  "client": "Wildling – Regenerative Sounds",
+  "disciplines": [
+   "Digital",
+   "Campaign"
+  ],
+  "sectors": [
+   "Fashion"
+  ],
+  "year": "2022",
+  "url": "/wildling-regenerative-sounds.html"
+ },
+ {
+  "order": 22,
+  "client": "Wirtschaftsclub Düsseldorf",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2022",
+  "url": "/wirtschaftsclub-dusseldorf-web-design.html"
+ },
+ {
+  "order": 23,
+  "client": "Berlin Green",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2020-2022",
+  "url": "/berlin-green-brand-identity.html"
+ },
+ {
+  "order": 24,
+  "client": "Hospitality Projects",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2022",
+  "url": "/hospitality-projects-brand-identity.html"
+ },
+ {
+  "order": 25,
+  "client": "Schattenfinder",
+  "disciplines": [
+   "Digital"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2022",
+  "url": null
+ },
+ {
+  "order": 26,
+  "client": "Roterfaden",
+  "disciplines": [
+   "Identity",
+   "E-Commerce"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2020-2021",
+  "url": "/roterfaden-brand-digital.html"
+ },
+ {
+  "order": 27,
+  "client": "Mizzuni",
+  "disciplines": [
+   "Identity",
+   "E-Commerce"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2021",
+  "url": "/mizzuni-ecommerce-brand.html"
+ },
+ {
+  "order": 28,
+  "client": "Dr. Hauschka",
+  "disciplines": [
+   "Strategy",
+   "Campaign",
+   "Editorial",
+   "Event"
+  ],
+  "sectors": [
+   "Wellness"
+  ],
+  "year": "2018-2021",
+  "url": "/dr-hauschka-brand-campaigns.html"
+ },
+ {
+  "order": 29,
+  "client": "Siemens",
+  "disciplines": [
+   "Editorial",
+   "Film"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2015-2021",
+  "url": "/siemens-home-appliances.html"
+ },
+ {
+  "order": 30,
+  "client": "The Ritz-Carlton, Berlin",
+  "disciplines": [
+   "Event",
+   "Campaign"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2018-2021",
+  "url": "/ritz-carlton-berlin-brand-event.html"
+ },
+ {
+  "order": 31,
+  "client": "Ruinart",
+  "disciplines": [
+   "Film"
+  ],
+  "sectors": [
+   "Food & Drink"
+  ],
+  "year": "2021",
+  "url": "/ruinart-jeppe-hein-carte-blanche.html"
+ },
+ {
+  "order": 32,
+  "client": "La Marzocco",
+  "disciplines": [
+   "Editorial",
+   "Film"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2021",
+  "url": "/la-marzocco-friends-of-friends.html"
+ },
+ {
+  "order": 33,
+  "client": "MOHAB",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Architecture"
+  ],
+  "year": "2019-2021",
+  "url": "/mohab-brand-identity.html"
+ },
+ {
+  "order": 34,
+  "client": "Playdis",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Music"
+  ],
+  "year": "2021",
+  "url": null
+ },
+ {
+  "order": 35,
+  "client": "Facebook",
+  "disciplines": [
+   "Digital"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2020",
+  "url": "/facebook-privacy-interactive.html"
+ },
+ {
+  "order": 36,
+  "client": "Closed",
+  "disciplines": [
+   "Campaign",
+   "Editorial",
+   "Content",
+   "Event"
+  ],
+  "sectors": [
+   "Fashion"
+  ],
+  "year": "2015-2020",
+  "url": "/closed-editorial-portrait-series.html"
+ },
+ {
+  "order": 37,
+  "client": "Internetstores",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Sports"
+  ],
+  "year": "2020",
+  "url": "/internetstores-brand-digital.html"
+ },
+ {
+  "order": 38,
+  "client": "Ziegert",
+  "disciplines": [
+   "Campaign",
+   "Event",
+   "Digital"
+  ],
+  "sectors": [
+   "Real Estate"
+  ],
+  "year": "2020",
+  "url": "/ziegert-real-estate-event.html"
+ },
+ {
+  "order": 39,
+  "client": "MINI",
+  "disciplines": [
+   "Strategy",
+   "Campaign",
+   "Editorial",
+   "Event"
+  ],
+  "sectors": [
+   "Automotive"
+  ],
+  "year": "2014-2020",
+  "url": "/mini-the-sooner-now-brand-campaign.html"
+ },
+ {
+  "order": 40,
+  "client": "Hotel Berlin, Berlin",
+  "disciplines": [
+   "Campaign",
+   "Digital"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2016-2020",
+  "url": "/hotel-berlin-you-me-campaign.html"
+ },
+ {
+  "order": 41,
+  "client": "Cresco Real Estate",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Real Estate"
+  ],
+  "year": "2020",
+  "url": null
+ },
+ {
+  "order": 42,
+  "client": "Ziegert — Billy Wilder Promenade",
+  "disciplines": [
+   "Strategy",
+   "Campaign",
+   "Digital"
+  ],
+  "sectors": [
+   "Real Estate"
+  ],
+  "year": "2020",
+  "url": null
+ },
+ {
+  "order": 43,
+  "client": "VELA (PRIMUS Immobilien)",
+  "disciplines": [
+   "Strategy",
+   "Identity"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2020",
+  "url": null
+ },
+ {
+  "order": 44,
+  "client": "Meama",
+  "disciplines": [
+   "Strategy",
+   "Identity"
+  ],
+  "sectors": [
+   "Food & Drink"
+  ],
+  "year": "2019",
+  "url": "/meama-brand-identity.html"
+ },
+ {
+  "order": 45,
+  "client": "ClassPass",
+  "disciplines": [
+   "Campaign",
+   "Film"
+  ],
+  "sectors": [
+   "Wellness"
+  ],
+  "year": "2019",
+  "url": "/classpass-bethebalance-campaign.html"
+ },
+ {
+  "order": 46,
+  "client": "Ace & Tate",
+  "disciplines": [
+   "Campaign",
+   "Editorial",
+   "Event"
+  ],
+  "sectors": [
+   "Fashion"
+  ],
+  "year": "2019",
+  "url": "/ace-tate-heimatbound-campaign.html"
+ },
+ {
+  "order": 47,
+  "client": "Episode Hotels",
+  "disciplines": [
+   "Strategy",
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2019",
+  "url": "/episode-hotels-brand-identity.html"
+ },
+ {
+  "order": 48,
+  "client": "wefox",
+  "disciplines": [
+   "Digital",
+   "Campaign"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2019",
+  "url": "/wefox-web-design.html"
+ },
+ {
+  "order": 49,
+  "client": "Canyon",
+  "disciplines": [
+   "Digital"
+  ],
+  "sectors": [
+   "Sports"
+  ],
+  "year": "2019",
+  "url": "/canyon-digital-experience-web-design.html"
+ },
+ {
+  "order": 50,
+  "client": "PURO Hotels",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2017-2019",
+  "url": "/puro-hotels-brand-identity.html"
+ },
+ {
+  "order": 51,
+  "client": "Thonet",
+  "disciplines": [
+   "Strategy",
+   "Editorial"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2019",
+  "url": "/thonet-brand-narrative.html"
+ },
+ {
+  "order": 52,
+  "client": "Sonos",
+  "disciplines": [
+   "Campaign",
+   "Editorial",
+   "Event"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2016-2019",
+  "url": "/sonos-listening-better-brand-activation.html"
+ },
+ {
+  "order": 53,
+  "client": "Ctrl QS",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2019",
+  "url": null
+ },
+ {
+  "order": 54,
+  "client": "The Ritz-Carlton, Berlin — Outlets",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2019",
+  "url": null
+ },
+ {
+  "order": 55,
+  "client": "Brutø",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2018",
+  "url": "/bruto-restaurant-branding.html"
+ },
+ {
+  "order": 56,
+  "client": "ORNO",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2018",
+  "url": "/orno-pizza-branding.html"
+ },
+ {
+  "order": 57,
+  "client": "Swayed",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2018",
+  "url": "/swayed-ai-branding.html"
+ },
+ {
+  "order": 58,
+  "client": "Weiler",
+  "disciplines": [
+   "Identity",
+   "Digital",
+   "Content"
+  ],
+  "sectors": [
+   "Food & Drink"
+  ],
+  "year": "2018",
+  "url": "/weiler-brand-identity.html"
+ },
+ {
+  "order": 59,
+  "client": "HAY",
+  "disciplines": [
+   "Campaign",
+   "Content"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2018",
+  "url": "/hay-creative-direction.html"
+ },
+ {
+  "order": 60,
+  "client": "Rooms Hotels",
+  "disciplines": [
+   "Strategy",
+   "Digital"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2016-2018",
+  "url": "/rooms-hotels.html"
+ },
+ {
+  "order": 61,
+  "client": "Ørgreen Optics",
+  "disciplines": [
+   "E-com",
+   "Digital"
+  ],
+  "sectors": [
+   "Fashion"
+  ],
+  "year": "2017-2018",
+  "url": "/orgreen-optics-brand-digital.html"
+ },
+ {
+  "order": 62,
+  "client": "Grill Royal Group",
+  "disciplines": [
+   "Digital",
+   "Social-Media"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2016-2018",
+  "url": "/grill-royal-group-brand-digital.html"
+ },
+ {
+  "order": 63,
+  "client": "Mauermuseum",
+  "disciplines": [
+   "Digital"
+  ],
+  "sectors": [
+   "Arts & Culture"
+  ],
+  "year": "2018",
+  "url": "/mauermuseum-web-design.html"
+ },
+ {
+  "order": 64,
+  "client": "&Tradition",
+  "disciplines": [
+   "Editorial",
+   "Film"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2018",
+  "url": "/and-tradition-jaime-hayon.html"
+ },
+ {
+  "order": 65,
+  "client": "Vitra",
+  "disciplines": [
+   "Strategy"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2017",
+  "url": "/vitra-brand-strategy.html"
+ },
+ {
+  "order": 66,
+  "client": "Mezcla",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Hospitality"
+  ],
+  "year": "2017",
+  "url": "/mezcla-brand-digital.html"
+ },
+ {
+  "order": 67,
+  "client": "QWSTION",
+  "disciplines": [
+   "Editorial",
+   "Film"
+  ],
+  "sectors": [
+   "Fashion"
+  ],
+  "year": "2017",
+  "url": "/qwstion-company-portrait.html"
+ },
+ {
+  "order": 68,
+  "client": "MINI Lookbook",
+  "disciplines": [
+   "Editorial",
+   "Identity"
+  ],
+  "sectors": [
+   "Automotive"
+  ],
+  "year": "2017",
+  "url": null
+ },
+ {
+  "order": 69,
+  "client": "Selfnation",
+  "disciplines": [
+   "Campaign",
+   "Film"
+  ],
+  "sectors": [
+   "Fashion"
+  ],
+  "year": "2016",
+  "url": "/selfnation-campaign.html"
+ },
+ {
+  "order": 70,
+  "client": "USM Modular Furniture",
+  "disciplines": [
+   "Editorial",
+   "Campaign"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2014-2016",
+  "url": "/usm-modular-furniture-brand-digital.html"
+ },
+ {
+  "order": 71,
+  "client": "&Tradition",
+  "disciplines": [
+   "Editorial",
+   "Event"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2016",
+  "url": null
+ },
+ {
+  "order": 72,
+  "client": "BMW",
+  "disciplines": [
+   "Campaign"
+  ],
+  "sectors": [
+   "Automotive"
+  ],
+  "year": "2016",
+  "url": "/bmw-brand-campaign-art-direction.html"
+ },
+ {
+  "order": 73,
+  "client": "Bolon",
+  "disciplines": [
+   "Digital"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2016",
+  "url": "/bolon-web-design.html"
+ },
+ {
+  "order": 74,
+  "client": "Manufactum",
+  "disciplines": [
+   "Editorial",
+   "Film"
+  ],
+  "sectors": [
+   "Retail"
+  ],
+  "year": "2016",
+  "url": "/manufactum-alltagsfreude-ruth-bartlett.html"
+ },
+ {
+  "order": 75,
+  "client": "AD Magazin",
+  "disciplines": [
+   "Digital"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2015",
+  "url": "/ad-magazin-web-design-art-direction.html"
+ },
+ {
+  "order": 76,
+  "client": "MoreSleep",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2015",
+  "url": null
+ },
+ {
+  "order": 77,
+  "client": "aleo solar",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2015",
+  "url": "/aleo-solar-brand-digital.html"
+ },
+ {
+  "order": 78,
+  "client": "Freunde von Freunden — Book Vol. 2",
+  "disciplines": [
+   "Editorial"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2015",
+  "url": null
+ },
+ {
+  "order": 79,
+  "client": "Egon Zehnder",
+  "disciplines": [
+   "Editorial",
+   "Film"
+  ],
+  "sectors": [
+   "Innovation & Leadership"
+  ],
+  "year": "2015",
+  "url": "/egon-zehnder-leadership-interviews.html"
+ },
+ {
+  "order": 80,
+  "client": "FvF Friends Space",
+  "disciplines": [
+   "Strategy",
+   "Event"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2014",
+  "url": "/fvf-friends-space-apartment.html"
+ },
+ {
+  "order": 81,
+  "client": "Friends of Friends iPad Magazine",
+  "disciplines": [
+   "Digital",
+   "Editorial"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2013",
+  "url": "/fvf-ipad-magazine.html"
+ },
+ {
+  "order": 82,
+  "client": "adidas",
+  "disciplines": [
+   "Campaign",
+   "Digital",
+   "Content"
+  ],
+  "sectors": [
+   "Sports"
+  ],
+  "year": "2012",
+  "url": "/adidas-journeys-interactive-campaign.html"
+ },
+ {
+  "order": 83,
+  "client": "Lala Berlin",
+  "disciplines": [
+   "E-Commerce",
+   "Digital"
+  ],
+  "sectors": [
+   "Fashion"
+  ],
+  "year": "2012",
+  "url": "/lala-berlin-brand-digital.html"
+ },
+ {
+  "order": 84,
+  "client": "Freunde von Freunden — Book Vol. 1",
+  "disciplines": [
+   "Editorial"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2012",
+  "url": null
+ },
+ {
+  "order": 85,
+  "client": "TBWA",
+  "disciplines": [
+   "Digital",
+   "Transformation"
+  ],
+  "sectors": [
+   "Advertising"
+  ],
+  "year": "2011-2012",
+  "url": null
+ },
+ {
+  "order": 86,
+  "client": "Geist Knt & Geist Rnd",
+  "disciplines": [
+   "Type Design"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2011",
+  "url": null
+ },
+ {
+  "order": 87,
+  "client": "Iconist",
+  "disciplines": [
+   "Digital",
+   "Editorial"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2010",
+  "url": "/iconist-ipad-app.html"
+ },
+ {
+  "order": 88,
+  "client": "Freunde von Freunden",
+  "disciplines": [
+   "Identity",
+   "Digital",
+   "Editorial"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2009",
+  "url": null
+ },
+ {
+  "order": 89,
+  "client": "MINI",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Automotive"
+  ],
+  "year": "2008",
+  "url": null
+ },
+ {
+  "order": 90,
+  "client": "Mercedes-Benz",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Automotive"
+  ],
+  "year": "2007",
+  "url": null
+ },
+ {
+  "order": 91,
+  "client": "BMW",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Automotive"
+  ],
+  "year": "2006",
+  "url": null
+ },
+ {
+  "order": 92,
+  "client": "SmithGroup Shanghai",
+  "disciplines": [
+   "Creative Direction",
+   "Editorial"
+  ],
+  "sectors": [
+   "Architecture"
+  ],
+  "year": "2006",
+  "url": "/smithgroup-shanghai.html"
+ },
+ {
+  "order": 93,
+  "client": "Neubau Welt / Die Gestalten Verlag",
+  "disciplines": [
+   "Editorial"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2006",
+  "url": "/neubau-welt.html"
+ },
+ {
+  "order": 94,
+  "client": "Ingo Robin",
+  "disciplines": [
+   "Identity",
+   "Editorial"
+  ],
+  "sectors": [
+   "Arts & Culture"
+  ],
+  "year": "2006",
+  "url": "/ingo-robin.html"
+ },
+ {
+  "order": 95,
+  "client": "Grimetime Berlin",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Music"
+  ],
+  "year": "2005-2006",
+  "url": "/grimetime-berlin.html"
+ },
+ {
+  "order": 96,
+  "client": "Neubau Welt",
+  "disciplines": [
+   "Design"
+  ],
+  "sectors": [
+   "Media & Publishing"
+  ],
+  "year": "2004-2005",
+  "url": null
+ },
+ {
+  "order": 97,
+  "client": "Nissan",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Automotive"
+  ],
+  "year": "2005",
+  "url": null
+ },
+ {
+  "order": 98,
+  "client": "Carhartt Europe",
+  "disciplines": [
+   "Campaign"
+  ],
+  "sectors": [
+   "Fashion"
+  ],
+  "year": "2005",
+  "url": "/carhartt.html"
+ },
+ {
+  "order": 99,
+  "client": "Seppuku Industries",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2004",
+  "url": "/seppuku-industries.html"
+ },
+ {
+  "order": 100,
+  "client": "Watergate Club",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Music"
+  ],
+  "year": "2004",
+  "url": "/watergate-club.html"
+ },
+ {
+  "order": 101,
+  "client": "hard:edged Recordings",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Music"
+  ],
+  "year": "2003",
+  "url": "/hardedged-recordings.html"
+ },
+ {
+  "order": 102,
+  "client": "Republish",
+  "disciplines": [
+   "Identity",
+   "Digital"
+  ],
+  "sectors": [
+   "Design"
+  ],
+  "year": "2003",
+  "url": "/republish.html"
+ },
+ {
+  "order": 103,
+  "client": "Ministry of Sound",
+  "disciplines": [
+   "Identity",
+   "Editorial"
+  ],
+  "sectors": [
+   "Music"
+  ],
+  "year": "2002",
+  "url": null
+ },
+ {
+  "order": 104,
+  "client": "Covers, Logos, Flyers",
+  "disciplines": [
+   "Identity"
+  ],
+  "sectors": [
+   "Music"
+  ],
+  "year": "2002",
+  "url": null
+ },
+ {
+  "order": 105,
+  "client": "Universal Music",
+  "disciplines": [
+   "Editorial"
+  ],
+  "sectors": [
+   "Music"
+  ],
+  "year": "2001",
+  "url": null
+ }
+]
