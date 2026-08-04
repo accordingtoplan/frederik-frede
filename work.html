@@ -148,6 +148,15 @@ footer{margin-top:auto}
   "isPartOf": { "@id": "https://frederikfrede.com/#website" }
 }
 </script>
+<style>
+.ar-taglink{color:inherit;text-decoration:none}
+.ar-taglink:hover{color:var(--grey-dark)}
+.archive-filterbar{margin-top:64px;font-size:var(--t-label);color:var(--grey-mid);font-weight:var(--bold)}
+.af-tag{color:var(--grey-dark)}
+.af-clear{color:var(--grey-light);margin-left:12px;text-decoration:none}
+.af-clear:hover{color:var(--grey-dark)}
+.ar-hidden{display:none !important}
+</style>
 </head>
 <body>
 
@@ -186,7 +195,12 @@ footer{margin-top:auto}
 
   <div class="work-grid" id="work-grid"></div>
 
-  <div class="archive-section">
+  <div class="archive-section" id="archive">
+
+    <div class="archive-filterbar" id="archive-filterbar" hidden>
+      <span class="af-label">Filtered by</span> <span class="af-tag" id="af-tag"></span>
+      <a href="#" class="af-clear" id="af-clear">Clear ×</a>
+    </div>
 
     <div class="archive-grid" style="margin-top:64px">
     <div class="archive-col-label"><h3>Archive —<br>1995 to<br>present</h3></div>
@@ -266,40 +280,40 @@ footer{margin-top:auto}
     </div>
     <div class="archive-col-cat">
       <h3>Service &middot; Sector</h3>
-      <span class="ar-cat">Strategy / Identity / E-Commerce &middot; Hospitality</span>
-      <span class="ar-cat">AI / Consulting / Digital &middot; Media &amp; Publishing</span>
-      <span class="ar-cat">Strategy / Identity / Digital / AI &middot; Wellness</span>
-      <span class="ar-cat">Strategy / Identity / Digital &middot; Real Estate</span>
-      <span class="ar-cat">Digital &middot; Design</span>
-      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
-      <span class="ar-cat">Strategy / Identity / Digital / AI &middot; Wellness</span>
-      <span class="ar-cat">Strategy / Identity / Digital / Campaign / AI &middot; Architecture</span>
-      <span class="ar-cat">Identity / Digital / Campaign &middot; Retail</span>
-      <span class="ar-cat">Identity / Digital / Film &middot; Real Estate</span>
-      <span class="ar-cat">Strategy / Identity / Digital &middot; Innovation &amp; Leadership</span>
-      <span class="ar-cat">Strategy / Identity / Digital / Motion &middot; Arts &amp; Culture</span>
-      <span class="ar-cat">Strategy / Identity / Digital / Motion &middot; Arts &amp; Culture</span>
-      <span class="ar-cat">Digital &middot; Technology</span>
-      <span class="ar-cat">Editorial / Digital / Film &middot; Hospitality</span>
-      <span class="ar-cat">Identity / Digital / Editorial &middot; Arts &amp; Culture</span>
-      <span class="ar-cat">Strategy / Identity / Digital &middot; Real Estate</span>
-      <span class="ar-cat">Identity / Digital &middot; Sports</span>
-      <span class="ar-cat">Campaign / Editorial / Film &middot; Fashion</span>
-      <span class="ar-cat">Strategy / Identity / Digital / Editorial &middot; Media &amp; Publishing</span>
-      <span class="ar-cat">Digital / Campaign &middot; Fashion</span>
-      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
-      <span class="ar-cat">Strategy / Identity / Digital &middot; Technology</span>
-      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
-      <span class="ar-cat">Digital &middot; Design</span>
-      <span class="ar-cat">Identity / E-Commerce &middot; Design</span>
-      <span class="ar-cat">Identity / E-Commerce &middot; Design</span>
-      <span class="ar-cat">Strategy / Campaign / Editorial / Event &middot; Wellness</span>
-      <span class="ar-cat">Editorial / Film &middot; Technology</span>
-      <span class="ar-cat">Event / Campaign &middot; Hospitality</span>
-      <span class="ar-cat">Film &middot; Food &amp; Drink</span>
-      <span class="ar-cat">Editorial / Film &middot; Design</span>
-      <span class="ar-cat">Strategy / Identity / Digital &middot; Architecture</span>
-      <span class="ar-cat">Identity / Digital &middot; Music</span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:E-Commerce s:Hospitality"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=E-Commerce" data-tag="E-Commerce" data-kind="disc">E-Commerce</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:AI d:Consulting d:Digital s:Media &amp; Publishing"><a class="ar-taglink" href="#f=AI" data-tag="AI" data-kind="disc">AI</a> / <a class="ar-taglink" href="#f=Consulting" data-tag="Consulting" data-kind="disc">Consulting</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital d:AI s:Wellness"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=AI" data-tag="AI" data-kind="disc">AI</a> &middot; <a class="ar-taglink" href="#f=Wellness" data-tag="Wellness" data-kind="sector">Wellness</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital s:Real Estate"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Real Estate" data-tag="Real Estate" data-kind="sector">Real Estate</a></span>
+      <span class="ar-cat" data-tags="d:Digital s:Design"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Hospitality"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital d:AI s:Wellness"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=AI" data-tag="AI" data-kind="disc">AI</a> &middot; <a class="ar-taglink" href="#f=Wellness" data-tag="Wellness" data-kind="sector">Wellness</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital d:Campaign d:AI s:Architecture"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=AI" data-tag="AI" data-kind="disc">AI</a> &middot; <a class="ar-taglink" href="#f=Architecture" data-tag="Architecture" data-kind="sector">Architecture</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital d:Campaign s:Retail"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> &middot; <a class="ar-taglink" href="#f=Retail" data-tag="Retail" data-kind="sector">Retail</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital d:Film s:Real Estate"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Real Estate" data-tag="Real Estate" data-kind="sector">Real Estate</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital s:Innovation &amp; Leadership"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Innovation &amp; Leadership" data-tag="Innovation &amp; Leadership" data-kind="sector">Innovation &amp; Leadership</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital d:Motion s:Arts &amp; Culture"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Motion" data-tag="Motion" data-kind="disc">Motion</a> &middot; <a class="ar-taglink" href="#f=Arts &amp; Culture" data-tag="Arts &amp; Culture" data-kind="sector">Arts &amp; Culture</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital d:Motion s:Arts &amp; Culture"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Motion" data-tag="Motion" data-kind="disc">Motion</a> &middot; <a class="ar-taglink" href="#f=Arts &amp; Culture" data-tag="Arts &amp; Culture" data-kind="sector">Arts &amp; Culture</a></span>
+      <span class="ar-cat" data-tags="d:Digital s:Technology"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Technology" data-tag="Technology" data-kind="sector">Technology</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Digital d:Film s:Hospitality"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital d:Editorial s:Arts &amp; Culture"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Arts &amp; Culture" data-tag="Arts &amp; Culture" data-kind="sector">Arts &amp; Culture</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital s:Real Estate"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Real Estate" data-tag="Real Estate" data-kind="sector">Real Estate</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Sports"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Sports" data-tag="Sports" data-kind="sector">Sports</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Editorial d:Film s:Fashion"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Fashion" data-tag="Fashion" data-kind="sector">Fashion</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital d:Editorial s:Media &amp; Publishing"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
+      <span class="ar-cat" data-tags="d:Digital d:Campaign s:Fashion"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> &middot; <a class="ar-taglink" href="#f=Fashion" data-tag="Fashion" data-kind="sector">Fashion</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Hospitality"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital s:Technology"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Technology" data-tag="Technology" data-kind="sector">Technology</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Hospitality"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Digital s:Design"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:E-Commerce s:Design"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=E-Commerce" data-tag="E-Commerce" data-kind="disc">E-Commerce</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:E-Commerce s:Design"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=E-Commerce" data-tag="E-Commerce" data-kind="disc">E-Commerce</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Campaign d:Editorial d:Event s:Wellness"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Event" data-tag="Event" data-kind="disc">Event</a> &middot; <a class="ar-taglink" href="#f=Wellness" data-tag="Wellness" data-kind="sector">Wellness</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Film s:Technology"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Technology" data-tag="Technology" data-kind="sector">Technology</a></span>
+      <span class="ar-cat" data-tags="d:Event d:Campaign s:Hospitality"><a class="ar-taglink" href="#f=Event" data-tag="Event" data-kind="disc">Event</a> / <a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Film s:Food &amp; Drink"><a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Food &amp; Drink" data-tag="Food &amp; Drink" data-kind="sector">Food &amp; Drink</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Film s:Design"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital s:Architecture"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Architecture" data-tag="Architecture" data-kind="sector">Architecture</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Music"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Music" data-tag="Music" data-kind="sector">Music</a></span>
     </div>
     </div>
 
@@ -403,51 +417,51 @@ footer{margin-top:auto}
     </div>
     <div class="archive-col-cat">
       <h3>Service &middot; Sector</h3>
-      <span class="ar-cat">Digital &middot; Technology</span>
-      <span class="ar-cat">Campaign / Editorial / Content / Event &middot; Fashion</span>
-      <span class="ar-cat">Identity / Digital &middot; Sports</span>
-      <span class="ar-cat">Campaign / Event / Digital &middot; Real Estate</span>
-      <span class="ar-cat">Strategy / Campaign / Editorial / Event &middot; Automotive</span>
-      <span class="ar-cat">Campaign / Digital &middot; Hospitality</span>
-      <span class="ar-cat">Strategy / Identity / Digital &middot; Real Estate</span>
-      <span class="ar-cat">Strategy / Campaign / Digital &middot; Real Estate</span>
-      <span class="ar-cat">Strategy / Identity &middot; Hospitality</span>
-      <span class="ar-cat">Strategy / Identity &middot; Food &amp; Drink</span>
-      <span class="ar-cat">Campaign / Film &middot; Wellness</span>
-      <span class="ar-cat">Campaign / Editorial / Event &middot; Fashion</span>
-      <span class="ar-cat">Strategy / Identity / Digital &middot; Hospitality</span>
-      <span class="ar-cat">Digital / Campaign &middot; Technology</span>
-      <span class="ar-cat">Digital &middot; Sports</span>
-      <span class="ar-cat">Identity &middot; Hospitality</span>
-      <span class="ar-cat">Strategy / Editorial &middot; Design</span>
-      <span class="ar-cat">Campaign / Editorial / Event &middot; Technology</span>
-      <span class="ar-cat">Identity / Digital &middot; Technology</span>
-      <span class="ar-cat">Identity &middot; Hospitality</span>
-      <span class="ar-cat">Identity &middot; Hospitality</span>
-      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
-      <span class="ar-cat">Identity / Digital &middot; Technology</span>
-      <span class="ar-cat">Identity / Digital / Content &middot; Food &amp; Drink</span>
-      <span class="ar-cat">Campaign / Content &middot; Design</span>
-      <span class="ar-cat">Strategy / Digital &middot; Hospitality</span>
-      <span class="ar-cat">E-com / Digital &middot; Fashion</span>
-      <span class="ar-cat">Digital / Social-Media &middot; Hospitality</span>
-      <span class="ar-cat">Digital &middot; Arts &amp; Culture</span>
-      <span class="ar-cat">Editorial / Film &middot; Design</span>
-      <span class="ar-cat">Strategy &middot; Design</span>
-      <span class="ar-cat">Identity / Digital &middot; Hospitality</span>
-      <span class="ar-cat">Editorial / Film &middot; Fashion</span>
-      <span class="ar-cat">Editorial / Identity &middot; Automotive</span>
-      <span class="ar-cat">Campaign / Film &middot; Fashion</span>
-      <span class="ar-cat">Editorial / Campaign &middot; Design</span>
-      <span class="ar-cat">Editorial / Event &middot; Design</span>
-      <span class="ar-cat">Campaign &middot; Automotive</span>
-      <span class="ar-cat">Digital &middot; Design</span>
-      <span class="ar-cat">Editorial / Film &middot; Retail</span>
-      <span class="ar-cat">Digital &middot; Media &amp; Publishing</span>
-      <span class="ar-cat">Identity &middot; Design</span>
-      <span class="ar-cat">Identity / Digital &middot; Technology</span>
-      <span class="ar-cat">Editorial &middot; Media &amp; Publishing</span>
-      <span class="ar-cat">Editorial / Film &middot; Innovation &amp; Leadership</span>
+      <span class="ar-cat" data-tags="d:Digital s:Technology"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Technology" data-tag="Technology" data-kind="sector">Technology</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Editorial d:Content d:Event s:Fashion"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Content" data-tag="Content" data-kind="disc">Content</a> / <a class="ar-taglink" href="#f=Event" data-tag="Event" data-kind="disc">Event</a> &middot; <a class="ar-taglink" href="#f=Fashion" data-tag="Fashion" data-kind="sector">Fashion</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Sports"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Sports" data-tag="Sports" data-kind="sector">Sports</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Event d:Digital s:Real Estate"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Event" data-tag="Event" data-kind="disc">Event</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Real Estate" data-tag="Real Estate" data-kind="sector">Real Estate</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Campaign d:Editorial d:Event s:Automotive"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Event" data-tag="Event" data-kind="disc">Event</a> &middot; <a class="ar-taglink" href="#f=Automotive" data-tag="Automotive" data-kind="sector">Automotive</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Digital s:Hospitality"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital s:Real Estate"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Real Estate" data-tag="Real Estate" data-kind="sector">Real Estate</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Campaign d:Digital s:Real Estate"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Real Estate" data-tag="Real Estate" data-kind="sector">Real Estate</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity s:Hospitality"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity s:Food &amp; Drink"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Food &amp; Drink" data-tag="Food &amp; Drink" data-kind="sector">Food &amp; Drink</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Film s:Wellness"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Wellness" data-tag="Wellness" data-kind="sector">Wellness</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Editorial d:Event s:Fashion"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Event" data-tag="Event" data-kind="disc">Event</a> &middot; <a class="ar-taglink" href="#f=Fashion" data-tag="Fashion" data-kind="sector">Fashion</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital s:Hospitality"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Digital d:Campaign s:Technology"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> &middot; <a class="ar-taglink" href="#f=Technology" data-tag="Technology" data-kind="sector">Technology</a></span>
+      <span class="ar-cat" data-tags="d:Digital s:Sports"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Sports" data-tag="Sports" data-kind="sector">Sports</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Hospitality"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Editorial s:Design"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Editorial d:Event s:Technology"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Event" data-tag="Event" data-kind="disc">Event</a> &middot; <a class="ar-taglink" href="#f=Technology" data-tag="Technology" data-kind="sector">Technology</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Technology"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Technology" data-tag="Technology" data-kind="sector">Technology</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Hospitality"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Hospitality"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Hospitality"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Technology"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Technology" data-tag="Technology" data-kind="sector">Technology</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital d:Content s:Food &amp; Drink"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Content" data-tag="Content" data-kind="disc">Content</a> &middot; <a class="ar-taglink" href="#f=Food &amp; Drink" data-tag="Food &amp; Drink" data-kind="sector">Food &amp; Drink</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Content s:Design"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Content" data-tag="Content" data-kind="disc">Content</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Strategy d:Digital s:Hospitality"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:E-com d:Digital s:Fashion"><a class="ar-taglink" href="#f=E-com" data-tag="E-com" data-kind="disc">E-com</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Fashion" data-tag="Fashion" data-kind="sector">Fashion</a></span>
+      <span class="ar-cat" data-tags="d:Digital d:Social-Media s:Hospitality"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Social-Media" data-tag="Social-Media" data-kind="disc">Social-Media</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Digital s:Arts &amp; Culture"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Arts &amp; Culture" data-tag="Arts &amp; Culture" data-kind="sector">Arts &amp; Culture</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Film s:Design"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Strategy s:Design"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Hospitality"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Hospitality" data-tag="Hospitality" data-kind="sector">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Film s:Fashion"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Fashion" data-tag="Fashion" data-kind="sector">Fashion</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Identity s:Automotive"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Automotive" data-tag="Automotive" data-kind="sector">Automotive</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Film s:Fashion"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Fashion" data-tag="Fashion" data-kind="sector">Fashion</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Campaign s:Design"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Event s:Design"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Event" data-tag="Event" data-kind="disc">Event</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Campaign s:Automotive"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> &middot; <a class="ar-taglink" href="#f=Automotive" data-tag="Automotive" data-kind="sector">Automotive</a></span>
+      <span class="ar-cat" data-tags="d:Digital s:Design"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Film s:Retail"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Retail" data-tag="Retail" data-kind="sector">Retail</a></span>
+      <span class="ar-cat" data-tags="d:Digital s:Media &amp; Publishing"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Design"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Technology"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Technology" data-tag="Technology" data-kind="sector">Technology</a></span>
+      <span class="ar-cat" data-tags="d:Editorial s:Media &amp; Publishing"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
+      <span class="ar-cat" data-tags="d:Editorial d:Film s:Innovation &amp; Leadership"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> / <a class="ar-taglink" href="#f=Film" data-tag="Film" data-kind="disc">Film</a> &middot; <a class="ar-taglink" href="#f=Innovation &amp; Leadership" data-tag="Innovation &amp; Leadership" data-kind="sector">Innovation &amp; Leadership</a></span>
     </div>
     </div>
 
@@ -479,15 +493,15 @@ footer{margin-top:auto}
     </div>
     <div class="archive-col-cat">
       <h3>Service &middot; Sector</h3>
-      <span class="ar-cat">Strategy / Event &middot; Design</span>
-      <span class="ar-cat">Digital / Editorial &middot; Media &amp; Publishing</span>
-      <span class="ar-cat">Campaign / Digital / Content &middot; Sports</span>
-      <span class="ar-cat">E-Commerce / Digital &middot; Fashion</span>
-      <span class="ar-cat">Editorial &middot; Media &amp; Publishing</span>
-      <span class="ar-cat">Digital / Transformation &middot; Advertising</span>
-      <span class="ar-cat">Type Design &middot; Design</span>
-      <span class="ar-cat">Digital / Editorial &middot; Media &amp; Publishing</span>
-      <span class="ar-cat">Identity / Digital / Editorial &middot; Media &amp; Publishing</span>
+      <span class="ar-cat" data-tags="d:Strategy d:Event s:Design"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy" data-kind="disc">Strategy</a> / <a class="ar-taglink" href="#f=Event" data-tag="Event" data-kind="disc">Event</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Digital d:Editorial s:Media &amp; Publishing"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
+      <span class="ar-cat" data-tags="d:Campaign d:Digital d:Content s:Sports"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Content" data-tag="Content" data-kind="disc">Content</a> &middot; <a class="ar-taglink" href="#f=Sports" data-tag="Sports" data-kind="sector">Sports</a></span>
+      <span class="ar-cat" data-tags="d:E-Commerce d:Digital s:Fashion"><a class="ar-taglink" href="#f=E-Commerce" data-tag="E-Commerce" data-kind="disc">E-Commerce</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Fashion" data-tag="Fashion" data-kind="sector">Fashion</a></span>
+      <span class="ar-cat" data-tags="d:Editorial s:Media &amp; Publishing"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
+      <span class="ar-cat" data-tags="d:Digital d:Transformation s:Advertising"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Transformation" data-tag="Transformation" data-kind="disc">Transformation</a> &middot; <a class="ar-taglink" href="#f=Advertising" data-tag="Advertising" data-kind="sector">Advertising</a></span>
+      <span class="ar-cat" data-tags="d:Type Design s:Design"><a class="ar-taglink" href="#f=Type Design" data-tag="Type Design" data-kind="disc">Type Design</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Digital d:Editorial s:Media &amp; Publishing"><a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital d:Editorial s:Media &amp; Publishing"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
     </div>
     </div>
 
@@ -535,23 +549,23 @@ footer{margin-top:auto}
     </div>
     <div class="archive-col-cat">
       <h3>Service &middot; Sector</h3>
-      <span class="ar-cat">Identity &middot; Automotive</span>
-      <span class="ar-cat">Identity &middot; Automotive</span>
-      <span class="ar-cat">Identity &middot; Automotive</span>
-      <span class="ar-cat">Creative Direction / Editorial &middot; Architecture</span>
-      <span class="ar-cat">Editorial &middot; Media &amp; Publishing</span>
-      <span class="ar-cat">Identity / Editorial &middot; Arts &amp; Culture</span>
-      <span class="ar-cat">Identity / Digital &middot; Music</span>
-      <span class="ar-cat">Design &middot; Media &amp; Publishing</span>
-      <span class="ar-cat">Identity &middot; Automotive</span>
-      <span class="ar-cat">Campaign &middot; Fashion</span>
-      <span class="ar-cat">Identity &middot; Design</span>
-      <span class="ar-cat">Identity / Digital &middot; Music</span>
-      <span class="ar-cat">Identity &middot; Music</span>
-      <span class="ar-cat">Identity / Digital &middot; Design</span>
-      <span class="ar-cat">Identity / Editorial &middot; Music</span>
-      <span class="ar-cat">Identity &middot; Music</span>
-      <span class="ar-cat">Editorial &middot; Music</span>
+      <span class="ar-cat" data-tags="d:Identity s:Automotive"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Automotive" data-tag="Automotive" data-kind="sector">Automotive</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Automotive"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Automotive" data-tag="Automotive" data-kind="sector">Automotive</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Automotive"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Automotive" data-tag="Automotive" data-kind="sector">Automotive</a></span>
+      <span class="ar-cat" data-tags="d:Creative Direction d:Editorial s:Architecture"><a class="ar-taglink" href="#f=Creative Direction" data-tag="Creative Direction" data-kind="disc">Creative Direction</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Architecture" data-tag="Architecture" data-kind="sector">Architecture</a></span>
+      <span class="ar-cat" data-tags="d:Editorial s:Media &amp; Publishing"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Editorial s:Arts &amp; Culture"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Arts &amp; Culture" data-tag="Arts &amp; Culture" data-kind="sector">Arts &amp; Culture</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Music"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Music" data-tag="Music" data-kind="sector">Music</a></span>
+      <span class="ar-cat" data-tags="d:Design s:Media &amp; Publishing"><a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="disc">Design</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing" data-kind="sector">Media &amp; Publishing</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Automotive"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Automotive" data-tag="Automotive" data-kind="sector">Automotive</a></span>
+      <span class="ar-cat" data-tags="d:Campaign s:Fashion"><a class="ar-taglink" href="#f=Campaign" data-tag="Campaign" data-kind="disc">Campaign</a> &middot; <a class="ar-taglink" href="#f=Fashion" data-tag="Fashion" data-kind="sector">Fashion</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Design"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Music"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Music" data-tag="Music" data-kind="sector">Music</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Music"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Music" data-tag="Music" data-kind="sector">Music</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Design"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital" data-kind="disc">Digital</a> &middot; <a class="ar-taglink" href="#f=Design" data-tag="Design" data-kind="sector">Design</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Editorial s:Music"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> / <a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Music" data-tag="Music" data-kind="sector">Music</a></span>
+      <span class="ar-cat" data-tags="d:Identity s:Music"><a class="ar-taglink" href="#f=Identity" data-tag="Identity" data-kind="disc">Identity</a> &middot; <a class="ar-taglink" href="#f=Music" data-tag="Music" data-kind="sector">Music</a></span>
+      <span class="ar-cat" data-tags="d:Editorial s:Music"><a class="ar-taglink" href="#f=Editorial" data-tag="Editorial" data-kind="disc">Editorial</a> &middot; <a class="ar-taglink" href="#f=Music" data-tag="Music" data-kind="sector">Music</a></span>
     </div>
     </div>
 
@@ -730,5 +744,41 @@ function setTheme(name, el) {
 setTheme('white', document.querySelector('.swatch[onclick*="white"]'));
 </script>
 
+<script>
+(function(){
+  function applyFilter(tag){
+    var bar=document.getElementById('archive-filterbar');
+    var grids=document.querySelectorAll('.archive-section .archive-grid');
+    grids.forEach(function(grid){
+      var years=grid.querySelectorAll('.ar-year');
+      var clients=grid.querySelectorAll('.ar-client');
+      var cats=grid.querySelectorAll('.ar-cat');
+      var visible=0;
+      cats.forEach(function(cat,i){
+        var tags=(cat.getAttribute('data-tags')||'').split(' ');
+        var show=!tag||tags.indexOf('d:'+tag)>-1||tags.indexOf('s:'+tag)>-1;
+        [cat,years[i],clients[i]].forEach(function(el){ if(el) el.classList.toggle('ar-hidden',!show); });
+        if(show) visible++;
+      });
+      grid.classList.toggle('ar-hidden',visible===0);
+    });
+    if(tag){ bar.hidden=false; document.getElementById('af-tag').textContent=tag; }
+    else { bar.hidden=true; }
+  }
+  function fromHash(){
+    var m=location.hash.match(/^#f=(.+)$/);
+    applyFilter(m?decodeURIComponent(m[1]):null);
+    if(m) document.getElementById('archive').scrollIntoView();
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('.ar-taglink');
+    if(a){ e.preventDefault(); location.hash='f='+encodeURIComponent(a.getAttribute('data-tag')); }
+    var c=e.target.closest('#af-clear');
+    if(c){ e.preventDefault(); history.pushState('',document.title,location.pathname); applyFilter(null); }
+  });
+  window.addEventListener('hashchange',fromHash);
+  document.addEventListener('DOMContentLoaded',fromHash);
+})();
+</script>
 </body>
 </html>
