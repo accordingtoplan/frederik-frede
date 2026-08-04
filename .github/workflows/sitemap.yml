@@ -1,0 +1,72 @@
+name: Generate sitemap
+
+on:
+  push:
+    branches: [live]
+    paths:
+      - "**.html"
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout live branch
+        uses: actions/checkout@v4
+        with:
+          ref: live
+
+      - name: Generate sitemap.xml
+        run: |
+          python3 - <<'PYEOF'
+          import os
+          from datetime import date
+
+          BASE_URL = "https://frederikfrede.com"
+          TODAY = date.today().isoformat()
+
+          EXCLUDE = {
+              "404.html", "about-test.html", "work-test.html",
+              "republish.html", "imprint.html"
+          }
+
+          def priority(f):
+              if f == "index.html": return "1.0"
+              if f in ("work.html", "about.html"): return "0.9"
+              return "0.7"
+
+          def loc(f):
+              return f"{BASE_URL}/" if f == "index.html" else f"{BASE_URL}/{f}"
+
+          html_files = sorted([
+              f for f in os.listdir(".")
+              if f.endswith(".html")
+              and not f.startswith("_")
+              and f not in EXCLUDE
+          ])
+
+          lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+                   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+          for f in html_files:
+              lines += ['  <url>',
+                        f'    <loc>{loc(f)}</loc>',
+                        f'    <lastmod>{TODAY}</lastmod>',
+                        f'    <priority>{priority(f)}</priority>',
+                        '  </url>']
+          lines.append('</urlset>')
+
+          with open("sitemap.xml", "w") as fh:
+              fh.write("\n".join(lines) + "\n")
+
+          print(f"Sitemap written: {len(html_files)} URLs")
+          PYEOF
+
+      - name: Commit sitemap if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git diff --cached --quiet || git commit -m "chore: regenerate sitemap.xml [skip ci]"
+          git push
