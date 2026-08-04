@@ -29,6 +29,12 @@
   .lp-cta { font-size: 17px; color: var(--grey-mid); }
   .lp-cta a { color: var(--grey-dark); font-weight: var(--bold); text-decoration: none; }
   @media (max-width: 640px) { .page { padding: 0 20px 80px; } .intro { padding-top: 16vh; } }
+
+  .lp-media { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .lp-media a, .lp-media figure { margin: 0; display: block; }
+  .lp-media img { width: 100%; height: auto; display: block; }
+  .lp-cap { font-size: 11px; color: var(--grey-light); margin-top: 6px; display: block; }
+  @media (max-width: 640px) { .lp-media { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -49,13 +55,22 @@
   </div>
 
   <div class="lp-section">
+    <div class="lp-h">In the field</div>
+    <div class="lp-media">
+      <a href="/umane-brand-identity.html"><img src="/assets/umane/umane-p1-logo-wordmark.jpg" alt="Umane, built with Claude from the first brief" width="2880" height="1620" loading="lazy"><span class="lp-cap">Umane, built with Claude from the first brief</span></a>
+      <a href="/architonic-brand-strategy-platform-design.html"><img src="/assets/architonic/architonic-at-logo-on-coral-display-01.jpg" alt="Architonic, Smart Search" width="2400" height="1799" loading="lazy"><span class="lp-cap">Architonic, Smart Search</span></a>
+      <figure><img src="/assets/direction-intel/di-monkeys.jpg" alt="Directive Intelligence, in the wild" width="1728" height="2160" loading="lazy"><span class="lp-cap">Directive Intelligence, in the wild</span></figure>
+    </div>
+  </div>
+
+  <div class="lp-section">
     <div class="lp-h">Selected engagements</div>
     <ul class="lp-list">
       <li class="lp-item"><span class="lp-client">NZZ Mediengruppe</span><span class="lp-year">2025-2026</span></li>
       <li class="lp-item"><span class="lp-client"><a href="/umane-brand-identity.html">Umane</a></span><span class="lp-year">2025-2026</span></li>
       <li class="lp-item"><span class="lp-client">SamSation</span><span class="lp-year">2025-2026</span></li>
       <li class="lp-item"><span class="lp-client"><a href="/architonic-brand-strategy-platform-design.html">Architonic</a></span><span class="lp-year">2024-2025</span></li>
-
+      <li class="lp-item"><span class="lp-client"><a href="/swayed-ai-branding.html">Swayed</a></span><span class="lp-year">2018</span></li>
     </ul>
   </div>
 

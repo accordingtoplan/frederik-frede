@@ -216,10 +216,13 @@
     .case-info {
       padding-top: 10px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
       align-items: flex-start;
-      gap: 2px;
+      gap: 16px;
     }
+    .case-info-left { display: flex; flex-direction: column; gap: 2px; }
+    .case-tags { text-align: right; flex-shrink: 0; }
 
     .case-coming {
       font-size: 10px;
@@ -602,6 +605,10 @@
 .case-taglink{cursor:pointer}
 .case-taglink:hover{color:var(--grey-dark)}
 </style>
+<style>
+.hero-word{color:inherit;text-decoration:none}
+.hero-word:hover{color:var(--grey-mid)}
+</style>
 </head>
 <body>
 
@@ -609,7 +616,7 @@
   <main>
   <section class="hero-block">
     <div class="hero-top">
-      <h1 class="hero-headline">Culture, strategy and identity.</h1>
+      <h1 class="hero-headline"><a class="hero-word" href="/work.html#f=Arts %26 Culture">Culture</a>, <a class="hero-word" href="/work.html#f=Strategy">strategy</a> and <a class="hero-word" href="/work.html#f=Identity">identity</a>.</h1>
       
     </div>
     <div class="hero-video-wrap">
@@ -751,7 +758,7 @@
 
       const comingSoon = c.coming ? `<span class="case-coming">Coming soon</span>` : '';
       const tagRow = c.tag ? `<div class="case-tags">${c.tag.split(' / ').map(x=>`<span class="case-taglink" data-tag="${x}">${x}</span>`).join(' / ')}</div>` : '';
-      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}${comingSoon}</div><div class="case-tagline">${c.desc}</div>${tagRow}</div>`;
+      const inner = `${media}<div class="case-info"><div class="case-info-left"><div class="case-brand">${c.b}${comingSoon}</div><div class="case-tagline">${c.desc}</div></div>${tagRow}</div>`;
       if (c.link) {
         const a = document.createElement('a');
         a.href = c.link;
