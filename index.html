@@ -597,6 +597,11 @@
 }
 </script>
 <link rel="canonical" href="https://frederikfrede.com/">
+<style>
+.case-tags{font-size:11px;color:var(--grey-light);margin-top:2px}
+.case-taglink{cursor:pointer}
+.case-taglink:hover{color:var(--grey-dark)}
+</style>
 </head>
 <body>
 
@@ -641,61 +646,61 @@
 
   <script>
     const cases = [
-      { b:"Architonic",         tag:"Platform Strategy",      desc:"A global architecture platform, repositioned and rebuilt from strategy up.",
+      { b:"Architonic",         tag:"Strategy / Identity / Digital / Campaign / AI / Consulting",      desc:"A global architecture platform, repositioned and rebuilt from strategy up.",
         full:true, type:"video", link:"/architonic-brand-strategy-platform-design.html",
         src:"/assets/architonic/architonic-brand-strategy-homepage-video.mp4", poster:"/assets/architonic/architonic-brand-strategy-platform-design-poster.webp", ratio:"ratio-wide",
         year:"2023–2025", live:"architonic.com", liveHref:"https://www.architonic.com", collab:"—" },
-      { b:"NZZ",                tag:"Brand & Digital",        desc:"R&D and digital transformation for Switzerland's leading media house.",
+      { b:"NZZ",                tag:"AI / Consulting / Digital",        desc:"R&D and digital transformation for Switzerland's leading media house.",
         type:"img", src:"/assets/nzz/nzz-brand-digital-nzzde-front.webp",
         ratio:"ratio-land", coming:true,
         year:"2018", live:"ad-magazin.de", liveHref:"https://www.ad-magazin.de", collab:"—" },
-      { b:"Frederik G. Pferdt", link:"/frederik-pferdt-personal-brand-identity.html", tag:"Brand & Identity", desc:"Personal brand for Google's first Chief Innovation Evangelist.",
+      { b:"Frederik G. Pferdt", link:"/frederik-pferdt-personal-brand-identity.html", tag:"Strategy / Identity / Digital", desc:"Personal brand for Google's first Chief Innovation Evangelist.",
         type:"video", crop:true, src:"/assets/pferdt/pferdt-fgp-macbook-mockup-animation.mp4",
         poster:"/assets/pferdt/pferdt-brand-identity-poster.webp", ratio:"ratio-wide",
         year:"2023–2024", live:"frederikgpferdt.com", liveHref:"https://www.frederikgpferdt.com/", collab:"Stefan Schuster, Thomas Provost, Emely Wensky, Sveta Koliada" },
-      { b:"Louis Vuitton",      tag:"Employer Branding", desc:"Employer branding campaign and work culture documentary across Louis Vuitton's global ateliers.",
+      { b:"Louis Vuitton",      tag:"Campaign / Editorial / Film", desc:"Employer branding campaign and work culture documentary across Louis Vuitton's global ateliers.",
         full:true, type:"video", link:"/louis-vuitton-employer-branding-campaign.html",
         src:"/assets/louis-vuitton/louis-vuitton-employer-branding-showreel.mp4",
         poster:"/assets/louis-vuitton/louis-vuitton-employer-branding-poster.webp",
         ratio:"ratio-lvwide",
         year:"2023", live:"jobs.louisvuitton.com", liveHref:"https://jobs.louisvuitton.com/en/work-culture", collab:"—" },
-      { b:"Lewis Group",         tag:"Brand & Digital", desc:"A 60-year California real estate developer, rebranded for its next chapter.",
+      { b:"Lewis Group",         tag:"Strategy / Identity / Digital", desc:"A 60-year California real estate developer, rebranded for its next chapter.",
         type:"video", src:"/assets/lewis-group/lewis-group-lewis-animated-logo-videos-background-opti.mp4",
         link:"/lewis-group-brand-identity-web-design.html",
         year:"2024", collab:"Quasi Object" },
-      { b:"Ritz-Carlton",       link:"/ritz-carlton-berlin-brand-event.html", tag:"Hospitality & Brand", desc:"Rebranding and relaunching the Ritz-Carlton Berlin.",
+      { b:"Ritz-Carlton",       link:"/ritz-carlton-berlin-brand-event.html", tag:"Event / Campaign", desc:"Rebranding and relaunching the Ritz-Carlton Berlin.",
         type:"placeholder-logo", src:"/assets/ritz-carlton/ritz-carlton-logo.svg", lw:160, lh:114, bg:"rc-steel", logoClass:"rc-logo",
         ratio:"ratio-land",
         year:"2019", live:"ritzcarlton.com", liveHref:"https://www.ritzcarlton.com", collab:"—" },
-      { b:"USM",                link:"/usm-modular-furniture-brand-digital.html", tag:"Digital Transformation", desc:"Digital transformation for one of modernism's most recognised furniture brands.",
+      { b:"USM",                link:"/usm-modular-furniture-brand-digital.html", tag:"Editorial / Campaign", desc:"Digital transformation for one of modernism's most recognised furniture brands.",
         full:true, type:"video", src:"/assets/usm/usm-journey.mp4", poster:"/assets/usm/usm-brand-digital-poster.webp", ratio:"ratio-wide",
         year:"2017", live:"personalities-by-usm.com", liveHref:"https://www.personalities-by-usm.com/en/", collab:"Friends of Friends" },
-      { b:"Siemens",            link:"/siemens-home-appliances.html", tag:"Brand & Content", desc:"A multi-year content partnership for Siemens Home Appliances.",
+      { b:"Siemens",            link:"/siemens-home-appliances.html", tag:"Editorial / Film", desc:"A multi-year content partnership for Siemens Home Appliances.",
         type:"placeholder-logo", src:"/assets/siemens/siemens-logo.svg", lw:160, lh:160, bg:"/assets/siemens/siemens-home-stories-arno-brandlhuber-krampnitz-interior.webp", logoClass:"siemens-logo", ratio:"ratio-land",
         year:"2015–2019", collab:"Friends of Friends" },
-      { b:"Engel & Völkers",    link:"/engel-volkers-web-design.html", tag:"Real Estate & Digital", desc:"Digital experience for the global real estate brand.",
+      { b:"Engel & Völkers",    link:"/engel-volkers-web-design.html", tag:"Identity / Digital / Film", desc:"Digital experience for the global real estate brand.",
         type:"img", src:"/assets/engel-volkers/engel-volkers-web-design-teaser-portrait.webp", ratio:"ratio-land",
         year:"2019", collab:"—" },
-      { b:"Umane",              tag:"Brand & Identity", desc:"Identity for a new generation of athletic health clubs.",
+      { b:"Umane",              tag:"Strategy / Identity / Digital / AI / Consulting", desc:"Identity for a new generation of athletic health clubs.",
         full:true, type:"video", src:"/assets/umane/umane-brand-identity-mockup.mp4", poster:"/assets/umane/umane-brand-identity-poster.webp", overlay:"/assets/umane/umane-brand-identity-logo-animation.mp4", ratio:"ratio-wide",
         link:"/umane-brand-identity.html",
         year:"2024", collab:"—" },
-      { b:"MINI",               link:"/mini-the-sooner-now-brand-campaign.html", tag:"Brand & Platform", desc:"Creative direction, brand strategy, and media platform for a multi-city conference.",
+      { b:"MINI",               link:"/mini-the-sooner-now-brand-campaign.html", tag:"Strategy / Campaign / Editorial / Event", desc:"Creative direction, brand strategy, and media platform for a multi-city conference.",
         full:true, type:"video", src:"/assets/mini/mini-tsn-banner.mp4", poster:"/assets/mini/mini-tsn-poster.webp",
         ratio:"ratio-2",
         year:"2019", live:"mini.com", liveHref:"https://www.mini.com", collab:"—" },
-      { b:"Signal LA",          tag:"Brand & Identity", desc:"Brand identity for an architectural retail enclave in the Los Angeles Arts District.",
+      { b:"Signal LA",          tag:"Identity / Digital / Campaign", desc:"Brand identity for an architectural retail enclave in the Los Angeles Arts District.",
         type:"placeholder-logo", src:"/assets/home/home-index-signal-2023-logo-white.svg", lw:160, lh:90,
         bg:"/assets/signal/signal-bg-web-01.webp", logoClass:"signal-logo",
         ratio:"ratio-land", link:"/signal-la-brand-identity.html",
         year:"2023", collab:"—" },
-      { b:"Bianca Chen",        tag:"Brand & Identity", desc:"Curated Chaos — identity for an independent LA-based art curator.",
+      { b:"Bianca Chen",        tag:"Strategy / Identity / Digital / Motion", desc:"Curated Chaos — identity for an independent LA-based art curator.",
         link:"/bianca-chen-brand-identity.html", type:"video",
         src:"/assets/bianca-chen/bianca-chen.mp4",
         poster:"/assets/bianca-chen/bianca-chen-poster.jpg",
         ratio:"ratio-wide",
         year:"2024", live:"biancachen.com", liveHref:"https://www.biancachen.com/", collab:"Thomas Provost, Sveta Koliada" },
-      { b:"LAS Art Foundation", link:"/las-art-foundation-brand-identity-motion.html", tag:"Branding & Motion", desc:"Visual identity and motion design for a Berlin-based art institution.",
+      { b:"LAS Art Foundation", link:"/las-art-foundation-brand-identity-motion.html", tag:"Strategy / Identity / Digital / Motion", desc:"Visual identity and motion design for a Berlin-based art institution.",
         full:true, type:"video",
         src:"/assets/las-art-foundation/las-art-foundation-branding-motion-las-digital-posters-final-animation-transcode.mp4",
         poster:"/assets/las-art-foundation/las-art-foundation-brand-identity-motion-poster.webp", ratio:"ratio-wide",
@@ -745,7 +750,8 @@
 
 
       const comingSoon = c.coming ? `<span class="case-coming">Coming soon</span>` : '';
-      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}${comingSoon}</div><div class="case-tagline">${c.desc}</div></div>`;
+      const tagRow = c.tag ? `<div class="case-tags">${c.tag.split(' / ').map(x=>`<span class="case-taglink" data-tag="${x}">${x}</span>`).join(' / ')}</div>` : '';
+      const inner = `${media}<div class="case-info"><div class="case-brand">${c.b}${comingSoon}</div><div class="case-tagline">${c.desc}</div>${tagRow}</div>`;
       if (c.link) {
         const a = document.createElement('a');
         a.href = c.link;
@@ -878,6 +884,16 @@
     });
   }
 })();
+</script>
+<script>
+document.addEventListener('click',function(e){
+  var s=e.target.closest('.case-taglink');
+  if(!s) return;
+  e.preventDefault(); e.stopPropagation();
+  var tag=s.getAttribute('data-tag');
+  var landing={'AI':'/ai-consulting.html','Consulting':'/ai-consulting.html'};
+  location.href=landing[tag]||('/work.html#f='+encodeURIComponent(tag));
+});
 </script>
 </body>
 </html>
