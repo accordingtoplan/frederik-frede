@@ -210,6 +210,17 @@ body {
 }
 .footer-copy-link:hover { color: var(--grey-dark); }
 
+button.footer-cookie-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: var(--t-label);
+  color: var(--grey-light);
+  cursor: pointer;
+}
+button.footer-cookie-btn:hover { color: var(--grey-dark); }
+
 .footer-frak {
   font-family: var(--font-frak);
   font-size: 15px;
