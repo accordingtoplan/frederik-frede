@@ -633,3 +633,7 @@ p a:hover,
   .cs-nav-dir { font-size: clamp(14px, 4vw, 20px); }
   .cs-nav-name { font-size: clamp(24px, 8vw, 40px); }
 }
+
+/* case-study tag links (2026-08-04 taxonomy) */
+.cs-tags a.cs-taglink { color: inherit; text-decoration: none; }
+.cs-tags a.cs-taglink:hover { color: var(--grey-dark); }
