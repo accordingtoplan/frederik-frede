@@ -39,16 +39,16 @@
 
   /* Colours — default (light mode) */
   --grey-dark:  #4a4540;
-  --grey-mid:   #7a7470;
-  --grey-light: #a8a39f;
+  --grey-mid:   #706b66;
+  --grey-light: #7a7470;
   --border:     #c8c3be;
   --bg:         #fff;
   --bg-card:    #f5f3f1;
 
   /* Aliases used by colour switcher JS */
   --fg:         #4a4540;
-  --fg-mid:     #7a7470;
-  --fg-light:   #a8a39f;
+  --fg-mid:     #706b66;
+  --fg-light:   #7a7470;
 
   /* Shorthand aliases */
   --dark:   var(--grey-dark);
