@@ -838,6 +838,17 @@
       v.addEventListener('playing', () => { if (v.dataset.inView === '0') v.pause(); });
     });
 
+    // iOS blocks all autoplay in Low Power Mode or with "Auto-Play Video
+    // Previews" switched off. A tap still counts as permission, so any tap
+    // starts whatever videos are on screen.
+    const kickVisible = () => {
+      document.querySelectorAll('video').forEach(v => {
+        if (v.dataset.inView !== '0' && v.paused && (v.currentSrc || v.querySelector('source[src]'))) v.play().catch(() => {});
+      });
+    };
+    document.addEventListener('touchend', kickVisible, { passive: true });
+    document.addEventListener('click', kickVisible);
+
 
     /* ─── COLOUR SWITCHER ─────────────────────────────────── */
     const themes = {
