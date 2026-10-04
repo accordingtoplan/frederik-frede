@@ -784,10 +784,13 @@
         el.querySelectorAll('video.lazy-video').forEach(v => {
           const reveal = () => {
             v.style.opacity = '1';
-            // Clear the poster background painted on the parent once the video
-            // is up, so it can't show through letterbox gaps or behind the clip.
+            // Clear the poster background painted on the parent only once the
+            // video has real frames. If iOS never starts it, the poster stays
+            // instead of leaving a black box.
             const wrap = v.closest('.case-media');
-            if (wrap) wrap.style.backgroundImage = 'none';
+            const clearBg = () => { if (wrap) wrap.style.backgroundImage = 'none'; };
+            if (v.readyState >= 2) clearBg();
+            else v.addEventListener('loadeddata', clearBg, { once: true });
           };
           // Reveal on whichever signal fires first; cover the case where the
           // video is already playing/buffered by the time we attach (readyState
@@ -813,6 +816,27 @@
     }, { rootMargin: '300px 0px' });
 
     document.querySelectorAll('.case').forEach(el => lazyMediaObserver.observe(el));
+
+    // Play only the videos on screen, pause the rest. iOS Safari can decode
+    // just a few videos at once; leaving every loaded clip running makes the
+    // ones further down fail to start on phones.
+    const playObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const v = entry.target;
+        v.dataset.inView = entry.isIntersecting ? '1' : '0';
+        if (entry.isIntersecting) {
+          if (v.paused && (v.currentSrc || v.querySelector('source[src]'))) v.play().catch(() => {});
+        } else if (!v.paused) {
+          v.pause();
+        }
+      });
+    }, { threshold: 0 });
+    document.querySelectorAll('video').forEach(v => {
+      playObserver.observe(v);
+      // Autoplay can start a clip while it is still below the fold; stop it
+      // there and let the observer start it once it scrolls into view.
+      v.addEventListener('playing', () => { if (v.dataset.inView === '0') v.pause(); });
+    });
 
 
     /* ─── COLOUR SWITCHER ─────────────────────────────────── */
