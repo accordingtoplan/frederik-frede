@@ -849,6 +849,34 @@
     document.addEventListener('touchend', kickVisible, { passive: true });
     document.addEventListener('click', kickVisible);
 
+    // Diagnostics: open the page with ?vdebug to see why videos are not
+    // playing on a device. Hidden for normal visitors.
+    if (location.search.includes('vdebug')) {
+      const box = document.createElement('pre');
+      box.style.cssText = 'position:fixed;left:8px;right:8px;bottom:8px;z-index:99999;max-height:55vh;overflow:auto;margin:0;padding:10px;background:#000;color:#0f0;font:11px/1.4 monospace;white-space:pre-wrap;border:1px solid #0f0';
+      document.body.appendChild(box);
+      const lastErr = new WeakMap();
+      const realPlay = HTMLMediaElement.prototype.play;
+      HTMLMediaElement.prototype.play = function () {
+        const p = realPlay.call(this);
+        if (p && p.catch) p.catch(e => lastErr.set(this, e.name));
+        return p;
+      };
+      const probe = document.createElement('video');
+      probe.muted = true; probe.playsInline = true; probe.src = '/assets/bianca-chen/bianca-chen.mp4';
+      let probeResult = 'pending';
+      realPlay.call(probe).then(() => { probeResult = 'ok'; probe.pause(); }).catch(e => { probeResult = e.name; });
+      const render = () => {
+        const lines = [navigator.userAgent.replace(/^Mozilla\/5\.0 /, ''), 'autoplay test: ' + probeResult + '   canPlay h264: ' + (probe.canPlayType('video/mp4; codecs="avc1.64001F"') || 'no')];
+        document.querySelectorAll('video').forEach(v => {
+          const name = (v.currentSrc || (v.querySelector('source') || {}).getAttribute?.('src') || 'not loaded').split('/').pop().slice(0, 28);
+          lines.push(`${v.paused ? 'PAUSED ' : 'PLAYING'} rs${v.readyState} ns${v.networkState}${v.error ? ' err' + v.error.code : ''}${lastErr.get(v) ? ' ' + lastErr.get(v) : ''} ${name}`);
+        });
+        box.textContent = lines.join('\n');
+      };
+      setInterval(render, 1000); render();
+    }
+
 
     /* ─── COLOUR SWITCHER ─────────────────────────────────── */
     const themes = {
