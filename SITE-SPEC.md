@@ -152,6 +152,15 @@ Standard fields: Live site (omit if no URL), Collaborators (`—` if none), Year
 
 ---
 
+## Video hosting (Cloudflare R2, from 2026-10-19)
+
+- All self-hosted videos live in the Cloudflare R2 bucket `frederikfrede-media`, served at `https://media.frederikfrede.com/<client>/<file>.mp4`. They are NOT in the repo (GitHub Pages has a 1 GB site limit).
+- Posters, images and all other assets stay in `/assets/` in this repo.
+- Upload: `npx -y wrangler@4 r2 object put frederikfrede-media/<client>/<file>.mp4 --file <file> --content-type video/mp4 --cache-control "public, max-age=31536000, immutable" --remote` (Wrangler is logged in on Frederik's Mac).
+- Reference the full media URL in `src` / `data-src` / JSON-LD `contentUrl`. Lazy-load markup is unchanged.
+- Encode to spec before upload (H.264, yuv420p, +faststart, ≤1080p box, 25fps, no audio unless the player has controls and sound matters). Name files `<client>-<what it shows>.mp4`.
+- work.html and index.html build image size-variant names (`-640w`, `-1280w`, `-400w`) in JavaScript: never delete a variant whose base image is still referenced.
+
 ## Asset conventions
 
 - Location: `/assets/[client-slug]/`. Self-hosted. Never hotlinked externally.
