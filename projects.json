@@ -271,6 +271,19 @@
  },
  {
   "order": 20,
+  "client": "Squarespace",
+  "disciplines": [
+   "Editorial",
+   "Film"
+  ],
+  "sectors": [
+   "Technology"
+  ],
+  "year": "2022",
+  "url": "/squarespace-three-creative-paths.html"
+ },
+ {
+  "order": 21,
   "client": "Friends of Friends",
   "disciplines": [
    "Strategy",
@@ -285,7 +298,7 @@
   "url": "/friends-of-friends-brand-identity-web.html"
  },
  {
-  "order": 21,
+  "order": 22,
   "client": "Wildling – Regenerative Sounds",
   "disciplines": [
    "Digital",
@@ -298,7 +311,7 @@
   "url": "/wildling-regenerative-sounds.html"
  },
  {
-  "order": 22,
+  "order": 23,
   "client": "Wirtschaftsclub Düsseldorf",
   "disciplines": [
    "Identity",
@@ -311,7 +324,7 @@
   "url": "/wirtschaftsclub-dusseldorf-web-design.html"
  },
  {
-  "order": 23,
+  "order": 24,
   "client": "Berlin Green",
   "disciplines": [
    "Strategy",
@@ -325,7 +338,7 @@
   "url": "/berlin-green-brand-identity.html"
  },
  {
-  "order": 24,
+  "order": 25,
   "client": "Hospitality Projects",
   "disciplines": [
    "Identity",
@@ -338,7 +351,7 @@
   "url": "/hospitality-projects-brand-identity.html"
  },
  {
-  "order": 25,
+  "order": 26,
   "client": "Schattenfinder",
   "disciplines": [
    "Digital"
@@ -350,7 +363,7 @@
   "url": null
  },
  {
-  "order": 26,
+  "order": 27,
   "client": "Roterfaden",
   "disciplines": [
    "Identity",
@@ -363,7 +376,7 @@
   "url": "/roterfaden-brand-digital.html"
  },
  {
-  "order": 27,
+  "order": 28,
   "client": "Mizzuni",
   "disciplines": [
    "Identity",
@@ -376,7 +389,7 @@
   "url": "/mizzuni-ecommerce-brand.html"
  },
  {
-  "order": 28,
+  "order": 29,
   "client": "Zumtobel",
   "disciplines": [
    "Editorial"
@@ -388,7 +401,7 @@
   "url": "/zumtobel-light-editorial-series.html"
  },
  {
-  "order": 29,
+  "order": 30,
   "client": "Dr. Hauschka",
   "disciplines": [
    "Strategy",
@@ -403,7 +416,7 @@
   "url": "/dr-hauschka-brand-campaigns.html"
  },
  {
-  "order": 30,
+  "order": 31,
   "client": "Siemens",
   "disciplines": [
    "Editorial",
@@ -416,7 +429,7 @@
   "url": "/siemens-home-appliances.html"
  },
  {
-  "order": 31,
+  "order": 32,
   "client": "The Ritz-Carlton, Berlin",
   "disciplines": [
    "Event",
@@ -429,7 +442,7 @@
   "url": "/ritz-carlton-berlin-brand-event.html"
  },
  {
-  "order": 32,
+  "order": 33,
   "client": "Ruinart",
   "disciplines": [
    "Film"
@@ -441,7 +454,7 @@
   "url": "/ruinart-jeppe-hein-carte-blanche.html"
  },
  {
-  "order": 33,
+  "order": 34,
   "client": "La Marzocco",
   "disciplines": [
    "Editorial",
@@ -454,7 +467,7 @@
   "url": "/la-marzocco-friends-of-friends.html"
  },
  {
-  "order": 34,
+  "order": 35,
   "client": "MOHAB",
   "disciplines": [
    "Strategy",
@@ -469,7 +482,7 @@
   "url": "/mohab-brand-identity.html"
  },
  {
-  "order": 35,
+  "order": 36,
   "client": "Playdis",
   "disciplines": [
    "Identity",
@@ -482,7 +495,7 @@
   "url": null
  },
  {
-  "order": 36,
+  "order": 37,
   "client": "Facebook",
   "disciplines": [
    "Digital"
@@ -494,7 +507,7 @@
   "url": "/facebook-privacy-interactive.html"
  },
  {
-  "order": 37,
+  "order": 38,
   "client": "Closed",
   "disciplines": [
    "Campaign",
@@ -509,7 +522,7 @@
   "url": "/closed-editorial-portrait-series.html"
  },
  {
-  "order": 38,
+  "order": 39,
   "client": "Internetstores",
   "disciplines": [
    "Identity",
@@ -522,7 +535,7 @@
   "url": "/internetstores-brand-digital.html"
  },
  {
-  "order": 39,
+  "order": 40,
   "client": "Ziegert",
   "disciplines": [
    "Campaign",
@@ -536,7 +549,7 @@
   "url": "/ziegert-real-estate-event.html"
  },
  {
-  "order": 40,
+  "order": 41,
   "client": "MINI",
   "disciplines": [
    "Strategy",
@@ -551,7 +564,7 @@
   "url": "/mini-the-sooner-now-brand-campaign.html"
  },
  {
-  "order": 41,
+  "order": 42,
   "client": "Hotel Berlin, Berlin",
   "disciplines": [
    "Campaign",
@@ -564,7 +577,7 @@
   "url": "/hotel-berlin-you-me-campaign.html"
  },
  {
-  "order": 42,
+  "order": 43,
   "client": "Cresco Real Estate",
   "disciplines": [
    "Strategy",
@@ -578,7 +591,7 @@
   "url": null
  },
  {
-  "order": 43,
+  "order": 44,
   "client": "Ziegert — Billy Wilder Promenade",
   "disciplines": [
    "Strategy",
@@ -592,7 +605,7 @@
   "url": null
  },
  {
-  "order": 44,
+  "order": 45,
   "client": "VELA (PRIMUS Immobilien)",
   "disciplines": [
    "Strategy",
@@ -605,7 +618,7 @@
   "url": null
  },
  {
-  "order": 45,
+  "order": 46,
   "client": "Meama",
   "disciplines": [
    "Strategy",
@@ -618,7 +631,7 @@
   "url": "/meama-brand-identity.html"
  },
  {
-  "order": 46,
+  "order": 47,
   "client": "ClassPass",
   "disciplines": [
    "Campaign",
@@ -631,7 +644,7 @@
   "url": "/classpass-bethebalance-campaign.html"
  },
  {
-  "order": 47,
+  "order": 48,
   "client": "Ace & Tate",
   "disciplines": [
    "Campaign",
@@ -645,7 +658,7 @@
   "url": "/ace-tate-heimatbound-campaign.html"
  },
  {
-  "order": 48,
+  "order": 49,
   "client": "Episode Hotels",
   "disciplines": [
    "Strategy",
@@ -659,7 +672,7 @@
   "url": "/episode-hotels-brand-identity.html"
  },
  {
-  "order": 49,
+  "order": 50,
   "client": "wefox",
   "disciplines": [
    "Digital",
@@ -672,7 +685,7 @@
   "url": "/wefox-web-design.html"
  },
  {
-  "order": 50,
+  "order": 51,
   "client": "Canyon",
   "disciplines": [
    "Digital"
@@ -684,7 +697,7 @@
   "url": "/canyon-digital-experience-web-design.html"
  },
  {
-  "order": 51,
+  "order": 52,
   "client": "PURO Hotels",
   "disciplines": [
    "Identity"
@@ -696,7 +709,7 @@
   "url": "/puro-hotels-brand-identity.html"
  },
  {
-  "order": 52,
+  "order": 53,
   "client": "Thonet",
   "disciplines": [
    "Strategy",
@@ -709,7 +722,7 @@
   "url": "/thonet-brand-narrative.html"
  },
  {
-  "order": 53,
+  "order": 54,
   "client": "Dynaudio",
   "disciplines": [
    "Editorial",
@@ -722,7 +735,7 @@
   "url": "/dynaudio-art-of-listening-film.html"
  },
  {
-  "order": 54,
+  "order": 55,
   "client": "Windsor",
   "disciplines": [
    "Editorial",
@@ -735,7 +748,7 @@
   "url": "/windsor-portrait-film-series.html"
  },
  {
-  "order": 55,
+  "order": 56,
   "client": "Indorse",
   "disciplines": [
    "Editorial",
@@ -748,7 +761,7 @@
   "url": "/indorse-portrait-film-series.html"
  },
  {
-  "order": 56,
+  "order": 57,
   "client": "Sonos",
   "disciplines": [
    "Campaign",
@@ -762,7 +775,7 @@
   "url": "/sonos-listening-better-brand-activation.html"
  },
  {
-  "order": 57,
+  "order": 58,
   "client": "Ctrl QS",
   "disciplines": [
    "Identity",
@@ -775,7 +788,7 @@
   "url": null
  },
  {
-  "order": 58,
+  "order": 59,
   "client": "The Ritz-Carlton, Berlin — Outlets",
   "disciplines": [
    "Identity"
@@ -787,7 +800,7 @@
   "url": null
  },
  {
-  "order": 59,
+  "order": 60,
   "client": "Asadero (Mezcla)",
   "disciplines": [
    "Identity",
@@ -800,7 +813,7 @@
   "url": null
  },
  {
-  "order": 60,
+  "order": 61,
   "client": "Brutø",
   "disciplines": [
    "Identity"
@@ -812,7 +825,7 @@
   "url": "/bruto-restaurant-branding.html"
  },
  {
-  "order": 61,
+  "order": 62,
   "client": "ORNO",
   "disciplines": [
    "Identity",
@@ -825,7 +838,7 @@
   "url": "/orno-pizza-branding.html"
  },
  {
-  "order": 62,
+  "order": 63,
   "client": "Swayed",
   "disciplines": [
    "Identity",
@@ -840,7 +853,7 @@
   "url": "/swayed-ai-branding.html"
  },
  {
-  "order": 63,
+  "order": 64,
   "client": "Weiler",
   "disciplines": [
    "Identity",
@@ -854,7 +867,7 @@
   "url": "/weiler-brand-identity.html"
  },
  {
-  "order": 64,
+  "order": 65,
   "client": "HAY",
   "disciplines": [
    "Campaign",
@@ -867,7 +880,7 @@
   "url": "/hay-creative-direction.html"
  },
  {
-  "order": 65,
+  "order": 66,
   "client": "Rooms Hotels",
   "disciplines": [
    "Strategy",
@@ -880,7 +893,7 @@
   "url": "/rooms-hotels.html"
  },
  {
-  "order": 66,
+  "order": 67,
   "client": "Ørgreen Optics",
   "disciplines": [
    "E-com",
@@ -893,7 +906,7 @@
   "url": "/orgreen-optics-brand-digital.html"
  },
  {
-  "order": 67,
+  "order": 68,
   "client": "Grill Royal Group",
   "disciplines": [
    "Digital",
@@ -906,7 +919,7 @@
   "url": "/grill-royal-group-brand-digital.html"
  },
  {
-  "order": 68,
+  "order": 69,
   "client": "Mauermuseum",
   "disciplines": [
    "Digital"
@@ -918,7 +931,7 @@
   "url": "/mauermuseum-web-design.html"
  },
  {
-  "order": 69,
+  "order": 70,
   "client": "&Tradition",
   "disciplines": [
    "Editorial",
@@ -931,7 +944,7 @@
   "url": "/and-tradition-jaime-hayon.html"
  },
  {
-  "order": 70,
+  "order": 71,
   "client": "NOMOS Glashütte",
   "disciplines": [
    "Editorial",
@@ -944,7 +957,7 @@
   "url": "/nomos-at-work-film-series.html"
  },
  {
-  "order": 71,
+  "order": 72,
   "client": "Adobe",
   "disciplines": [
    "Editorial",
@@ -957,7 +970,7 @@
   "url": "/adobe-creative-cloud-stock-films.html"
  },
  {
-  "order": 72,
+  "order": 73,
   "client": "Vitra",
   "disciplines": [
    "Strategy"
@@ -969,7 +982,7 @@
   "url": "/vitra-brand-strategy.html"
  },
  {
-  "order": 73,
+  "order": 74,
   "client": "Mezcla",
   "disciplines": [
    "Identity",
@@ -982,7 +995,7 @@
   "url": "/mezcla-brand-digital.html"
  },
  {
-  "order": 74,
+  "order": 75,
   "client": "QWSTION",
   "disciplines": [
    "Editorial",
@@ -995,7 +1008,7 @@
   "url": "/qwstion-company-portrait.html"
  },
  {
-  "order": 75,
+  "order": 76,
   "client": "MINI Lookbook",
   "disciplines": [
    "Editorial",
@@ -1008,7 +1021,7 @@
   "url": "/mini-the-sooner-now-brand-campaign.html"
  },
  {
-  "order": 76,
+  "order": 77,
   "client": "Companion Magazine (25hours)",
   "disciplines": [
    "Editorial"
@@ -1020,7 +1033,7 @@
   "url": "/25hours-hotels-brand-identity.html"
  },
  {
-  "order": 77,
+  "order": 78,
   "client": "Selfnation",
   "disciplines": [
    "Campaign",
@@ -1033,7 +1046,7 @@
   "url": "/selfnation-campaign.html"
  },
  {
-  "order": 78,
+  "order": 79,
   "client": "Visit California",
   "disciplines": [
    "Editorial",
@@ -1047,7 +1060,7 @@
   "url": "/visit-california-dream-big-portraits.html"
  },
  {
-  "order": 79,
+  "order": 80,
   "client": "USM Modular Furniture",
   "disciplines": [
    "Editorial",
@@ -1060,7 +1073,7 @@
   "url": "/usm-modular-furniture-brand-digital.html"
  },
  {
-  "order": 80,
+  "order": 81,
   "client": "&Tradition",
   "disciplines": [
    "Editorial",
@@ -1073,7 +1086,7 @@
   "url": null
  },
  {
-  "order": 81,
+  "order": 82,
   "client": "BMW",
   "disciplines": [
    "Campaign"
@@ -1085,7 +1098,7 @@
   "url": "/bmw-brand-campaign-art-direction.html"
  },
  {
-  "order": 82,
+  "order": 83,
   "client": "Bolon",
   "disciplines": [
    "Digital"
@@ -1097,7 +1110,7 @@
   "url": "/bolon-web-design.html"
  },
  {
-  "order": 83,
+  "order": 84,
   "client": "Manufactum",
   "disciplines": [
    "Editorial",
@@ -1110,7 +1123,7 @@
   "url": "/manufactum-alltagsfreude-ruth-bartlett.html"
  },
  {
-  "order": 84,
+  "order": 85,
   "client": "AD Magazin",
   "disciplines": [
    "Digital"
@@ -1122,7 +1135,7 @@
   "url": "/ad-magazin-web-design-art-direction.html"
  },
  {
-  "order": 85,
+  "order": 86,
   "client": "MoreSleep",
   "disciplines": [
    "Identity"
@@ -1134,7 +1147,7 @@
   "url": "/moresleep-creative-studio.html"
  },
  {
-  "order": 86,
+  "order": 87,
   "client": "aleo solar",
   "disciplines": [
    "Identity",
@@ -1147,7 +1160,7 @@
   "url": "/aleo-solar-brand-digital.html"
  },
  {
-  "order": 87,
+  "order": 88,
   "client": "Freunde von Freunden — Book Vol. 2",
   "disciplines": [
    "Editorial"
@@ -1159,7 +1172,7 @@
   "url": "/friends-of-friends-brand-identity-web.html"
  },
  {
-  "order": 88,
+  "order": 89,
   "client": "Egon Zehnder",
   "disciplines": [
    "Editorial",
@@ -1172,7 +1185,7 @@
   "url": "/egon-zehnder-leadership-interviews.html"
  },
  {
-  "order": 89,
+  "order": 90,
   "client": "FvF Friends Space",
   "disciplines": [
    "Strategy",
@@ -1185,7 +1198,7 @@
   "url": "/friends-of-friends-brand-identity-web.html"
  },
  {
-  "order": 90,
+  "order": 91,
   "client": "Friends of Friends iPad Magazine",
   "disciplines": [
    "Digital",
@@ -1198,7 +1211,7 @@
   "url": "/friends-of-friends-brand-identity-web.html"
  },
  {
-  "order": 91,
+  "order": 92,
   "client": "adidas",
   "disciplines": [
    "Campaign",
@@ -1208,11 +1221,11 @@
   "sectors": [
    "Sports"
   ],
-  "year": "2012",
+  "year": "2013",
   "url": "/adidas-journeys-interactive-campaign.html"
  },
  {
-  "order": 92,
+  "order": 93,
   "client": "Lala Berlin",
   "disciplines": [
    "E-Commerce",
@@ -1225,7 +1238,7 @@
   "url": "/lala-berlin-brand-digital.html"
  },
  {
-  "order": 93,
+  "order": 94,
   "client": "Freunde von Freunden — Book Vol. 1",
   "disciplines": [
    "Editorial"
@@ -1237,7 +1250,7 @@
   "url": "/friends-of-friends-brand-identity-web.html"
  },
  {
-  "order": 94,
+  "order": 95,
   "client": "NoMoreSleep × TBWA",
   "disciplines": [
    "Digital",
@@ -1250,7 +1263,7 @@
   "url": "/nomoresleep-tbwa-digital-arts.html"
  },
  {
-  "order": 95,
+  "order": 96,
   "client": "Geist Knt & Geist Rnd",
   "disciplines": [
    "Type Design"
@@ -1262,7 +1275,7 @@
   "url": null
  },
  {
-  "order": 96,
+  "order": 97,
   "client": "Iconist",
   "disciplines": [
    "Digital",
@@ -1275,7 +1288,7 @@
   "url": "/iconist-ipad-app.html"
  },
  {
-  "order": 97,
+  "order": 98,
   "client": "Freunde von Freunden",
   "disciplines": [
    "Identity",
@@ -1289,7 +1302,7 @@
   "url": "/friends-of-friends-brand-identity-web.html"
  },
  {
-  "order": 98,
+  "order": 99,
   "client": "MINI",
   "disciplines": [
    "Identity"
@@ -1301,7 +1314,7 @@
   "url": null
  },
  {
-  "order": 99,
+  "order": 100,
   "client": "Mercedes-Benz",
   "disciplines": [
    "Identity"
@@ -1313,7 +1326,7 @@
   "url": null
  },
  {
-  "order": 100,
+  "order": 101,
   "client": "BMW",
   "disciplines": [
    "Identity"
@@ -1325,7 +1338,7 @@
   "url": null
  },
  {
-  "order": 101,
+  "order": 102,
   "client": "SmithGroup Shanghai",
   "disciplines": [
    "Creative Direction",
@@ -1338,7 +1351,7 @@
   "url": "/smithgroup-shanghai.html"
  },
  {
-  "order": 102,
+  "order": 103,
   "client": "Neubau Welt / Die Gestalten Verlag",
   "disciplines": [
    "Editorial"
@@ -1350,7 +1363,7 @@
   "url": "/neubau-welt.html"
  },
  {
-  "order": 103,
+  "order": 104,
   "client": "Ingo Robin",
   "disciplines": [
    "Identity",
@@ -1363,7 +1376,7 @@
   "url": "/ingo-robin.html"
  },
  {
-  "order": 104,
+  "order": 105,
   "client": "Grimetime Berlin",
   "disciplines": [
    "Identity",
@@ -1376,7 +1389,7 @@
   "url": "/grimetime-berlin.html"
  },
  {
-  "order": 105,
+  "order": 106,
   "client": "Neubau Welt",
   "disciplines": [
    "Design"
@@ -1388,7 +1401,7 @@
   "url": null
  },
  {
-  "order": 106,
+  "order": 107,
   "client": "Nissan",
   "disciplines": [
    "Identity"
@@ -1400,7 +1413,7 @@
   "url": null
  },
  {
-  "order": 107,
+  "order": 108,
   "client": "Carhartt Europe",
   "disciplines": [
    "Campaign"
@@ -1412,7 +1425,7 @@
   "url": "/carhartt.html"
  },
  {
-  "order": 108,
+  "order": 109,
   "client": "Seppuku Industries",
   "disciplines": [
    "Identity"
@@ -1424,7 +1437,7 @@
   "url": "/seppuku-industries.html"
  },
  {
-  "order": 109,
+  "order": 110,
   "client": "Watergate Club",
   "disciplines": [
    "Identity",
@@ -1437,7 +1450,7 @@
   "url": "/watergate-club.html"
  },
  {
-  "order": 110,
+  "order": 111,
   "client": "hard:edged Recordings",
   "disciplines": [
    "Identity"
@@ -1449,7 +1462,7 @@
   "url": "/hardedged-recordings.html"
  },
  {
-  "order": 111,
+  "order": 112,
   "client": "Republish",
   "disciplines": [
    "Identity",
@@ -1462,7 +1475,7 @@
   "url": "/republish.html"
  },
  {
-  "order": 112,
+  "order": 113,
   "client": "Republish",
   "disciplines": [
    "Identity",
@@ -1475,7 +1488,7 @@
   "url": "/republish.html"
  },
  {
-  "order": 113,
+  "order": 114,
   "client": "Ministry of Sound",
   "disciplines": [
    "Identity",
@@ -1488,7 +1501,7 @@
   "url": null
  },
  {
-  "order": 114,
+  "order": 115,
   "client": "Covers, Logos, Flyers",
   "disciplines": [
    "Identity"
@@ -1500,7 +1513,7 @@
   "url": null
  },
  {
-  "order": 115,
+  "order": 116,
   "client": "Universal Music",
   "disciplines": [
    "Editorial"
