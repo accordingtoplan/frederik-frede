@@ -87,6 +87,8 @@
 
 <div class="cs-intro"><p>Whether it's an elephant-inspired chair or a supersonic-nosed rocking horse, Valencia-based artist and designer Jaime Hayon creates characterful work that defies easy categorisation. Friends of Friends visited his studio on the occasion of the Elefy chair, his new design for Danish company &Tradition.</p><p>Filmed across his studio and sketchbooks, the portrait captures Hayon's process: drawing daily, working between fine art and functional design, and his belief that good storytelling is what gives an object its emotional charge.</p></div>
 
+<div class="cs-media-full"><div class="yt-facade" data-id="AfSdVWQdiWU" style="width:100%;aspect-ratio:16/9;position:relative;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi/AfSdVWQdiWU/maxresdefault.jpg" alt="Friends of Friends and &amp;Tradition film: Jaime Hayon in his Valencia studio" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play the Jaime Hayon film for &amp;Tradition" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
+
 <div class="cs-media-full">
   <img src="/assets/and-tradition/and-tradition-jaime-hayon-studio-portrait.jpg" alt="Designer Jaime Hayon in his Valencia studio, for &Tradition" loading="lazy" width="2242" height="1495">
 </div>
@@ -95,6 +97,8 @@
   <video autoplay muted loop playsinline preload="metadata" poster="/assets/and-tradition/and-tradition-hayon-loop-03.jpg" data-lazy><source data-src="/assets/and-tradition/and-tradition-hayon-loop-03.mp4" type="video/mp4"></video>
   <video autoplay muted loop playsinline preload="metadata" poster="/assets/and-tradition/and-tradition-hayon-loop-04.jpg" data-lazy><source data-src="/assets/and-tradition/and-tradition-hayon-loop-04.mp4" type="video/mp4"></video>
 </div>
+
+<div class="cs-grid"><picture><source type="image/webp" srcset="/assets/and-tradition/and-tradition-designer-drawing-in-sketchbook-at-desk-640w.webp 640w, /assets/and-tradition/and-tradition-designer-drawing-in-sketchbook-at-desk-1280w.webp 1280w, /assets/and-tradition/and-tradition-designer-drawing-in-sketchbook-at-desk.webp 1600w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/and-tradition/and-tradition-designer-drawing-in-sketchbook-at-desk.jpg" width="1600" height="1067" alt="Jaime Hayon drawing in a sketchbook at his studio desk, surrounded by notebooks and markers" loading="lazy"></picture><picture><source type="image/webp" srcset="/assets/and-tradition/and-tradition-designer-painting-large-canvas-in-studio-640w.webp 640w, /assets/and-tradition/and-tradition-designer-painting-large-canvas-in-studio-1280w.webp 1280w, /assets/and-tradition/and-tradition-designer-painting-large-canvas-in-studio.webp 2242w" sizes="(max-width:640px) 100vw, 50vw"><img src="/assets/and-tradition/and-tradition-designer-painting-large-canvas-in-studio.jpg" width="1600" height="1067" alt="Jaime Hayon painting a large colourful canvas in his Valencia studio" loading="lazy"></picture></div>
 
 <div class="cs-pullquote">
   <blockquote>Creativity always has to be something unexpected.</blockquote>
@@ -124,6 +128,22 @@
 <footer>
     <div id="footer-mount"></div>
   </footer>
+<script>
+(function(){
+  document.querySelectorAll('.yt-facade').forEach(function(el){
+    el.addEventListener('click',function(){
+      var id=el.dataset.id;
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
+      iframe.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+      iframe.allowFullscreen=true;
+      iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;';
+      el.innerHTML='';
+      el.appendChild(iframe);
+    });
+  });
+})();
+</script>
   <script src="/footer.js"></script>
 <script>
   const themes={white:{bg:'#fff',card:'#f5f3f1',fg:'#4a4540',mid:'#706b66',light:'#7a7470',border:'#c8c3be'},black:{bg:'#111',card:'#1a1a1a',fg:'#fff',mid:'rgba(255,255,255,0.62)',light:'rgba(255,255,255,0.52)',border:'rgba(255,255,255,0.12)'},signal:{bg:'#e63222',card:'#cc2b1d',fg:'#000',mid:'rgba(0,0,0,0.55)',light:'rgba(0,0,0,0.48)',border:'transparent'}};

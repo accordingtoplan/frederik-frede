@@ -11,7 +11,7 @@
 <meta property="og:description" content="A pair of filmed interviews for executive search firm Egon Zehnder, exploring new models of leadership and organisational change.">
 <meta property="og:url" content="https://frederikfrede.com/egon-zehnder-leadership-interviews.html">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://frederikfrede.com/assets/egon-zehnder/egon-zehnder-xvideo-images-3000x1800.jpg">
+<meta property="og:image" content="https://frederikfrede.com/assets/egon-zehnder/egon-zehnder-interview-portrait-garden.jpg">
   <link rel="stylesheet" href="style.css">
 
 
@@ -42,7 +42,7 @@
         "@type": "Organization",
         "name": "Egon Zehnder"
       },
-      "image": "https://frederikfrede.com/assets/egon-zehnder/egon-zehnder-xvideo-images-3000x1800.jpg",
+      "image": "https://frederikfrede.com/assets/egon-zehnder/egon-zehnder-interview-portrait-garden.jpg",
       "isPartOf": {
         "@type": "WebSite",
         "name": "Frederik Frede",
@@ -82,9 +82,12 @@
   </div>
 </header>
 
-<div class="cs-media-full"><picture><source type="image/webp" srcset="/assets/egon-zehnder/egon-zehnder-xvideo-images-3000x1800-640w.webp 640w, /assets/egon-zehnder/egon-zehnder-xvideo-images-3000x1800-1280w.webp 1280w, /assets/egon-zehnder/egon-zehnder-xvideo-images-3000x1800-2400w.webp 2400w" sizes="(max-width:1280px) 100vw, 80vw"><img src="/assets/egon-zehnder/egon-zehnder-xvideo-images-3000x1800.jpg" width="3000" height="1800" alt="Egon Zehnder interview with Frédéric Laloux" loading="lazy"></picture></div>
+<div class="cs-media-full"><picture><source type="image/webp" srcset="/assets/egon-zehnder/egon-zehnder-interview-portrait-garden-640w.webp 640w, /assets/egon-zehnder/egon-zehnder-interview-portrait-garden-1280w.webp 1280w, /assets/egon-zehnder/egon-zehnder-interview-portrait-garden-2400w.webp 2400w" sizes="(max-width:1280px) 100vw, 80vw"><img src="/assets/egon-zehnder/egon-zehnder-interview-portrait-garden.jpg" width="3000" height="1800" alt="Egon Zehnder interview with Frédéric Laloux" loading="lazy"></picture></div>
 
 <div class="cs-intro"><p>For Egon Zehnder, Friends of Friends produced a series of filmed interviews with leadership thinkers exploring how organisations are rethinking management, hierarchy and culture.</p><p>The first, with author and consultant Frédéric Laloux, explores the ideas behind his bestselling book “Reinventing Organizations” and why the future belongs to self-managing teams. A second interview features Erica Ariel Fox on navigating leadership transitions.</p></div>
+
+<div class="cs-media-full"><div class="yt-facade" data-id="nTgUYKsbHWk" style="width:100%;aspect-ratio:16/9;position:relative;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi/nTgUYKsbHWk/maxresdefault.jpg" alt="Egon Zehnder film: Frédéric Laloux on a new management paradigm" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play the Frédéric Laloux interview for Egon Zehnder" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
+<div class="cs-media-full"><div class="yt-facade" data-id="d3zQfpf1eS8" style="width:100%;aspect-ratio:16/9;position:relative;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi/d3zQfpf1eS8/maxresdefault.jpg" alt="Egon Zehnder film: Erica Ariel Fox on self-discovery and leadership" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play the Erica Ariel Fox interview for Egon Zehnder" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
 
 
 
@@ -116,6 +119,22 @@
 <footer>
     <div id="footer-mount"></div>
   </footer>
+<script>
+(function(){
+  document.querySelectorAll('.yt-facade').forEach(function(el){
+    el.addEventListener('click',function(){
+      var id=el.dataset.id;
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
+      iframe.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+      iframe.allowFullscreen=true;
+      iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;';
+      el.innerHTML='';
+      el.appendChild(iframe);
+    });
+  });
+})();
+</script>
   <script src="/footer.js"></script>
 <script>
   const themes={white:{bg:'#fff',card:'#f5f3f1',fg:'#4a4540',mid:'#706b66',light:'#7a7470',border:'#c8c3be'},black:{bg:'#111',card:'#1a1a1a',fg:'#fff',mid:'rgba(255,255,255,0.62)',light:'rgba(255,255,255,0.52)',border:'rgba(255,255,255,0.12)'},signal:{bg:'#e63222',card:'#cc2b1d',fg:'#000',mid:'rgba(0,0,0,0.55)',light:'rgba(0,0,0,0.48)',border:'transparent'}};

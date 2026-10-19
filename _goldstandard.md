@@ -126,7 +126,6 @@ Standard fields: `Live site` (omit if no live URL), `Collaborators` (use `—` i
 
 | Page | Class(es) | Reason |
 |------|-----------|--------|
-| siemens-home-appliances.html | `.cs-slideshow` / `.ss-*` | bespoke JS slideshow component |
 | classpass-bethebalance-campaign.html | `.cs-grid-three-land` | 3-col 3:2 landscape grid variant |
 | frederik-pferdt-personal-brand-identity.html | `.cs-credits-cols` grid variant | right-aligned stacked credits |
 | spot-asset-management-system.html | all `.cs-*` overrides | intentional design-system variant |
