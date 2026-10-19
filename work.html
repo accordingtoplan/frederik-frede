@@ -110,12 +110,24 @@ main{flex:1;padding:0}
 .ar-cat{display:block;font-size:var(--t-label);color:var(--grey-light);font-weight:var(--bold);padding:5px 0;line-height:var(--lh-ui)}
 .ar-pitch{font-size:var(--t-label);color:var(--grey-light);font-style:italic;margin-left:6px}
 
+/* ─── CLIENT CARPET ─────────────────────────────────────────────── */
+.client-carpet{padding:0 48px;margin-bottom:64px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.client-carpet span{background:var(--bg-card);aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;padding:12px}
+.client-carpet img{width:auto;height:auto;max-width:60%;max-height:22px;object-fit:contain;filter:brightness(0);opacity:.78}
+.client-carpet .mark img{max-height:26px}
+.client-carpet .tall img{max-height:36px}
+[data-theme="black"] .client-carpet img{filter:brightness(0) invert(1)}
+
 /* FOOTER */
 footer{margin-top:auto}
 
 /* ─── MOBILE ─────────────────────────────────────────────────────── */
 @media(max-width:1024px){
   .work-grid.view-columns{columns:3}
+  .client-carpet span{padding:8px}
+  .client-carpet img{max-height:18px}
+  .client-carpet .mark img{max-height:22px}
+  .client-carpet .tall img{max-height:30px}
 }
 @media(max-width:760px){
   .work-grid.view-columns{columns:2}
@@ -125,6 +137,7 @@ footer{margin-top:auto}
   .page-hero{padding:80px 20px 36px;flex-direction:column;align-items:flex-start;gap:16px}
   .page-headline{font-size:clamp(36px,10vw,56px)}
   .work-grid{padding:0 20px;margin-bottom:64px;gap:24px 6px}
+  .client-carpet{padding:0 20px;margin-bottom:40px;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
   .card-media{height:160px}
   .card--placeholder .card-media{width:200px}
   .work-grid.view-columns{padding:0 20px;columns:1;column-gap:0}
@@ -194,6 +207,41 @@ footer{margin-top:auto}
         </svg>
       </button>
     </div>
+  </div>
+
+  <div class="client-carpet" role="list" aria-label="Clients">
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-nike.png" alt="Nike" width="457" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-adidas.png" alt="adidas" width="238" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="tall"><img src="/assets/clients/clients-logo-louis-vuitton.png" alt="Louis Vuitton" width="132" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-bmw.png" alt="BMW" width="160" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-mercedes-benz.png" alt="Mercedes-Benz" width="160" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-mini.png" alt="MINI" width="364" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-nissan.png" alt="Nissan" width="191" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-mars.png" alt="Mars" width="480" height="136" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="tall"><img src="/assets/clients/clients-logo-absolut.png" alt="Absolut" width="333" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-mccafe.png" alt="McCafé" width="410" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-ruinart.png" alt="Ruinart" width="480" height="127" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-la-marzocco.png" alt="La Marzocco" width="480" height="84" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="tall"><img src="/assets/clients/clients-logo-universal.png" alt="Universal" width="302" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-twitter.png" alt="Twitter" width="197" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-facebook.png" alt="Facebook" width="160" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-adobe.png" alt="Adobe" width="180" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-siemens.png" alt="Siemens" width="480" height="80" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-sonos.png" alt="Sonos" width="480" height="94" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-marriott.png" alt="Marriott" width="206" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="tall"><img src="/assets/clients/clients-logo-ritz-carlton.png" alt="The Ritz-Carlton" width="106" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="tall"><img src="/assets/clients/clients-logo-accor.png" alt="Accor" width="195" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-visit-california.png" alt="Visit California" width="480" height="139" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-vitra.png" alt="Vitra" width="480" height="157" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-usm.png" alt="USM" width="160" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-carhartt.png" alt="Carhartt" width="480" height="73" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-ace-tate.png" alt="Ace &amp; Tate" width="480" height="77" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="tall"><img src="/assets/clients/clients-logo-dr-hauschka.png" alt="Dr. Hauschka" width="309" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="tall"><img src="/assets/clients/clients-logo-weleda.png" alt="Weleda" width="160" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-classpass.png" alt="ClassPass" width="480" height="95" loading="lazy" decoding="async"></span>
+    <span role="listitem" class="mark"><img src="/assets/clients/clients-logo-ad-magazin.png" alt="AD" width="228" height="160" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-nzz.png" alt="NZZ" width="480" height="70" loading="lazy" decoding="async"></span>
+    <span role="listitem"><img src="/assets/clients/clients-logo-tbwa.png" alt="TBWA" width="480" height="131" loading="lazy" decoding="async"></span>
   </div>
 
   <div class="work-grid" id="work-grid"></div>
