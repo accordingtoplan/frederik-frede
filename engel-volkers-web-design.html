@@ -117,6 +117,14 @@
     <source data-src="https://media.frederikfrede.com/engel-volkers/engel-volkers-team-portrait-film.mp4" type="video/mp4">
   </video>
 </div>
+<div class="cs-strategy">
+  <span class="cs-section-label">04 — Homes With a Story</span>
+  <div class="cs-strategy-intro">
+    <h2>Architects at home.</h2>
+    <p>A content collaboration between Friends of Friends and Engel &amp; Völkers on design and architecture. The films visit extraordinary homes and the people who built them. Here, Armand Grüntuch and Almut Grüntuch-Ernst of Grüntuch Ernst Architects walk through their buildings in Berlin.</p>
+  </div>
+</div>
+<div class="cs-media-full"><div class="yt-facade" data-id="aOqHQMcYhi4" style="width:100%;position:relative;cursor:pointer;background:#000;aspect-ratio:16/9;"><img src="https://i.ytimg.com/vi/aOqHQMcYhi4/hqdefault.jpg" alt="Friends of Friends and Engel &amp; Völkers film: Armand Grüntuch and Almut Grüntuch-Ernst walk through their homes" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;"><button aria-label="Play film, Grüntuch Ernst Architects" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);border:none;border-radius:50%;width:64px;height:64px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></button></div></div>
 <div class="cs-pullquote">
   <blockquote>90% of all search customers start their property search online.</blockquote>
 </div>
@@ -146,7 +154,23 @@
 <footer>
     <div id="footer-mount"></div>
   </footer>
-  <script src="/footer.js"></script>
+  <script>
+(function(){
+  document.querySelectorAll('.yt-facade').forEach(function(el){
+    el.addEventListener('click',function(){
+      var id=el.dataset.id;
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
+      iframe.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+      iframe.allowFullscreen=true;
+      iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;';
+      el.innerHTML='';
+      el.appendChild(iframe);
+    });
+  });
+})();
+</script>
+<script src="/footer.js"></script>
 <script>
   const themes={white:{bg:'#fff',card:'#f5f3f1',fg:'#4a4540',mid:'#706b66',light:'#7a7470',border:'#c8c3be'},black:{bg:'#111',card:'#1a1a1a',fg:'#fff',mid:'rgba(255,255,255,0.62)',light:'rgba(255,255,255,0.52)',border:'rgba(255,255,255,0.12)'},signal:{bg:'#e63222',card:'#cc2b1d',fg:'#000',mid:'rgba(0,0,0,0.55)',light:'rgba(0,0,0,0.48)',border:'transparent'}};
   function setTheme(n,el){const t=themes[n],r=document.documentElement.style;r.setProperty('--bg',t.bg);r.setProperty('--bg-card',t.card);r.setProperty('--fg',t.fg);r.setProperty('--fg-mid',t.mid);r.setProperty('--fg-light',t.light);r.setProperty('--border',t.border);r.setProperty('--grey-dark',t.fg);r.setProperty('--grey-mid',t.mid);r.setProperty('--grey-light',t.light);document.documentElement.setAttribute('data-theme',n);document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));if(el)el.classList.add('active');}
