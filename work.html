@@ -111,11 +111,11 @@ main{flex:1;padding:0}
 .ar-pitch{font-size:var(--t-label);color:var(--grey-light);font-style:italic;margin-left:6px}
 
 /* ─── CLIENT CARPET ─────────────────────────────────────────────── */
-.client-carpet{padding:0 48px;margin-bottom:64px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.client-carpet{padding:0 48px;margin-bottom:64px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
 .client-carpet span{background:var(--bg-card);aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;padding:12px}
-.client-carpet img{width:auto;height:auto;max-width:60%;max-height:22px;object-fit:contain;filter:brightness(0);opacity:.78}
-.client-carpet .mark img{max-height:26px}
-.client-carpet .tall img{max-height:36px}
+.client-carpet img{width:auto;height:auto;max-width:64%;max-height:18px;object-fit:contain;filter:brightness(0);opacity:.78}
+.client-carpet .mark img{max-height:22px}
+.client-carpet .tall img{max-height:30px}
 [data-theme="black"] .client-carpet img{filter:brightness(0) invert(1)}
 
 /* FOOTER */
@@ -124,6 +124,7 @@ footer{margin-top:auto}
 /* ─── MOBILE ─────────────────────────────────────────────────────── */
 @media(max-width:1024px){
   .work-grid.view-columns{columns:3}
+  .client-carpet{grid-template-columns:repeat(8,minmax(0,1fr))}
   .client-carpet span{padding:8px}
   .client-carpet img{max-height:18px}
   .client-carpet .mark img{max-height:22px}
@@ -258,6 +259,7 @@ footer{margin-top:auto}
     <div class="archive-col-year">
       <h3>Years</h3>
       <span class="ar-year">2025-2026</span>
+      <span class="ar-year">2026</span>
       <span class="ar-year">2025-2026</span>
       <span class="ar-year">2025-2026</span>
       <span class="ar-year">2021-2026</span>
@@ -297,6 +299,7 @@ footer{margin-top:auto}
     <div class="archive-col-client">
       <h3>Client / Project</h3>
       <span class="ar-client"><a href="/concierge-coffee-brand-web.html">Concierge Coffee</a></span>
+      <span class="ar-client">Les Copines</span>
       <span class="ar-client">NZZ Mediengruppe</span>
       <span class="ar-client"><a href="/umane-brand-identity.html">Umane</a></span>
       <span class="ar-client"><a href="/lewis-group-brand-identity-web-design.html">Lewis Group of Companies</a></span>
@@ -336,6 +339,7 @@ footer{margin-top:auto}
     <div class="archive-col-cat">
       <h3>Service &middot; Sector</h3>
       <span class="ar-cat" data-tags="d:Strategy d:Identity d:E-Commerce s:Hospitality"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity">Identity</a> / <a class="ar-taglink" href="#f=E-Commerce" data-tag="E-Commerce">E-Commerce</a> &middot; <a class="ar-taglink" href="/hospitality.html" data-tag="Hospitality" data-ext="1">Hospitality</a></span>
+      <span class="ar-cat" data-tags="d:Identity d:Digital s:Media"><a class="ar-taglink" href="#f=Identity" data-tag="Identity">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital">Digital</a> &middot; <a class="ar-taglink" href="#f=Media" data-tag="Media">Media</a></span>
       <span class="ar-cat" data-tags="d:AI d:Consulting d:Digital s:Media &amp; Publishing"><a class="ar-taglink" href="/ai-consulting.html" data-tag="AI" data-ext="1">AI</a> / <a class="ar-taglink" href="/ai-consulting.html" data-tag="Consulting" data-ext="1">Consulting</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital">Digital</a> &middot; <a class="ar-taglink" href="#f=Media &amp; Publishing" data-tag="Media &amp; Publishing">Media &amp; Publishing</a></span>
       <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital d:AI d:Consulting s:Wellness"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital">Digital</a> / <a class="ar-taglink" href="/ai-consulting.html" data-tag="AI" data-ext="1">AI</a> / <a class="ar-taglink" href="/ai-consulting.html" data-tag="Consulting" data-ext="1">Consulting</a> &middot; <a class="ar-taglink" href="#f=Wellness" data-tag="Wellness">Wellness</a></span>
       <span class="ar-cat" data-tags="d:Strategy d:Identity d:Digital s:Real Estate"><a class="ar-taglink" href="#f=Strategy" data-tag="Strategy">Strategy</a> / <a class="ar-taglink" href="#f=Identity" data-tag="Identity">Identity</a> / <a class="ar-taglink" href="#f=Digital" data-tag="Digital">Digital</a> &middot; <a class="ar-taglink" href="/real-estate.html" data-tag="Real Estate" data-ext="1">Real Estate</a></span>
@@ -666,14 +670,18 @@ footer{margin-top:auto}
 const projects = [
   { b:"Architonic",          t:"Strategy / Identity / Digital / Campaign / AI / Consulting", type:"img",   link:"/architonic-brand-strategy-platform-design.html",
     src:"/assets/architonic/architonic-at-logo-on-coral-mockup-04.jpg", w:2400, h:1601 },
+  { b:"Concierge Coffee",    t:"Strategy / Identity / Digital",          type:"img",   link:"/concierge-coffee-brand-web.html",
+    src:"/assets/concierge-coffee/concierge-coffee-brand-web-space-hero.webp", w:2400, h:1602 },
+  { b:"Les Copines",         t:"Identity / Digital",          type:"img",
+    src:"/assets/les-copines/les-copines-website-homepage-hotels-restaurants.jpg", w:1440, h:1800 },
   { b:"Frederik G. Pferdt",  t:"Strategy / Identity / Digital",          type:"video", link:"/frederik-pferdt-personal-brand-identity.html",
-    src:"https://media.frederikfrede.com/pferdt/pferdt-logo-on-animated-shape.mp4", w:1080, h:1350 },
+    src:"https://media.frederikfrede.com/pferdt/pferdt-logo-on-animated-shape.mp4", poster:"/assets/pferdt/pferdt-logo-on-animated-shape-poster.jpg", w:1080, h:1350 },
   { b:"wefox",               t:"Digital / Campaign",            type:"img",   link:"/wefox-web-design.html",
     src:"/assets/wefox/wefox-web-design-teaser-portrait.jpg", w:1919, h:2400 },
   { b:"LAS Art Foundation",  t:"Strategy / Identity / Digital / Motion",         type:"video", link:"/las-art-foundation-brand-identity-motion.html",
-    src:"https://media.frederikfrede.com/las-art-foundation/las-art-foundation-digital-posters-city-screens.mp4", w:1280, h:720 },
+    src:"https://media.frederikfrede.com/las-art-foundation/las-art-foundation-digital-posters-city-screens.mp4", poster:"/assets/las-art-foundation/las-art-foundation-digital-posters-city-screens-poster.jpg", w:1280, h:720 },
   { b:"Lewis Group",         t:"Strategy / Identity / Digital",           type:"video", link:"/lewis-group-brand-identity-web-design.html",
-    src:"https://media.frederikfrede.com/lewis-group/lewis-group-animated-logo-on-footage.mp4", w:1920, h:1080 },
+    src:"https://media.frederikfrede.com/lewis-group/lewis-group-animated-logo-on-footage.mp4", poster:"/assets/lewis-group/lewis-group-animated-logo-on-footage-poster.jpg", w:1920, h:1080 },
   { b:"AD Magazin",          t:"Digital",       type:"img",   link:"/ad-magazin-web-design-art-direction.html",
     src:"/assets/ad-magazin/ad-magazin-editorial-teaser-portrait.jpg", w:1919, h:2400 },
   { b:"Engel & Völkers",     t:"Identity / Digital / Film",     type:"img",   link:"/engel-volkers-web-design.html",
@@ -710,7 +718,8 @@ const projects = [
     src:"/assets/rooms-hotels/rooms-hotels-teaser-portrait-819x1024.jpg", w:819, h:1024 },
   { b:"adidas",              t:"Campaign / Digital / Content",      type:"img",   link:"/adidas-journeys-interactive-campaign.html",
     src:"/assets/adidas/adidas-journeys-teaser-portrait.jpg", w:1919, h:2400 },
-  { b:"Visit California",    t:"Campaign & Content",        type:"placeholder" },
+  { b:"Visit California",    t:"Campaign / Editorial / Film",        type:"img",   link:"/visit-california-dream-big-portraits.html",
+    src:"/assets/visit-california/visit-california-dream-big-longboard-surfer-ventura-point.jpg", w:1600, h:1067 },
   { b:"BMW",                 t:"Campaign",                  type:"img",   link:"/bmw-brand-campaign-art-direction.html",
     src:"/assets/bmw/bmw-brand-campaign-teaser-portrait.jpg", w:1919, h:2400 },
 ];
@@ -754,7 +763,7 @@ function makeCard(p, i) {
     const base = p.src.replace(/(-\d+w)?\.(jpg|webp)$/, '');
     inner = `<picture><source type="image/webp" srcset="${base}-640w.webp 640w, ${base}-1280w.webp 1280w" sizes="(max-width:640px) 100vw, 33vw"><img src="${p.src}" alt="${p.b}" width="${p.w}" height="${p.h}" style="aspect-ratio:${p.w} / ${p.h}" loading="lazy"></picture>`;
   } else if (p.type === 'video') {
-    inner = `<video data-lazy autoplay muted loop playsinline width="${p.w}" height="${p.h}" style="aspect-ratio:${p.w} / ${p.h}"><source data-src="${p.src}" type="video/mp4"></video>`;
+    inner = `<video data-lazy autoplay muted loop playsinline${p.poster ? ` poster="${p.poster}"` : ''} width="${p.w}" height="${p.h}" style="aspect-ratio:${p.w} / ${p.h}"><source data-src="${p.src}" type="video/mp4"></video>`;
   } else if (p.type === 'carousel') {
     const slides = VITRA.map(s => `<div class="carousel-slide"><img src="${s}" alt="Vitra" loading="lazy"></div>`).join('');
     inner = `<div class="carousel" id="c${i}">
@@ -775,7 +784,7 @@ function makeCard(p, i) {
 
   const el = document.createElement(p.link ? 'a' : 'div');
   el.className = 'card' + (p.type === 'placeholder' ? ' card--placeholder' : '');
-  if (p.link) el.href = p.link;
+  if (p.link) { el.href = p.link; if (/^https?:/.test(p.link)) { el.target = '_blank'; el.rel = 'noopener'; } }
   el.innerHTML = content;
   return el;
 }

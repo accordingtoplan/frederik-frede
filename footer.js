@@ -178,6 +178,9 @@
       video.querySelectorAll('source[data-src]').forEach(s => {
         s.src = s.dataset.src;
       });
+      // iOS Safari only autoplays when muted is set as a property, not just the attribute
+      if (video.hasAttribute('muted')) { video.muted = true; video.defaultMuted = true; }
+      video.playsInline = true;
       video.load();
       // autoplay videos resume once buffered; ignore promise rejection
       const p = video.play();

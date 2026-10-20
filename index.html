@@ -169,16 +169,19 @@
     /* Grid */
     .cases-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(6, 1fr);
       gap: 48px 24px;
     }
 
     .case {
       cursor: pointer;
+      grid-column: span 3;
     }
 
     /* Full-width spanning case */
     .case.full { grid-column: 1 / -1; }
+    /* Three cases side by side */
+    .case.third { grid-column: span 2; }
 
     .case-media {
       width: 100%;
@@ -381,7 +384,7 @@
       .work-section { padding: 0 20px 64px; }
       .work-header { margin-bottom: 24px; }
       .cases-grid { grid-template-columns: 1fr; gap: 32px; }
-      .case.full { grid-column: 1; }
+      .case.full, .case.third, .case { grid-column: 1; }
 
       /* Case info - stack brand over desc on narrow screens */
 
@@ -671,6 +674,15 @@
         poster:"/assets/louis-vuitton/louis-vuitton-employer-branding-poster.webp",
         ratio:"ratio-lvwide",
         year:"2023", live:"jobs.louisvuitton.com", liveHref:"https://jobs.louisvuitton.com/en/work-culture", collab:"–" },
+      { b:"Freunde von Freunden", link:"/friends-of-friends-brand-identity-web.html", tag:"Venture / Community / Events", desc:"• Magazine and creative community<br>• Production house<br>• Events and experiences<br>• Two venues in Berlin",
+        third:true, type:"video", crop:true, src:"https://media.frederikfrede.com/friends-of-friends/friends-of-friends-wordmark-on-location-footage.mp4", poster:"/assets/friends-of-friends/friends-of-friends-wordmark-on-location-footage-poster.jpg", ratio:"ratio-land",
+        year:"From 2009", live:"friendsoffriends.com", liveHref:"https://www.friendsoffriends.com", collab:"Tim Seifert, Torsten Bergler" },
+      { b:"MoreSleep",          link:"/moresleep-creative-studio.html", tag:"Venture / Studio", desc:"Co-founded in 2012. A creative studio in Berlin and Los Angeles.",
+        third:true, type:"img", src:"/assets/moresleep/moresleep-morefriends-summer-2019-tshirt.webp", ratio:"ratio-land",
+        year:"From 2012", live:"moresleep.net", liveHref:"https://www.moresleep.net", collab:"Torsten Bergler" },
+      { b:"NoMoreSleep × TBWA", link:"/nomoresleep-tbwa-digital-arts.html", tag:"Venture / Digital", desc:"Founded in 2006. Acquired by TBWA in 2010 to build digital into the agency.",
+        third:true, type:"placeholder-logo", src:"/assets/clients/clients-logo-tbwa.png", lw:160, lh:44, bg:"#26231f", ratio:"ratio-land",
+        year:"2006–2010", collab:"Torsten Bergler, Thomas Michelbach" },
       { b:"Lewis Group",         tag:"Strategy / Identity / Digital", desc:"A 60-year California real estate developer, rebranded for its next chapter.",
         type:"video", src:"https://media.frederikfrede.com/lewis-group/lewis-group-animated-logo-on-footage.mp4",
         link:"/lewis-group-brand-identity-web-design.html",
@@ -718,7 +730,7 @@
 
     cases.forEach(c => {
       const div = document.createElement('div');
-      div.className = 'case' + (c.full ? ' full' : '');
+      div.className = 'case' + (c.full ? ' full' : '') + (c.third ? ' third' : '');
 
       let media = '';
       const ratio = c.ratio || 'ratio-land';
