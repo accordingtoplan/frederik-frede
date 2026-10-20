@@ -143,7 +143,8 @@ def check_http_refs(files):
     out = []
     for path, html in files.items():
         for m in re.finditer(r'(?:src|href)\s*=\s*["\'](http://[^"\']+)["\']', html):
-            if any(x in m.group(1) for x in ['w3.org', 'schema.org']):
+            # lescopines.de: outbound link only, the site has no HTTPS yet. Remove once https://lescopines.de works.
+            if any(x in m.group(1) for x in ['w3.org', 'schema.org', 'lescopines.de']):
                 continue
             out.append(f"{path}: http:// ref -> {m.group(1)[:70]}")
     return out
