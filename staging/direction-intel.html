@@ -39,8 +39,8 @@
   .ds.photo-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0.6) 100%); }
   .ds.photo-bg > .ds-inner { position: relative; }
   .ds.photo-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-  .ds.cta-bg { background: #111 url(/assets/direction-intel/di-calm-palms-dusk.jpg) center/cover no-repeat; position: relative; --mid: rgba(255,255,255,0.9); }
-  .ds.cta-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.45)); }
+  .ds.cta-bg { background: #f3d27a url(/assets/direction-intel/di-golden-figure.jpg) center 30%/cover no-repeat; position: relative; --ink: #1a1206; --mid: rgba(26,18,6,0.8); }
+  .ds.cta-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,248,230,0.55) 0%, rgba(255,248,230,0.2) 55%, rgba(255,248,230,0) 100%); }
   .ds.cta-bg > .ds-inner { position: relative; }
   .ds.sand-bg { background: #cfcfcf url(/assets/direction-intel/di-calm-footprint-bw.jpg) center/cover no-repeat; position: relative; --card: rgba(255,255,255,0.84); --mid: rgba(20,15,10,0.78); }
   .ds.sand-bg::before { content: ""; position: absolute; inset: 0; background: rgba(245,245,245,0.18); }
@@ -56,6 +56,9 @@
   .ds.surf-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
   .ds-cardquote { margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid rgba(0,0,0,0.12); font-size: 15px; line-height: 1.45; color: var(--ink); font-style: normal; }
   .ds-cardquote cite { display: block; margin-top: 8px; font-size: 12px; font-style: normal; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); }
+  .ds.cta-bg > .ds-inner { position: relative; }
+  .ds.cta-bg .ds-cta { max-width: min(36vw, 520px); margin-left: max(0px, calc(50% - 620px)); }
+  @media (max-width: 640px) { .ds.cta-bg .ds-cta { max-width: none; margin-left: 0; } .ds.cta-bg::before { background: linear-gradient(180deg, rgba(255,248,230,0.75) 0%, rgba(255,248,230,0.35) 60%, rgba(255,248,230,0.1) 100%); } }
   .ds.claim h2 { font-size: clamp(36px, 5.6vw, 84px); max-width: 15em; }
   .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
   .ds-photo.dark { background: #111; }
@@ -412,10 +415,6 @@
 
 
 
-<section class="ds-photo ">
-  <img src="/assets/direction-intel/di-golden-figure.jpg" width="1440" height="1800" alt="A figure in a hooded cape on a hilltop in golden fog, one arm raised" loading="lazy">
-</section>
-
 <!-- 07 WORKING TOGETHER -->
 <section class="ds">
   <div class="ds-inner">
@@ -433,7 +432,7 @@
 </section>
 
 <!-- CTA -->
-<section class="ds dark cta-bg">
+<section class="ds cta-bg">
   <div class="ds-inner ds-cta ds-reveal">
     <p class="ds-lead" style="margin-bottom:40px;">Directive Intelligence works with a small number of companies at a time. Write, say where the brand or the business should work better, and the answer comes back in plain language.</p>
     <a href="/about.html#contact">Start a conversation →</a>
