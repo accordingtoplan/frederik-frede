@@ -45,6 +45,14 @@
   .ds.cta-bg { background: #111 url(/assets/direction-intel/di-calm-palms-dusk.jpg) center/cover no-repeat; position: relative; --mid: rgba(255,255,255,0.9); }
   .ds.cta-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.45)); }
   .ds.cta-bg > .ds-inner { position: relative; }
+  .ds.sand-bg { background: #d6cbb8 url(/assets/direction-intel/di-calm-footprint-wide.jpg) center/cover no-repeat; position: relative; --card: rgba(255,255,255,0.84); --mid: rgba(20,15,10,0.78); }
+  .ds.sand-bg::before { content: ""; position: absolute; inset: 0; background: rgba(245,240,232,0.18); }
+  .ds.sand-bg > .ds-inner { position: relative; }
+  .ds.sand-bg .ds-card { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+  .ds.ice-bg { background: #dfe8ee url(/assets/direction-intel/di-snow-sculptures.jpg) center 42%/cover no-repeat; position: relative; --card: rgba(255,255,255,0.84); --mid: rgba(15,25,35,0.78); }
+  .ds.ice-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%); }
+  .ds.ice-bg > .ds-inner { position: relative; }
+  .ds.ice-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
   .ds.claim h2 { font-size: clamp(40px, 7vw, 104px); max-width: none; }
   .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
   .ds-photo.dark { background: #111; }
@@ -302,7 +310,7 @@
 </section>
 
 <!-- OTHER SIZES -->
-<section class="ds soft">
+<section class="ds soft ice-bg">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
       <span class="ds-label">03 · Every size</span>
@@ -315,10 +323,6 @@
       <div class="ds-card ds-reveal"><span class="ds-label">One person</span><h3>The Digital Mind</h3><p>The system behind this practice and this site. It reads the day's intake, remembers, and checks itself for drift. Where every client system is heading.</p></div>
     </div>
   </div>
-</section>
-
-<section class="ds-photo ">
-  <img src="/assets/direction-intel/di-snow-sculptures.jpg" width="956" height="956" alt="Tall blocks of snow cut and stood upright in a mountain valley" loading="lazy">
 </section>
 
 <!-- 04 THE COMPANY -->
@@ -342,10 +346,6 @@
   </div>
 </section>
 
-<section class="ds-photo soft">
-  <img src="/assets/direction-intel/di-calm-footprint.jpg" width="1200" height="1800" alt="A single footprint in fine sand" loading="lazy">
-</section>
-
 <!-- PULL QUOTE (pinned; sentences brighten with scroll) -->
 <div class="di-quote-wrap">
   <div class="di-quote">
@@ -354,7 +354,7 @@
 </div>
 
 <!-- 05 WHAT A CLIENT GETS -->
-<section class="ds soft">
+<section class="ds soft sand-bg">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
       <span class="ds-label">05 · What a client gets</span>
