@@ -35,6 +35,9 @@
   .ds-links { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 36px; }
   .ds-links a { font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px; }
   .ds-links a:hover { opacity: 0.6; }
+  .ds.claim { background: #111 url(/assets/direction-intel/di-temple-roots.jpg) center/cover no-repeat; position: relative; }
+  .ds.claim::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+  .ds.claim > .ds-inner { position: relative; }
   .ds.claim h2 { font-size: clamp(40px, 7vw, 104px); max-width: none; }
   .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
   .ds-photo.dark { background: #111; }
@@ -269,10 +272,6 @@
       </figure>
     </div>
   </div>
-</section>
-
-<section class="ds-photo soft">
-  <img src="/assets/direction-intel/di-temple-roots.jpg" width="732" height="1080" alt="Tree roots grown over the stones of an old temple, black and white" loading="lazy">
 </section>
 
 <!-- CASE 02 (unnamed publisher) -->
