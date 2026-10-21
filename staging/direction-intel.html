@@ -15,7 +15,7 @@
         background: #fff; color: var(--ink); padding: clamp(72px, 10vw, 140px) 48px; }
   .ds.dark   { background: #111; --ink: #fff; --mid: rgba(255,255,255,0.62); --card: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.18); }
   .ds.soft   { background: #f5f3f1; --card: #fff; }
-  .ds.red    { background: #e63222; --ink: #000; --mid: rgba(0,0,0,0.62); --card: rgba(0,0,0,0.08); }
+  .ds.blue   { background: #01579d; --ink: #fff; --mid: rgba(255,255,255,0.78); --card: rgba(255,255,255,0.1); }
   .ds-inner { max-width: 1240px; margin: 0 auto; }
   .ds-head { display: grid; grid-template-columns: minmax(140px, 240px) 1fr; gap: 24px; margin-bottom: clamp(36px, 5vw, 64px); }
   .ds-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mid); padding-top: 14px; }
@@ -35,7 +35,7 @@
   .ds-links { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 36px; }
   .ds-links a { font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px; }
   .ds-links a:hover { opacity: 0.6; }
-  .ds.red h2 { font-size: clamp(40px, 7vw, 104px); max-width: none; }
+  .ds.claim h2 { font-size: clamp(40px, 7vw, 104px); max-width: none; }
   .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
   .ds-photo.dark { background: #111; }
   .ds-photo.soft { background: #f5f3f1; }
@@ -164,7 +164,7 @@
 </div>
 
 <!-- THE PROBLEM -->
-<section class="ds">
+<section class="ds blue">
   <div class="ds-inner ds-reveal">
     <p class="ds-big">A brand lives in many hands. Marketing, sales, agencies, the website partner, and now AI tools. Each works from its own copy: an old deck, a PDF, a quick prompt. Over time the brand says different things in different places. Nobody gets it wrong on purpose. There is simply no single version to work from.</p>
   </div>
@@ -236,7 +236,7 @@
 </div>
 
 <!-- RED CLAIM -->
-<section class="ds red">
+<section class="ds dark claim">
   <div class="ds-inner ds-reveal">
     <h2>Anyone can run the model.<br>Few can direct it.</h2>
   </div>
