@@ -38,6 +38,10 @@
   .ds.claim { background: #111 url(/assets/direction-intel/di-temple-roots.jpg) center/cover no-repeat; position: relative; }
   .ds.claim::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
   .ds.claim > .ds-inner { position: relative; }
+  .ds.photo-bg { background: #111 url(/assets/direction-intel/di-calm-mountain-light.jpg) center/cover no-repeat; position: relative; --card: rgba(10,14,22,0.55); --mid: rgba(255,255,255,0.8); }
+  .ds.photo-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0.6) 100%); }
+  .ds.photo-bg > .ds-inner { position: relative; }
+  .ds.photo-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
   .ds.claim h2 { font-size: clamp(40px, 7vw, 104px); max-width: none; }
   .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
   .ds-photo.dark { background: #111; }
@@ -219,24 +223,20 @@
 </section>
 
 <!-- 02 HOW -->
-<section class="ds soft">
+<section class="ds dark photo-bg">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
       <span class="ds-label">02 · How it works</span>
-      <h2>Four parts. One loop.</h2>
+      <h2>Four steps. One rhythm.</h2>
     </div>
     <div class="ds-cards four">
       <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Written down</h3><p>The brand and the company's rules as plain files. Each rule carries its reason, in the client's own words, with a date. Colours, type and components sit beside them as data.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Read by every tool</h3><p>People read the files. AI agents read them before they write. Claude, ChatGPT, Copilot or a private workspace, one source behind all of them.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Checked</h3><p>New drafts are read against the files before they go out, and so is what is already live: sites, decks, listings. Whatever the rules do not cover comes back as a question.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Written back</h3><p>Decisions, feedback and who decides what go into the files the same day. Agents propose. People decide. The loop is how the company learns.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Written back</h3><p>Decisions, feedback and who decides what go into the files the same day. Agents propose. People decide. That is how the company learns.</p></div>
     </div>
   </div>
 </section>
-
-<div class="ds-bleed">
-  <img src="/assets/direction-intel/di-calm-mountain-light.jpg" width="2400" height="1600" alt="Evening light on clouds over a mountain range and a dirt road" loading="lazy">
-</div>
 
 <!-- RED CLAIM -->
 <section class="ds dark claim">
@@ -297,10 +297,6 @@
     </div>
   </div>
 </section>
-
-<div class="ds-bleed">
-  <img src="/assets/direction-intel/di-calm-palms-dusk.jpg" width="2400" height="1590" alt="Palm trees against a soft pink and blue dusk sky" loading="lazy">
-</div>
 
 <!-- OTHER SIZES -->
 <section class="ds soft">
