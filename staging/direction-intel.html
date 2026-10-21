@@ -42,6 +42,9 @@
   .ds.photo-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0.6) 100%); }
   .ds.photo-bg > .ds-inner { position: relative; }
   .ds.photo-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .ds.cta-bg { background: #111 url(/assets/direction-intel/di-calm-palms-dusk.jpg) center/cover no-repeat; position: relative; --mid: rgba(255,255,255,0.9); }
+  .ds.cta-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.45)); }
+  .ds.cta-bg > .ds-inner { position: relative; }
   .ds.claim h2 { font-size: clamp(40px, 7vw, 104px); max-width: none; }
   .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
   .ds-photo.dark { background: #111; }
@@ -373,7 +376,7 @@
 </section>
 
 <!-- CTA -->
-<section class="ds">
+<section class="ds dark cta-bg">
   <div class="ds-inner ds-cta ds-reveal">
     <p class="ds-lead" style="margin-bottom:40px;">Directive Intelligence works with a small number of companies at a time. Write, say where the brand or the business needs to hold, and the answer comes back in plain language.</p>
     <a href="/about.html#contact">Start a conversation →</a>
