@@ -5,91 +5,102 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Directive Intelligence — Frederik Frede</title>
-<meta name="description" content="A working system for creative directors and strategists. Around ten deep skills built from thirty years of practice, shown carrying real work before they ship.">
+<meta name="description" content="Directive Intelligence, a case study. A company's brand and know-how written down once, so people and AI tools work from one version and the system learns from the work.">
 <!-- STAGING PREVIEW: remove before publishing to root -->
 <meta name="robots" content="noindex">
   <link rel="stylesheet" href="/style.css">
 <style>
-  /* Page-specific: deck scroller layout. Single column, one idea per screen.
-     Media uses global .cs-media-full (scroll reveal from footer.js). */
-  .di-slide { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; padding: 96px 48px; }
-  .di-slide-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-light); margin-bottom: 28px; }
-  .di-slide h1 { font-size: clamp(44px, 9vw, 130px); line-height: 0.95; letter-spacing: -0.03em; font-weight: 700; color: var(--grey-dark); margin: 0 0 32px; }
-  .di-slide h2 { font-size: clamp(32px, 5vw, 72px); line-height: 1.05; letter-spacing: -0.025em; font-weight: 700; color: var(--grey-dark); margin: 0 0 32px; max-width: 16em; }
-  .di-slide p { font-size: clamp(16px, 1.6vw, 21px); line-height: 1.6; color: var(--grey-mid); max-width: 34em; margin: 0 0 1.2em; }
-  .di-tagline { font-size: clamp(18px, 2vw, 26px); color: var(--grey-mid); font-weight: 700; }
-  .di-skill { position: relative; padding: 40px 48px; display: grid; grid-template-columns: 72px 1fr; gap: 24px; align-items: baseline; }
-  .di-skill::before { content: ""; position: absolute; top: 0; left: 48px; right: 48px; height: 1px; background: var(--border); }
-  .di-skill-num { font-size: 13px; color: var(--grey-light); letter-spacing: 0.08em; }
-  .di-skill h3 { font-size: clamp(22px, 2.6vw, 34px); font-weight: 700; letter-spacing: -0.02em; color: var(--grey-dark); margin: 0 0 10px; }
-  .di-skill p { font-size: clamp(15px, 1.4vw, 18px); line-height: 1.6; color: var(--grey-mid); max-width: 36em; margin: 0; }
-  .di-quote { min-height: 60vh; display: flex; align-items: center; padding: 96px 48px; }
-  .di-quote blockquote { font-size: clamp(32px, 5.5vw, 80px); line-height: 1.05; letter-spacing: -0.025em; font-weight: 700; color: var(--grey-dark); margin: 0; max-width: 14em; }
-  .di-cta { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: 96px 48px; }
-  .di-cta a { display: inline-block; font-size: clamp(20px, 2.4vw, 32px); font-weight: 700; color: var(--grey-dark); text-decoration: none; border-bottom: 3px solid var(--grey-dark); padding-bottom: 4px; }
-  .di-cta a:hover { opacity: 0.6; }
+  /* Page-specific: slide layout. Full-width colour bands, label left, headline right, cards. */
+  .ds { --ink: #111; --mid: #5f5a55; --card: #f5f3f1; --line: rgba(0,0,0,0.12);
+        background: #fff; color: var(--ink); padding: clamp(72px, 10vw, 140px) 48px; }
+  .ds.dark   { background: #111; --ink: #fff; --mid: rgba(255,255,255,0.62); --card: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.18); }
+  .ds.soft   { background: #f5f3f1; --card: #fff; }
+  .ds.brown  { background: #2b1a0b; --ink: #f6efe6; --mid: rgba(246,239,230,0.68); --card: rgba(246,239,230,0.07); }
+  .ds.red    { background: #e63222; --ink: #000; --mid: rgba(0,0,0,0.62); --card: rgba(0,0,0,0.08); }
+  .ds-inner { max-width: 1240px; margin: 0 auto; }
+  .ds-head { display: grid; grid-template-columns: minmax(140px, 240px) 1fr; gap: 24px; margin-bottom: clamp(36px, 5vw, 64px); }
+  .ds-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mid); padding-top: 14px; }
+  .ds h2 { font-size: clamp(32px, 4.8vw, 68px); line-height: 1.03; letter-spacing: -0.025em; font-weight: 700; color: var(--ink); margin: 0; max-width: 15em; }
+  .ds-body { margin-left: calc(min(240px, 22%) + 24px); }
+  .ds-body p, .ds p.ds-lead { font-size: clamp(17px, 1.7vw, 22px); line-height: 1.5; color: var(--mid); max-width: 36em; margin: 0 0 1em; }
+  .ds-big { font-size: clamp(28px, 4vw, 56px); line-height: 1.12; letter-spacing: -0.02em; font-weight: 700; color: var(--ink); margin: 0; max-width: 19em; }
+  .ds-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ds-cards.four { grid-template-columns: repeat(4, 1fr); }
+  .ds-cards.two { grid-template-columns: repeat(2, 1fr); }
+  .ds-card { background: var(--card); border-radius: 14px; padding: 28px; }
+  .ds-card .ds-label { display: block; padding: 0; margin-bottom: 14px; }
+  .ds-card h3 { font-size: clamp(20px, 1.8vw, 24px); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
+  .ds-card p { font-size: 16px; line-height: 1.5; color: var(--mid); margin: 0; }
+  .ds-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 0; padding: 0; list-style: none; }
+  .ds-chips li { background: var(--card); border-radius: 999px; padding: 9px 16px; font-size: 14px; color: var(--ink); }
+  .ds-links { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 36px; }
+  .ds-links a { font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px; }
+  .ds-links a:hover { opacity: 0.6; }
+  .ds.red h2 { font-size: clamp(40px, 7vw, 104px); max-width: none; }
+  .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
+  .ds-photo.dark { background: #111; }
+  .ds-photo.soft { background: #f5f3f1; }
+  .ds-photo img { display: block; width: auto; height: auto; max-width: min(100%, 960px); max-height: 86vh; }
+  @media (max-width: 640px) { .ds-photo { padding: 48px 20px; } }
+  .ds-bleed { margin-bottom: 0; padding: 0; }
+  .ds-bleed img { width: 100%; height: auto; display: block; }
+  .ds-figure { margin: 48px 0 0; }
+  .ds-figure img { width: 100%; height: auto; display: block; border-radius: 14px; }
+  .ds-cta a { display: inline-block; font-size: clamp(20px, 2.4vw, 32px); font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 3px solid currentColor; padding-bottom: 4px; }
+  .ds-cta a:hover { opacity: 0.6; }
+
   /* Hero on the riot scene */
-  .di-hero { background: #1a0505 url(/assets/direction-intel/di-riot.jpg) center/cover no-repeat; }
-  .di-hero .di-slide-label { color: rgba(255,255,255,0.7); }
-  .di-hero h1 { color: #fff; }
-  .di-hero .di-tagline { color: rgba(255,255,255,0.85); max-width: 22em; }
-  .di-avail { font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.65); margin: 28px 0 0; }
-  .di-manifesto { min-height: 85vh; }
-  .di-manifesto-text { font-size: clamp(26px, 3.8vw, 54px) !important; line-height: 1.18 !important; font-weight: 700; color: var(--grey-dark) !important; max-width: 19em !important; }
-  /* Red claim slide + framed phone scene */
-  .di-red { background: #e63222; min-height: 78vh; }
-  .di-red h2 { color: #000; max-width: none; }
-  .di-phone-slide { align-items: center; text-align: center; }
-  .di-phone-slide h2 { max-width: 13em; }
-  .di-phone { width: min(320px, 72vw); background: #000; border-radius: 48px; padding: 13px; margin: 56px auto 0; box-shadow: 0 40px 90px rgba(0,0,0,0.35); }
-  .di-phone img { width: 100%; height: auto; display: block; border-radius: 36px; }
-  .di-phone-video { width: min(880px, 92vw); margin: 40px auto 0; }
-  .di-phone-video video { width: 100%; display: block; aspect-ratio: 16/9; }
+  .di-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 96px 48px; background: #1a0505 url(/assets/direction-intel/di-riot.jpg) center/cover no-repeat; }
+  .di-hero .ds-label { color: rgba(255,255,255,0.75); padding: 0; margin-bottom: 28px; }
+  .di-hero h1 { font-size: clamp(44px, 9vw, 130px); line-height: 0.95; letter-spacing: -0.03em; font-weight: 700; color: #fff; margin: 0 0 32px; }
+  .di-tagline { font-size: clamp(18px, 2vw, 26px); line-height: 1.4; color: rgba(255,255,255,0.88); font-weight: 700; max-width: 22em; margin: 0; }
+
+  .di-hero { position: relative; overflow: hidden; justify-content: flex-end; padding-bottom: clamp(48px, 8vh, 96px); }
+  .di-hero h1 { font-size: clamp(40px, 7vw, 104px); margin-bottom: 24px; }
+  .di-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .di-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.75) 100%); z-index: 0; }
+  .di-hero > :not(video) { position: relative; z-index: 1; }
+  @media (prefers-reduced-motion: reduce) { .di-hero-video { display: none; } }
+
+  /* Pull quote on dark */
+  .di-quote { min-height: 60vh; display: flex; align-items: center; padding: 96px 48px; background: #111; }
+  .di-quote blockquote { font-size: clamp(32px, 5.5vw, 80px); line-height: 1.05; letter-spacing: -0.025em; font-weight: 700; color: #fff; margin: 0 auto; max-width: 1240px; width: 100%; }
+
+  @media (max-width: 1000px) {
+    .ds-cards, .ds-cards.four { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 640px) {
-    .di-slide, .di-quote, .di-cta { padding: 64px 20px; min-height: 0; }
-    .di-red { min-height: 50vh; }
-    .di-skill { padding: 32px 20px; grid-template-columns: 48px 1fr; gap: 16px; }
-    .di-skill::before { left: 20px; right: 20px; }
-    .di-thread { display: none; }
+    .ds { padding: 64px 20px; }
+    .ds-head { grid-template-columns: 1fr; gap: 14px; }
+    .ds-label { padding-top: 0; }
+    .ds-body { margin-left: 0; }
+    .ds-cards, .ds-cards.four, .ds-cards.two { grid-template-columns: 1fr; gap: 12px; }
+    .ds-card { padding: 22px; }
+    .di-hero, .di-quote { padding: 64px 20px; }
+    .di-quote { min-height: 0; }
   }
 
-  /* ── Motion layer (deck build). All gated on reduced-motion. ── */
-  .di-thread { position: fixed; left: 23px; top: 0; width: 1px; height: 100%; background: var(--border); opacity: 0.6; pointer-events: none; z-index: 1; }
-  .di-thread-fill { position: absolute; inset: 0; background: var(--grey-dark); transform: scaleY(0); transform-origin: top; }
-  @supports (animation-timeline: scroll()) {
-    .di-thread-fill { animation: di-draw linear both; animation-timeline: scroll(root); }
-    @keyframes di-draw { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-  }
+  /* Motion. All gated on reduced-motion. */
   @media (prefers-reduced-motion: no-preference) {
-    /* 2 — staggered statement build */
-    .di-slide > *, .di-quote blockquote, .di-cta > * { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .di-slide.in-view > *, .di-quote.in-view blockquote, .di-cta.in-view > * { opacity: 1; transform: none; }
-    .di-slide.in-view > :nth-child(2) { transition-delay: 0.12s; }
-    .di-slide.in-view > :nth-child(3) { transition-delay: 0.24s; }
-    .di-cta.in-view > :nth-child(2) { transition-delay: 0.15s; }
-    /* 4 — skills assembling: border draws, number ticks in first */
-    .di-skill::before { transform: scaleX(0); transform-origin: left; transition: transform 0.9s cubic-bezier(0.22,1,0.36,1); }
-    .di-skill.in-view::before { transform: scaleX(1); }
-    .di-skill .di-skill-num { opacity: 0; transition: opacity 0.4s ease; }
-    .di-skill.in-view .di-skill-num { opacity: 1; }
-    .di-skill > div { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; }
-    .di-skill.in-view > div { opacity: 1; transform: none; }
-    /* 1 — media enters inset + rounded, expands to full bleed (scroll-scrubbed) */
+    .ds-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .ds-reveal.in-view { opacity: 1; transform: none; }
+    .ds-cards .ds-reveal.in-view:nth-child(2) { transition-delay: 0.08s; }
+    .ds-cards .ds-reveal.in-view:nth-child(3) { transition-delay: 0.16s; }
+    .ds-cards .ds-reveal.in-view:nth-child(4) { transition-delay: 0.24s; }
+    .ds-cards .ds-reveal.in-view:nth-child(5) { transition-delay: 0.32s; }
+    .ds-cards .ds-reveal.in-view:nth-child(6) { transition-delay: 0.40s; }
     @supports (animation-timeline: view()) {
       .cs-media-full { overflow: hidden; animation: di-bleed linear both; animation-timeline: view(); animation-range: entry 20% cover 50%; }
       .cs-media-full img { animation: di-settle linear both; animation-timeline: view(); animation-range: entry 20% cover 50%; }
       @keyframes di-bleed { from { padding-left: 8%; padding-right: 8%; } to { padding-left: 0; padding-right: 0; } }
       @keyframes di-settle { from { transform: scale(1.04); border-radius: 20px; } to { transform: scale(1); border-radius: 0; } }
 
-      /* Apple-style pinned scenes. Heights only exist when scrubbing works,
-         so unsupported browsers keep the plain flow. */
       .di-hero-wrap { height: 175vh; view-timeline: --di-hero; }
-      .di-hero { position: sticky; top: 0; min-height: 100vh; animation: di-hero-out linear both; animation-timeline: --di-hero; animation-range: exit 0% exit 85%; }
+      .di-hero { position: sticky; top: 0; animation: di-hero-out linear both; animation-timeline: --di-hero; animation-range: exit 0% exit 85%; }
       @keyframes di-hero-out { to { transform: scale(0.93) translateY(-4vh); opacity: 0; } }
 
-      .di-quote-wrap { height: 220vh; view-timeline: --di-quote; }
+      .di-quote-wrap { height: 220vh; view-timeline: --di-quote; background: #111; }
       .di-quote-wrap .di-quote { position: sticky; top: 0; height: 100vh; min-height: 0; }
-      .di-quote-wrap .di-quote blockquote { opacity: 1; transform: none; transition: none; }
       .di-q { animation: di-word linear both; animation-timeline: --di-quote; }
       .di-q1 { animation-range: contain 5% contain 40%; }
       .di-q2 { animation-range: contain 40% contain 80%; }
@@ -98,15 +109,18 @@
   }
 </style>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "CreativeWork",
   "@id": "https://frederikfrede.com/directive-intelligence.html",
   "url": "https://frederikfrede.com/directive-intelligence.html",
   "name": "Directive Intelligence",
-  "description": "A working system for creative directors and strategists. Around ten deep skills built from thirty years of practice, shown carrying real work before they ship.",
-  "brand": {
+  "description": "Directive Intelligence, a case study. A company's brand and know-how written down once, so people and AI tools work from one version and the system learns from the work.",
+  "dateCreated": "2026",
+  "about": { "@type": "Organization", "name": "Lewis Group of Companies" },
+  "creator": {
     "@type": "Person",
     "@id": "https://frederikfrede.com/#frederik-frede",
     "name": "Frederik Frede",
@@ -121,309 +135,248 @@
 <!-- NAV -->
 <div id="nav-mount"></div>
 
-<!-- 3 — the thread: scroll-drawn line connecting the chapters -->
-<div class="di-thread" aria-hidden="true"><div class="di-thread-fill"></div></div>
-
-<!-- SLIDE 1: HERO (pinned; scales away as the page overtakes it) -->
+<!-- HERO (pinned; scales away as the page overtakes it) -->
 <div class="di-hero-wrap">
-  <section class="di-slide di-hero">
-    <span class="di-slide-label">AI &amp; Tooling · For creative directors and strategists</span>
+  <section class="di-hero">
+    <!-- Hero reel: showreel 0.0 to 3.0 s, the Lewis billboard (0.5 to 0.8 s) held in slow motion. Hosted on R2. -->
+    <video class="di-hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/direction-intel/di-riot.jpg" aria-hidden="true">
+      <source src="https://media.frederikfrede.com/direction-intel/direction-intel-hero-reel.mp4" type="video/mp4">
+    </video>
+    <span class="ds-label">Case study · AI and the company it runs</span>
     <h1>Directive<br>Intelligence</h1>
-    <p class="di-tagline">A systematic approach to AI. Faster, better work for the curious.</p>
-    <p class="di-avail">Available on request</p>
+    <p class="di-tagline">A company's brand and know-how, written down once. Every person and every AI tool works from it, and it learns from every piece of work.</p>
   </section>
 </div>
 
-<!-- MANIFESTO -->
-<section class="di-slide di-manifesto">
-  <p class="di-manifesto-text">What AI can do for you is not limited by the model. It is limited by what the model knows about how you work. And that knowledge is captured one way: doing the work.</p>
-</section>
-
-<!-- SLIDE 2: THE GENRE -->
-<section class="di-slide">
-  <span class="di-slide-label">01 — The shift</span>
-  <h2>AI multiplies whatever you feed it.</h2>
-  <p>Feed it nothing and you get confident noise. Feed it your standards, your references and your voice, and it starts to work the way you do. That is the whole idea, and it changes how a creative practice runs.</p>
-</section>
-
-<div class="cs-media-full">
-  <img src="/assets/direction-intel/di-drunkman.jpg" width="1920" height="1076" alt="Exhausted man in a suit asleep on the pavement next to a tablet showing Directive Intelligence" loading="lazy">
-</div>
-<div class="cs-caption">
-  <span class="cs-caption-label">The deadline</span>
-  <span class="cs-caption-text">Without a system, this is how the deadline wins.</span>
-</div>
-
-<div class="cs-media-full">
-  <img src="/presentations/assets/cover-phone.jpg" width="1536" height="1024" alt="Phone resting on a rock in a desert landscape, screen showing the practice's positioning line" fetchpriority="high">
-</div>
-<div class="cs-caption">
-  <span class="cs-caption-label">The system</span>
-  <span class="cs-caption-text">Everything it knows fits in a pocket. What it carries took thirty years.</span>
-</div>
-
-<!-- RED CLAIM SLIDE -->
-<section class="di-slide di-red">
-  <h2>Memory is cheap.<br>Judgment is not.<br>Build for the second.</h2>
-</section>
-
-<div class="cs-media-full">
-  <img src="/assets/direction-intel/di-pigeons.jpg" width="1920" height="1075" alt="Paris street citylight showing the Directive Intelligence poster in signal red" loading="lazy">
-</div>
-<div class="cs-caption">
-  <span class="cs-caption-label">Out of home</span>
-  <span class="cs-caption-text">The claim, posted where taste walks past.</span>
-</div>
-
-<!-- SLIDE 3: THE OTHER WAY ROUND -->
-<section class="di-slide">
-  <span class="di-slide-label">02 — What changes</span>
-  <h2>Strategy weeks become strategy days.</h2>
-  <p>First drafts that already sound like you. The strongest counter-argument before the meeting, not after. An archive that answers instead of just storing. Directive Intelligence is that setup, built and refined inside a working practice, so you skip the two years of trial and error it took to get here.</p>
-</section>
-
-<!-- IN PLAIN TERMS -->
-<section class="di-slide" style="min-height:30vh;">
-  <span class="di-slide-label">In plain terms</span>
-</section>
-<div class="di-skill">
-  <span class="di-skill-num">01</span>
-  <div>
-    <h3>The skill</h3>
-    <p>A document that teaches AI how you decide. Your standards, your references, your voice, written down so a machine can follow them.</p>
-  </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">02</span>
-  <div>
-    <h3>The system</h3>
-    <p>Those skills working together over your archive. It remembers, compares and drafts the way your studio would.</p>
-  </div>
-</div>
-<div class="di-skill" style="border-bottom:1px solid var(--border);">
-  <span class="di-skill-num">03</span>
-  <div>
-    <h3>The setup</h3>
-    <p>No technical background needed. If you can write a brief, you can run it. Everything arrives explained in plain language.</p>
-  </div>
-</div>
-
-<div class="cs-media-full" style="margin-top:96px;">
-  <img src="/assets/direction-intel/di-monkeys.jpg" width="1728" height="2160" alt="Snow monkeys examining phones, one showing Directive Intelligence" loading="lazy" style="max-width:720px;margin:0 auto;">
-</div>
-<div class="cs-caption">
-  <span class="cs-caption-label">The setup</span>
-  <span class="cs-caption-text">Curiosity is the only requirement. The rest is written down.</span>
-</div>
-
-<div class="cs-media-full">
-  <img src="/presentations/assets/mountain.jpg" width="5656" height="3771" alt="Mountain range at dusk with low cloud, a dirt road leading in" loading="lazy">
-</div>
-<div class="cs-caption">
-  <span class="cs-caption-label">The ground</span>
-  <span class="cs-caption-text">Practice is terrain. The system is a map drawn by walking it.</span>
-</div>
-
-<!-- SLIDE 4: WHAT'S INSIDE -->
-<section class="di-slide" style="min-height:40vh;">
-  <span class="di-slide-label">03 — What's inside</span>
-  <h2>Around ten deep skills.</h2>
-  <p>Each one took years of client work to earn. Not prompts. Methods.</p>
-</section>
-
-<div class="di-skill">
-  <span class="di-skill-num">01</span>
-  <div>
-    <h3>Voice codex builder</h3>
-    <p>Builds a written codex of how a brand actually sounds, then validates every draft against it. Generic phrasing gets flagged before anyone reads it.</p>
-  </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">02</span>
-  <div>
-    <h3>Positioning sprint</h3>
-    <p>A structured pass from raw client material to a defensible position. Built for the week when the strategy is due and the inputs are a mess.</p>
-  </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">03</span>
-  <div>
-    <h3>Counter-position</h3>
-    <p>Takes the recommendation on the table and builds the strongest case against it. The argument the client will make, made first, in private.</p>
-  </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">04</span>
-  <div>
-    <h3>Reference library routing</h3>
-    <p>Connects a maintained reference archive to live work. New material lands where the thinking already is, and resurfaces when a project needs it.</p>
-  </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">05</span>
-  <div>
-    <h3>Project debrief</h3>
-    <p>Closes out client work so the judgment survives the project. What held, what bent, what the next brief should know.</p>
-  </div>
-</div>
-<div class="di-skill" style="border-bottom:1px solid var(--border);">
-  <span class="di-skill-num">+</span>
-  <div>
-    <h3>And the rest</h3>
-    <p>The remaining skills are still earning their place on live work. They join the system when they have.</p>
-  </div>
-</div>
-
-<!-- THE PACKAGE: WHAT YOU LITERALLY GET -->
-<section class="di-slide" style="min-height:40vh;">
-  <span class="di-slide-label">04 — What you get</span>
-  <h2>One system. Four parts.</h2>
-  <p>What arrives when access is granted:</p>
-</section>
-<div class="di-skill">
-  <span class="di-skill-num">01</span>
-  <div>
-    <h3>The skills</h3>
-    <p>Around ten skill files, written in plain language and ready to load into Claude. Claude Code is the native home; the files are structured text, so they travel to other assistants.</p>
-  </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">02</span>
-  <div>
-    <h3>The vault</h3>
-    <p>Templates for the knowledge system underneath: folder structure, dossier formats, and the refresh routine that keeps an archive thinking instead of just storing.</p>
-  </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">03</span>
-  <div>
-    <h3>The manual</h3>
-    <p>A written setup guide. Install, connect, first project. No technical background assumed at any step.</p>
-  </div>
-</div>
-<div class="di-skill" style="border-bottom:1px solid var(--border);">
-  <span class="di-skill-num">04</span>
-  <div>
-    <h3>The onboarding</h3>
-    <p>A working session, one on one. The system set up on your projects and tuned to your voice, so day one starts with your work, not an empty folder.</p>
-  </div>
-</div>
-
-<!-- PHONE MOCKUP SLIDE -->
-<section class="di-slide di-phone-slide">
-  <h2>Set up once. Every project after runs on it.</h2>
-  <div class="di-phone-video">
-    <video aria-label="Direction Intel identity on a smartphone mockup" autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/direction-intel/direction-intel-smartphone-mockup-animation-poster.jpg">
-      <source data-src="https://media.frederikfrede.com/direction-intel/direction-intel-smartphone-mockup-animation.mp4" type="video/mp4">
-    </video>
+<!-- THE PROBLEM -->
+<section class="ds">
+  <div class="ds-inner ds-reveal">
+    <p class="ds-big">Every team writes from the file it has. So does every agency. Now AI tools write too, from whatever they are handed. The company splits into versions, and nobody did anything wrong.</p>
   </div>
 </section>
 
-<div class="cs-media-full" style="margin-top:96px;">
-  <img src="/presentations/assets/surf-bw.jpg" width="1080" height="1176" alt="Surfer cutting a wave in front of a dark palm forest, black and white" loading="lazy" style="max-width:720px;margin:0 auto;">
-</div>
-<div class="cs-caption">
-  <span class="cs-caption-label">The skill</span>
-  <span class="cs-caption-text">Nobody asks the wave to slow down. Judgment is timing, held in the body.</span>
+<!-- THE IDEA: a gentle system -->
+<section class="ds brown">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">The idea</span>
+      <h2>A gentle system.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>It works in the background and supports the people who carry the brand. It drafts, checks and remembers. The decision stays with the team.</p>
+    </div>
+    <div class="ds-cards four">
+      <div class="ds-card ds-reveal"><h3>In the background</h3><p>Inside the tools the team already uses. Nothing new to learn.</p></div>
+      <div class="ds-card ds-reveal"><h3>People decide</h3><p>It drafts and asks. The call stays with the people who own the brand.</p></div>
+      <div class="ds-card ds-reveal"><h3>One company, every voice</h3><p>Whoever writes, and whatever tool they use, it reads as the same company.</p></div>
+      <div class="ds-card ds-reveal"><h3>Quiet when it is right</h3><p>It speaks up only where a rule is broken or missing.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-media-full ds-bleed">
+  <img src="/assets/direction-intel/di-drunkman.jpg" width="1920" height="1076" alt="Man in a suit asleep on the pavement beside a tablet showing Directive Intelligence" loading="lazy">
 </div>
 
-<div class="cs-media-full">
-  <video aria-label="Direction Intel animated identity on a digital screen in a subway station" autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/direction-intel/direction-intel-subway-screen-mockup-animation-poster.jpg">
-    <source data-src="https://media.frederikfrede.com/direction-intel/direction-intel-subway-screen-mockup-animation.mp4" type="video/mp4">
-  </video>
-</div>
-<div class="cs-caption">
-  <span class="cs-caption-label">In transit</span>
-  <span class="cs-caption-text">The work travels with you. Screen graphics to follow.</span>
+<!-- 01 WHY -->
+<section class="ds dark">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">01 · Why</span>
+      <h2>Run the company on what it already knows.</h2>
+    </div>
+    <div class="ds-cards">
+      <div class="ds-card ds-reveal"><h3>Fewer hires</h3><p>The system carries the repeatable work. The team grows by judgment. Headcount stays where it is.</p></div>
+      <div class="ds-card ds-reveal"><h3>One center</h3><p>Every business, office, agency and tool works from one source, held in one place.</p></div>
+      <div class="ds-card ds-reveal"><h3>Lower cost</h3><p>Less agency time on first drafts and fixes. Less rework when something goes out in the wrong words.</p></div>
+      <div class="ds-card ds-reveal"><h3>Faster turnaround</h3><p>A first draft in the house voice in minutes, checked against the rules before it reaches review.</p></div>
+      <div class="ds-card ds-reveal"><h3>It learns</h3><p>Every decision made on a piece of work is written back. Next month the company knows more than it did this month.</p></div>
+      <div class="ds-card ds-reveal"><h3>It stays private</h3><p>On the company's own servers, or in its own cloud account. The files belong to the company, whatever the vendor.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-photo dark">
+  <img src="/assets/direction-intel/di-sea-light.jpg" width="691" height="691" alt="Light on open sea, a single wave breaking in the foreground" loading="lazy">
+</section>
+
+<!-- 02 HOW -->
+<section class="ds soft">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">02 · How it works</span>
+      <h2>Four parts. One loop.</h2>
+    </div>
+    <div class="ds-cards four">
+      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Written down</h3><p>The brand and the company's rules as plain files. Each rule carries its reason, in the client's own words, with a date. Colours, type and components sit beside them as data.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Read by every tool</h3><p>People read the files. AI agents read them before they write. Claude, ChatGPT, Copilot or a private workspace, one source behind all of them.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Checked</h3><p>New drafts are read against the files before they go out, and so is what is already live: sites, decks, listings. Whatever the rules do not cover comes back as a question.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Written back</h3><p>Decisions, feedback and who decides what go into the files the same day. Agents propose. People decide. The loop is how the company learns.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-media-full ds-bleed">
+  <img src="/assets/direction-intel/di-plane.jpg" width="1920" height="1080" alt="Aircraft seat screen showing Directive Intelligence beside a window at dusk" loading="lazy">
 </div>
 
-<!-- SLIDE 5: PULL QUOTE (pinned; sentences brighten with scroll) -->
+<!-- RED CLAIM -->
+<section class="ds red">
+  <div class="ds-inner ds-reveal">
+    <h2>Anyone can run the model.<br>Few can direct it.</h2>
+  </div>
+</section>
+
+<!-- CASE 01 LEWIS -->
+<section class="ds">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">Case 01 · Lewis Group of Companies</span>
+      <h2>One brand. Five businesses. One version.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>A family-led community developer since 1955. Apartments, retail centers, planned communities, office and land, across California and Nevada, with outside brokers, agencies and now AI tools writing for it.</p>
+      <p>The identity was built at MoreSleep between 2022 and 2024. The Lewis Brand Directive turns it into the one source every team works from, on Lewis's own servers.</p>
+      <ul class="ds-chips">
+        <li>Rules in Lewis's own words, dated</li>
+        <li>Drafts in the Lewis voice in minutes</li>
+        <li>Every page checked before launch</li>
+        <li>One brand lead for five businesses</li>
+        <li>Private, on Lewis's servers</li>
+        <li>Ready for billing, contracts and the intranet</li>
+      </ul>
+      <div class="ds-links">
+        <a href="https://accordingtoplan.github.io/lewis-brand-system/" target="_blank" rel="noopener">The Lewis Brand Directive ↗</a>
+        <a href="/lewis-group-brand-identity-web-design.html">The Lewis identity, 2022 to 2024 →</a>
+      </div>
+      <figure class="ds-figure">
+        <img src="/assets/direction-intel/lewis-aerial.jpg" width="2259" height="1265" alt="Aerial view of a Lewis community under construction" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="ds-photo soft">
+  <img src="/assets/direction-intel/di-temple-roots.jpg" width="732" height="1080" alt="Tree roots grown over the stones of an old temple, black and white" loading="lazy">
+</section>
+
+<!-- CASE 02 (unnamed publisher) -->
+<section class="ds dark">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">Case 02 · A European newspaper house</span>
+      <h2>Almost 250 years of journalism. One system that holds all of it.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>A house with several print titles, its own editorial culture and a long memory. All of it is written down as one source, read by editors, designers, developers and AI alike.</p>
+    </div>
+    <div class="ds-cards">
+      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Archive and legacy</h3><p>The history and the archive, open as context to every desk and every tool.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Newsroom</h3><p>Briefings, research and first drafts held to the house's standards. The editor decides.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Editorial system</h3><p>How the house writes, edits and decides, set down as rules with their reasons.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Video</h3><p>Scripts, cuts and formats from the same source, in the house's voice and look.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">05</span><h3>Brand and design</h3><p>The guidelines, the Figma libraries and every component, read by designers and agents alike.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">06</span><h3>Titles and media</h3><p>Several print outlets and the media systems behind them, each in its own voice, all run from one center.</p></div>
+    </div>
+    <div class="ds-body ds-reveal" style="margin-top:40px;">
+      <p>The first product built on it, a new way to read the news, went from concept to working prototype in days. More when it launches.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cs-media-full ds-bleed">
+  <img src="/assets/direction-intel/di-truck.jpg" width="1920" height="1080" alt="Billboard truck showing Directive Intelligence on a city highway" loading="lazy">
+</div>
+
+<!-- OTHER SIZES -->
+<section class="ds soft">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">03 · Every size</span>
+      <h2>The same method, from one person to five businesses.</h2>
+    </div>
+    <div class="ds-cards two">
+      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles and Berlin</span><h3>Concierge Coffee</h3><p>Two founders, two cities, one source. The system holds the brand, then runs further: the online shop, wholesale sales and the bar itself, tuned from the same files.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles</span><h3>SamSation</h3><p>A movement practice with more brand documents than any other client, and they disagreed. Now one version. The site, the letters, the retreats and the replies all read from it.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">In discovery</span><h3>A caffeinated snack brand</h3><p>A new pack on the shelf before its brand guide arrived. The system was built from the pack and serves as the interim guide, with every claim kept to what can be proven.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">One person</span><h3>The Digital Mind</h3><p>The system behind this practice and this site. It reads the day's intake, remembers, and checks itself for drift. Where every client system is heading.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-photo ">
+  <img src="/assets/direction-intel/di-snow-sculptures.jpg" width="956" height="956" alt="Tall blocks of snow cut and stood upright in a mountain valley" loading="lazy">
+</section>
+
+<!-- 04 THE COMPANY -->
+<section class="ds">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">04 · Beyond the brand</span>
+      <h2>The brand is the first chapter. The company is the rest.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>Any team that writes the same documents again and again, under rules that matter, works the same way. One source with the rules and their reasons. Drafts in minutes. A check before anything goes out. On the same private workspace.</p>
+    </div>
+    <div class="ds-cards">
+      <div class="ds-card ds-reveal"><h3>Sales and retail</h3><p>Offers, product pages and wholesale replies from one set of facts and one voice.</p></div>
+      <div class="ds-card ds-reveal"><h3>Billing</h3><p>Invoices, statements and letters in the approved wording, with the right legal entity on every page.</p></div>
+      <div class="ds-card ds-reveal"><h3>Contracts</h3><p>Started from the current templates and clauses, with every change from the standard flagged for legal.</p></div>
+      <div class="ds-card ds-reveal"><h3>Intranet</h3><p>Procedures, forms and news in one place. Staff ask a question and get the answer from the company's own current documents.</p></div>
+      <div class="ds-card ds-reveal"><h3>Data</h3><p>Documents and figures tagged and dated, with access by role. One current source for every number the company uses.</p></div>
+      <div class="ds-card ds-reveal"><h3>People</h3><p>Onboarding, policies and internal updates written once and answered the same way in every office.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-photo soft">
+  <img src="/assets/direction-intel/di-electronics-lab.jpg" width="951" height="711" alt="A workbench of oscilloscopes, test equipment and a modular synthesizer" loading="lazy">
+</section>
+
+<!-- PULL QUOTE (pinned; sentences brighten with scroll) -->
 <div class="di-quote-wrap">
   <div class="di-quote">
-    <blockquote><span class="di-q di-q1">The machinery is cheap.</span> <span class="di-q di-q2">The judgment took thirty years.</span></blockquote>
+    <blockquote><span class="di-q di-q1">The tools are everywhere.</span> <span class="di-q di-q2">The judgment took thirty years.</span></blockquote>
   </div>
 </div>
 
-<!-- IN THE FIELD: REAL CASES -->
-<section class="di-slide" style="min-height:40vh;">
-  <span class="di-slide-label">05 — In the field</span>
-  <h2>Direction is so much more important than speed.</h2>
-  <p>Speed is what the tools give everyone. Direction is what the system adds. Work it currently carries:</p>
-</section>
-<div class="di-skill">
-  <span class="di-skill-num">01</span>
-  <div>
-    <h3>frederikfrede.com</h3>
-    <p>This site. Strategy, design, build and copy, shipped end to end with the system.</p>
+<!-- 05 WHAT A CLIENT GETS -->
+<section class="ds soft">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">05 · What a client gets</span>
+      <h2>A Brand Directive. Then the rest of the company.</h2>
+    </div>
+    <div class="ds-cards four">
+      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>The files</h3><p>The brand written down from the client's own decisions, in plain text any tool can read.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>The test</h3><p>The same brief, with and without the files, and a read of what is live today. Each finding becomes a rule or a question.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>The setup</h3><p>The system running where the team works. A private workspace, or the tools already in use.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>The first session</h3><p>A working session with the team. Questions answered, decisions written back, the first pieces made from it.</p></div>
+    </div>
   </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">02</span>
-  <div>
-    <h3>NZZ</h3>
-    <p>Concept prototyping in Figma and a vision app built with Claude Code and Flutter. Ideas made testable in days, not quarters.</p>
-  </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">03</span>
-  <div>
-    <h3>Samsation</h3>
-    <p>A full website replacing Squarespace, with Acuity scheduling and a video platform wired in.</p>
-  </div>
-</div>
-<div class="di-skill">
-  <span class="di-skill-num">04</span>
-  <div>
-    <h3>Concierge</h3>
-    <p>The same move on Shopify. Brand, store and content, one system underneath.</p>
-  </div>
-</div>
-<div class="di-skill" style="border-bottom:1px solid var(--border);">
-  <span class="di-skill-num">05</span>
-  <div>
-    <h3>Lewis Group</h3>
-    <p>A complete identity built as a brand system, connected through WordPress to everything downstream.</p>
-  </div>
-</div>
-
-<!-- SLIDE 6: HOW IT ARRIVES -->
-<section class="di-slide" style="min-height:50vh;">
-  <span class="di-slide-label">06 — How it arrives</span>
-  <h2>Watch it work first.</h2>
-  <p>The system already carries live work, and the method case study on this site documents it decision by decision. Access is granted on request while it keeps being refined. Verify everything before spending anything.</p>
 </section>
 
-<div class="cs-media-full">
-  <video aria-label="Direction Intel animated identity on a laptop held up to camera" autoplay muted loop playsinline data-lazy preload="metadata" poster="/assets/direction-intel/direction-intel-laptop-mockup-animation-poster.jpg">
-    <source data-src="https://media.frederikfrede.com/direction-intel/direction-intel-laptop-mockup-animation.mp4" type="video/mp4">
-  </video>
-</div>
-<div class="cs-caption">
-  <span class="cs-caption-label">The work</span>
-  <span class="cs-caption-text">Held up to the light. Screen graphics to follow.</span>
-</div>
 
-<div class="cs-media-full">
-  <img src="/assets/direction-intel/di-fire.jpg" width="1920" height="1076" alt="Highway billboard showing Directive Intelligence in signal red against a wall of wildfire" loading="lazy">
-</div>
-<div class="cs-caption">
-  <span class="cs-caption-label">The week from hell</span>
-  <span class="cs-caption-text">Some weeks look like this. The system holds.</span>
-</div>
 
-<!-- SLIDE 7: CTA -->
-<div class="di-cta">
-  <p style="font-size:clamp(16px,1.6vw,21px);line-height:1.6;color:var(--grey-mid);max-width:34em;margin:0 0 40px;">Directive Intelligence is available on request. Pricing follows demand. Write, say where the work needs support, and the answer comes back in plain language.</p>
-  <div><a href="/about.html#contact">Request access →</a></div>
-</div>
+<section class="ds-photo ">
+  <img src="/assets/direction-intel/di-golden-figure.jpg" width="1440" height="1800" alt="A figure in a hooded cape on a hilltop in golden fog, one arm raised" loading="lazy">
+</section>
+
+<!-- CTA -->
+<section class="ds">
+  <div class="ds-inner ds-cta ds-reveal">
+    <p class="ds-lead" style="margin-bottom:40px;">Directive Intelligence works with a small number of companies at a time. Write, say where the brand or the business needs to hold, and the answer comes back in plain language.</p>
+    <a href="/about.html#contact">Start a conversation →</a>
+  </div>
+</section>
 
 <!-- BOTTOM: description + credits -->
 <div class="cs-bottom">
   <div class="cs-description">
-    <p>A system for creative directors and strategists who want their judgment to work harder, built by one whose work is on this site. The proof lives in the method case study. Directive Intelligence is available on request, priced by demand.</p>
+    <p>Directive Intelligence writes a company's brand and know-how down once, so that people and AI agents work from one version and every piece of work teaches the system. Lewis is the main case. The same method runs at a European newspaper house, Concierge Coffee, SamSation, a consumer brand in discovery and the Digital Mind.</p>
   </div>
   <dl class="cs-credits-cols">
-    <div class="cs-credit-group"><dt>Status</dt><dd>In development</dd></div>
+    <div class="cs-credit-group"><dt>Cases</dt><dd>Lewis Group of Companies</dd><dd>Concierge Coffee</dd><dd>SamSation</dd></div>
     <div class="cs-credit-group"><dt>Collaborators</dt><dd>—</dd></div>
     <div class="cs-credit-group"><dt>Year</dt><dd>2026</dd></div>
   </dl>
@@ -437,7 +390,7 @@
 <script>
 /* Deck motion: observe slides + skills, add .in-view once. Safety net mirrors footer.js. */
 (function(){
-  var targets = document.querySelectorAll('.di-slide, .di-skill, .di-quote, .di-cta');
+  var targets = document.querySelectorAll('.ds-reveal');
   if (!targets.length) return;
   function revealAll(){ targets.forEach(function(el){ el.classList.add('in-view'); }); }
   if (!('IntersectionObserver' in window)) { revealAll(); return; }
