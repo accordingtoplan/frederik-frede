@@ -50,6 +50,10 @@
   .ds.ice-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%); }
   .ds.ice-bg > .ds-inner { position: relative; }
   .ds.ice-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .ds.surf-bg { background: #111 url(/assets/direction-intel/di-calm-surfer.jpg) center 45%/cover no-repeat; position: relative; --card: rgba(10,10,10,0.55); }
+  .ds.surf-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65)); }
+  .ds.surf-bg > .ds-inner { position: relative; }
+  .ds.surf-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
   .ds.claim h2 { font-size: clamp(40px, 7vw, 104px); max-width: none; }
   .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
   .ds-photo.dark { background: #111; }
@@ -209,19 +213,19 @@
 </div>
 
 <!-- 01 WHY -->
-<section class="ds dark">
+<section class="ds dark surf-bg">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
       <span class="ds-label">01 · Why</span>
       <h2>Run the company on what it already knows.</h2>
     </div>
     <div class="ds-cards">
-      <div class="ds-card ds-reveal"><h3>Fewer hires</h3><p>The system carries the repeatable work. The team grows by judgment. Headcount stays where it is.</p></div>
       <div class="ds-card ds-reveal"><h3>One center</h3><p>Every business, office, agency and tool works from one source, held in one place.</p></div>
       <div class="ds-card ds-reveal"><h3>Lower cost</h3><p>Less agency time on first drafts and fixes. Less rework when something goes out in the wrong words.</p></div>
       <div class="ds-card ds-reveal"><h3>Faster turnaround</h3><p>A first draft in the house voice in minutes, checked against the rules before it reaches review.</p></div>
       <div class="ds-card ds-reveal"><h3>It learns</h3><p>Every decision made on a piece of work is written back. Next month the company knows more than it did this month.</p></div>
       <div class="ds-card ds-reveal"><h3>It stays private</h3><p>On the company's own servers, or in its own cloud account. The files belong to the company, whatever the vendor.</p></div>
+      <div class="ds-card ds-reveal"><h3>Fewer hires</h3><p>The system carries the repeatable work. The team grows by judgment. Headcount stays where it is.</p></div>
     </div>
   </div>
 </section>
