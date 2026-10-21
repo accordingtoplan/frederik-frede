@@ -126,7 +126,11 @@
     section.ds { padding-top: 56px; padding-bottom: 32px; }
     .ds-photo img { max-height: 72vh; }
     /* Cards swipe sideways on the phone so every slide stays one screen */
-    section.ds .ds-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 0 -20px; padding: 0 20px 4px; scrollbar-width: none; }
+    section.ds .ds-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 0; gap: 10px; margin: 0 -20px 0 0; padding: 0 20px 4px 0; scrollbar-width: none; }
+    section.ds .ds-links a { display: inline-block; padding: 7px 0; }
+    section.ds .ds-chips li:nth-child(n+5) { display: none; }
+    section.ds .ds-links { gap: 4px 24px; }
+    .ds-cardquote { font-size: 14px; }
     section.ds .ds-cards::-webkit-scrollbar { display: none; }
     section.ds .ds-card { flex: 0 0 78%; scroll-snap-align: start; padding: 20px; }
     section.ds .ds-head { margin-bottom: 20px; }
@@ -137,6 +141,23 @@
     section.ds .ds-links { margin-top: 16px; }
     .ds-figure { display: none; }
     .ds-big { font-size: 24px; }
+  }
+
+  /* Small phones (iPhone SE and similar): tighten so each slide stays one screen */
+  @media (max-width: 640px) and (max-height: 740px) {
+    section.ds { padding-top: 48px; padding-bottom: 20px; }
+    section.ds h2 { font-size: 25px; }
+    section.ds .ds-head { margin-bottom: 14px; gap: 8px; }
+    section.ds .ds-body p { font-size: 15px; line-height: 1.42; margin-bottom: 0.5em; }
+    section.ds .ds-card { padding: 16px; }
+    section.ds .ds-card h3 { font-size: 17px; margin-bottom: 6px; }
+    section.ds .ds-card p { font-size: 14px; line-height: 1.42; }
+    .ds-cardquote { font-size: 13px; margin-top: 10px; padding-top: 8px; }
+    section.ds .ds-chips li:nth-child(n+4) { display: none; }
+    section.ds .ds-links { margin-top: 8px; }
+    .ds-big { font-size: 21px; }
+    .cta-media img { height: 30vh !important; }
+    .ds-cta .ds-lead { margin-bottom: 20px !important; }
   }
 
   /* Motion. All gated on reduced-motion. */
