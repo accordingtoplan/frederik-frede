@@ -15,7 +15,6 @@
         background: #fff; color: var(--ink); padding: clamp(72px, 10vw, 140px) 48px; }
   .ds.dark   { background: #111; --ink: #fff; --mid: rgba(255,255,255,0.62); --card: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.18); }
   .ds.soft   { background: #f5f3f1; --card: #fff; }
-  .ds.brown  { background: #2b1a0b; --ink: #f6efe6; --mid: rgba(246,239,230,0.68); --card: rgba(246,239,230,0.07); }
   .ds.red    { background: #e63222; --ink: #000; --mid: rgba(0,0,0,0.62); --card: rgba(0,0,0,0.08); }
   .ds-inner { max-width: 1240px; margin: 0 auto; }
   .ds-head { display: grid; grid-template-columns: minmax(140px, 240px) 1fr; gap: 24px; margin-bottom: clamp(36px, 5vw, 64px); }
@@ -42,15 +41,15 @@
   .ds-photo.soft { background: #f5f3f1; }
   .ds-photo img { display: block; width: auto; height: auto; max-width: min(100%, 960px); max-height: 86vh; }
   @media (max-width: 640px) { .ds-photo { padding: 48px 20px; } }
-  .ds-bleed { margin-bottom: 0; padding: 0; }
-  .ds-bleed img { width: 100%; height: auto; display: block; }
-  .ds-figure { margin: 48px 0 0; }
-  .ds-figure img { width: 100%; height: auto; display: block; border-radius: 14px; }
+  .ds-bleed { height: 100vh; height: 100svh; overflow: hidden; }
+  .ds-bleed img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .ds-figure { margin: 32px 0 0; }
+  .ds-figure img { width: 100%; height: 22vh; display: block; border-radius: 14px; object-fit: cover; }
   .ds-cta a { display: inline-block; font-size: clamp(20px, 2.4vw, 32px); font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 3px solid currentColor; padding-bottom: 4px; }
   .ds-cta a:hover { opacity: 0.6; }
 
   /* Hero on the riot scene */
-  .di-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 96px 48px; background: #1a0505 url(/assets/direction-intel/di-riot.jpg) center/cover no-repeat; }
+  .di-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 96px 48px; background: #1a0505 url(/assets/direction-intel/di-calm-hero-poster.jpg) center/cover no-repeat; }
   .di-hero .ds-label { color: rgba(255,255,255,0.75); padding: 0; margin-bottom: 28px; }
   .di-hero h1 { font-size: clamp(44px, 9vw, 130px); line-height: 0.95; letter-spacing: -0.03em; font-weight: 700; color: #fff; margin: 0 0 32px; }
   .di-tagline { font-size: clamp(18px, 2vw, 26px); line-height: 1.4; color: rgba(255,255,255,0.88); font-weight: 700; max-width: 22em; margin: 0; }
@@ -58,7 +57,7 @@
   .di-hero { position: relative; overflow: hidden; justify-content: flex-end; padding-bottom: clamp(48px, 8vh, 96px); }
   .di-hero h1 { font-size: clamp(40px, 7vw, 104px); margin-bottom: 24px; }
   .di-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-  .di-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.75) 100%); z-index: 0; }
+  .di-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.12) 45%, rgba(0,0,0,0.55) 100%); z-index: 0; }
   .di-hero > :not(video) { position: relative; z-index: 1; }
   @media (prefers-reduced-motion: reduce) { .di-hero-video { display: none; } }
 
@@ -77,7 +76,40 @@
     .ds-cards, .ds-cards.four, .ds-cards.two { grid-template-columns: 1fr; gap: 12px; }
     .ds-card { padding: 22px; }
     .di-hero, .di-quote { padding: 64px 20px; }
-    .di-quote { min-height: 0; }
+  }
+
+  /* One slide per viewport; the page locks onto each slide. */
+  html { scroll-snap-type: y mandatory; }
+  .di-hero-wrap, section.ds, .ds-photo, .ds-bleed, .di-quote-wrap, .cs-bottom { scroll-snap-align: start; scroll-snap-stop: always; }
+  footer { scroll-snap-align: end; }
+  section.ds, .ds-photo, .di-hero, .di-quote { min-height: 100vh; min-height: 100svh; box-sizing: border-box; }
+  section.ds { display: flex; flex-direction: column; justify-content: center; padding-top: clamp(64px, 9vh, 110px); padding-bottom: clamp(48px, 7vh, 90px); }
+  section.ds > .ds-inner { width: 100%; }
+  @media (min-width: 641px) and (max-height: 1000px) {
+    section.ds .ds-head { margin-bottom: 28px; }
+    section.ds .ds-card { padding: 22px 24px; }
+    section.ds .ds-chips { margin-top: 20px; }
+    section.ds .ds-links { margin-top: 20px; }
+    section.ds .ds-body p { margin-bottom: 0.7em; }
+    section.ds .ds-cards { gap: 12px; }
+  }
+  .ds-photo img { max-height: 80vh; }
+  .di-quote-wrap { background: #111; }
+  @media (max-width: 640px) {
+    section.ds { padding-top: 56px; padding-bottom: 32px; }
+    .ds-photo img { max-height: 72vh; }
+    /* Cards swipe sideways on the phone so every slide stays one screen */
+    section.ds .ds-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 0 -20px; padding: 0 20px 4px; scrollbar-width: none; }
+    section.ds .ds-cards::-webkit-scrollbar { display: none; }
+    section.ds .ds-card { flex: 0 0 78%; scroll-snap-align: start; padding: 20px; }
+    section.ds .ds-head { margin-bottom: 20px; }
+    section.ds h2 { font-size: 30px; }
+    section.ds .ds-body p { font-size: 16px; margin-bottom: 0.6em; }
+    section.ds .ds-chips { margin-top: 14px; gap: 6px; }
+    section.ds .ds-chips li { font-size: 13px; padding: 7px 12px; }
+    section.ds .ds-links { margin-top: 16px; }
+    .ds-figure { display: none; }
+    .ds-big { font-size: 24px; }
   }
 
   /* Motion. All gated on reduced-motion. */
@@ -89,23 +121,6 @@
     .ds-cards .ds-reveal.in-view:nth-child(4) { transition-delay: 0.24s; }
     .ds-cards .ds-reveal.in-view:nth-child(5) { transition-delay: 0.32s; }
     .ds-cards .ds-reveal.in-view:nth-child(6) { transition-delay: 0.40s; }
-    @supports (animation-timeline: view()) {
-      .cs-media-full { overflow: hidden; animation: di-bleed linear both; animation-timeline: view(); animation-range: entry 20% cover 50%; }
-      .cs-media-full img { animation: di-settle linear both; animation-timeline: view(); animation-range: entry 20% cover 50%; }
-      @keyframes di-bleed { from { padding-left: 8%; padding-right: 8%; } to { padding-left: 0; padding-right: 0; } }
-      @keyframes di-settle { from { transform: scale(1.04); border-radius: 20px; } to { transform: scale(1); border-radius: 0; } }
-
-      .di-hero-wrap { height: 175vh; view-timeline: --di-hero; }
-      .di-hero { position: sticky; top: 0; animation: di-hero-out linear both; animation-timeline: --di-hero; animation-range: exit 0% exit 85%; }
-      @keyframes di-hero-out { to { transform: scale(0.93) translateY(-4vh); opacity: 0; } }
-
-      .di-quote-wrap { height: 220vh; view-timeline: --di-quote; background: #111; }
-      .di-quote-wrap .di-quote { position: sticky; top: 0; height: 100vh; min-height: 0; }
-      .di-q { animation: di-word linear both; animation-timeline: --di-quote; }
-      .di-q1 { animation-range: contain 5% contain 40%; }
-      .di-q2 { animation-range: contain 40% contain 80%; }
-      @keyframes di-word { from { opacity: 0.18; } to { opacity: 1; } }
-    }
   }
 </style>
 
@@ -138,9 +153,9 @@
 <!-- HERO (pinned; scales away as the page overtakes it) -->
 <div class="di-hero-wrap">
   <section class="di-hero">
-    <!-- Hero reel: showreel 0.0 to 3.0 s, the Lewis billboard (0.5 to 0.8 s) held in slow motion. Hosted on R2. -->
-    <video class="di-hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/direction-intel/di-riot.jpg" aria-hidden="true">
-      <source src="https://media.frederikfrede.com/direction-intel/direction-intel-hero-reel.mp4" type="video/mp4">
+    <!-- Hero film: the blue ridges in fog and the sunrise over clouds, slow push, 3 s dissolves, 17 s seamless loop. Hosted on R2. -->
+    <video class="di-hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/direction-intel/di-calm-hero-poster.jpg" aria-hidden="true">
+      <source src="https://media.frederikfrede.com/direction-intel/direction-intel-hero-calm-2.mp4" type="video/mp4">
     </video>
     <span class="ds-label">Case study · AI and the company it runs</span>
     <h1>Directive<br>Intelligence</h1>
@@ -151,12 +166,12 @@
 <!-- THE PROBLEM -->
 <section class="ds">
   <div class="ds-inner ds-reveal">
-    <p class="ds-big">Every team writes from the file it has. So does every agency. Now AI tools write too, from whatever they are handed. The company splits into versions, and nobody did anything wrong.</p>
+    <p class="ds-big">A brand lives in many hands. Marketing, sales, agencies, the website partner, and now AI tools. Each works from its own copy: an old deck, a PDF, a quick prompt. Over time the brand says different things in different places. Nobody gets it wrong on purpose. There is simply no single version to work from.</p>
   </div>
 </section>
 
 <!-- THE IDEA: a gentle system -->
-<section class="ds brown">
+<section class="ds soft">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
       <span class="ds-label">The idea</span>
@@ -174,8 +189,8 @@
   </div>
 </section>
 
-<div class="cs-media-full ds-bleed">
-  <img src="/assets/direction-intel/di-drunkman.jpg" width="1920" height="1076" alt="Man in a suit asleep on the pavement beside a tablet showing Directive Intelligence" loading="lazy">
+<div class="ds-bleed">
+  <img src="/assets/direction-intel/di-calm-pool-forest.jpg" width="2048" height="1536" alt="A still pool between concrete walls, open to a forested valley" loading="lazy">
 </div>
 
 <!-- 01 WHY -->
@@ -216,8 +231,8 @@
   </div>
 </section>
 
-<div class="cs-media-full ds-bleed">
-  <img src="/assets/direction-intel/di-plane.jpg" width="1920" height="1080" alt="Aircraft seat screen showing Directive Intelligence beside a window at dusk" loading="lazy">
+<div class="ds-bleed">
+  <img src="/assets/direction-intel/di-calm-mountain-light.jpg" width="2400" height="1600" alt="Evening light on clouds over a mountain range and a dirt road" loading="lazy">
 </div>
 
 <!-- RED CLAIM -->
@@ -278,14 +293,14 @@
       <div class="ds-card ds-reveal"><span class="ds-label">05</span><h3>Brand and design</h3><p>The guidelines, the Figma libraries and every component, read by designers and agents alike.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">06</span><h3>Titles and media</h3><p>Several print outlets and the media systems behind them, each in its own voice, all run from one center.</p></div>
     </div>
-    <div class="ds-body ds-reveal" style="margin-top:40px;">
+    <div class="ds-body ds-reveal" style="margin-top:24px;">
       <p>The first product built on it, a new way to read the news, went from concept to working prototype in days. More when it launches.</p>
     </div>
   </div>
 </section>
 
-<div class="cs-media-full ds-bleed">
-  <img src="/assets/direction-intel/di-truck.jpg" width="1920" height="1080" alt="Billboard truck showing Directive Intelligence on a city highway" loading="lazy">
+<div class="ds-bleed">
+  <img src="/assets/direction-intel/di-calm-palms-dusk.jpg" width="2400" height="1590" alt="Palm trees against a soft pink and blue dusk sky" loading="lazy">
 </div>
 
 <!-- OTHER SIZES -->
@@ -330,7 +345,7 @@
 </section>
 
 <section class="ds-photo soft">
-  <img src="/assets/direction-intel/di-electronics-lab.jpg" width="951" height="711" alt="A workbench of oscilloscopes, test equipment and a modular synthesizer" loading="lazy">
+  <img src="/assets/direction-intel/di-calm-footprint.jpg" width="1200" height="1800" alt="A single footprint in fine sand" loading="lazy">
 </section>
 
 <!-- PULL QUOTE (pinned; sentences brighten with scroll) -->
