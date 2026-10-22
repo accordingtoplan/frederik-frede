@@ -216,6 +216,22 @@
     .case-media.ratio-2 { aspect-ratio: 2 / 1; }
     .case-media.ratio-auto { aspect-ratio: unset; }
 
+
+    /* Wordmark tile: image with a slow push, the name set in the site type */
+    .wm-tile { position: relative; overflow: hidden; background: #2a2a2a; }
+    .wm-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.02); }
+    .wm-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.35)); }
+    .wm-text { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff; padding: 0 6%; }
+    .wm-name { font-weight: 700; font-size: clamp(30px, 6.4vw, 96px); line-height: 0.98; letter-spacing: -0.03em; }
+    .wm-sub { margin-top: 14px; font-size: clamp(13px, 1.4vw, 20px); letter-spacing: 0.02em; opacity: 0.9; }
+    @media (prefers-reduced-motion: no-preference) {
+      .wm-bg { animation: wm-push 18s ease-in-out infinite alternate; }
+      @keyframes wm-push { from { transform: scale(1.02); } to { transform: scale(1.1) translateY(-1.5%); } }
+    }
+    @media (max-width: 640px) {
+      #cases .case-tags { flex-shrink: 1; min-width: 0; }
+      .wm-sub { margin-top: 8px; }
+    }
     /* Case info below media */
     .case-info {
       padding-top: 10px;
@@ -661,8 +677,8 @@
         src:"https://media.frederikfrede.com/architonic/architonic-homepage-smart-search-animation.mp4", poster:"/assets/architonic/architonic-brand-strategy-platform-design-poster.webp", ratio:"ratio-wide",
         year:"2023–2025", live:"architonic.com", liveHref:"https://www.architonic.com", collab:"–" },
       { b:"Directive Intelligence", tag:"Strategy / AI / Consulting", desc:"A company's voice, rules, facts and decisions in one system that people and AI work from.",
-        full:true, type:"video", link:"/directive-intelligence.html",
-        src:"https://media.frederikfrede.com/direction-intel/direction-intel-hero-calm-2.mp4", poster:"/assets/direction-intel/di-calm-hero-poster.jpg", ratio:"ratio-wide",
+        full:true, type:"wordmark", link:"/directive-intelligence.html",
+        bg:"/assets/direction-intel/di-calm-mountain-light.jpg", sub:"An intelligent brand system", ratio:"ratio-wide",
         year:"2026", collab:"–" },
       { b:"NZZ",                tag:"AI / Consulting / Digital",        desc:"R&D and digital transformation for Switzerland's leading media house.",
         type:"img", src:"/assets/nzz/nzz-brand-digital-nzzde-front.webp",
@@ -759,6 +775,8 @@
         media = `<div class="case-media ${ratio}"><picture><source type="image/webp" srcset="${imgBase}-640w.webp 640w, ${imgBase}-1280w.webp 1280w, ${c.src} 1400w" sizes="(max-width:640px) 100vw, 50vw"><img src="${c.src}" alt="${c.b}" loading="lazy"></picture></div>`;
       } else if (c.type === 'vimeo') {
         media = `<div class="case-media ${ratio}"><div class="vimeo-bg"><iframe class="lazy-vimeo" data-src="https://player.vimeo.com/video/${c.src}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe></div></div>`;
+      } else if (c.type === 'wordmark') {
+        media = `<div class="case-media ${ratio} wm-tile"><div class="wm-bg" style="background-image:url('${c.bg}')"></div><div class="wm-text"><span class="wm-name">${c.b}</span>${c.sub ? `<span class="wm-sub">${c.sub}</span>` : ''}</div></div>`;
       } else if (c.type === 'placeholder-logo') {
         let tileAttrs = '';
         if (c.bg) {
