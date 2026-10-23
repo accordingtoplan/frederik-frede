@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Directive Intelligence — Frederik Frede</title>
+<meta name="description" content="Directive Intelligence: a company's voice, rules, facts and decisions in one system that people and AI tools work from. A case study.">
+<!-- BACKUP: named version (Lewis named), 23 Oct 2026. Not public: lives behind Cloudflare Access in /staging/. -->
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Directive Intelligence — Frederik Frede">
+<meta property="og:description" content="Directive Intelligence: a company's voice, rules, facts and decisions in one system that people and AI tools work from. A case study.">
+<meta property="og:url" content="https://frederikfrede.com/directive-intelligence.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://frederikfrede.com/assets/direction-intel/di-calm-hero-poster.jpg">
+  <link rel="stylesheet" href="/style.css">
+<style>
+  /* Page-specific: slide layout. Full-width colour bands, label left, headline right, cards. */
+  .ds { --ink: #111; --mid: #5f5a55; --card: #f5f3f1; --line: rgba(0,0,0,0.12);
+        background: #fff; color: var(--ink); padding: clamp(72px, 10vw, 140px) 48px; }
+  .ds.dark   { background: #111; --ink: #fff; --mid: rgba(255,255,255,0.62); --card: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.18); }
+  .ds.soft   { background: #f5f3f1; --card: #fff; }
+  .ds.blue   { background: #01579d; --ink: #fff; --mid: rgba(255,255,255,0.78); --card: rgba(255,255,255,0.1); }
+  .ds-inner { max-width: 1240px; margin: 0 auto; }
+  .ds-head { display: grid; grid-template-columns: minmax(140px, 240px) 1fr; gap: 24px; margin-bottom: clamp(36px, 5vw, 64px); }
+  .ds-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mid); padding-top: 14px; }
+  .ds h2 { font-size: clamp(32px, 4.8vw, 68px); line-height: 1.03; letter-spacing: -0.025em; font-weight: 700; color: var(--ink); margin: 0; max-width: 15em; }
+  .ds-body { margin-left: calc(min(240px, 22%) + 24px); }
+  .ds-body p, .ds p.ds-lead { font-size: clamp(17px, 1.7vw, 22px); line-height: 1.5; color: var(--mid); max-width: 36em; margin: 0 0 1em; }
+  .ds-big { font-size: clamp(28px, 4vw, 56px); line-height: 1.12; letter-spacing: -0.02em; font-weight: 700; color: var(--ink); margin: 0; max-width: 19em; }
+  .ds-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ds-cards.four { grid-template-columns: repeat(4, 1fr); }
+  .ds-cards.two { grid-template-columns: repeat(2, 1fr); }
+  .ds-card { background: var(--card); border-radius: 14px; padding: 28px; }
+  .ds-card .ds-label { display: block; padding: 0; margin-bottom: 14px; }
+  .ds-card h3 { font-size: clamp(20px, 1.8vw, 24px); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
+  .ds-card p { font-size: 16px; line-height: 1.5; color: var(--mid); margin: 0; }
+  .ds-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 0; padding: 0; list-style: none; }
+  .ds-chips li { background: var(--card); border-radius: 999px; padding: 9px 16px; font-size: 14px; color: var(--ink); }
+  .ds-links { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 36px; }
+  .ds-links a { font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px; }
+  .ds-links a:hover { opacity: 0.6; }
+  .ds.photo-bg { background: #111 url(/assets/direction-intel/di-calm-mountain-light.jpg) center/cover no-repeat; position: relative; --card: rgba(10,14,22,0.55); --mid: rgba(255,255,255,0.8); }
+  .ds.photo-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0.6) 100%); }
+  .ds.photo-bg > .ds-inner { position: relative; }
+  .ds.photo-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .ds.sand-bg { background: #e9e9e9 url(/assets/direction-intel/di-calm-elephant.jpg) center 35%/cover no-repeat; position: relative; --card: rgba(255,255,255,0.84); --mid: rgba(20,15,10,0.78); }
+  .ds.sand-bg::before { content: ""; position: absolute; inset: 0; background: rgba(245,245,245,0.18); }
+  .ds.sand-bg > .ds-inner { position: relative; }
+  .ds.sand-bg .ds-card { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+  .ds.ice-bg { background: #dfe8ee url(/assets/direction-intel/di-snow-sculptures.jpg) center 42%/cover no-repeat; position: relative; --card: rgba(255,255,255,0.84); --mid: rgba(15,25,35,0.78); }
+  .ds.ice-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%); }
+  .ds.ice-bg > .ds-inner { position: relative; }
+  .ds.ice-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .ds.surf-bg { background: #111 url(/assets/direction-intel/di-calm-surfer.jpg) center 45%/cover no-repeat; position: relative; --card: rgba(10,10,10,0.55); }
+  .ds.surf-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65)); }
+  .ds.surf-bg > .ds-inner { position: relative; }
+  .ds.surf-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .ds-cardquote { margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid rgba(0,0,0,0.12); font-size: 15px; line-height: 1.45; color: var(--ink); font-style: normal; }
+  .ds-cardquote cite { display: block; margin-top: 8px; font-size: 12px; font-style: normal; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); }
+  .cta-grid { display: grid; grid-template-columns: 1fr minmax(0, 0.9fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+  .cta-media { display: block; }
+  .cta-media img { width: 100% !important; height: min(40vw, 72vh) !important; max-width: none; object-fit: cover; display: block; border-radius: 14px; }
+  @media (max-width: 640px) { .cta-media img { height: 46vh !important; } }
+  @media (max-width: 640px) { .cta-grid { grid-template-columns: 1fr; gap: 28px; } }
+  .ds.claim h2 { font-size: clamp(36px, 5.6vw, 84px); max-width: 15em; }
+  .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
+  .ds-photo.dark { background: #111; }
+  .ds-photo.soft { background: #f5f3f1; }
+  .ds-photo img { display: block; width: auto; height: auto; max-width: min(100%, 960px); max-height: 86vh; }
+  @media (max-width: 640px) { .ds-photo { padding: 48px 20px; } }
+  .ds-bleed { height: 100vh; height: 100svh; overflow: hidden; }
+  .ds-bleed img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .ds-figure { margin: 32px 0 0; }
+  .ds-figure img { width: 100%; height: 22vh; display: block; border-radius: 14px; object-fit: cover; }
+  .ds-cta a { display: inline-block; font-size: clamp(20px, 2.4vw, 32px); font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 3px solid currentColor; padding-bottom: 4px; }
+  .ds-cta a:hover { opacity: 0.6; }
+
+  /* Hero on the riot scene */
+  .di-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 96px 48px; background: #1a0505 url(/assets/direction-intel/di-calm-hero-poster.jpg) center/cover no-repeat; }
+  .di-hero .ds-label { color: rgba(255,255,255,0.75); padding: 0; margin-bottom: 28px; }
+  .di-hero h1 { font-size: clamp(44px, 9vw, 130px); line-height: 0.95; letter-spacing: -0.03em; font-weight: 700; color: #fff; margin: 0 0 32px; }
+  .di-tagline { font-size: clamp(18px, 2vw, 26px); line-height: 1.4; color: rgba(255,255,255,0.88); font-weight: 700; max-width: 22em; margin: 0; }
+
+  .di-hero { position: relative; overflow: hidden; justify-content: flex-end; padding-bottom: clamp(48px, 8vh, 96px); }
+  .di-hero h1 { font-size: clamp(40px, 7vw, 104px); margin-bottom: 24px; }
+  .di-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .di-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.12) 45%, rgba(0,0,0,0.55) 100%); z-index: 0; }
+  .di-hero > :not(video) { position: relative; z-index: 1; }
+  @media (prefers-reduced-motion: reduce) { .di-hero-video { display: none; } }
+
+  /* Pull quote on dark */
+  .di-quote { min-height: 60vh; display: flex; align-items: center; padding: 96px 48px; background: #111; }
+  .di-quote blockquote { font-size: clamp(32px, 5.5vw, 80px); line-height: 1.05; letter-spacing: -0.025em; font-weight: 700; color: #fff; margin: 0 auto; max-width: 1240px; width: 100%; }
+
+  @media (max-width: 1000px) {
+    .ds-cards, .ds-cards.four { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .ds { padding: 64px 20px; }
+    .ds-head { grid-template-columns: 1fr; gap: 14px; }
+    .ds-label { padding-top: 0; }
+    .ds-body { margin-left: 0; }
+    .ds-cards, .ds-cards.four, .ds-cards.two { grid-template-columns: 1fr; gap: 12px; }
+    .ds-card { padding: 22px; }
+    .di-hero, .di-quote { padding: 64px 20px; }
+  }
+
+  /* One slide per viewport; the page locks onto each slide. */
+  html { scroll-snap-type: y mandatory; }
+  .di-hero-wrap, section.ds, .ds-photo, .ds-bleed, .di-quote-wrap, .cs-bottom { scroll-snap-align: start; scroll-snap-stop: always; }
+  footer { scroll-snap-align: end; }
+  section.ds, .ds-photo, .di-hero, .di-quote { min-height: 100vh; min-height: 100svh; box-sizing: border-box; }
+  section.ds { display: flex; flex-direction: column; justify-content: center; padding-top: clamp(64px, 9vh, 110px); padding-bottom: clamp(48px, 7vh, 90px); }
+  section.ds > .ds-inner { width: 100%; }
+  @media (min-width: 641px) and (max-height: 1000px) {
+    section.ds .ds-head { margin-bottom: 28px; }
+    section.ds .ds-card { padding: 22px 24px; }
+    section.ds .ds-chips { margin-top: 20px; }
+    section.ds .ds-links { margin-top: 20px; }
+    section.ds .ds-body p { margin-bottom: 0.7em; }
+    section.ds .ds-cards { gap: 12px; }
+  }
+  .ds-photo img { max-height: 80vh; }
+  .di-quote-wrap { background: #111; }
+  @media (max-width: 640px) {
+    section.ds { padding-top: 56px; padding-bottom: 32px; }
+    .ds-photo img { max-height: 72vh; }
+    /* Cards swipe sideways on the phone so every slide stays one screen */
+    section.ds .ds-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 0; gap: 10px; margin: 0 -20px 0 0; padding: 0 20px 4px 0; scrollbar-width: none; }
+    section.ds .ds-links a { display: inline-block; padding: 7px 0; }
+    section.ds .ds-chips li:nth-child(n+5) { display: none; }
+    section.ds .ds-links { gap: 4px 24px; }
+    .ds-cardquote { font-size: 14px; }
+    section.ds .ds-cards::-webkit-scrollbar { display: none; }
+    section.ds .ds-card { flex: 0 0 78%; scroll-snap-align: start; padding: 20px; }
+    section.ds .ds-head { margin-bottom: 20px; }
+    section.ds h2 { font-size: 30px; }
+    section.ds .ds-body p { font-size: 16px; margin-bottom: 0.6em; }
+    section.ds .ds-chips { margin-top: 14px; gap: 6px; }
+    section.ds .ds-chips li { font-size: 13px; padding: 7px 12px; }
+    section.ds .ds-links { margin-top: 16px; }
+    .ds-figure { display: none; }
+    .ds-big { font-size: 24px; }
+  }
+
+  /* Small phones (iPhone SE and similar): tighten so each slide stays one screen */
+  @media (max-width: 640px) and (max-height: 740px) {
+    section.ds { padding-top: 48px; padding-bottom: 20px; }
+    section.ds h2 { font-size: 25px; }
+    section.ds .ds-head { margin-bottom: 14px; gap: 8px; }
+    section.ds .ds-body p { font-size: 15px; line-height: 1.42; margin-bottom: 0.5em; }
+    section.ds .ds-card { padding: 16px; }
+    section.ds .ds-card h3 { font-size: 17px; margin-bottom: 6px; }
+    section.ds .ds-card p { font-size: 14px; line-height: 1.42; }
+    .ds-cardquote { font-size: 13px; margin-top: 10px; padding-top: 8px; }
+    section.ds .ds-chips li:nth-child(n+4) { display: none; }
+    section.ds .ds-links { margin-top: 8px; }
+    .ds-big { font-size: 21px; }
+    .cta-media img { height: 30vh !important; }
+    .ds-cta .ds-lead { margin-bottom: 20px !important; }
+  }
+
+  /* Motion. All gated on reduced-motion. */
+  @media (prefers-reduced-motion: no-preference) {
+    .ds-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .ds-reveal.in-view { opacity: 1; transform: none; }
+    .ds-cards .ds-reveal.in-view:nth-child(2) { transition-delay: 0.08s; }
+    .ds-cards .ds-reveal.in-view:nth-child(3) { transition-delay: 0.16s; }
+    .ds-cards .ds-reveal.in-view:nth-child(4) { transition-delay: 0.24s; }
+    .ds-cards .ds-reveal.in-view:nth-child(5) { transition-delay: 0.32s; }
+    .ds-cards .ds-reveal.in-view:nth-child(6) { transition-delay: 0.40s; }
+  }
+</style>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": "https://frederikfrede.com/directive-intelligence.html",
+  "url": "https://frederikfrede.com/directive-intelligence.html",
+  "name": "Directive Intelligence",
+  "description": "Directive Intelligence: a company's voice, rules, facts and decisions in one system that people and AI tools work from. A case study.",
+  "dateCreated": "2026",
+  "about": { "@type": "Organization", "name": "Lewis Group of Companies" },
+  "creator": {
+    "@type": "Person",
+    "@id": "https://frederikfrede.com/#frederik-frede",
+    "name": "Frederik Frede",
+    "url": "https://frederikfrede.com",
+    "jobTitle": "Creative Director"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="nav-mount"></div>
+
+<!-- HERO (pinned; scales away as the page overtakes it) -->
+<div class="di-hero-wrap">
+  <section class="di-hero">
+    <!-- Hero film: the blue ridges in fog and the sunrise over clouds, slow push, 3 s dissolves, 17 s seamless loop. Hosted on R2. -->
+    <video class="di-hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/direction-intel/di-calm-hero-poster.jpg" aria-hidden="true">
+      <source src="https://media.frederikfrede.com/direction-intel/direction-intel-hero-calm-2.mp4" type="video/mp4">
+    </video>
+    <span class="ds-label">Case study · Brand, strategy and AI for companies</span>
+    <h1>Directive<br>Intelligence</h1>
+    <p class="di-tagline">A company's voice, rules, facts and decisions in one system. Every person and every AI tool works from it, and it grows with every input.</p>
+  </section>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="ds blue">
+  <div class="ds-inner ds-reveal">
+    <p class="ds-big">A brand lives in many hands. Marketing, sales, agencies, and now AI tools. Each works from its own copy: an old deck, a PDF, a quick prompt. Over time the brand says different things in different places. Nobody gets it wrong on purpose. There is simply no single version to work from.</p>
+  </div>
+</section>
+
+<!-- THE IDEA: a gentle system -->
+<section class="ds soft">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">The idea</span>
+      <h2>A gentle system.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>It works in the background and supports the people who carry the brand and the business. It drafts, checks and remembers. The decision stays with the team.</p>
+    </div>
+    <div class="ds-cards four">
+      <div class="ds-card ds-reveal"><h3>In the background</h3><p>Inside the tools the team already uses. Nothing new to learn.</p></div>
+      <div class="ds-card ds-reveal"><h3>People decide</h3><p>It drafts and asks. The call stays with the people who own the brand.</p></div>
+      <div class="ds-card ds-reveal"><h3>One company, every voice</h3><p>Whoever writes, and whatever tool they use, it reads as the same company.</p></div>
+      <div class="ds-card ds-reveal"><h3>Quiet when it is right</h3><p>It speaks up only where a rule is broken or missing, or where it sees a chance to improve.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="ds-bleed">
+  <img src="/assets/direction-intel/di-calm-pool-forest.jpg?v=2" width="2048" height="1536" alt="A still pool between concrete walls, open to a forested valley" loading="lazy">
+</div>
+
+<!-- 01 WHY -->
+<section class="ds dark surf-bg">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">01 · Why</span>
+      <h2>Run the company on what it already knows.</h2>
+    </div>
+    <div class="ds-cards">
+      <div class="ds-card ds-reveal"><h3>One center</h3><p>Every business, office, agency and tool works from one source, held in one place.</p></div>
+      <div class="ds-card ds-reveal"><h3>Lower cost</h3><p>Less agency time on first drafts and fixes. Less rework when something goes out in the wrong words.</p></div>
+      <div class="ds-card ds-reveal"><h3>Faster turnaround</h3><p>A first draft in the company's voice in minutes, checked against the rules before it reaches review.</p></div>
+      <div class="ds-card ds-reveal"><h3>It learns</h3><p>Every decision made on a piece of work is written back. Next month the company knows more than it did this month.</p></div>
+      <div class="ds-card ds-reveal"><h3>It stays private</h3><p>On the company's own servers, or in its own cloud account. The files belong to the company, whatever the vendor.</p></div>
+      <div class="ds-card ds-reveal"><h3>Fewer hires</h3><p>The system carries the repeatable work. The same team does more. Headcount stays where it is.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 HOW -->
+<section class="ds dark photo-bg">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">02 · How it works</span>
+      <h2>The method sets the rhythm.</h2>
+    </div>
+    <div class="ds-cards four">
+      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Written down</h3><p>The brand and the company's rules as plain files. Each rule carries its reason, in the client's own words, with a date. Logos, colours and fonts are stored with them.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Read by every tool</h3><p>People read the files. AI tools like ChatGPT, Claude, Gemini or Copilot read them before they write. One source behind all of them, including a private AI workspace on the company's own servers.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Checked</h3><p>New drafts are read against the files before they go out, and so is what is already live: sites, decks, listings. Whatever the rules do not cover comes back as a question.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Written back</h3><p>Decisions, feedback and who decides what go into the files the same day. The AI suggests. People decide. That is how the company learns.</p></div>
+    </div>
+    <div class="ds-body ds-reveal" style="margin-top:24px;">
+      <p>Why not hand an AI tool the brand PDF? A PDF shows what was decided. The system also carries why, where each rule applies and what to do when none does. Then it checks the work and keeps every new decision.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 STRATEGY AND PLANNING -->
+<section class="ds">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">03 · Strategy and planning</span>
+      <h2>The thinking comes first.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>Strategy comes first. Every plan starts from where the company stands and where it wants to go.</p>
+    </div>
+    <div class="ds-cards four">
+      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Positioning</h3><p>Where the company stands, for whom, and what sets it apart. Written down with the reasons, so every team argues from the same place.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Plans</h3><p>Launches, campaigns and the year ahead, drafted from current figures and past results. Ready for review within days.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Briefs</h3><p>Every brief starts from the system: the goal, the audience, the facts and the rules that apply. Agencies get the same brief as the team.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>The other side</h3><p>Before a recommendation goes to the board, the system builds the strongest case against it. The objection arrives early, in private.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RED CLAIM -->
+<section class="ds dark claim">
+  <div class="ds-inner ds-reveal">
+    <h2>Everyone has the same AI.<br>The difference is what it knows about your company.</h2>
+  </div>
+</section>
+
+<!-- THE TEST: BRAND PDF AGAINST THE SYSTEM -->
+<section class="ds soft">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">Case 01 · A brand PDF against a brand system</span>
+      <h2>Reality check. One question on a Tuesday afternoon.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>A sales manager needs a poster for a partner's event by tomorrow. Which logo, which colour, which line about the company?</p>
+    </div>
+    <div class="ds-cards two">
+      <div class="ds-card ds-reveal"><span class="ds-label">The brand PDF</span><h3>Somewhere in a PDF or a deck.</h3><p>The answer is on page 40 of the brand PDF, or in an old deck. The one designer who knows is out sick or on holiday. The PDF shows what was decided, never why. The poster goes out with a guess.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">The brand system</span><h3>An answer in Slack, in seconds.</h3><p>Asked in Slack, Teams or a direct message. The brand system replies with the rule, the reason and the right file, and checks the draft before it goes out. When the answer is a new decision, it goes back in the same day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 01 LEWIS -->
+<section class="ds">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">Case 02 · Lewis Group of Companies</span>
+      <h2>One brand. Five businesses. One version.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>A family-led community developer since 1955. Apartments, retail centers, planned communities, office and land, across California and Nevada, with outside brokers, agencies and now AI tools writing for it.</p>
+      <p>The identity was built at MoreSleep between 2022 and 2024. The Lewis Brand Directive turns it into the one source every team works from, on Lewis's own servers.</p>
+      <ul class="ds-chips">
+        <li>Rules in Lewis's own words, dated</li>
+        <li>Drafts in the Lewis voice in minutes</li>
+        <li>Every page checked before launch</li>
+        <li>One brand lead for five businesses</li>
+        <li>Private, on Lewis's servers</li>
+        <li>Ready for billing, contracts and the intranet</li>
+      </ul>
+      <div class="ds-links">
+        <a href="https://accordingtoplan.github.io/lewis-brand-system/" target="_blank" rel="noopener">The Lewis Brand Directive ↗</a>
+        <a href="/lewis-group-brand-identity-web-design.html">The Lewis identity, 2022 to 2024 →</a>
+      </div>
+      <figure class="ds-figure">
+        <img src="/assets/direction-intel/lewis-aerial.jpg" width="2259" height="1265" alt="Aerial view of a Lewis community under construction" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 02 (unnamed publisher) -->
+<section class="ds dark">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">Case 03 · An international publishing and media house</span>
+      <h2>Almost 250 years of journalism. One system that holds all of it.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>A house with several print titles, its own editorial culture and a long memory. All of it is written down as one source, read by editors, designers, developers and AI alike.</p>
+    </div>
+    <div class="ds-cards">
+      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Archive and legacy</h3><p>The history and the archive, open as context to every desk and every tool.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Newsroom</h3><p>Briefings, research and first drafts held to the house's standards. The editor decides.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Editorial system</h3><p>How the house writes, edits and decides, set down as rules with their reasons.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Video</h3><p>Scripts, cuts and formats from the same source, in the house's voice and look.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">05</span><h3>Brand and design</h3><p>The guidelines and the design libraries in Figma, read by designers and AI tools alike.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">06</span><h3>Titles and media</h3><p>Several print outlets and the media systems behind them, each in its own voice, all run from one center.</p></div>
+    </div>
+    <div class="ds-body ds-reveal" style="margin-top:24px;">
+      <p>The first product built on it, a new way to read the news, went from concept to working prototype in days. More when it launches.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER SIZES -->
+<section class="ds soft ice-bg">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">04 · References</span>
+      <h2>The same system, at any stage and any size.</h2>
+    </div>
+    <div class="ds-cards two">
+      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles and Berlin</span><h3>Concierge Coffee</h3><p>Two founders, two cities, one source, connected to Shopify and Square. The brand, the online shop, wholesale and the bar all run from the same files.</p><blockquote class="ds-cardquote">"In September our prices, weights and even the phone number were different depending on where you looked. Now one source holds them, and everyone works from it, people and AI alike. With Shopify and Square hooked up, we can tune our workflow, and it is already improving our margins."<cite>Benjamin, Concierge Coffee</cite></blockquote></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles</span><h3>SamSation</h3><p>A movement practice, now run on the system from end to end. It schedules the classes, produces the posts, letters and videos, and reads what works to shape the next programs.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">In rollout</span><h3>A caffeinated snack brand</h3><p>A new identity moving from the first retail chain to every channel. The system holds strategy, messaging and claims in one place, so every listing and the content plan switch from one source.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">The next step</span><h3>A hojicha brand, run by the system</h3><p>A roasted green tea brand, built to run entirely on AI and the system: copy, imagery, the shop, reporting and paperwork. A few people set the direction.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 THE COMPANY -->
+<section class="ds">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">05 · Beyond the brand</span>
+      <h2>With the system in place, every unit and every person can rely on it.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>Every team that writes the same documents again and again can work this way. One source, drafts in minutes, a check before anything goes out.</p>
+    </div>
+    <div class="ds-cards">
+      <div class="ds-card ds-reveal"><h3>Sales and retail</h3><p>Offers, product pages and wholesale replies from one set of facts and one voice.</p></div>
+      <div class="ds-card ds-reveal"><h3>Billing</h3><p>Invoices, statements and letters in the approved wording, with the right legal entity on every page.</p></div>
+      <div class="ds-card ds-reveal"><h3>Contracts</h3><p>Started from the current templates and clauses, with every change from the standard flagged for legal.</p></div>
+      <div class="ds-card ds-reveal"><h3>Intranet</h3><p>Procedures, forms and news in one place. Staff ask a question and get the answer from the company's own current documents.</p></div>
+      <div class="ds-card ds-reveal"><h3>Data</h3><p>Documents and figures tagged and dated, with access by role. One current source for every number the company uses.</p></div>
+      <div class="ds-card ds-reveal"><h3>People and HR</h3><p>Job posts, onboarding, policies and internal updates, written in one voice and answered the same way in every office.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE (pinned; sentences brighten with scroll) -->
+<div class="di-quote-wrap">
+  <div class="di-quote">
+    <blockquote><span class="di-q di-q1">Every decision written down</span> <span class="di-q di-q2">is one nobody has to make again.</span></blockquote>
+  </div>
+</div>
+
+<!-- 05 WHAT A CLIENT GETS -->
+<section class="ds soft sand-bg">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">06 · What a client gets</span>
+      <h2>From a Brand Directive to coaching your people.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>A Brand Directive is the brand's rulebook, written so that people and AI can both use it. Then the team learns to work with it, in sessions and day to day.</p>
+    </div>
+    <div class="ds-cards four">
+      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>The files</h3><p>The brand written down from the client's own decisions, in plain text any tool can read.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>The test</h3><p>The same brief, with and without the files, and a read of what is live today. Each finding becomes a rule or a question.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>The setup</h3><p>The system running where the team works: a private AI workspace on the company's own servers, or the tools already in use.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>The first session</h3><p>A working session with the team. Questions answered, decisions written back, the first pieces made from it.</p></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 07 WORKING TOGETHER -->
+<section class="ds">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">07 · Working together</span>
+      <h2>A quick setup. Then it runs almost by itself.</h2>
+    </div>
+    <div class="ds-cards four">
+      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Setup</h3><p>From one week to a month. How long depends on how digitally prepared the company is, and on where the system should run.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>What it takes</h3><p>The documents that already exist, a few hours from the people who know the brand, and access to the tools the team uses.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Your data</h3><p>Either through a commercial AI model in the company's own account, or with a private open-source model on the company's own servers, where nothing leaves the house. Access is set by role.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>After setup</h3><p>An ongoing engagement. The system is kept current, checked and extended to the next part of the business.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ds cta-split">
+  <div class="ds-inner cta-grid">
+    <div class="ds-cta ds-reveal">
+      <p class="ds-lead" style="margin-bottom:40px;">Directive Intelligence works with a small number of companies at a time. Write, say where the brand or the business should work better, and the answer comes back in plain language.</p>
+      <a href="/about.html#contact">Start a conversation →</a>
+    </div>
+    <div class="cta-media">
+      <img src="/assets/direction-intel/di-calm-skate-street.jpg" width="1080" height="1080" alt="Barefoot on a sunny street, a skateboard balanced on one foot, black and white" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM: description + credits -->
+<div class="cs-bottom">
+  <div class="cs-description">
+    <p>Directive Intelligence puts a company's voice, rules, facts and decisions into one system. People and AI tools work from it, and every piece of work adds to it. Lewis is the main case. The same method runs at an international publishing and media house, Concierge Coffee, SamSation, a consumer brand in rollout and a hojicha brand built to be run by the system.</p>
+  </div>
+  <dl class="cs-credits-cols">
+    <div class="cs-credit-group"><dt>Cases</dt><dd>Lewis Group of Companies</dd><dd>Concierge Coffee</dd><dd>SamSation</dd></div>
+    <div class="cs-credit-group"><dt>Collaborators</dt><dd>—</dd></div>
+    <div class="cs-credit-group"><dt>Year</dt><dd>2026</dd></div>
+  </dl>
+</div>
+
+<footer>
+    <div id="footer-mount"></div>
+  </footer>
+  <script src="/footer.js"></script>
+
+<script>
+/* Deck motion: observe slides + skills, add .in-view once. Safety net mirrors footer.js. */
+(function(){
+  var targets = document.querySelectorAll('.ds-reveal');
+  if (!targets.length) return;
+  function revealAll(){ targets.forEach(function(el){ el.classList.add('in-view'); }); }
+  if (!('IntersectionObserver' in window)) { revealAll(); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  targets.forEach(function(el){ io.observe(el); });
+  setTimeout(function(){
+    targets.forEach(function(el){
+      if (el.classList.contains('in-view')) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight + 200 && r.bottom > -200) el.classList.add('in-view');
+    });
+  }, 1200);
+  /* Thread fallback for browsers without scroll-driven animations */
+  if (!CSS.supports('animation-timeline: scroll()')) {
+    var fill = document.querySelector('.di-thread-fill');
+    if (fill) {
+      var ticking = false;
+      function draw(){
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        fill.style.transform = 'scaleY(' + (max > 0 ? Math.min(window.scrollY / max, 1) : 1) + ')';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(draw); } }, { passive: true });
+      draw();
+    }
+  }
+})();
+</script>
+
+<script>
+  const themes = {
+    white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#7a7470',               light:'#a8a39f',               border:'#c8c3be' },
+    black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.55)', light:'rgba(255,255,255,0.45)', border:'rgba(255,255,255,0.12)' },
+    signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.48)',       border:'transparent' },
+  };
+  function setTheme(name, el) {
+    const t = themes[name]; const r = document.documentElement.style;
+    r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
+    r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
+    r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
+    r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
+    r.setProperty('--grey-light', t.light);
+    document.documentElement.setAttribute('data-theme', name);
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+  setTheme('white', document.querySelector('.swatch[onclick*="white"]'));
+</script>
+
+</body>
+</html>
