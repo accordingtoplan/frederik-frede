@@ -95,7 +95,13 @@ main{flex:1;padding:0}
 
 /* ─── ARCHIVE ────────────────────────────────────────────────────── */
 .archive-section{margin-bottom:96px;padding:0 48px}
-.archive-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 24px;align-items:start;margin-top:64px}
+.archive-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:row dense;gap:0 24px;align-items:start;margin-top:64px}
+/* columns flatten into one grid so year, client and cat of an entry share a row and stay aligned when a line wraps */
+.archive-col-label,.archive-col-year,.archive-col-client,.archive-col-cat{display:contents}
+.archive-col-label>*{grid-column:1;grid-row:1/span 6}
+.archive-col-year>*{grid-column:2}
+.archive-col-client>*{grid-column:3}
+.archive-col-cat>*{grid-column:4}
 .archive-grid+.archive-grid{margin-top:48px}
 .archive-col-label h3,
 .archive-col-year h3,
@@ -145,7 +151,9 @@ footer{margin-top:auto}
   .work-grid.view-columns{padding:0 20px;columns:1;column-gap:0}
   .work-grid.view-grid{grid-template-columns:1fr;gap:24px}
   .archive-section{padding:0 20px;margin-bottom:64px}
-  .archive-grid{grid-template-columns:auto 1fr;gap:0 16px;margin-top:40px !important}
+  .archive-grid{grid-template-columns:auto minmax(0,1fr);gap:0 16px;margin-top:40px !important}
+  .archive-col-year>*{grid-column:1}
+  .archive-col-client>*{grid-column:2}
   .archive-col-label{display:none}
   .archive-col-cat{display:none}
   .archive-col-year h3,.archive-col-client h3{display:none}
