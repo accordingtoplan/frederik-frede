@@ -56,6 +56,8 @@
   .ds.surf-bg > .ds-inner { position: relative; }
   .ds.surf-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
   .ds-cardquote { margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid rgba(0,0,0,0.12); font-size: 15px; line-height: 1.45; color: var(--ink); font-style: normal; }
+  .ds-proof { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
+  .ds-proof .ds-cardquote { margin: 0; font-size: clamp(17px, 1.7vw, 22px); line-height: 1.35; }
   .ds-cardquote cite { display: block; margin-top: 8px; font-size: 12px; font-style: normal; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); }
   .cta-grid { display: grid; grid-template-columns: 1fr minmax(0, 0.9fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
   .cta-media { display: block; }
@@ -100,7 +102,8 @@
     .ds-head { grid-template-columns: 1fr; gap: 14px; }
     .ds-label { padding-top: 0; }
     .ds-body { margin-left: 0; }
-    .ds-cards, .ds-cards.four, .ds-cards.two { grid-template-columns: 1fr; gap: 12px; }
+    .ds-cards, .ds-cards.four, .ds-cards.two, .ds-proof { grid-template-columns: 1fr; gap: 12px; }
+    .ds-proof { margin-top: 16px; }
     .ds-card { padding: 22px; }
     .di-hero, .di-quote { padding: 64px 20px; }
   }
@@ -204,16 +207,33 @@
     <video class="di-hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/direction-intel/di-calm-hero-poster.jpg" aria-hidden="true">
       <source src="https://media.frederikfrede.com/direction-intel/direction-intel-hero-calm-2.mp4" type="video/mp4">
     </video>
-    <span class="ds-label">Case study · Brand, strategy and AI for companies</span>
+    <span class="ds-label">Case study · Brand, strategy and technology for companies</span>
     <h1>Directive<br>Intelligence</h1>
-    <p class="di-tagline">A company's voice, rules, facts and decisions in one system. Every person and every AI tool works from it, and it grows with every input.</p>
+    <p class="di-tagline">A company's voice, rules, facts and decisions in one system. Every person and every tool works from it, and it grows with every input.</p>
   </section>
 </div>
 
 <!-- THE PROBLEM -->
 <section class="ds blue">
   <div class="ds-inner ds-reveal">
-    <p class="ds-big">A brand lives in many hands: marketing, sales, agencies, and now AI tools. Each works from its own copy, an old deck, a PDF, a quick prompt. Nobody gets it wrong on purpose. There is simply no single version.</p>
+    <p class="ds-big">A brand lives in many hands: marketing, sales, agencies, and now their tools. Each works from its own copy, an old deck, a PDF, a quick prompt. Nobody gets it wrong on purpose. There is simply no single version.</p>
+  </div>
+</section>
+
+<!-- CASE 01: BRAND PDF AGAINST THE SYSTEM -->
+<section class="ds soft">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">Case 01 · A brand PDF against a brand system</span>
+      <h2>Reality check. One question on a Tuesday afternoon.</h2>
+    </div>
+    <div class="ds-body ds-reveal">
+      <p>A sales manager needs a partner poster by tomorrow. Which logo, which colour, which line?</p>
+    </div>
+    <div class="ds-cards two">
+      <div class="ds-card ds-reveal"><span class="ds-label">The brand PDF</span><h3>Somewhere in a PDF or a deck.</h3><p>Page 40 of the brand PDF, or an old deck. The one designer who knows is away. The poster goes out with a guess.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">The brand system</span><h3>An answer in Slack, in seconds.</h3><p>The brand system replies with the rule, the reason and the right file, then checks the draft.</p></div>
+    </div>
   </div>
 </section>
 
@@ -225,10 +245,14 @@
       <h2>Run the company on what it already knows.</h2>
     </div>
     <div class="ds-cards four">
-      <div class="ds-card ds-reveal"><h3>One center</h3><p>Every business, office, agency and tool works from one source.</p></div>
-      <div class="ds-card ds-reveal"><h3>Faster</h3><p>A first draft in the company&#39;s voice in minutes, checked before review.</p></div>
-      <div class="ds-card ds-reveal"><h3>Lower cost</h3><p>Fewer hires, less agency time, less rework.</p></div>
-      <div class="ds-card ds-reveal"><h3>It learns</h3><p>Every decision goes back in. Next month it knows more.</p></div>
+      <div class="ds-card ds-reveal"><h3>One framework and system</h3><p>Every business, office, agency and tool works from one source.</p></div>
+      <div class="ds-card ds-reveal"><h3>Faster</h3><p>First drafts in minutes and in the company&#39;s voice, automatically checked before review.</p></div>
+      <div class="ds-card ds-reveal"><h3>Lower cost</h3><p>Less agency time, fewer rounds, fewer errors in market.</p></div>
+      <div class="ds-card ds-reveal"><h3>It learns</h3><p>Every decision goes back in. Tomorrow&#39;s answer is better than yesterday&#39;s.</p></div>
+    </div>
+    <div class="ds-proof ds-reveal">
+      <blockquote class="ds-cardquote">"It is already improving our margins."<cite>Benjamin, Concierge Coffee</cite></blockquote>
+      <blockquote class="ds-cardquote">One brand lead for five businesses.<cite>Family-owned community developer</cite></blockquote>
     </div>
   </div>
 </section>
@@ -241,11 +265,11 @@
       <h2>The method sets the rhythm.</h2>
     </div>
     <div class="ds-body ds-reveal">
-      <p>A gentle system. It works in the background, and people make the calls.</p>
+      <p>A gentle system that works in the background, while people make the calls.</p>
     </div>
     <div class="ds-cards four">
       <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Written down</h3><p>The brand and its rules in plain files, each with its reason and date.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Read by every tool</h3><p>ChatGPT, Claude, Gemini, Copilot or a private workspace, all from one source.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Where the team already works</h3><p>Slack, Figma, cloud tools or a private workspace, all from one source.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Checked</h3><p>New drafts and live pages are read against the rules before anything goes out.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Written back</h3><p>Decisions go back in the same day. The AI suggests, people decide.</p></div>
     </div>
@@ -277,23 +301,6 @@
   </div>
 </section>
 
-<!-- CASE 01: BRAND PDF AGAINST THE SYSTEM -->
-<section class="ds soft">
-  <div class="ds-inner">
-    <div class="ds-head ds-reveal">
-      <span class="ds-label">Case 01 · A brand PDF against a brand system</span>
-      <h2>Reality check. One question on a Tuesday afternoon.</h2>
-    </div>
-    <div class="ds-body ds-reveal">
-      <p>A sales manager needs a partner poster by tomorrow. Which logo, which colour, which line?</p>
-    </div>
-    <div class="ds-cards two">
-      <div class="ds-card ds-reveal"><span class="ds-label">The brand PDF</span><h3>Somewhere in a PDF or a deck.</h3><p>Page 40 of the brand PDF, or an old deck. The one designer who knows is away. The poster goes out with a guess.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">The brand system</span><h3>An answer in Slack, in seconds.</h3><p>The brand system replies with the rule, the reason and the right file, then checks the draft.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- CASE 02 (unnamed community developer) -->
 <section class="ds">
   <div class="ds-inner">
@@ -302,7 +309,7 @@
       <h2>One brand. Five businesses. One version.</h2>
     </div>
     <div class="ds-body ds-reveal">
-      <p>Apartments, retail, planned communities, office and land across the American West. The existing brand became one source for every team, agency and AI tool, on the company&#39;s own servers.</p>
+      <p>Apartments, retail, planned communities, office and land across the American West. The existing brand became one source for every team, every agency and the technology they use, on the company&#39;s own servers.</p>
       <ul class="ds-chips">
         <li>Rules in the company&#39;s own words</li>
         <li>Drafts in minutes</li>
@@ -321,12 +328,12 @@
       <h2>Almost 250 years of journalism. One system that holds all of it.</h2>
     </div>
     <div class="ds-body ds-reveal">
-      <p>Several print titles and a long memory, now one source for editors, designers and AI.</p>
+      <p>Several print titles and a long memory, now one source for every editor, designer and tool.</p>
     </div>
     <div class="ds-cards four">
       <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Archive</h3><p>The history and the archive, open as context to every desk.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Newsroom</h3><p>Briefings, research and first drafts to the house&#39;s editorial standards.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Brand and design</h3><p>Guidelines and Figma libraries, read by designers and AI alike.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Brand and design</h3><p>Guidelines and Figma libraries, read by designers and their tools alike.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Titles and media</h3><p>Print, digital and video, each in its own voice, run from one center.</p></div>
     </div>
     <div class="ds-body ds-reveal" style="margin-top:24px;">
@@ -346,7 +353,7 @@
       <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles and Berlin</span><h3>Concierge Coffee</h3><p>Shop, wholesale and bar run from one source, wired to Shopify and Square.</p><blockquote class="ds-cardquote">"Now one source holds them, and everyone works from it, people and AI alike. [&hellip;] It is already improving our margins."<cite>Benjamin, Concierge Coffee</cite></blockquote></div>
       <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles</span><h3>SamSation</h3><p>Classes, posts, letters and new programs, all run on the system.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">In rollout</span><h3>A caffeinated snack brand</h3><p>A new identity moving into every channel from one source.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">The next step</span><h3>A hojicha brand</h3><p>Built to run entirely on AI and the system.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">The next step</span><h3>A hojicha brand</h3><p>Built from day one to run on one source.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles</span><h3>A private trainer</h3><p>A personal brand, set up before anything shipped.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">Before launch</span><h3>A trainer agency</h3><p>Voice and promises in place before the name is cleared.</p></div>
     </div>
@@ -379,7 +386,7 @@
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
       <span class="ds-label">06 · Working together</span>
-      <h2>A quick setup. Then it runs almost by itself.</h2>
+      <h2>A quick setup. Then it is simply how the company works.</h2>
     </div>
     <div class="ds-cards four">
       <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Setup</h3><p>One week to a month, depending on how digitally prepared the company is.</p></div>
