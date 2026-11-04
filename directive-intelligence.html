@@ -64,6 +64,11 @@
   .cta-media img { width: 100% !important; height: min(40vw, 72vh) !important; max-width: none; object-fit: cover; display: block; border-radius: 14px; }
   @media (max-width: 640px) { .cta-media img { height: 46vh !important; } }
   @media (max-width: 640px) { .cta-grid { grid-template-columns: 1fr; gap: 28px; } }
+  /* Slide numbers, bottom left of every slide */
+  body { counter-reset: slide; }
+  section.ds { counter-increment: slide; position: relative; }
+  section.ds::after { content: counter(slide, decimal-leading-zero); position: absolute; left: 48px; bottom: 28px; z-index: 1; font-size: 12px; letter-spacing: 0.12em; color: var(--mid); }
+  @media (max-width: 640px) { section.ds::after { left: 20px; bottom: 14px; font-size: 11px; } }
   .ds.claim h2 { font-size: clamp(36px, 5.6vw, 84px); max-width: 15em; }
   .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
   .ds-photo.dark { background: #111; }
@@ -220,15 +225,12 @@
   </div>
 </section>
 
-<!-- CASE 01: BRAND PDF AGAINST THE SYSTEM -->
+<!-- REALITY CHECK: BRAND PDF AGAINST THE SYSTEM -->
 <section class="ds soft">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
-      <span class="ds-label">Case 01 · A brand PDF against a brand system</span>
-      <h2>Reality check. One question on a Tuesday afternoon.</h2>
-    </div>
-    <div class="ds-body ds-reveal">
-      <p>A sales manager needs a partner poster by tomorrow. Which logo, which colour, which line?</p>
+      <span class="ds-label">Reality check</span>
+      <h2>A partner poster by tomorrow. Which logo, which colour, which line?</h2>
     </div>
     <div class="ds-cards two">
       <div class="ds-card ds-reveal"><span class="ds-label">The brand PDF</span><h3>Somewhere in a PDF or a deck.</h3><p>Page 40 of the brand PDF, or an old deck. The one designer who knows is away. The poster goes out with a guess.</p></div>
@@ -241,7 +243,7 @@
 <section class="ds dark surf-bg">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
-      <span class="ds-label">01 · Why</span>
+      <span class="ds-label">Why</span>
       <h2>Run the company on what it already knows.</h2>
     </div>
     <div class="ds-cards four">
@@ -257,39 +259,33 @@
   </div>
 </section>
 
-<!-- 02 HOW -->
+<!-- HOW IT WORKS -->
 <section class="ds dark photo-bg">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
-      <span class="ds-label">02 · How it works</span>
-      <h2>The method sets the rhythm.</h2>
-    </div>
-    <div class="ds-body ds-reveal">
-      <p>A gentle system that works in the background, while people make the calls.</p>
+      <span class="ds-label">How it works</span>
+      <h2>A gentle system in the background. The method sets the rhythm, people make the calls.</h2>
     </div>
     <div class="ds-cards four">
-      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Written down</h3><p>The brand and its rules in plain files, each with its reason and date.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Where the team already works</h3><p>Slack, Figma, cloud tools or a private workspace, all from one source.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Checked</h3><p>New drafts and live pages are read against the rules before anything goes out.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Written back</h3><p>Decisions go back in the same day. The AI suggests, people decide.</p></div>
+      <div class="ds-card ds-reveal"><h3>Written down</h3><p>The brand and its rules in plain files, each with its reason and date.</p></div>
+      <div class="ds-card ds-reveal"><h3>Where the team already works</h3><p>Slack, Figma, cloud tools or a private workspace, all from one source.</p></div>
+      <div class="ds-card ds-reveal"><h3>Checked</h3><p>New drafts and live pages are read against the rules before anything goes out.</p></div>
+      <div class="ds-card ds-reveal"><h3>Written back</h3><p>Decisions go back in the same day. The AI suggests, people decide.</p></div>
     </div>
   </div>
 </section>
 
-<!-- 03 STRATEGY AND PLANNING -->
+<!-- STRATEGY AND PLANNING -->
 <section class="ds">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
-      <span class="ds-label">03 · Strategy and planning</span>
-      <h2>The thinking comes first.</h2>
-    </div>
-    <div class="ds-body ds-reveal">
-      <p>Every plan starts from where the company stands and where it wants to go.</p>
+      <span class="ds-label">Strategy and planning</span>
+      <h2>The thinking comes first: every plan starts from where the company stands.</h2>
     </div>
     <div class="ds-cards">
-      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Positioning</h3><p>Where the company stands and what sets it apart, with the reasons.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Plans</h3><p>Launches, campaigns and the year ahead, drafted from current figures.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>The other side</h3><p>The strongest case against a recommendation, before it reaches the board.</p></div>
+      <div class="ds-card ds-reveal"><h3>Positioning</h3><p>Where the company stands and what sets it apart, with the reasons.</p></div>
+      <div class="ds-card ds-reveal"><h3>Plans</h3><p>Launches, campaigns and the year ahead, drafted from current figures.</p></div>
+      <div class="ds-card ds-reveal"><h3>The other side</h3><p>The strongest case against a recommendation, before it reaches the board.</p></div>
     </div>
   </div>
 </section>
@@ -301,16 +297,16 @@
   </div>
 </section>
 
-<!-- CASE 02 (unnamed community developer) -->
+<!-- REFERENCE: COMMUNITY DEVELOPER (unnamed) -->
 <section class="ds">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
-      <span class="ds-label">Case 02 · A family-owned community developer</span>
-      <h2>One brand. Five businesses. One version.</h2>
+      <span class="ds-label">Reference · A family-owned community developer</span>
+      <h2>One brand for five businesses across the American West, on the company&#39;s own servers.</h2>
     </div>
     <div class="ds-body ds-reveal">
-      <p>Apartments, retail, planned communities, office and land across the American West. The existing brand became one source for every team, every agency and the technology they use, on the company&#39;s own servers.</p>
       <ul class="ds-chips">
+        <li>Apartments, retail, communities, office and land</li>
         <li>Rules in the company&#39;s own words</li>
         <li>Drafts in minutes</li>
         <li>Every page checked before launch</li>
@@ -320,55 +316,48 @@
   </div>
 </section>
 
-<!-- CASE 03 (unnamed publisher) -->
-<section class="ds dark">
-  <div class="ds-inner">
-    <div class="ds-head ds-reveal">
-      <span class="ds-label">Case 03 · An international publishing and media house</span>
-      <h2>Almost 250 years of journalism. One system that holds all of it.</h2>
-    </div>
-    <div class="ds-body ds-reveal">
-      <p>Several print titles and a long memory, now one source for every editor, designer and tool.</p>
-    </div>
-    <div class="ds-cards four">
-      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Archive</h3><p>The history and the archive, open as context to every desk.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>Newsroom</h3><p>Briefings, research and first drafts to the house&#39;s editorial standards.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Brand and design</h3><p>Guidelines and Figma libraries, read by designers and their tools alike.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Titles and media</h3><p>Print, digital and video, each in its own voice, run from one center.</p></div>
-    </div>
-    <div class="ds-body ds-reveal" style="margin-top:24px;">
-      <p>The first product built on it went from concept to working prototype in days.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 04 REFERENCES -->
-<section class="ds soft ice-bg">
-  <div class="ds-inner">
-    <div class="ds-head ds-reveal">
-      <span class="ds-label">04 · References</span>
-      <h2>The same system, at any stage and any size.</h2>
-    </div>
-    <div class="ds-cards">
-      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles and Berlin</span><h3>Concierge Coffee</h3><p>Shop, wholesale and bar run from one source, wired to Shopify and Square.</p><blockquote class="ds-cardquote">"Now one source holds them, and everyone works from it, people and AI alike. [&hellip;] It is already improving our margins."<cite>Benjamin, Concierge Coffee</cite></blockquote></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles</span><h3>SamSation</h3><p>Classes, posts, letters and new programs, all run on the system.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">In rollout</span><h3>A caffeinated snack brand</h3><p>A new identity moving into every channel from one source.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">The next step</span><h3>A hojicha brand</h3><p>Built from day one to run on one source.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles</span><h3>A private trainer</h3><p>A personal brand, set up before anything shipped.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">Before launch</span><h3>A trainer agency</h3><p>Voice and promises in place before the name is cleared.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 BEYOND THE BRAND -->
+<!-- REFERENCE: PUBLISHING HOUSE (unnamed) -->
 <section class="ds">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
-      <span class="ds-label">05 · Beyond the brand</span>
+      <span class="ds-label">Reference · An international publishing and media house</span>
+      <h2>Almost 250 years of journalism, held in one system for every editor, designer and tool.</h2>
+    </div>
+    <div class="ds-cards four">
+      <div class="ds-card ds-reveal"><h3>Archive</h3><p>The history and the archive, open as context to every desk.</p></div>
+      <div class="ds-card ds-reveal"><h3>Newsroom</h3><p>Briefings, research and first drafts to the house&#39;s editorial standards.</p></div>
+      <div class="ds-card ds-reveal"><h3>Brand and design</h3><p>Guidelines and Figma libraries, read by designers and their tools alike.</p></div>
+      <div class="ds-card ds-reveal"><h3>Titles and media</h3><p>Print, digital and video, each in its own voice, run from one center.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="ds">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">References</span>
+      <h2>The same system, at any stage and any size.</h2>
+    </div>
+    <div class="ds-cards">
+      <div class="ds-card ds-reveal"><span class="ds-label">Four stores in California</span><h3>Alchemy Works</h3><p>A new online shop on Shopify, opening brand by brand. The system holds the brands, the voice and every listing.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles and Berlin</span><h3>Concierge Coffee</h3><p>Shop, wholesale and bar run from one source, wired to Shopify and Square.</p><blockquote class="ds-cardquote">"Now one source holds them, and everyone works from it, people and AI alike. [&hellip;] It is already improving our margins."<cite>Benjamin, Concierge Coffee</cite></blockquote></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">In rollout</span><h3>A caffeinated protein bar</h3><p>At Costco and on a new e-commerce platform, with one identity and one set of claims in every channel.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">Bags, wholesale and online</span><h3>Apolis</h3><p>The system set up on Shopify, email and SMS, so audience, creative and channels read from real data.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles</span><h3>A private trainer</h3><p>A personal brand and a trainer agency, set up in the system before anything shipped.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">The next step</span><h3>A hojicha brand</h3><p>Built from day one to run on AI and the system.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND THE BRAND -->
+<section class="ds ice-bg">
+  <div class="ds-inner">
+    <div class="ds-head ds-reveal">
+      <span class="ds-label">Beyond the brand</span>
       <h2>With the system in place, every unit and every person can rely on it.</h2>
     </div>
     <div class="ds-body ds-reveal">
-      <p>Every team that writes the same documents again and again can work this way.</p>
       <ul class="ds-chips">
         <li>Sales and retail</li>
         <li>Billing</li>
@@ -381,18 +370,18 @@
   </div>
 </section>
 
-<!-- 06 WORKING TOGETHER -->
+<!-- WORKING TOGETHER -->
 <section class="ds soft sand-bg">
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
-      <span class="ds-label">06 · Working together</span>
-      <h2>A quick setup. Then it is simply how the company works.</h2>
+      <span class="ds-label">Working together</span>
+      <h2>A quick setup, then it is simply how the company works.</h2>
     </div>
     <div class="ds-cards four">
-      <div class="ds-card ds-reveal"><span class="ds-label">01</span><h3>Setup</h3><p>One week to a month, depending on how digitally prepared the company is.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">02</span><h3>What it takes</h3><p>The existing documents, a few hours of the right people, access to the tools.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">03</span><h3>Your data</h3><p>A commercial model in your own account, or a private open-source model on your servers.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">04</span><h3>Coaching</h3><p>Sessions with the team until working with the system is routine. Then it is kept current.</p></div>
+      <div class="ds-card ds-reveal"><h3>Setup</h3><p>One week to a month, depending on how digitally prepared the company is.</p></div>
+      <div class="ds-card ds-reveal"><h3>What it takes</h3><p>The existing documents, a few hours of the right people, access to the tools.</p></div>
+      <div class="ds-card ds-reveal"><h3>Your data</h3><p>A commercial model in your own account, or a private open-source model on your servers.</p></div>
+      <div class="ds-card ds-reveal"><h3>Coaching</h3><p>Sessions with the team until working with the system is routine. Then it is kept current.</p></div>
     </div>
   </div>
 </section>
@@ -413,10 +402,10 @@
 <!-- BOTTOM: description + credits -->
 <div class="cs-bottom">
   <div class="cs-description">
-    <p>Directive Intelligence puts a company's voice, rules, facts and decisions into one system. People and AI tools work from it, and every piece of work adds to it. The main case is a family-owned community developer. The same method runs at an international publishing and media house, Concierge Coffee, SamSation, a consumer brand in rollout, a hojicha brand built to be run by the system, a private trainer and a trainer agency before launch.</p>
+    <p>Directive Intelligence puts a company's voice, rules, facts and decisions into one system. People and AI tools work from it, and every piece of work adds to it. References include a family-owned community developer, an international publishing and media house, Alchemy Works, Concierge Coffee, a caffeinated protein bar, Apolis, a private trainer and a hojicha brand.</p>
   </div>
   <dl class="cs-credits-cols">
-    <div class="cs-credit-group"><dt>Cases</dt><dd>Concierge Coffee</dd><dd>SamSation</dd></div>
+    <div class="cs-credit-group"><dt>References</dt><dd>Alchemy Works</dd><dd>Concierge Coffee</dd><dd>Apolis</dd></div>
     <div class="cs-credit-group"><dt>Collaborators</dt><dd>—</dd></div>
     <div class="cs-credit-group"><dt>Year</dt><dd>2026</dd></div>
   </dl>
