@@ -56,7 +56,7 @@
   .ds.surf-bg > .ds-inner { position: relative; }
   .ds.surf-bg .ds-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
   .ds-cardquote { margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid rgba(0,0,0,0.12); font-size: 15px; line-height: 1.45; color: var(--ink); font-style: normal; }
-  .ds-proof { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
+  .ds-proof { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
   .ds-proof .ds-cardquote { margin: 0; font-size: clamp(17px, 1.7vw, 22px); line-height: 1.35; }
   .ds-cardquote cite { display: block; margin-top: 8px; font-size: 12px; font-style: normal; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); }
   .cta-grid { display: grid; grid-template-columns: 1fr minmax(0, 0.9fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
@@ -69,6 +69,11 @@
   section.ds { counter-increment: slide; position: relative; }
   section.ds::after { content: counter(slide, decimal-leading-zero); position: absolute; left: 48px; bottom: 28px; z-index: 1; font-size: 12px; letter-spacing: 0.12em; color: var(--mid); }
   @media (max-width: 640px) { section.ds::after { left: 20px; bottom: 14px; font-size: 11px; } }
+  .ds-stack { margin-top: 22px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .ds-stack .ds-label { padding: 0; }
+  .ds-stack .ds-chips { margin: 0; }
+  .ds-stack .ds-chips li { padding: 6px 12px; font-size: 13px; }
+  @media (max-width: 640px) { .ds-stack { margin-top: 14px; gap: 8px; } .ds-stack .ds-chips li { padding: 5px 10px; font-size: 12px; } }
   .ds.claim h2 { font-size: clamp(36px, 5.6vw, 84px); max-width: 15em; }
   .ds-photo { display: flex; justify-content: center; align-items: center; padding: clamp(56px, 8vw, 120px) 48px; background: #fff; }
   .ds-photo.dark { background: #111; }
@@ -246,15 +251,13 @@
       <span class="ds-label">Why</span>
       <h2>Run the company on what it already knows.</h2>
     </div>
-    <div class="ds-cards four">
-      <div class="ds-card ds-reveal"><h3>One framework and system</h3><p>Every business, office, agency and tool works from one source.</p></div>
+    <div class="ds-cards">
+      <div class="ds-card ds-reveal"><h3>One center</h3><p>Every business, office, agency and tool works from the same rules.</p></div>
       <div class="ds-card ds-reveal"><h3>Faster</h3><p>First drafts in minutes and in the company&#39;s voice, automatically checked before review.</p></div>
       <div class="ds-card ds-reveal"><h3>Lower cost</h3><p>Less agency time, fewer rounds, fewer errors in market.</p></div>
-      <div class="ds-card ds-reveal"><h3>It learns</h3><p>Every decision goes back in. Tomorrow&#39;s answer is better than yesterday&#39;s.</p></div>
     </div>
     <div class="ds-proof ds-reveal">
       <blockquote class="ds-cardquote">"It is already improving our margins."<cite>Benjamin, Concierge Coffee</cite></blockquote>
-      <blockquote class="ds-cardquote">One brand lead for five businesses.<cite>Family-owned community developer</cite></blockquote>
     </div>
   </div>
 </section>
@@ -268,7 +271,7 @@
     </div>
     <div class="ds-cards four">
       <div class="ds-card ds-reveal"><h3>Written down</h3><p>The brand and its rules in plain files, each with its reason and date.</p></div>
-      <div class="ds-card ds-reveal"><h3>Where the team already works</h3><p>Slack, Figma, cloud tools or a private workspace, all from one source.</p></div>
+      <div class="ds-card ds-reveal"><h3>Where the team already works</h3><p>Slack, Figma, cloud tools or a private workspace.</p></div>
       <div class="ds-card ds-reveal"><h3>Checked</h3><p>New drafts and live pages are read against the rules before anything goes out.</p></div>
       <div class="ds-card ds-reveal"><h3>Written back</h3><p>Decisions go back in the same day. The AI suggests, people decide.</p></div>
     </div>
@@ -280,7 +283,7 @@
   <div class="ds-inner">
     <div class="ds-head ds-reveal">
       <span class="ds-label">Strategy and planning</span>
-      <h2>The thinking comes first: every plan starts from where the company stands.</h2>
+      <h2>The thinking comes first.</h2>
     </div>
     <div class="ds-cards">
       <div class="ds-card ds-reveal"><h3>Positioning</h3><p>Where the company stands and what sets it apart, with the reasons.</p></div>
@@ -293,7 +296,7 @@
 <!-- RED CLAIM -->
 <section class="ds dark claim">
   <div class="ds-inner ds-reveal">
-    <h2>Everyone has the same AI.<br>The difference is what it knows about your company.</h2>
+    <h2>The technology is the same for everyone.<br>The difference is how it is connected and applied.</h2>
   </div>
 </section>
 
@@ -306,10 +309,9 @@
     </div>
     <div class="ds-body ds-reveal">
       <ul class="ds-chips">
-        <li>Apartments, retail, communities, office and land</li>
-        <li>Rules in the company&#39;s own words</li>
-        <li>Drafts in minutes</li>
-        <li>Every page checked before launch</li>
+        <li>Five ways of telling the company&#39;s age</li>
+        <li>Nine taglines across four sites</li>
+        <li>One version now</li>
         <li>One brand lead for five businesses</li>
       </ul>
     </div>
@@ -323,11 +325,13 @@
       <span class="ds-label">Reference · An international publishing and media house</span>
       <h2>Almost 250 years of journalism, held in one system for every editor, designer and tool.</h2>
     </div>
-    <div class="ds-cards four">
-      <div class="ds-card ds-reveal"><h3>Archive</h3><p>The history and the archive, open as context to every desk.</p></div>
-      <div class="ds-card ds-reveal"><h3>Newsroom</h3><p>Briefings, research and first drafts to the house&#39;s editorial standards.</p></div>
-      <div class="ds-card ds-reveal"><h3>Brand and design</h3><p>Guidelines and Figma libraries, read by designers and their tools alike.</p></div>
-      <div class="ds-card ds-reveal"><h3>Titles and media</h3><p>Print, digital and video, each in its own voice, run from one center.</p></div>
+    <div class="ds-body ds-reveal">
+      <ul class="ds-chips">
+        <li>Archive</li>
+        <li>Newsroom</li>
+        <li>Brand and design</li>
+        <li>Titles and media</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -341,9 +345,9 @@
     </div>
     <div class="ds-cards">
       <div class="ds-card ds-reveal"><span class="ds-label">Four stores in California</span><h3>Alchemy Works</h3><p>A new online shop on Shopify. The system holds the brands, the voice and every listing.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles and Berlin</span><h3>Concierge Coffee</h3><p>Shop, wholesale and bar run from one source, wired to Shopify and Square.</p><blockquote class="ds-cardquote">"Now one source holds them, and everyone works from it, people and AI alike. [&hellip;] It is already improving our margins."<cite>Benjamin, Concierge Coffee</cite></blockquote></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles and Berlin</span><h3>Concierge Coffee</h3><p>Shop, wholesale and bar on the same rules, wired to Shopify and Square.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">In rollout</span><h3>A caffeinated protein bar</h3><p>At Target, Costco and on a new e-commerce platform, with one identity and one set of claims in every channel.</p></div>
-      <div class="ds-card ds-reveal"><span class="ds-label">Bags, wholesale and online</span><h3>Apolis</h3><p>The system set up on Shopify, email and SMS, so audience, creative and channels read from real data.</p></div>
+      <div class="ds-card ds-reveal"><span class="ds-label">Bags, wholesale and online</span><h3>Apolis</h3><p>Shopify, Klaviyo, Attentive and Claude connected in one system, so audience, creative and channels read from real data.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">Los Angeles</span><h3>A private trainer</h3><p>A personal brand and a trainer agency, set up in the system before anything shipped.</p></div>
       <div class="ds-card ds-reveal"><span class="ds-label">The next step</span><h3>A hojicha brand</h3><p>Built from day one to run on the latest technology, past learnings and the system.</p></div>
     </div>
@@ -390,7 +394,7 @@
 <section class="ds cta-split">
   <div class="ds-inner cta-grid">
     <div class="ds-cta ds-reveal">
-      <p class="ds-lead" style="margin-bottom:40px;">Directive Intelligence works with a small number of companies at a time. Write, say where the brand or the business should work better, and the answer comes back in plain language.</p>
+      <p class="ds-lead" style="margin-bottom:40px;">A small number of companies at a time. Say where the brand or the business should work better.</p>
       <a href="/about.html#contact">Start a conversation →</a>
     </div>
     <div class="cta-media">
@@ -402,7 +406,7 @@
 <!-- BOTTOM: description + credits -->
 <div class="cs-bottom">
   <div class="cs-description">
-    <p>Directive Intelligence puts a company's voice, rules, facts and decisions into one system. People and AI tools work from it, and every piece of work adds to it. References include a family-owned community developer, an international publishing and media house, Alchemy Works, Concierge Coffee, a caffeinated protein bar, Apolis, a private trainer and a hojicha brand.</p>
+    <p>Directive Intelligence puts a company&#39;s voice, rules, facts and decisions into one system that people and AI tools work from.</p>
   </div>
   <dl class="cs-credits-cols">
     <div class="cs-credit-group"><dt>References</dt><dd>Alchemy Works</dd><dd>Concierge Coffee</dd><dd>Apolis</dd></div>
