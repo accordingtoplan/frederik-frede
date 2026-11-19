@@ -12,6 +12,8 @@
 <meta property="og:url" content="https://frederikfrede.com/selfnation-campaign.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://frederikfrede.com/assets/selfnation/selfnation-img-1708-683x1024.jpg">
+<meta property="og:site_name" content="Frederik Frede">
+<meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css">
 
 
@@ -68,7 +70,29 @@
 </script>
 </head>
 <body>
-<div id="nav-mount"></div>
+<div id="nav-mount"><!--nav:start--><nav class="nav" aria-label="Main">
+  <div class="nav-left">
+    <a class="nav-logo" href="/">Frederik</a>
+    <a class="nav-studio" href="/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches" role="group" aria-label="Colour theme">
+      <button type="button" class="swatch" style="background:#fff" aria-label="White theme" onclick="setTheme('white',this)"></button>
+      <button type="button" class="swatch" style="background:#111" aria-label="Black theme" onclick="setTheme('black',this)"></button>
+      <button type="button" class="swatch" style="background:#e63222" aria-label="Red theme" onclick="setTheme('signal',this)"></button>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <button type="button" class="nav-close" aria-label="Close menu">×</button>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/work.html">Work</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button type="button" class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+</nav><!--nav:end--></div>
 
 <header class="cs-header">
   <h1 class="cs-title">Selfnation</h1>
@@ -121,7 +145,46 @@
 
 
 <footer>
-    <div id="footer-mount"></div>
+    <div id="footer-mount"><!--footer:start--><div class="footer-bar">
+      <div class="footer-top-row">
+        <div class="footer-logo-row">
+          <img src="/frede-logo.webp" width="52" height="80" alt="FREDE" class="footer-logo">
+          <svg class="footer-marker" viewBox="0 0 210 65" xmlns="http://www.w3.org/2000/svg" aria-label="vibecoded. with a lot of prompts.">
+            <defs>
+              <filter id="ink-footer">
+                <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" result="n"/>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+            <g filter="url(#ink-footer)" transform="rotate(-3.5, 0, 0)">
+              <text font-family="'Permanent Marker', cursive" font-size="18" fill="#c01719" letter-spacing="0.2">
+                <tspan x="0" y="22">vibecoded.</tspan>
+                <tspan x="0" dy="24">with a lot of prompts.</tspan>
+              </text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/imprint.html" class="footer-copy-link">Imprint</a> · <button class="footer-copy-link footer-cookie-btn" onclick="resetConsent()">Cookie settings</button></span>
+        <div class="footer-links">
+          <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://substack.com/@frederikfrede" target="_blank" rel="noopener">Substack</a>
+        </div>
+        <form class="footer-subscribe" action="https://substack.com/api/v1/free" method="get" target="_blank">
+          <input type="email" name="email" placeholder="your@email.com" class="subscribe-input" required>
+          <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="cookie-consent" id="cookieConsent">
+      <span class="cookie-text">Uses analytics.</span>
+      <div class="cookie-actions">
+        <button id="cookieDecline">Decline</button>
+        <button id="cookieAccept">Accept</button>
+      </div>
+    </div><!--footer:end--></div>
   </footer>
 <script>
 (function(){

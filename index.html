@@ -4,18 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="description" content="Frederik Frede. Brand strategy, identity & digital for design-led culture.">
+  <meta name="description" content="Creative direction, brand strategy and identity for design-led culture. Co-founder of MoreSleep and Freunde von Freunden. Berlin and Los Angeles.">
 <link rel="canonical" href="https://frederikfrede.com/">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:title" content="Frederik Frede">
-<meta property="og:description" content="Frederik Frede. Brand strategy, identity & digital for design-led culture.">
+<meta property="og:description" content="Creative direction, brand strategy and identity for design-led culture. Co-founder of MoreSleep and Freunde von Freunden. Berlin and Los Angeles.">
 <meta property="og:url" content="https://frederikfrede.com/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://frederikfrede.com/assets/frede-og.png">
-  <title>Frederik Frede. Creative Director. Culture, strategy, transformation and identity.</title>
-  <link rel="preload" as="font" href="/assets/fonts/unifrakturmaguntia.woff2" type="font/woff2" crossorigin>
-  <link rel="preload" as="font" href="/assets/fonts/permanent-marker.woff2" type="font/woff2" crossorigin>
-  <link rel="preload" as="video" href="https://media.frederikfrede.com/showreel.mp4" type="video/mp4">
+<meta property="og:site_name" content="Frederik Frede">
+<meta name="twitter:card" content="summary_large_image">
+  <title>Frederik Frede. Creative Director, Berlin and Los Angeles</title>
   <link rel="preload" as="image" imagesrcset="/assets/nzz/nzz-brand-digital-nzzde-front-640w.webp 640w, /assets/nzz/nzz-brand-digital-nzzde-front-1280w.webp 1280w, /assets/nzz/nzz-brand-digital-nzzde-front.webp 2400w" imagesizes="(max-width:640px) 100vw, 50vw" media="(max-width:640px)">
   <link rel="preload" as="image" href="/assets/showreel-poster-400w.webp" fetchpriority="high">
   <link rel="preload" href="/style.css" as="style">
@@ -563,7 +562,7 @@
       "@id": "https://frederikfrede.com/#frederik-frede",
       "name": "Frederik Frede",
       "url": "https://frederikfrede.com",
-      "jobTitle": "Creative Director and Brand Strategist",
+      "jobTitle": "Creative Director",
       "description": "Frederik Frede is an independent creative director and brand strategist working across culture, strategy and identity, based in Berlin and Los Angeles. Thirty years across brand strategy, visual identity, editorial and digital; co-founder of Freunde von Freunden and MoreSleep. Building brands, platforms and experiences for people who care how things look and last, each held to the same question: does it earn its place, or just add to the noise.",
       "email": "mailto:frederik@frede.net",
       "homeLocation": [
@@ -631,7 +630,29 @@
 </head>
 <body>
 
-  <div id="nav-mount"></div>
+  <div id="nav-mount"><!--nav:start--><nav class="nav" aria-label="Main">
+  <div class="nav-left">
+    <a class="nav-logo" href="/">Frederik</a>
+    <a class="nav-studio" href="/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches" role="group" aria-label="Colour theme">
+      <button type="button" class="swatch" style="background:#fff" aria-label="White theme" onclick="setTheme('white',this)"></button>
+      <button type="button" class="swatch" style="background:#111" aria-label="Black theme" onclick="setTheme('black',this)"></button>
+      <button type="button" class="swatch" style="background:#e63222" aria-label="Red theme" onclick="setTheme('signal',this)"></button>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <button type="button" class="nav-close" aria-label="Close menu">×</button>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/work.html">Work</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button type="button" class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+</nav><!--nav:end--></div>
   <main>
   <section class="hero-block">
     <div class="hero-top">
@@ -639,7 +660,7 @@
       
     </div>
     <div class="hero-video-wrap">
-      <video class="hero-video" aria-label="Showreel of brand, campaign and hospitality work" autoplay muted loop playsinline poster="/assets/showreel-poster-400w.webp" fetchpriority="high" preload="auto">
+      <video class="hero-video" aria-label="Showreel of brand, campaign and hospitality work" autoplay muted loop playsinline poster="/assets/showreel-poster-400w.webp" fetchpriority="high" preload="metadata">
         <source src="https://media.frederikfrede.com/showreel.mp4" type="video/mp4">
       </video>
     </div>
@@ -687,7 +708,46 @@
 
   </main>
   <footer>
-    <div id="footer-mount"></div>
+    <div id="footer-mount"><!--footer:start--><div class="footer-bar">
+      <div class="footer-top-row">
+        <div class="footer-logo-row">
+          <img src="/frede-logo.webp" width="52" height="80" alt="FREDE" class="footer-logo">
+          <svg class="footer-marker" viewBox="0 0 210 65" xmlns="http://www.w3.org/2000/svg" aria-label="vibecoded. with a lot of prompts.">
+            <defs>
+              <filter id="ink-footer">
+                <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" result="n"/>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+            <g filter="url(#ink-footer)" transform="rotate(-3.5, 0, 0)">
+              <text font-family="'Permanent Marker', cursive" font-size="18" fill="#c01719" letter-spacing="0.2">
+                <tspan x="0" y="22">vibecoded.</tspan>
+                <tspan x="0" dy="24">with a lot of prompts.</tspan>
+              </text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/imprint.html" class="footer-copy-link">Imprint</a> · <button class="footer-copy-link footer-cookie-btn" onclick="resetConsent()">Cookie settings</button></span>
+        <div class="footer-links">
+          <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://substack.com/@frederikfrede" target="_blank" rel="noopener">Substack</a>
+        </div>
+        <form class="footer-subscribe" action="https://substack.com/api/v1/free" method="get" target="_blank">
+          <input type="email" name="email" placeholder="your@email.com" class="subscribe-input" required>
+          <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="cookie-consent" id="cookieConsent">
+      <span class="cookie-text">Uses analytics.</span>
+      <div class="cookie-actions">
+        <button id="cookieDecline">Decline</button>
+        <button id="cookieAccept">Accept</button>
+      </div>
+    </div><!--footer:end--></div>
   </footer>
   <script src="/footer.js"></script>
 

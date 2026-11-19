@@ -12,6 +12,8 @@
 <meta property="og:url" content="https://frederikfrede.com/about.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://frederikfrede.com/assets/frede-og.png">
+<meta property="og:site_name" content="Frederik Frede">
+<meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css">
 <style>
   body { min-height: 100vh; display: flex; flex-direction: column; }
@@ -221,7 +223,7 @@
   "@id": "https://frederikfrede.com/#frederik-frede",
   "name": "Frederik Frede",
   "url": "https://frederikfrede.com",
-  "jobTitle": "Creative Director and Brand Strategist",
+  "jobTitle": "Creative Director",
   "description": "Frederik Frede is an independent creative director and brand strategist working across culture, strategy and identity, based in Berlin and Los Angeles. Thirty years across brand strategy, visual identity, editorial and digital; co-founder of Freunde von Freunden and MoreSleep. Building brands, platforms and experiences for people who care how things look and last, each held to the same question: does it earn its place, or just add to the noise.",
   "email": "mailto:frederik@frede.net",
   "homeLocation": [
@@ -269,11 +271,32 @@
   ]
 }
 </script>
-<link rel="canonical" href="https://frederikfrede.com/about.html">
 </head>
 <body>
 
-<div id="nav-mount"></div>
+<div id="nav-mount"><!--nav:start--><nav class="nav" aria-label="Main">
+  <div class="nav-left">
+    <a class="nav-logo" href="/">Frederik</a>
+    <a class="nav-studio" href="/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches" role="group" aria-label="Colour theme">
+      <button type="button" class="swatch" style="background:#fff" aria-label="White theme" onclick="setTheme('white',this)"></button>
+      <button type="button" class="swatch" style="background:#111" aria-label="Black theme" onclick="setTheme('black',this)"></button>
+      <button type="button" class="swatch" style="background:#e63222" aria-label="Red theme" onclick="setTheme('signal',this)"></button>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <button type="button" class="nav-close" aria-label="Close menu">×</button>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/work.html">Work</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button type="button" class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+</nav><!--nav:end--></div>
 
 <div class="page">
 
@@ -289,7 +312,7 @@
   <div class="section">
     <div class="section-header">
       <span class="section-letter">A</span>
-      <span class="section-title">Services</span>
+      <h2 class="section-title">Services</h2>
     </div>
     <ul class="services-list">
       <li class="service-item">
@@ -323,7 +346,7 @@
   <div class="section">
     <div class="section-header">
       <span class="section-letter">B</span>
-      <span class="section-title">Approach</span>
+      <h2 class="section-title">Approach</h2>
     </div>
     <div class="statements">
         <div class="statement">Some people arrive at design through a career. For me it was always present. A quiet obsession with why some details feel right and others just exist.</div>
@@ -336,7 +359,7 @@
   <div class="section" id="contact">
     <div class="section-header">
       <span class="section-letter">C</span>
-      <span class="section-title">Contact</span>
+      <h2 class="section-title">Contact</h2>
     </div>
     <div class="contact-grid">
       <div>
@@ -372,7 +395,7 @@
   <div class="section">
     <div class="section-header">
       <span class="section-letter">D</span>
-      <span class="section-title">Experience</span>
+      <h2 class="section-title">Experience</h2>
     </div>
     <ul class="experience-list">
       <li class="experience-item">
@@ -430,7 +453,7 @@
   <div class="section">
     <div class="section-header">
       <span class="section-letter">E</span>
-      <span class="section-title">Features</span>
+      <h2 class="section-title">Features</h2>
     </div>
     <ul class="features-list">
       <li class="feature-item"><a class="feature-link" href="https://www.awwwards.com/moresleep/" target="_blank" rel="noopener">Awwwards</a></li>
@@ -477,7 +500,7 @@
   <div class="section section-outside">
     <div class="section-header">
       <span class="section-letter">G</span>
-      <span class="section-title">Outside</span>
+      <h2 class="section-title">Outside</h2>
     </div>
 
     <div class="outside-block">
@@ -511,7 +534,46 @@
 </div><!-- /page -->
 
 <footer>
-    <div id="footer-mount"></div>
+    <div id="footer-mount"><!--footer:start--><div class="footer-bar">
+      <div class="footer-top-row">
+        <div class="footer-logo-row">
+          <img src="/frede-logo.webp" width="52" height="80" alt="FREDE" class="footer-logo">
+          <svg class="footer-marker" viewBox="0 0 210 65" xmlns="http://www.w3.org/2000/svg" aria-label="vibecoded. with a lot of prompts.">
+            <defs>
+              <filter id="ink-footer">
+                <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" result="n"/>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+            <g filter="url(#ink-footer)" transform="rotate(-3.5, 0, 0)">
+              <text font-family="'Permanent Marker', cursive" font-size="18" fill="#c01719" letter-spacing="0.2">
+                <tspan x="0" y="22">vibecoded.</tspan>
+                <tspan x="0" dy="24">with a lot of prompts.</tspan>
+              </text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <span class="footer-copy">© 2026 <span class="footer-frak">Frede</span> · <a href="/imprint.html" class="footer-copy-link">Imprint</a> · <button class="footer-copy-link footer-cookie-btn" onclick="resetConsent()">Cookie settings</button></span>
+        <div class="footer-links">
+          <a href="https://instagram.com/frederikfrede" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://linkedin.com/in/frede" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://substack.com/@frederikfrede" target="_blank" rel="noopener">Substack</a>
+        </div>
+        <form class="footer-subscribe" action="https://substack.com/api/v1/free" method="get" target="_blank">
+          <input type="email" name="email" placeholder="your@email.com" class="subscribe-input" required>
+          <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="cookie-consent" id="cookieConsent">
+      <span class="cookie-text">Uses analytics.</span>
+      <div class="cookie-actions">
+        <button id="cookieDecline">Decline</button>
+        <button id="cookieAccept">Accept</button>
+      </div>
+    </div><!--footer:end--></div>
   </footer>
   <script src="/footer.js"></script>
 

@@ -2,32 +2,41 @@
   /* ─── NAV INJECTION ──────────────────────────────────── */
   /* Synchronous — runs immediately when script parses at bottom of body.
      nav-mount div already exists in DOM at that point. */
-  const NAV_HTML = `<nav class="nav">
+  const NAV_HTML = `<nav class="nav" aria-label="Main">
   <div class="nav-left">
     <a class="nav-logo" href="/">Frederik</a>
     <a class="nav-studio" href="/">&nbsp;Frede</a>
   </div>
   <div class="nav-center">
-    <div class="swatches">
-      <div class="swatch" style="background:#fff" onclick="setTheme('white',this)"></div>
-      <div class="swatch" style="background:#111" onclick="setTheme('black',this)"></div>
-      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)"></div>
+    <div class="swatches" role="group" aria-label="Colour theme">
+      <button type="button" class="swatch" style="background:#fff" aria-label="White theme" onclick="setTheme('white',this)"></button>
+      <button type="button" class="swatch" style="background:#111" aria-label="Black theme" onclick="setTheme('black',this)"></button>
+      <button type="button" class="swatch" style="background:#e63222" aria-label="Red theme" onclick="setTheme('signal',this)"></button>
     </div>
   </div>
   <div class="nav-right" id="navLinks">
+    <button type="button" class="nav-close" aria-label="Close menu">×</button>
     <ul>
-      <button class="nav-close" aria-label="Close menu" onclick="document.getElementById('navLinks').classList.remove('open')">×</button>
-      <li><a href="/" onclick="document.getElementById('navLinks').classList.remove('open')">Home</a></li>
-      <li><a href="/work.html" onclick="document.getElementById('navLinks').classList.remove('open')">Work</a></li>
-      <li><a href="/about.html" onclick="document.getElementById('navLinks').classList.remove('open')">About</a></li>
-      <li><a href="/about.html#contact" onclick="document.getElementById('navLinks').classList.remove('open')">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/work.html">Work</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/about.html#contact">Contact</a></li>
     </ul>
   </div>
-  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span></button>
+  <button type="button" class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
 </nav>`;
   const navMount = document.getElementById('nav-mount');
   if (navMount) {
     navMount.innerHTML = NAV_HTML;
+    const navLinks = navMount.querySelector('#navLinks');
+    const burger = navMount.querySelector('.hamburger');
+    const setMenu = function(open) {
+      navLinks.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    burger.addEventListener('click', function() { setMenu(!navLinks.classList.contains('open')); });
+    navMount.querySelector('.nav-close').addEventListener('click', function() { setMenu(false); });
+    navLinks.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { setMenu(false); }); });
     const path = window.location.pathname;
     navMount.querySelectorAll('#navLinks a').forEach(function(a) {
       const href = a.getAttribute('href');
