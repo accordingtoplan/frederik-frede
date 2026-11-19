@@ -648,3 +648,36 @@ p a:hover,
   outline: 2px solid var(--grey-dark);
   outline-offset: 3px;
 }
+
+/* ─── THEMES ───────────────────────────────────────────
+   Same values as THEMES in footer.js. Lets a page paint in its
+   theme before any script runs. */
+html[data-theme="black"] {
+  --bg: #111; --bg-card: #1a1a1a;
+  --fg: #fff; --fg-mid: rgba(255,255,255,0.62); --fg-light: rgba(255,255,255,0.52);
+  --border: rgba(255,255,255,0.12);
+  --grey-dark: #fff; --grey-mid: rgba(255,255,255,0.62); --grey-light: rgba(255,255,255,0.52);
+}
+html[data-theme="signal"] {
+  --bg: #e63222; --bg-card: #cc2b1d;
+  --fg: #000; --fg-mid: rgba(0,0,0,0.55); --fg-light: rgba(0,0,0,0.48);
+  --border: transparent;
+  --grey-dark: #000; --grey-mid: rgba(0,0,0,0.55); --grey-light: rgba(0,0,0,0.48);
+}
+
+/* ─── SKIP LINK ────────────────────────────────────── */
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: 2000;
+  padding: 10px 14px;
+  background: var(--bg); color: var(--grey-dark);
+  font-size: var(--t-ui); font-weight: var(--bold); text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+
+/* ─── IMAGE RATIO ──────────────────────────────────────
+   Images carry width/height attributes to reserve space. Without this
+   the height attribute wins when CSS only sets a width, and the image
+   is squashed. :where() keeps specificity at zero so any rule that
+   sets a height on purpose still wins. */
+:where(img[width][height]) { height: auto; }

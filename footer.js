@@ -2,7 +2,8 @@
   /* ─── NAV INJECTION ──────────────────────────────────── */
   /* Synchronous — runs immediately when script parses at bottom of body.
      nav-mount div already exists in DOM at that point. */
-  const NAV_HTML = `<nav class="nav" aria-label="Main">
+  const NAV_HTML = `<a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
   <div class="nav-left">
     <a class="nav-logo" href="/">Frederik</a>
     <a class="nav-studio" href="/">&nbsp;Frede</a>
@@ -50,6 +51,43 @@
     });
   }
 
+
+  /* ─── THEME ───────────────────────────────────────────
+     Pages may define their own setTheme(); this is the shared fallback.
+     The choice is stored and re-applied on every page. The matching CSS
+     variables live in style.css under html[data-theme], and a one-line
+     script in each page head sets data-theme before first paint. */
+  const THEMES = {
+    white:  { bg:'#fff',    card:'#f5f3f1', fg:'#4a4540', mid:'#706b66',                light:'#7a7470',                border:'#c8c3be' },
+    black:  { bg:'#111',    card:'#1a1a1a', fg:'#fff',    mid:'rgba(255,255,255,0.62)', light:'rgba(255,255,255,0.52)', border:'rgba(255,255,255,0.12)' },
+    signal: { bg:'#e63222', card:'#cc2b1d', fg:'#000',    mid:'rgba(0,0,0,0.55)',       light:'rgba(0,0,0,0.48)',       border:'transparent' }
+  };
+  const swatchFor = function(name) { return document.querySelector('.swatch[onclick*="\'' + name + '\'"]'); };
+  function applyTheme(name, el) {
+    const t = THEMES[name]; if (!t) return;
+    const r = document.documentElement.style;
+    r.setProperty('--bg', t.bg);          r.setProperty('--bg-card', t.card);
+    r.setProperty('--fg', t.fg);          r.setProperty('--fg-mid', t.mid);
+    r.setProperty('--fg-light', t.light); r.setProperty('--border', t.border);
+    r.setProperty('--grey-dark', t.fg);   r.setProperty('--grey-mid', t.mid);
+    r.setProperty('--grey-light', t.light);
+    document.documentElement.setAttribute('data-theme', name);
+    document.querySelectorAll('.swatch').forEach(function(s) { s.classList.remove('active'); });
+    if (el) el.classList.add('active');
+  }
+  if (typeof window.setTheme !== 'function') window.setTheme = applyTheme;
+  document.addEventListener('DOMContentLoaded', function() {
+    const base = window.setTheme;
+    window.setTheme = function(name, el) {
+      base(name, el || swatchFor(name));
+      try { localStorage.setItem('ff-theme', name); } catch (e) {}
+    };
+    let saved = null;
+    try { saved = localStorage.getItem('ff-theme'); } catch (e) {}
+    const current = document.documentElement.getAttribute('data-theme') || 'white';
+    const name = THEMES[saved] ? saved : current;
+    base(name, swatchFor(name));
+  });
 
   /* ─── NAV SCROLL BEHAVIOUR ────────────────────────────
      Hide nav on scroll-down, reveal on scroll-up or stop */

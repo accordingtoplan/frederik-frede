@@ -3,6 +3,7 @@
 <head>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta charset="UTF-8">
+<script>try{var t=localStorage.getItem("ff-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Real Estate Branding — Frederik Frede</title>
 <meta name="description" content="Brand strategy, identity and digital for property developers and real estate brands. From a family-owned California developer to towers in Buenos Aires and lofts in Kreuzberg.">
@@ -38,10 +39,27 @@
   .lp-cap { font-size: 11px; color: var(--grey-light); margin-top: 6px; display: block; }
   @media (max-width: 640px) { .lp-media { grid-template-columns: 1fr; } }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://frederikfrede.com/real-estate.html",
+  "url": "https://frederikfrede.com/real-estate.html",
+  "name": "Real Estate Branding — Frederik Frede",
+  "description": "Brand strategy, identity and digital for property developers and real estate brands. From a family-owned California developer to towers in Buenos Aires and lofts in Kreuzberg.",
+  "creator": {
+    "@id": "https://frederikfrede.com/#frederik-frede"
+  },
+  "isPartOf": {
+    "@id": "https://frederikfrede.com/#website"
+  }
+}
+</script>
 </head>
 <body>
 
-<div id="nav-mount"><!--nav:start--><nav class="nav" aria-label="Main">
+<div id="nav-mount"><!--nav:start--><a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
   <div class="nav-left">
     <a class="nav-logo" href="/">Frederik</a>
     <a class="nav-studio" href="/">&nbsp;Frede</a>
@@ -65,7 +83,7 @@
   <button type="button" class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
 </nav><!--nav:end--></div>
 
-<main><div class="page">
+<main id="main"><div class="page">
 
   <div class="intro">
     <h1 class="intro-statement">Buildings become brands.</h1>

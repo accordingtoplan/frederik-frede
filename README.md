@@ -1,2 +1,2 @@
-# frede-studio
-Frede Studio — frederikfrede.com
+# frederikfrede.com
+Portfolio site of Frederik Frede.

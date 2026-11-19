@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+<script>try{var t=localStorage.getItem("ff-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="description" content="Page not found.">
@@ -240,7 +241,8 @@
     })();
   </script>
 
-  <div id="nav-mount"><!--nav:start--><nav class="nav" aria-label="Main">
+  <div id="nav-mount"><!--nav:start--><a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
   <div class="nav-left">
     <a class="nav-logo" href="/">Frederik</a>
     <a class="nav-studio" href="/">&nbsp;Frede</a>
@@ -264,7 +266,7 @@
   <button type="button" class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
 </nav><!--nav:end--></div>
 
-  <main class="nf-main">
+  <main id="main" class="nf-main">
     <div class="breath" aria-hidden="true">
       <div class="breath-ring r1"></div>
       <div class="breath-ring r2"></div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="black">
 <head>
   <meta charset="UTF-8">
+<script>try{var t=localStorage.getItem("ff-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="description" content="Creative direction, brand strategy and identity for design-led culture. Co-founder of MoreSleep and Freunde von Freunden. Berlin and Los Angeles.">
@@ -33,45 +34,9 @@
 
     /* ─── NAV ─────────────────────────────────────────────── */
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
     /* Nav CTA - migrates in from hero on scroll */
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
     /* Hamburger - mobile */
-    
-
-    
 
     /* ─── HERO ────────────────────────────────────────────── */
 
@@ -215,7 +180,6 @@
     .case-media.ratio-2 { aspect-ratio: 2 / 1; }
     .case-media.ratio-auto { aspect-ratio: unset; }
 
-
     /* Wordmark tile: image with a slow push, the name set in the site type */
     .wm-tile { position: relative; overflow: hidden; background: #2a2a2a; }
     .wm-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.02); }
@@ -293,8 +257,6 @@
     }
     .case-credit-row a:hover { opacity: 0.6; }
 
-
-
     /* Vimeo background embed */
     .vimeo-bg {
       position: relative;
@@ -370,16 +332,6 @@
 
     /* ─── FOOTER ──────────────────────────────────────────── */
 
-    
-
-    
-
-    
-
-    
-
-    
-
     /* ─── MOBILE ──────────────────────────────────────────── */
 
     @media (max-width: 640px) {
@@ -403,7 +355,6 @@
 
       /* Case info - stack brand over desc on narrow screens */
 
-
       /* Vimeo embed - fix overflow on narrow viewport */
       .vimeo-bg iframe {
         width: calc(100% + 80px);
@@ -412,9 +363,7 @@
     }
 
     /* ─── COLOUR SWITCHER ─────────────────────────────────── */
-    
-    
-    
+
     .swatch:hover { opacity: 0.6; }
 
           /* ── Magnetic CTA ── */
@@ -468,7 +417,6 @@
     }
     .work-mag-cursor { display: none; }
 
-
     /* ── Concierge Coffee logo card ── */
     img.signal-logo {
       width: 110% !important;
@@ -502,7 +450,6 @@
       97%  { opacity: 1;   transform: translate(0,0) skewX(0deg); filter: none; }
       100% { opacity: 1;   transform: translate(0,0) skewX(0deg); filter: none; }
     }
-
 
     /* ── Ritz-Carlton logo card ── */
     img.rc-logo {
@@ -605,6 +552,7 @@
       "@type": "Organization",
       "@id": "https://frederikfrede.com/#moresleep",
       "name": "MoreSleep",
+      "url": "https://www.moresleep.net",
       "founder": { "@id": "https://frederikfrede.com/#frederik-frede" }
     },
     {
@@ -630,7 +578,8 @@
 </head>
 <body>
 
-  <div id="nav-mount"><!--nav:start--><nav class="nav" aria-label="Main">
+  <div id="nav-mount"><!--nav:start--><a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main">
   <div class="nav-left">
     <a class="nav-logo" href="/">Frederik</a>
     <a class="nav-studio" href="/">&nbsp;Frede</a>
@@ -653,7 +602,7 @@
   </div>
   <button type="button" class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
 </nav><!--nav:end--></div>
-  <main>
+  <main id="main">
   <section class="hero-block">
     <div class="hero-top">
       <h1 class="hero-headline"><a class="hero-word" href="/about.html">Culture</a>, <a class="hero-word" href="/work.html#f=Strategy">strategy</a> and <a class="hero-word" href="/work.html#f=Identity">identity</a>.</h1>

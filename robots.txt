@@ -3,3 +3,4 @@ Allow: /
 Disallow: /staging/
 
 Sitemap: https://frederikfrede.com/sitemap.xml
+Sitemap: https://frederikfrede.com/sitemap-images.xml
