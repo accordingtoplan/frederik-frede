@@ -4,3 +4,23 @@ cc-docs/
 optimize_videos.py
 cf-consolidation.sh
 *.bak
+
+# Internal working files: keep local, never publish
+.wrangler/
+_*.md
+_*.csv
+ASSET_AUDIT.md
+DEBUG-CHECKS.md
+MIGRATION_LOG.md
+SITE-SPEC.md
+site-content-crawl.md
+cc-localization-prompt.md
+image-optimization-prompt.md
+full-hotlink-inventory.csv
+debug-check.py
+debug-crawl.py
+lazyload-videos.py
+poster-manifest.txt
+projects.json
+about-test.html
+strategy-slides/
