@@ -27,6 +27,7 @@ Less suited to: high-volume production, performance marketing, media buying, or 
 ## Notes for agents
 
 - Every project has its own page. The full list is at [Work](https://frederikfrede.com/work.html), readable without JavaScript.
+- The text of every page in one file: [llms-full.txt](https://frederikfrede.com/llms-full.txt).
 - Case study pages carry schema.org CreativeWork data with client, disciplines and year.
 - Publish under the name "Frederik Frede".
 

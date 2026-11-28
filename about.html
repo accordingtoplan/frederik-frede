@@ -219,57 +219,134 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-  {
-  "@type": "Person",
-  "@id": "https://frederikfrede.com/#frederik-frede",
-  "name": "Frederik Frede",
-  "url": "https://frederikfrede.com",
-  "jobTitle": "Creative Director",
-  "description": "Frederik Frede is an independent creative director and brand strategist working across culture, strategy and identity, based in Berlin and Los Angeles. Thirty years across brand strategy, visual identity, editorial and digital; co-founder of Freunde von Freunden and MoreSleep. Building brands, platforms and experiences for people who care how things look and last, each held to the same question: does it earn its place, or just add to the noise.",
-  "email": "mailto:frederik@frede.net",
-  "homeLocation": [
-    { "@type": "Place", "name": "Berlin, Germany" },
-    { "@type": "Place", "name": "Los Angeles, United States" }
-  ],
-  "knowsAbout": [
-    "Culture",
-    "Strategy",
-    "Identity",
-    "Brand strategy",
-    "Brand positioning",
-    "Visual identity systems",
-    "Art direction",
-    "Typography",
-    "Editorial and publishing",
-    "Digital platform strategy",
-    "AI-assisted creative workflows"
-  ],
-  "award": [
-    "Lead Awards Gold 2013, Tablet-Magazin",
-    "Lead Awards Gold 2011, Weblog",
-    "Online Medienpreis, Winner",
-    "German Design Award"
-  ],
-  "sameAs": [
-    "https://www.instagram.com/frederikfrede",
-    "https://www.linkedin.com/in/frede",
-    "https://substack.com/@frederikfrede"
-  ]
-  },
-  {
-    "@type": "Organization",
-    "@id": "https://frederikfrede.com/#fvf",
-    "name": "Freunde von Freunden",
-    "url": "https://www.freundevonfreunden.com",
-    "founder": { "@id": "https://frederikfrede.com/#frederik-frede" }
-  },
-  {
-    "@type": "Organization",
-    "@id": "https://frederikfrede.com/#moresleep",
-    "name": "MoreSleep",
-    "url": "https://www.moresleep.net",
-    "founder": { "@id": "https://frederikfrede.com/#frederik-frede" }
-  }
+    {
+      "@type": "ProfilePage",
+      "@id": "https://frederikfrede.com/about.html",
+      "url": "https://frederikfrede.com/about.html",
+      "name": "Information. Frederik Frede",
+      "mainEntity": {
+        "@id": "https://frederikfrede.com/#frederik-frede"
+      },
+      "isPartOf": {
+        "@id": "https://frederikfrede.com/#website"
+      },
+      "dateModified": "2026-11-28"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://frederikfrede.com/#frederik-frede",
+      "name": "Frederik Frede",
+      "url": "https://frederikfrede.com",
+      "jobTitle": "Creative Director",
+      "description": "Frederik Frede is an independent creative director and brand strategist working across culture, strategy and identity, based in Berlin and Los Angeles. Thirty years across brand strategy, visual identity, editorial and digital; co-founder of Freunde von Freunden and MoreSleep. Building brands, platforms and experiences for people who care how things look and last, each held to the same question: does it earn its place, or just add to the noise.",
+      "email": "mailto:frederik@frede.net",
+      "homeLocation": [
+        {
+          "@type": "Place",
+          "name": "Berlin, Germany"
+        },
+        {
+          "@type": "Place",
+          "name": "Los Angeles, United States"
+        }
+      ],
+      "knowsAbout": [
+        "Culture",
+        "Strategy",
+        "Identity",
+        "Brand strategy",
+        "Brand positioning",
+        "Visual identity systems",
+        "Art direction",
+        "Typography",
+        "Editorial and publishing",
+        "Digital platform strategy",
+        "AI-assisted creative workflows"
+      ],
+      "award": [
+        "Lead Awards Gold 2013, Tablet-Magazin",
+        "Lead Awards Gold 2011, Weblog",
+        "Online Medienpreis, Winner",
+        "German Design Award"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/frederikfrede",
+        "https://www.linkedin.com/in/frede",
+        "https://substack.com/@frederikfrede"
+      ],
+      "alumniOf": [
+        {
+          "@type": "Organization",
+          "name": "TBWA",
+          "url": "https://tbwa.com"
+        },
+        {
+          "@type": "Organization",
+          "name": "Architonic",
+          "url": "https://www.architonic.com"
+        }
+      ],
+      "subjectOf": [
+        {
+          "@type": "Article",
+          "publisher": {
+            "@type": "Organization",
+            "name": "It's Nice That"
+          },
+          "url": "https://www.itsnicethat.com/articles/frederik-frede"
+        },
+        {
+          "@type": "Article",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Dwell"
+          },
+          "url": "https://www.dwell.com/article/interview-frederik-frede-40711219"
+        },
+        {
+          "@type": "Article",
+          "publisher": {
+            "@type": "Organization",
+            "name": "magCulture"
+          },
+          "url": "https://magculture.com/frederick-frede-freunde-von-freunden/"
+        },
+        {
+          "@type": "Article",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Melting Butter"
+          },
+          "url": "https://www.meltingbutter.com/the-editors-frederik-frede-of-freunde-von-freunden-on-berlin-and-creativity/"
+        },
+        {
+          "@type": "Article",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Artemide"
+          },
+          "url": "https://www.artemide.de/tolomeo/storys/frederik-frede"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://frederikfrede.com/#fvf",
+      "name": "Freunde von Freunden",
+      "url": "https://www.freundevonfreunden.com",
+      "founder": {
+        "@id": "https://frederikfrede.com/#frederik-frede"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://frederikfrede.com/#moresleep",
+      "name": "MoreSleep",
+      "url": "https://www.moresleep.net",
+      "founder": {
+        "@id": "https://frederikfrede.com/#frederik-frede"
+      }
+    }
   ]
 }
 </script>
